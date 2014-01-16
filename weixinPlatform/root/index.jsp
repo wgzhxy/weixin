@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>中国人的一天~~~~~~~~!</h1>
+	<h3>中国人的一天~~~~~~~~!</h3>
 </body>
 </html>
