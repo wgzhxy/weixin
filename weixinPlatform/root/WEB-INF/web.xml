@@ -11,6 +11,7 @@
 		<param-name>webAppRootKey</param-name>
 		<param-value>easytom.wechat.root</param-value>
 	</context-param>
+	
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -23,14 +24,10 @@
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
+	
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
-	</filter>
-	
-	<filter>
-		<filter-name>UrlRewriteFilter</filter-name>
-		<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
 	</filter>
 	
 	<filter>
@@ -47,13 +44,6 @@
 	
 	<filter-mapping>
 		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-		<dispatcher>FORWARD</dispatcher>
-	</filter-mapping>
-	
-	<filter-mapping>
-		<filter-name>UrlRewriteFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>
@@ -100,11 +90,14 @@
 		<error-code>500</error-code>
 		<location>/WEB-INF/pages/common/500.jsp</location>
 	</error-page>
+	
 	<error-page>
 		<error-code>404</error-code>
 		<location>/WEB-INF/pages/common/404.jsp</location>
 	</error-page>
+	
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	
 </web-app>

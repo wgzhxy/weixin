@@ -51,7 +51,7 @@ public class WeiXinAction extends BaseAction {
 		return Boolean.FALSE;
 	}
 	
-	public String recvWeiXinMsg() {
+	public String RecvWeiXinMsg() {
 		if (security() && echostr != null && !echostr.equals("")) {
 			this.msg = echostr;
 			return INPUT;
