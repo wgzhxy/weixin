@@ -72,15 +72,12 @@
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
 				<prop key="hibernate.show_sql">false</prop>
-				<!-- let hibernate update database schema automaticlly, comment this line after first run to speed up boot -->
-				<prop key="hibernate.hbm2ddl.auto"> update </prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
-
 		<property name="packagesToScan">
 			<list>
-				<!-- specify package to scan for domain classes -->
-				<value>cn.easytom.boss.datacore.domain.wechat.model.hibernate</value>
+				<value></value>
 			</list>
 		</property>
 	</bean>
