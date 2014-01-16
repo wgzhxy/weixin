@@ -97,15 +97,5 @@
 		<aop:pointcut id="transactionAdvicePointCuts" expression="execution(* cn.easytom.boss.datacore.service.wechat.*..*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="transactionAdvicePointCuts" order="3" />
 	</aop:config>
-	
-	<bean id="asyncTaskExecutor" class="org.springframework.core.task.SimpleAsyncTaskExecutor">
-	</bean>
 
-	<bean id="applicationEventMulticaster"
-		class="org.springframework.context.event.SimpleApplicationEventMulticaster">
-		<property name="taskExecutor" ref="asyncTaskExecutor" />
-	</bean>
-
-	<import resource="spring/applicationContext-json.xml"/>
-	<import resource="spring/applicationContext-security.xml"/>
 </beans>
