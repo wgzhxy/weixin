@@ -1,32 +1,33 @@
 package com.weixin.datacore.domain.weixin.model;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
 import com.sun.xml.txw2.annotation.XmlCDATA;
 
+@SuppressWarnings("serial")
 @XmlRootElement(name = "xml")
-public class WeChatReqBean {
+public class WeChatReqBean implements Serializable {
 
 	private String toUserName;
 	private String fromUserName;
 	private Long createTime;
 	private String msgType;
 	private String content;
-	
 	private Double location_X;
 	private Double location_Y;
 	private Integer scale;
 	private String label;
-	
 	private Long msgId;
-	
 	private String event;
 	private String event_key;
-	
 
 	public String getEvent() {
 		return event;
 	}
+
 	@XmlCDATA
 	@XmlElement(name = "Event")
 	public void setEvent(String event) {
@@ -36,7 +37,7 @@ public class WeChatReqBean {
 	public String getToUserName() {
 		return toUserName;
 	}
-	
+
 	@XmlCDATA
 	@XmlElement(name = "ToUserName")
 	public void setToUserName(String toUserName) {
@@ -46,7 +47,7 @@ public class WeChatReqBean {
 	public String getFromUserName() {
 		return fromUserName;
 	}
-	
+
 	@XmlCDATA
 	@XmlElement(name = "FromUserName")
 	public void setFromUserName(String fromUserName) {
@@ -85,7 +86,7 @@ public class WeChatReqBean {
 	public Double getLocation_X() {
 		return location_X;
 	}
-	
+
 	@XmlElement(name = "Location_X")
 	public void setLocation_X(Double location_X) {
 		this.location_X = location_X;
@@ -127,15 +128,17 @@ public class WeChatReqBean {
 	public void setMsgId(Long msgId) {
 		this.msgId = msgId;
 	}
+
 	public String getEvent_key() {
 		return event_key;
 	}
-	
+
 	@XmlCDATA
 	@XmlElement(name = "EventKey")
 	public void setEvent_key(String eventKey) {
 		event_key = eventKey;
 	}
+
 	@Override
 	public String toString() {
 		return "WeChatReqBean [content=" + content + ", createTime="

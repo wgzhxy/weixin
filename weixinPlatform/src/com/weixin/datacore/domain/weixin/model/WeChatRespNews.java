@@ -1,17 +1,13 @@
 package com.weixin.datacore.domain.weixin.model;
 
-
 import java.io.Serializable;
-
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement(name = "xml")
-public class WeChatRespNews implements Serializable{
-	/**
-	 * 
-	 */
+public class WeChatRespNews implements Serializable {
+	
 	private static final long serialVersionUID = 2687201723161197284L;
 	private String toUserName;
 	private String fromUserName;
@@ -23,6 +19,7 @@ public class WeChatRespNews implements Serializable{
 	public WeChatRespNewsItems getItems() {
 		return items;
 	}
+
 	@XmlElement(name = "Articles")
 	public void setItems(WeChatRespNewsItems items) {
 		this.items = items;
@@ -75,6 +72,7 @@ public class WeChatRespNews implements Serializable{
 	public void setArticleCount(Integer articleCount) {
 		this.articleCount = articleCount;
 	}
+
 	@Override
 	public String toString() {
 		return "WeChatRespNews [articleCount=" + articleCount + ", createTime="

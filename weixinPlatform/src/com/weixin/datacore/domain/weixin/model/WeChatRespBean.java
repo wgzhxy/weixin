@@ -6,28 +6,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement(name = "xml")
-public class WeChatRespBean implements Serializable{
-	/**
-	 * 
-	 */
+public class WeChatRespBean implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-
 	private String toUserName;
-	
 	private String fromUserName;
-	
 	private Long createTime;
-	
 	private String msgType;
-	
 	private String content;
-	
 	private Integer funcFlag = 0;
-
+	
 	public String getToUserName() {
 		return toUserName;
 	}
-	
+
 	@XmlElement(name = "ToUserName")
 	@XmlJavaTypeAdapter(value = CDATAdapter.class)
 	public void setToUserName(String toUserName) {

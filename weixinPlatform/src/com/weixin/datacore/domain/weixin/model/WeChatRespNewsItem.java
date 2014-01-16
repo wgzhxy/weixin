@@ -3,8 +3,10 @@ package com.weixin.datacore.domain.weixin.model;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 @XmlRootElement(name = "item")
 public class WeChatRespNewsItem {
+	
 	private String Title;
 	private String Description;
 	private String PicUrl;
@@ -16,8 +18,9 @@ public class WeChatRespNewsItem {
 		this.PicUrl = PicUrl;
 		this.Url = Url;
 	}
-	
-	public WeChatRespNewsItem(){}
+
+	public WeChatRespNewsItem() {
+	}
 
 	public String getTitle() {
 		return Title;
