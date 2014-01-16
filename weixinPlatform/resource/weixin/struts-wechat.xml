@@ -4,29 +4,6 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<package name="wechat" extends="app-default" namespace="/wechat">
-	   <action name="doMsgResponse" class="cn.easytom.boss.ui.wechat.WeChatAction" method="doMsgResponse">
-	        <result name="input">/WEB-INF/pages/weixin/json.msg.jsp</result>
-	    </action>
-	    <action name="test" class="cn.easytom.boss.ui.wechat.WeChatAction" method="doTest">
-	        <result name="input">/WEB-INF/pages/weixin/json.msg.jsp</result>
-	    </action>
-	</package>
-	
-	<package name="wechatGame" extends="app-default" namespace="/wechat/game">
-	   <action name="image" class="cn.easytom.boss.ui.wechat.WeChatAction" method="imagePage">
-	        <result name="success">/WEB-INF/pages/weixin/game/img.jsp</result>
-	    </action>
-	</package>
-	
-	<package name="wechatGameQna" extends="app-default" namespace="/wechat/game/qna">
-	   <action name="listPrize" class="cn.easytom.boss.ui.wechat.game.QnAGameAction" method="listPrize">
-	        <result name="success">/WEB-INF/pages/weixin/game/qnaPrize.jsp</result>
-	    </action>
-	</package>
-	
-	<package name="wechatTuiguang" extends="app-default" namespace="/tuiguang">
-	   <action name="test" class="cn.easytom.boss.ui.wechat.WeChatTuiguangAction" method="test">
-	        <result name="success">/WEB-INF/pages/weixin/game/qnaPrize.jsp</result>
-	    </action>
+	   
 	</package>
 </struts>
