@@ -16,6 +16,7 @@ import cn.easytom.comm.logs.LogUtil;
 import cn.easytom.comm.security.SHACoder;
 import cn.easytom.comm.text.TextUtil;
 
+@SuppressWarnings("serial")
 public class WeiXinAction extends BaseAction {
 	
 	/**
