@@ -1,0 +1,153 @@
+2014-01-17 00:08:34 [null,null,null,null]
+2014-01-17 00:08:53 [null,null,null,null]
+2014-01-17 00:10:05 [null,null,null,null]
+2014-01-17 00:12:32 Root WebApplicationContext: initialization started
+2014-01-17 00:12:32 Refreshing Root WebApplicationContext: startup date [Fri Jan 17 00:12:32 CST 2014]; root of context hierarchy
+2014-01-17 00:12:32 Loading XML bean definitions from URL [file:/F:/GitRepository/localGitRepository/weixin/weixinPlatform/build/classes/applicationContext.xml]
+2014-01-17 00:12:33 Loading properties file from class path resource [conf.properties]
+2014-01-17 00:12:33 Loading properties file from class path resource [database.properties]
+2014-01-17 00:12:33 Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@215b011c: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,hibernateDAO,propertyConfigurer,proxoolDataSource,sessionFactory,transactionManager,txAdvice,org.springframework.aop.config.internalAutoProxyCreator,transactionAdvicePointCuts,org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2014-01-17 00:12:34 Building new Hibernate SessionFactory
+2014-01-17 00:12:35 Using DataSource [org.logicalcobwebs.proxool.ProxoolDataSource@6ff80c0e] of Hibernate SessionFactory for HibernateTransactionManager
+2014-01-17 00:12:35 Root WebApplicationContext: initialization completed in 2711 ms
+2014-01-17 00:12:35 Parsing configuration file [struts-default.xml]
+2014-01-17 00:12:35 Parsing configuration file [struts-plugin.xml]
+2014-01-17 00:12:35 Parsing configuration file [struts.xml]
+2014-01-17 00:12:35 Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+2014-01-17 00:12:35 Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+2014-01-17 00:12:35 Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+2014-01-17 00:12:35 Choosing bean (struts) for (org.apache.struts2.views.freemarker.FreemarkerManager)
+2014-01-17 00:12:35 Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+2014-01-17 00:12:35 Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+2014-01-17 00:12:35 Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+2014-01-17 00:12:35 Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+2014-01-17 00:12:35 Loading global messages from [messageResource]
+2014-01-17 00:12:35 Initializing Struts-Spring integration...
+2014-01-17 00:12:35 Setting autowire strategy to name
+2014-01-17 00:12:35 ... initialized Struts-Spring integration successfully
+2014-01-17 00:12:49 [null,null,null,null]
+2014-01-17 00:13:51 [null,null,null,null]
+2014-01-17 00:14:02 [null,null,null,null]
+2014-01-17 00:15:23 Root WebApplicationContext: initialization started
+2014-01-17 00:15:23 Refreshing Root WebApplicationContext: startup date [Fri Jan 17 00:15:23 CST 2014]; root of context hierarchy
+2014-01-17 00:15:23 Loading XML bean definitions from URL [file:/F:/GitRepository/localGitRepository/weixin/weixinPlatform/build/classes/applicationContext.xml]
+2014-01-17 00:15:24 Loading properties file from class path resource [conf.properties]
+2014-01-17 00:15:24 Loading properties file from class path resource [database.properties]
+2014-01-17 00:15:24 Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6d13e8f3: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,hibernateDAO,propertyConfigurer,proxoolDataSource,sessionFactory,transactionManager,txAdvice,org.springframework.aop.config.internalAutoProxyCreator,transactionAdvicePointCuts,org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2014-01-17 00:15:25 Building new Hibernate SessionFactory
+2014-01-17 00:15:26 Using DataSource [org.logicalcobwebs.proxool.ProxoolDataSource@19117681] of Hibernate SessionFactory for HibernateTransactionManager
+2014-01-17 00:15:26 Root WebApplicationContext: initialization completed in 2600 ms
+2014-01-17 00:15:26 Parsing configuration file [struts-default.xml]
+2014-01-17 00:15:26 Parsing configuration file [struts-plugin.xml]
+2014-01-17 00:15:26 Parsing configuration file [struts.xml]
+2014-01-17 00:15:26 Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+2014-01-17 00:15:26 Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+2014-01-17 00:15:26 Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+2014-01-17 00:15:26 Choosing bean (struts) for (org.apache.struts2.views.freemarker.FreemarkerManager)
+2014-01-17 00:15:26 Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+2014-01-17 00:15:26 Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+2014-01-17 00:15:26 Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+2014-01-17 00:15:26 Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+2014-01-17 00:15:26 Loading global messages from [messageResource]
+2014-01-17 00:15:26 Initializing Struts-Spring integration...
+2014-01-17 00:15:26 Setting autowire strategy to name
+2014-01-17 00:15:26 ... initialized Struts-Spring integration successfully
+2014-01-17 00:16:08 [null,null,null,null]
+2014-01-17 00:21:33 [null,null,null,null]
+2014-01-17 00:28:51 [null,null,null,null]
+2014-01-17 00:30:19 [null,null,null,null]
+2014-01-17 00:30:29 [null,null,null,null]
+2014-01-17 00:30:39 Root WebApplicationContext: initialization started
+2014-01-17 00:30:39 Refreshing Root WebApplicationContext: startup date [Fri Jan 17 00:30:39 CST 2014]; root of context hierarchy
+2014-01-17 00:30:39 Loading XML bean definitions from URL [file:/F:/GitRepository/localGitRepository/weixin/weixinPlatform/build/classes/applicationContext.xml]
+2014-01-17 00:30:39 Loading properties file from class path resource [conf.properties]
+2014-01-17 00:30:39 Loading properties file from class path resource [database.properties]
+2014-01-17 00:30:39 Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@12381a9c: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,hibernateDAO,propertyConfigurer,proxoolDataSource,sessionFactory,transactionManager,txAdvice,org.springframework.aop.config.internalAutoProxyCreator,transactionAdvicePointCuts,org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2014-01-17 00:30:40 Building new Hibernate SessionFactory
+2014-01-17 00:30:41 Using DataSource [org.logicalcobwebs.proxool.ProxoolDataSource@549b6976] of Hibernate SessionFactory for HibernateTransactionManager
+2014-01-17 00:30:41 Root WebApplicationContext: initialization completed in 2550 ms
+2014-01-17 00:30:42 Parsing configuration file [struts-default.xml]
+2014-01-17 00:30:42 Parsing configuration file [struts-plugin.xml]
+2014-01-17 00:30:42 Parsing configuration file [struts.xml]
+2014-01-17 00:30:42 Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+2014-01-17 00:30:42 Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+2014-01-17 00:30:42 Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+2014-01-17 00:30:42 Choosing bean (struts) for (org.apache.struts2.views.freemarker.FreemarkerManager)
+2014-01-17 00:30:42 Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+2014-01-17 00:30:42 Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+2014-01-17 00:30:42 Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+2014-01-17 00:30:42 Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+2014-01-17 00:30:42 Loading global messages from [messageResource]
+2014-01-17 00:30:42 Initializing Struts-Spring integration...
+2014-01-17 00:30:42 Setting autowire strategy to name
+2014-01-17 00:30:42 ... initialized Struts-Spring integration successfully
+2014-01-17 00:33:57 [1389890259,1390355241,5971530299897023187,9ab6715dff8ed37b4db04292913199e746fea61f]
+2014-01-17 00:33:59 [1389890259,1390355241,5971530299897023187],1e765391adb70315d512e2c7c2b1746347d6328d,9ab6715dff8ed37b4db04292913199e746fea61f
+2014-01-17 00:38:12 [1389890509,1389548454,5968065158937316301,8d38dd9c6742e8cfe7c0a035547f456019664fc9]
+2014-01-17 00:38:57 [1389890509,1389548454,5968065158937316301],87a77bdd075ed9131ebe801400bfedfa43fd23f6,8d38dd9c6742e8cfe7c0a035547f456019664fc9

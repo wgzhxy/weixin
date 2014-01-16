@@ -18,14 +18,15 @@ import cn.easytom.comm.text.TextUtil;
 
 @SuppressWarnings("serial")
 public class WeiXinAction extends BaseAction {
-	
+
 	/**
 	 * 认证处理，判断消息来源是否来至微信公众平台
 	 * 
 	 * @return
 	 */
 	public boolean security() {
-		LogUtil.info("[" + timestamp + "," + nonce + "," + echostr + "," + signature + "]");
+		LogUtil.info("[" + timestamp + "," + nonce + "," + echostr + ","
+				+ signature + "]");
 		ArrayList<String> list = new ArrayList<String>();
 		list.add(timestamp);
 		list.add(nonce);
@@ -43,21 +44,22 @@ public class WeiXinAction extends BaseAction {
 		}
 		if (buffer != null) {
 			String hex_str = new String(Hex.encode(buffer));
-			LogUtil.info("[" + timestamp + "," + nonce + "," + echostr + "]," + hex_str + "," + signature);
+			LogUtil.info("[" + timestamp + "," + nonce + "," + echostr + "],"
+					+ hex_str + "," + signature);
 			if (hex_str.equals(signature)) {
 				return Boolean.TRUE;
 			}
 		}
 		return Boolean.FALSE;
 	}
-	
+
 	public String RecvWeiXinMsg() {
+		HttpServletRequest request = getRequest();
+		HttpServletResponse response = getResponse();
 		if (security() && echostr != null && !echostr.equals("")) {
 			this.msg = echostr;
 			return INPUT;
 		}
-		HttpServletRequest request = getRequest();
-		HttpServletResponse response = getResponse();
 		Scanner scanner = null;
 		PrintWriter out = null;
 		try {
@@ -89,10 +91,8 @@ public class WeiXinAction extends BaseAction {
 				logs.append(reqBean.getCreateTime());
 				LogUtil.info(logs.toString());
 			}
-
 			// 3、获取用户的消息内容并返回相关信息
-			//weiXinComponent.clientCommandOperation(reqBean, out);
-
+			// weiXinComponent.clientCommandOperation(reqBean, out);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -100,14 +100,54 @@ public class WeiXinAction extends BaseAction {
 				scanner.close();
 				scanner = null;
 			}
-
 		}
 		return null;
 	}
-	
+
 	private String signature;
 	private String timestamp;
 	private String nonce;
 	private String echostr;
 	private String msg;
+
+	public String getSignature() {
+		return signature;
+	}
+
+	public void setSignature(String signature) {
+		this.signature = signature;
+	}
+
+	public String getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(String timestamp) {
+		this.timestamp = timestamp;
+	}
+
+	public String getNonce() {
+		return nonce;
+	}
+
+	public void setNonce(String nonce) {
+		this.nonce = nonce;
+	}
+
+	public String getEchostr() {
+		return echostr;
+	}
+
+	public void setEchostr(String echostr) {
+		this.echostr = echostr;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
 }
