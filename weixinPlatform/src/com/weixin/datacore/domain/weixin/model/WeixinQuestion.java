@@ -5,12 +5,7 @@ import java.io.Serializable;
  * WeixinQuestion entity. @author MyEclipse Persistence Tools
  */
 public class WeixinQuestion implements Serializable {
-
-	// Fields
-
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -1865131623767882746L;
 	private Long id;
 	private String question;
