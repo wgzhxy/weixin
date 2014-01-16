@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.action.extension" value="jhtml,do" />
+	<constant name="struts.custom.i18n.resources" value="messageResource" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.i18n.reload" value="true" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<constant name="struts.multipart.maxSize" value="10000000" />
+	<constant name="struts.serve.static.browserCache" value="false" />
+	
+	<!-- struts-default- struts-default -->
+	<package name="app-default" extends="struts-default" namespace="/">
+		<global-results>
+			<result name="error">/WEB-INF/pages/common/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+			<exception-mapping result="error" exception="java.lang.RuntimeException"></exception-mapping>
+		</global-exception-mappings>
+	</package>
+	<include file="./weixin/struts-weixin.xml"></include>
+	<include file="./weixin/struts-wechat.xml"></include>
+	<include file="./weixin/struts-weixin-activity.xml"></include>
+	<include file="./weixin/structs-wechat-member.xml"></include>
+	<include file="./weixin/structs-wechat-admin.xml"></include>
+</struts>
