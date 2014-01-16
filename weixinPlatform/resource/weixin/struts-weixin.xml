@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="ngboss-security" extends="app-default" namespace="/security">
+		
+	   <action name="weiXin" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="recvWeiXinMsg">
+	        <result name="input">/WEB-INF/pages/weixin/json.msg.jsp</result>
+	    </action>
+	    <action name="article" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="article">
+	        <result name="success">/WEB-INF/pages/weixin/index.jsp</result>
+	    </action>
+	    
+	    <action name="merchant" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="merchant">
+	        <result name="success">/WEB-INF/pages/weixin/merchant.jsp</result>
+	    </action>
+	    <action name="merchantMap" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="merchantMap">
+	        <result name="success">/WEB-INF/pages/weixin/merchantMap.jsp</result>
+	    </action>
+	    <action name="merchantAjax" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="merchant">
+	        <result name="success">/WEB-INF/pages/weixin/merchantAjax.jsp</result>
+	    </action>
+	    
+	    <action name="merchantDetail" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="merchantDetail">
+	        <result name="success">/WEB-INF/pages/weixin/merchant.detail.jsp</result>
+	    </action>
+	    
+	    <action name="recommend" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="recommend">
+	        <result name="success">/WEB-INF/pages/weixin/recommend.jsp</result>
+	    </action>
+	    
+	    <action name="recommendAjax" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="recommend">
+	        <result name="success">/WEB-INF/pages/weixin/recommendAjax.jsp</result>
+	    </action>
+	    
+	    <action name="inviteCode" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="inviteCode">
+	        <result name="success">/WEB-INF/pages/weixin/invitecode.jsp</result>
+	    </action>
+	    <action name="register" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="register">
+	    </action>
+	     <action name="login" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="login">
+	        <result name="input">/WEB-INF/pages/weixin/login.jsp</result>
+	        <result name="success">/WEB-INF/pages/weixin/main.jsp</result>
+	    </action>
+	     <action name="checkInviteCode" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="checkInviteCode">
+	        <result name="success">/WEB-INF/pages/weixin/register.jsp</result>
+	    </action>
+	      <action name="getCouponInfo" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="getCouponInfo">
+	        <result name="success">/WEB-INF/pages/weixin/coupon.jsp</result>
+	    </action>
+	     <action name="getMerchantList" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="getMerchatListForWeixin">
+	        <result name="success">/WEB-INF/pages/weixin/merchant_list.jsp</result>
+	    </action>
+	     <action name="login" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="login">
+	    </action>
+	     <action name="loginAction" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="loginAction">
+	      	<result name="success">/WEB-INF/pages/weixin/login.jsp</result>
+	    </action>
+	     <action name="registerSuccess" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="registerSuccess">
+	      	<result name="success">/WEB-INF/pages/weixin/success.jsp</result>
+	    </action>
+	     <action name="registerFirst" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="registerFirst">
+	      	 <result name="success">/WEB-INF/pages/weixin/reg1.jsp</result>
+	    </action>
+	     <action name="registerSecond" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="registerSecond">
+	      	 <result name="success">/WEB-INF/pages/weixin/reg2.jsp</result>
+	    </action>
+	     <action name="registerThree" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="registerThree">
+	      	 <result name="success">/WEB-INF/pages/weixin/reg3.jsp</result>
+	    </action>
+	    <action name="getCouponSncodes" class="cn.easytom.boss.ui.weixin.WeiXinAction" method="getCouponSncodes">
+	    </action>
+	</package>
+</struts>

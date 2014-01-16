@@ -2,8 +2,7 @@ package com.weixin.datacore.domain.weixin.model;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import com.sun.xml.internal.txw2.annotation.XmlCDATA;
+import com.sun.xml.txw2.annotation.XmlCDATA;
 
 @XmlRootElement(name = "xml")
 public class WeChatReqBean {
