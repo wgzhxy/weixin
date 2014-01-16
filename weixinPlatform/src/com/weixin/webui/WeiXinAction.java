@@ -52,12 +52,10 @@ public class WeiXinAction extends BaseAction {
 	}
 	
 	public String recvWeiXinMsg() {
-
 		if (security() && echostr != null && !echostr.equals("")) {
 			this.msg = echostr;
 			return INPUT;
 		}
-
 		HttpServletRequest request = getRequest();
 		HttpServletResponse response = getResponse();
 		Scanner scanner = null;
