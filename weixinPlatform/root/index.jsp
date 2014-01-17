@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>微信平台</title>
 </head>
 <body>
-	<h3>中国人的一天~~~~~~~~!</h3>
+	<h3>微信平台开发!</h3>
 </body>
 </html>
