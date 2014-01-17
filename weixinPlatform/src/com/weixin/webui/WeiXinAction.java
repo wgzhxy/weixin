@@ -103,6 +103,10 @@ public class WeiXinAction extends BaseAction {
 		}
 		return null;
 	}
+	
+	public String index() {
+		return "index";
+	}
 
 	private String signature;
 	private String timestamp;
