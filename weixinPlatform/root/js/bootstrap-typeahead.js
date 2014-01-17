@@ -181,25 +181,25 @@
       switch(e.keyCode) {
         case 40: // down arrow
         case 38: // up arrow
-          break
+          break;
 
         case 9: // tab
         case 13: // enter
           if (!this.shown) return
           this.select()
-          break
+          break;
 
         case 27: // escape
           if (!this.shown) return
-          this.hide()
-          break
+          this.hide();
+          break;
 
         default:
-          this.lookup()
+          this.lookup();
       }
 
-      e.stopPropagation()
-      e.preventDefault()
+      e.stopPropagation();
+      e.preventDefault();
   }
 
   , keypress: function (e) {
@@ -210,19 +210,19 @@
         case 13: // enter
         case 27: // escape
           e.preventDefault()
-          break
+          break;
 
         case 38: // up arrow
-          if (e.type != 'keydown') break
+          if (e.type != 'keydown') break;
           e.preventDefault()
           this.prev()
-          break
+          break;
 
         case 40: // down arrow
-          if (e.type != 'keydown') break
-          e.preventDefault()
-          this.next()
-          break
+          if (e.type != 'keydown') break;
+          e.preventDefault();
+          this.next();
+          break;
       }
 
       e.stopPropagation()
@@ -275,10 +275,10 @@
 
   $(function () {
     $('body').on('focus.typeahead.data-api', '[data-provide="typeahead"]', function (e) {
-      var $this = $(this)
-      if ($this.data('typeahead')) return
-      e.preventDefault()
-      $this.typeahead($this.data())
+      var $this = $(this);
+      if ($this.data('typeahead')) return;
+      e.preventDefault();
+      $this.typeahead($this.data());
     })
   })
 

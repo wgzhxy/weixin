@@ -3,9 +3,10 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<package name="ngboss-security" extends="app-default" namespace="/weiXin">
+	<package name="ngboss-security" extends="app-default" namespace="/">
 	   <action name="weiXin*" class="com.weixin.webui.WeiXinAction" method="{1}">
 	        <result name="input">/WEB-INF/pages/weixin/json.msg.jsp</result>
+	        <result name="index">/WEB-INF/pages/backend/index.jsp</result>
 	    </action>
 	</package>
 </struts>
