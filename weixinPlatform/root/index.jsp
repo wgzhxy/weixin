@@ -133,7 +133,7 @@
 		</noscript>
 		<!-- main content begin --><!--/#content.span10 begin-->
 		<div id="content" class="span10">
-			<iframe id="oWnd" style="border: 0px;width: 100%" src="content.jsp" scrolling="no" onload="resize()"></iframe>
+			<iframe id="oWnd" style="border: 0px;width: 100%" scrolling="no" src="content.jsp" onload="resize()"></iframe>
 		</div>
 		<!--/#content.span10 end--><!-- main content end -->
 	</div><!--/fluid-row-->
