@@ -66,7 +66,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.jsp"> <img alt="Charisma Logo" src="${basePath}/img/logo20.png" /> <span>Charisma</span></a>
+				<a class="brand" href="index.jsp"> <img alt="Charisma Logo" src="${basePath}/img/logo20.png" /> <span>微定制</span></a>
 				
 				<!-- theme selector starts -->
 				<div class="btn-group pull-right theme-container" >
@@ -133,7 +133,7 @@
 		</noscript>
 		<!-- main content begin --><!--/#content.span10 begin-->
 		<div id="content" class="span10">
-			<iframe id="oWnd" style="border: 0px;width: 100%" src="content.jsp" onload="resize()"></iframe>
+			<iframe id="oWnd" scrolling="no" style="border: 0px;width: 100%"  src="content.jsp" onload="resize()"></iframe>
 		</div>
 		<!--/#content.span10 end--><!-- main content end -->
 	</div><!--/fluid-row-->
