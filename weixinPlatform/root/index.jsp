@@ -71,7 +71,7 @@
 				<!-- theme selector starts -->
 				<div class="btn-group pull-right theme-container" >
 					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-						<i class="icon-tint"></i><span class="hidden-phone"> Change Theme / Skin</span>
+						<i class="icon-tint"></i><span class="hidden-phone"> 更改主题 / 皮肤</span>
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" id="themes">
@@ -91,20 +91,20 @@
 				<!-- user dropdown starts -->
 				<div class="btn-group pull-right" >
 					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-						<i class="icon-user"></i><span class="hidden-phone"> admin</span>
+						<i class="icon-user"></i><span class="hidden-phone"> 用户名称</span>
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Profile</a></li>
 						<li class="divider"></li>
-						<li><a href="login.jsp">Logout</a></li>
+						<li><a href="login.jsp">注销</a></li>
 					</ul>
 				</div>
 				<!-- user dropdown ends -->
 				
 				<div class="top-nav nav-collapse">
 					<ul class="nav">
-						<li><a href="#">Visit Site</a></li>
+						<li><a href="#">访问网站</a></li>
 						<li>
 							<form class="navbar-search pull-left">
 								<input placeholder="Search" class="search-query span2" name="query" type="text">
