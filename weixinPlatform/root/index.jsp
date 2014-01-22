@@ -3,22 +3,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!--
-		Charisma v1.0.0
-
-		Copyright 2012 Muhammad Usman
-		Licensed under the Apache License v2.0
-		http://www.apache.org/licenses/LICENSE-2.0
-
-		http://usman.it
-		http://twitter.com/halalit_usman
-	-->
 	<meta charset="utf-8">
-	<title>Free HTML5 Bootstrap Admin Template</title>
+	<title>微信后台管理系统</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
 	<meta name="author" content="Muhammad Usman">
-
 	<!-- The styles -->
 	<link id="bs-css" href="${basePath}/css/bootstrap-cerulean.css" rel="stylesheet">
 	<style type="text/css">
@@ -92,44 +81,52 @@
 				<p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
 			</div>
 		</noscript>
-		<!-- main content begin --><!--/#content.span10 begin-->
+		<!-- main content begin -->
 		<div id="content" class="span10">
-			<iframe id="oWnd" scrolling="no" style="border: 0px;width: 100%"  src="content.jsp" onload="resize()"></iframe>
+			<iframe src ="content.jsp" frameborder="0" marginheight="0" marginwidth="0" frameborder="0" scrolling="auto" id="ifm" name="ifm" onload="javascript:dyniframesize('ifm');" width="100%"></iframe>
 		</div>
-		<!--/#content.span10 end--><!-- main content end -->
+		<!-- main content end -->
 	</div><!--/fluid-row-->
 	<!-- main end -->	
-	
 	<hr>
-	<div class="modal hide fade" id="myModal">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">Ã</button>
-			<h3>Settings</h3>
-		</div>
-		<div class="modal-body">
-			<p>Here settings can be configured...</p>
-		</div>
-		<div class="modal-footer">
-			<a href="#" class="btn" data-dismiss="modal">Close</a>
-			<a href="#" class="btn btn-primary">Save changes</a>
-		</div>
-	</div>
-
 	<footer>
+		<div style="">
 		©2014&nlsp;&nlsp;&nlsp;<a href="#">weidingzhi</a>
+		</div>
 	</footer>
 		
 	</div><!--/.fluid-container-->
 	<script type="text/javascript">
 		function resize(){
 			var nHeight = window.document.body.clientHeight;
-			var oEle = document.getElementById("oWnd");
+			var oEle = document.getElementById("ifm");
 			oEle.style.height = nHeight + 'px';
 		}
 		function changePage(url){
-			var oEle = document.getElementById("oWnd");
+			var oEle = document.getElementById("ifm");
 			oEle.src=url;
 		}
-	</script>
+</script>
+<script language="javascript" type="text/javascript"> 
+	function dyniframesize(down) {
+		var pTar = null; 
+		if (document.getElementById){ 
+			pTar = document.getElementById(down); 
+		}else{ 
+			eval('pTar = ' + down + ';'); 
+		} 
+		if (pTar && !window.opera){
+			//begin resizing iframe 
+			pTar.style.display="block" 
+			if (pTar.contentDocument && pTar.contentDocument.body.offsetHeight){ 
+				pTar.height = pTar.contentDocument.body.offsetHeight +20; 
+				pTar.width = pTar.contentDocument.body.scrollWidth+20; 
+			} else if (pTar.Document && pTar.Document.body.scrollHeight){ 
+				pTar.height = pTar.Document.body.scrollHeight; 
+				pTar.width = pTar.Document.body.scrollWidth; 
+			} 
+		} 
+} 
+</script> 
 </body>
 </html>
