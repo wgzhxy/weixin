@@ -51,7 +51,7 @@
 		
 			<div class="row-fluid">
 				<div class="span12 center login-header">
-					<h2>欢迎使用微定制后台管理系统</h2>
+					<h2>欢迎使用微信管理后台</h2>
 				</div><!--/span-->
 			</div><!--/row-->
 			
