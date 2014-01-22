@@ -13,8 +13,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
-import cn.easytom.comm.logs.LogUtil;
 import com.opensymphony.xwork2.ActionSupport;
+import com.weixin.comm.logs.LogUtil;
 
 /**
  * <p>
