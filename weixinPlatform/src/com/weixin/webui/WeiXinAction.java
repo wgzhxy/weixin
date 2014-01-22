@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 import org.bouncycastle.util.encoders.Hex;
+
+import com.weixin.comm.logs.LogUtil;
+import com.weixin.comm.secutiry.SHACoder;
+import com.weixin.comm.text.TextUtil;
 import com.weixin.datacore.domain.weixin.model.WeChatReqBean;
 import com.weixin.webui.core.BaseAction;
-import cn.easytom.comm.logs.LogUtil;
-import cn.easytom.comm.security.SHACoder;
-import cn.easytom.comm.text.TextUtil;
 
 @SuppressWarnings("serial")
 public class WeiXinAction extends BaseAction {
