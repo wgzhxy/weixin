@@ -27,7 +27,6 @@
 	<link rel="shortcut icon" href="${basePath}/img/favicon.ico">
 		
 </head>
-
 <body>
 	<div class="navbar">
 		<div class="navbar-inner">
