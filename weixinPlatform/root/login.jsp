@@ -18,22 +18,7 @@
 		padding: 9px 0;
 	  }
 	</style>
-	<link href="${basePath}/css/bootstrap-responsive.css" rel="stylesheet">
-	<link href="${basePath}/css/charisma-app.css" rel="stylesheet">
-	<link href="${basePath}/css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
-	<link href='${basePath}/css/fullcalendar.css' rel='stylesheet'>
-	<link href='${basePath}/css/fullcalendar.print.css' rel='stylesheet'  media='print'>
-	<link href='${basePath}/css/chosen.css' rel='stylesheet'>
-	<link href='${basePath}/css/uniform.default.css' rel='stylesheet'>
-	<link href='${basePath}/css/colorbox.css' rel='stylesheet'>
-	<link href='${basePath}/css/jquery.cleditor.css' rel='stylesheet'>
-	<link href='${basePath}/css/jquery.noty.css' rel='stylesheet'>
-	<link href='${basePath}/css/noty_theme_default.css' rel='stylesheet'>
-	<link href='${basePath}/css/elfinder.min.css' rel='stylesheet'>
-	<link href='${basePath}/css/elfinder.theme.css' rel='stylesheet'>
-	<link href='${basePath}/css/jquery.iphone.toggle.css' rel='stylesheet'>
-	<link href='${basePath}/css/opa-icons.css' rel='stylesheet'>
-	<link href='${basePath}/css/uploadify.css' rel='stylesheet'>
+	
 
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -60,7 +45,7 @@
 					<div class="alert alert-info">
 						请输入您的用户名和密码进行登陆.
 					</div>
-					<form class="form-horizontal" action="ui.jsp" method="post">
+					<form class="form-horizontal" action="index.jsp" method="post">
 						<fieldset>
 							<div class="input-prepend" title="Username" data-rel="tooltip">
 								<span class="add-on"><i class="icon-user"></i></span><input autofocus class="input-large span10" name="username" id="username" type="text" value="admin" />
