@@ -5,16 +5,18 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
+
 import org.bouncycastle.util.encoders.Hex;
 
 import com.weixin.comm.logs.LogUtil;
 import com.weixin.comm.secutiry.SHACoder;
 import com.weixin.comm.text.TextUtil;
-import com.weixin.datacore.domain.weixin.model.WeChatReqBean;
+import com.weixin.datacore.busivo.weixin.WeChatReqBean;
 import com.weixin.webui.core.BaseAction;
 
 @SuppressWarnings("serial")
