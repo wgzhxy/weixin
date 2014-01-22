@@ -58,7 +58,7 @@
 	</filter-mapping>
 
 	<listener>
-		<listener-class>cn.easytom.comm.spring.ContextLoaderListenerOverWrite</listener-class>
+		<listener-class>com.weixin.comm.spring.ContextLoaderListenerOverWrite</listener-class>
 	</listener>
 	
 	<listener>
