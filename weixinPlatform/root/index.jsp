@@ -43,8 +43,7 @@
 					</ul>
 				</div>
 				<!-- user dropdown ends -->
-				
-				<div class="top-nav nav-collapse">
+				<div class="top-nav nav-collapse" style="left:40px;">
 					<ul class="nav">
 						<li><a href="#">微信客服</a></li>
 						<li><a href="#">客户管理</a></li>
@@ -52,7 +51,8 @@
 						<li><a href="#">应用插件</a></li>
 						<li><a href="#">营销活动</a></li>
 					</ul>
-				</div><!--/.nav-collapse -->
+				</div>
+				<!--/.nav-collapse -->
 			</div>
 		</div>
 	</div>
