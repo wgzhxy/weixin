@@ -17,7 +17,6 @@ import org.springframework.util.Assert;
 /**
  * GenericDAO implementation. Register as singleton service
  * 
- * @author Liang Dong
  */
 @SuppressWarnings("rawtypes")
 @Component("hibernateDAO")

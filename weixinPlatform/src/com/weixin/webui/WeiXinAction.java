@@ -22,7 +22,7 @@ public class WeiXinAction extends BaseAction {
 
 	/**
 	 * 认证处理，判断消息来源是否来至微信公众平台
-	 *  v       
+	 *       
 	 * @return
 	 */
 	public boolean security() {
