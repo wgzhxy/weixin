@@ -42,28 +42,8 @@
 	<!-- The fav icon -->
 	<link rel="shortcut icon" href="img/favicon.ico">
 
-	<!-- x-editable 看这里http://vitalets.github.io/x-editable/-->
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/css/jquery-editable.css" rel="stylesheet"/>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/js/jquery-editable-poshytip.min.js"></script>
-	<script type="text/javascript">
-	    $(document).ready(function() {
-	    //toggle `popup` / `inline` mode
-	    $.fn.editable.defaults.mode = 'popup';     
-	    
-	    //make username editable
-	    $('#memo').editable({
-	           // url: '/post',
-	           type: 'text',
-	           pk: 1,
-	           name: 'username',
-	           title: ''
-	    });                 
-	      
-	});
-	</script>
+	<!-- x-editable -->
+    <link href="assets/xeditable/bootstrap-editable.css" rel="stylesheet"/>
 
 
 
@@ -271,7 +251,7 @@
                                 			</td>
                                 			<td class="">
                                 				<div class="">
-                                					<a href="#" id="username" data-type="text" data-placement="right" data-title="输入备注：">备注</a> |
+                                					<a href="#" id="memo" data-type="text" data-placement="right" data-title="输入备注">备注</a> |
                                 					<a href="" >加星</a>
                                 					<button class="btn btn-primary noty" data-noty-options='{"text":"提交成功","layout":"topCenter","type":"success","animateOpen": {"opacity": "show"}}'><i class="icon-bell icon-white"></i> </button>
                                 				</div>
@@ -944,6 +924,37 @@
 	<script src="js/jquery.history.js"></script>
 	<!-- application script for Charisma demo -->
 	<script src="js/charisma.js"></script>
+
+	<!-- x-editable 看这里http://vitalets.github.io/x-editable/ -->
+    <script src="assets/xeditable/bootstrap-editable.min.js"></script>
+
+	<script type="text/javascript">
+	    $(document).ready(function() {
+	    //toggle `popup` / `inline` mode
+	    $.fn.editable.defaults.mode = 'popup';     
+	    
+	    //make memo editable
+	    $('#memo').editable();
+	    
+	    //make status editable
+	    $('#status').editable({
+	        type: 'select',
+	        title: 'Select status',
+	        placement: 'right',
+	        value: 2,
+	        source: [
+	            {value: 1, text: 'status 1'},
+	            {value: 2, text: 'status 2'},
+	            {value: 3, text: 'status 3'}
+	        ]
+	        /*
+	        //uncomment these lines to send data on server
+	        ,pk: 1
+	        ,url: '/post'
+	        */
+	    });
+	});
+	</script>
 	
 		
 </body>
