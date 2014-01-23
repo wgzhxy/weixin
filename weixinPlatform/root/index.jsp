@@ -14,10 +14,8 @@
 	<!--[if lt IE 9]>
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-
 	<!-- The fav icon -->
 	<link rel="shortcut icon" href="${basePath}/img/favicon.ico">
-		
 </head>
 <body>
 	<div class="navbar">
@@ -43,16 +41,16 @@
 					</ul>
 				</div>
 				<!-- user dropdown ends -->
-				
-				<div class="top-nav nav-collapse">
-					<ul class="nav">
+				<div class="top-nav nav-collapse"">
+					<ul class="nav" style="left:30px;">
 						<li><a href="#">微信客服</a></li>
 						<li><a href="#">客户管理</a></li>
 						<li><a href="#">微页面/表单</a></li>
 						<li><a href="#">应用插件</a></li>
 						<li><a href="#">营销活动</a></li>
 					</ul>
-				</div><!--/.nav-collapse -->
+				</div>
+				<!--/.nav-collapse -->
 			</div>
 		</div>
 	</div>
@@ -61,29 +59,41 @@
 	<!-- main begin -->
 	<div class="container-fluid">
 		<div class="row-fluid">	
-			<!-- left menu starts -->
-			<%@ include file="leftMenu.jsp"%>
+		
+			<!-- left menu start -->
+			<div class="span2 main-menu-span">
+				<div class="well nav-collapse sidebar-nav">
+					<ul class="nav nav-tabs nav-stacked main-menu">
+						<li class="nav-header hidden-tablet">菜单列表</li>
+						<li><a class="ajax-link" href="javascript:changePage('index.jsp');"><i class="icon-home"></i><span class="hidden-tablet">微信概况</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('ui.jsp');"><i class="icon-eye-open"></i><span class="hidden-tablet">微信实时消息</span><span class="badge">23</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('form.jsp');"><i class="icon-edit"></i><span class="hidden-tablet">微信群发</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('chart.jsp');"><i class="icon-list-alt"></i><span class="hidden-tablet">历史消息</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('chart.jsp');"><i class="icon-font"></i><span class="hidden-tablet">群发效果统计</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('gallery.jsp');"><i class="icon-picture"></i><span class="hidden-tablet">图文素材</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('table.jsp');"><i class="icon-align-justify"></i><span class="hidden-tablet">自动回复设置</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('table.jsp');"><i class="icon-calendar"></i><span class="hidden-tablet">自定义菜单</span></a></li>
+					</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
 			<!-- left menu ends -->
+			
 			<!-- main content begin -->
 			<div id="content" class="span10" style="width:1110px;">
-				<iframe src ="content.jsp" frameborder="0" marginheight="0" marginwidth="0" frameborder="0" scrolling="auto" id="ifm" name="ifm" onload="javascript:resize();" width="100%"></iframe>
+				<iframe src ="content.jsp" frameborder="0" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" id="ifm" name="ifm" width="100%"></iframe>
 			</div>
 			<!-- main content end -->
 		</div><!--/fluid-row-->
 		<!-- main end -->	
+		<footer style="text-align: center;">
+			<div>
+				©2014&nlsp;&nlsp;&nlsp;<a href="#">weidingzhi</a>
+				<br/>
+				&nbsp;&nbsp;&nbsp;
+			</div>
+		</footer>
 	</div><!--/.fluid-container-->
-	<footer>
-		<div style="">
-		©2014&nlsp;&nlsp;&nlsp;<a href="#">weidingzhi</a>
-		</div>
-	</footer>
 	<script type="text/javascript">
-		function resize(){
-			var nHeight = window.document.body.clientHeight;
-			var oEle = document.getElementById("ifm");
-			oEle.style.height = nHeight + 'px';
-		}
-		
 		function changePage(url){
 			var oEle = document.getElementById("ifm");
 			oEle.src=url;
@@ -109,6 +119,17 @@
 				} 
 			} 
 		} 
+	
+		function reinitIframe(){ 
+			var iframe = document.getElementById("ifm"); 
+			try{ 
+				var bHeight = iframe.contentWindow.document.body.scrollHeight; 
+				var dHeight = iframe.contentWindow.document.documentElement.scrollHeight; 
+				var height = Math.max(bHeight, dHeight); 
+				iframe.height = height; 
+			}catch (ex){} 
+		} 
+		window.setInterval("reinitIframe()", 200); 
 	</script> 
 <%@ include file="/WEB-INF/pages/common/jsInclude.jsp"%>
 </body>
