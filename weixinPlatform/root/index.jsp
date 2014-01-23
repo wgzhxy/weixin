@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/pages/common/include.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,15 +8,8 @@
 	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
 	<meta name="author" content="Muhammad Usman">
 	<!-- The styles -->
+	<%@ include file="/WEB-INF/pages/common/include.jsp"%>
 	<link id="bs-css" href="${basePath}/css/bootstrap-cerulean.css" rel="stylesheet">
-	<style type="text/css">
-	  body {
-		padding-bottom: 40px;
-	  }
-	  .sidebar-nav {
-		padding: 9px 0;
-	  }
-	</style>
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -68,64 +60,56 @@
 	
 	<!-- main begin -->
 	<div class="container-fluid">
-	<div class="row-fluid">	
-	
-		<!-- left menu starts -->
-		<%@ include file="leftMenu.jsp"%>
-		<!-- left menu ends -->
-		
-		<noscript>
-			<div class="alert alert-block span10">
-				<h4 class="alert-heading">Warning!</h4>
-				<p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+		<div class="row-fluid">	
+			<!-- left menu starts -->
+			<%@ include file="leftMenu.jsp"%>
+			<!-- left menu ends -->
+			<!-- main content begin -->
+			<div id="content" class="span10" style="width:1110px;">
+				<iframe src ="content.jsp" frameborder="0" marginheight="0" marginwidth="0" frameborder="0" scrolling="auto" id="ifm" name="ifm" onload="javascript:resize();" width="100%"></iframe>
 			</div>
-		</noscript>
-		<!-- main content begin -->
-		<div id="content" class="span10">
-			<iframe src ="content.jsp" frameborder="0" marginheight="0" marginwidth="0" frameborder="0" scrolling="auto" id="ifm" name="ifm" onload="javascript:dyniframesize('ifm');" width="100%"></iframe>
-		</div>
-		<!-- main content end -->
-	</div><!--/fluid-row-->
-	<!-- main end -->	
-	<hr>
+			<!-- main content end -->
+		</div><!--/fluid-row-->
+		<!-- main end -->	
+	</div><!--/.fluid-container-->
 	<footer>
 		<div style="">
 		©2014&nlsp;&nlsp;&nlsp;<a href="#">weidingzhi</a>
 		</div>
 	</footer>
-		
-	</div><!--/.fluid-container-->
 	<script type="text/javascript">
 		function resize(){
 			var nHeight = window.document.body.clientHeight;
 			var oEle = document.getElementById("ifm");
 			oEle.style.height = nHeight + 'px';
 		}
+		
 		function changePage(url){
 			var oEle = document.getElementById("ifm");
 			oEle.src=url;
 		}
-</script>
-<script language="javascript" type="text/javascript"> 
-	function dyniframesize(down) {
-		var pTar = null; 
-		if (document.getElementById){ 
-			pTar = document.getElementById(down); 
-		}else{ 
-			eval('pTar = ' + down + ';'); 
-		} 
-		if (pTar && !window.opera){
-			//begin resizing iframe 
-			pTar.style.display="block" 
-			if (pTar.contentDocument && pTar.contentDocument.body.offsetHeight){ 
-				pTar.height = pTar.contentDocument.body.offsetHeight +20; 
-				pTar.width = pTar.contentDocument.body.scrollWidth+20; 
-			} else if (pTar.Document && pTar.Document.body.scrollHeight){ 
-				pTar.height = pTar.Document.body.scrollHeight; 
-				pTar.width = pTar.Document.body.scrollWidth; 
+	</script>
+	<script language="javascript" type="text/javascript"> 
+		function dyniframesize(down) {
+			var pTar = null; 
+			if (document.getElementById){ 
+				pTar = document.getElementById(down); 
+			}else{ 
+				eval('pTar = ' + down + ';'); 
+			} 
+			if (pTar && !window.opera){
+				//begin resizing iframe 
+				pTar.style.display="block" 
+				if (pTar.contentDocument && pTar.contentDocument.body.offsetHeight){ 
+					pTar.height = pTar.contentDocument.body.offsetHeight +20; 
+					pTar.width = pTar.contentDocument.body.scrollWidth+20; 
+				} else if (pTar.Document && pTar.Document.body.scrollHeight){ 
+					pTar.height = pTar.Document.body.scrollHeight; 
+					pTar.width = pTar.Document.body.scrollWidth; 
+				} 
 			} 
 		} 
-} 
-</script> 
+	</script> 
+<%@ include file="/WEB-INF/pages/common/jsInclude.jsp"%>
 </body>
 </html>
