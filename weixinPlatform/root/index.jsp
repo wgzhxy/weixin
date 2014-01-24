@@ -41,7 +41,7 @@
 					</ul>
 				</div>
 				<!-- user dropdown ends -->
-				<div class="top-nav nav-collapse"">
+				<div class="top-nav nav-collapse">
 					<ul class="nav" style="left:30px;">
 						<li><a href="#">微信客服</a></li>
 						<li><a href="#">客户管理</a></li>
@@ -87,7 +87,7 @@
 		<!-- main end -->	
 		<footer style="text-align: center;">
 			<div>
-				©2014&nlsp;&nlsp;&nlsp;<a href="#">weidingzhi</a>
+				©2014&nbsp;&nbsp;&nbsp;<a href="#">weidingzhi</a>
 				<br/>
 				&nbsp;&nbsp;&nbsp;
 			</div>
@@ -100,26 +100,6 @@
 		}
 	</script>
 	<script language="javascript" type="text/javascript"> 
-		function dyniframesize(down) {
-			var pTar = null; 
-			if (document.getElementById){ 
-				pTar = document.getElementById(down); 
-			}else{ 
-				eval('pTar = ' + down + ';'); 
-			} 
-			if (pTar && !window.opera){
-				//begin resizing iframe 
-				pTar.style.display="block" 
-				if (pTar.contentDocument && pTar.contentDocument.body.offsetHeight){ 
-					pTar.height = pTar.contentDocument.body.offsetHeight +20; 
-					pTar.width = pTar.contentDocument.body.scrollWidth+20; 
-				} else if (pTar.Document && pTar.Document.body.scrollHeight){ 
-					pTar.height = pTar.Document.body.scrollHeight; 
-					pTar.width = pTar.Document.body.scrollWidth; 
-				} 
-			} 
-		} 
-	
 		function reinitIframe(){ 
 			var iframe = document.getElementById("ifm"); 
 			try{ 

@@ -1,4 +1,4 @@
-package com.weixin.component.webchat.impl;
+package com.weixin.component.weixin.impl;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import com.weixin.comm.http.HttpClientUtils;
 import com.weixin.comm.http.HttpResponseParser;
 import com.weixin.comm.logs.LogUtil;
 import com.weixin.comm.secutiry.SHACoder;
-import com.weixin.component.webchat.CommonComponent;
+import com.weixin.component.weixin.CommonComponent;
 import com.weixin.datacore.domain.weixin.vo.SubscribeUserInfoVo;
 /**
  * @author JINLONG
