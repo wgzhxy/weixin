@@ -37,17 +37,18 @@
 						<li><a href="#">切换团队</a></li>
 						<li><a href="#">账户设置</a></li>
 						<li class="divider"></li>
-						<li><a href="login.jsp">退出</a></li>
+						<li><a href="${basePath}/indexLoginOut.do">退出</a></li>
 					</ul>
 				</div>
 				<!-- user dropdown ends -->
+				
 				<div class="top-nav nav-collapse">
 					<ul class="nav" style="left:30px;">
-						<li><a href="#">微信客服</a></li>
-						<li><a href="#">客户管理</a></li>
-						<li><a href="#">微页面/表单</a></li>
-						<li><a href="#">应用插件</a></li>
-						<li><a href="#">营销活动</a></li>
+						<c:if test="${menuParent != null}">
+							<c:forEach var="menu" items="${menuParent}">
+								<li><a href="javascript:changeMenu('${menu.id}');">${menu.menuName}</a></li>
+							</c:forEach>
+						</c:if>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -62,7 +63,7 @@
 		
 			<!-- left menu start -->
 			<div class="span2 main-menu-span">
-				<div class="well nav-collapse sidebar-nav">
+				<div class="well nav-collapse sidebar-nav" id="leftMenu">
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li class="nav-header hidden-tablet">菜单列表</li>
 						<li><a class="ajax-link" href="javascript:changePage('index.jsp');"><i class="icon-home"></i><span class="hidden-tablet">微信概况</span></a></li>
@@ -97,6 +98,27 @@
 		function changePage(url){
 			var oEle = document.getElementById("ifm");
 			oEle.src=url;
+		}
+		function changeMenu(parentId) {
+			$.ajax({
+				type:'post',			//可选get
+				url:'${basePath}/indexListSecondMenu.do',		//这里是接收数据的PHP程序
+				data:'parentId=' + parentId,				//传给PHP的数据，多个参数用&连接 data='dsa'
+				dataType:'text',		//服务器返回的数据类型 可选XML ,Json jsonp script html text等
+				success:function(data){
+					//这里是ajax提交成功后，PHP程序返回的数据处理函数。msg是返回的数据，数据类型在dataType参数里定义！
+					var newMenu = "<ul class=\"nav nav-tabs nav-stacked main-menu\"><li class=\"nav-header hidden-tablet\">菜单列表</li>";
+					var dataObj=eval("("+data+")");
+					for(var i=0; i<dataObj.length; i++) {
+						newMenu += "<li><a class=\"ajax-link\" href=\"javascript:changePage('" + dataObj[i].url + "');\"><i class=\""+dataObj[i].iconCls+"\"></i><span class=\"hidden-tablet\">" + dataObj[i].text + "</span></a></li>";
+					}
+					newMenu += "</ul>";
+					$("#leftMenu").html(newMenu);
+				},
+				error:function(e){
+					alert(e);
+				}
+			});
 		}
 	</script>
 	<script language="javascript" type="text/javascript"> 

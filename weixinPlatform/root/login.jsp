@@ -38,20 +38,20 @@
 					<div class="alert alert-info">
 						请输入您的用户名和密码进行登陆.
 					</div>
-					<form class="form-horizontal" action="index.jsp" method="post">
+					<form class="form-horizontal" action="${basePath}/indexLogin.do" method="post">
 						<fieldset>
 							<div class="input-prepend" title="Username" data-rel="tooltip">
-								<span class="add-on"><i class="icon-user"></i></span><input autofocus class="input-large span10" name="username" id="username" type="text" value="admin" />
+								<span class="add-on"><i class="icon-user"></i></span><input autofocus class="input-large span10" name="sysUserVo.userName" id="userName" type="text" value="admin" />
 							</div>
 							<div class="clearfix"></div>
 
 							<div class="input-prepend" title="Password" data-rel="tooltip">
-								<span class="add-on"><i class="icon-lock"></i></span><input class="input-large span10" name="password" id="password" type="password" value="admin123456" />
+								<span class="add-on"><i class="icon-lock"></i></span><input class="input-large span10" name="sysUserVo.password" id="password" type="password" value="admin123456" />
 							</div>
 							<div class="clearfix"></div>
 
 							<div class="input-prepend">
-							<label class="remember" for="remember"><input type="checkbox" id="remember" />记住我...</label>
+							<label class="remember" for="remember"><input type="checkbox" name="sysUserVo.remember" id="remember" />记住我...</label>
 							</div>
 							<div class="clearfix"></div>
 

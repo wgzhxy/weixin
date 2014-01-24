@@ -29,4 +29,8 @@ public interface SysMenuSrv extends ServiceSrv {
 	public PageInfo<SysMenu> findSysMenuList(Object[] params, int pageNo, int pageSize);
 	
 	public SysMenu getSysMenu(Long id);
+	
+	public List<SysMenu> getParentMenu();
+	
+	public List<SysMenu> getChildMenu(String parentId);
 }

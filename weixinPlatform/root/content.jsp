@@ -446,18 +446,7 @@
 	<script src="${basePath}/js/jquery.autogrow-textarea.js"></script>
 	<!-- multiple file upload plugin -->
 	<script src="${basePath}/js/jquery.uploadify-3.1.min.js"></script>
-	<!-- history.js for cross-browser state change on ajax -->
-	<script src="${basePath}/js/jquery.history.js"></script>
 	<!-- application script for Charisma demo -->
 	<script src="${basePath}/js/charisma.js"></script>
-	<script type="text/javascript">
-		function resize(){
-			var nHeight = window.document.body.clientHeight;
-			alert(nHeight);
-			var oEle = document.getElementById("oWnd");
-			oEle.style.height = nHeight + 'px';
-		}
-	</script>
-		
 </body>
 </html>
