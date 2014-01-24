@@ -1,4 +1,4 @@
-package com.weixin.component.webchat;
+package com.weixin.component.weixin;
 
 import com.weixin.datacore.domain.weixin.vo.SubscribeUserInfoVo;
 
