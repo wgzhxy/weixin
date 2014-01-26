@@ -8,7 +8,7 @@
 	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
 	<meta name="author" content="Muhammad Usman">
 	<!-- The styles -->
-	<%@ include file="/WEB-INF/pages/common/include.jsp"%>
+	<%@ include file="/WEB-INF/pages/common/miniInclude.jsp"%>
 	<link id="bs-css" href="${basePath}/css/bootstrap-cerulean.css" rel="stylesheet">
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -16,6 +16,12 @@
 	<![endif]-->
 	<!-- The fav icon -->
 	<link rel="shortcut icon" href="${basePath}/img/favicon.ico">
+	<style type="text/css">
+		html,body {
+			/*<定义html和body高度都为100%，即显式定义html和body高度>*/
+    		height:100%;
+		}
+	</style>
 </head>
 <body>
 	<div class="navbar">
@@ -68,7 +74,7 @@
 						<li class="nav-header hidden-tablet">菜单列表</li>
 						<li><a class="ajax-link" href="javascript:changePage('index.jsp');"><i class="icon-home"></i><span class="hidden-tablet">微信概况</span></a></li>
 						<li><a class="ajax-link" href="javascript:changePage('ui.jsp');"><i class="icon-eye-open"></i><span class="hidden-tablet">微信实时消息</span><span class="badge">23</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('form.jsp');"><i class="icon-edit"></i><span class="hidden-tablet">微信群发</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('menuAdd.jsp');"><i class="icon-edit"></i><span class="hidden-tablet">微信群发</span></a></li>
 						<li><a class="ajax-link" href="javascript:changePage('chart.jsp');"><i class="icon-list-alt"></i><span class="hidden-tablet">历史消息</span></a></li>
 						<li><a class="ajax-link" href="javascript:changePage('chart.jsp');"><i class="icon-font"></i><span class="hidden-tablet">群发效果统计</span></a></li>
 						<li><a class="ajax-link" href="javascript:changePage('gallery.jsp');"><i class="icon-picture"></i><span class="hidden-tablet">图文素材</span></a></li>
@@ -78,25 +84,18 @@
 				</div><!--/.well -->
 			</div><!--/span-->
 			<!-- left menu ends -->
-			
 			<!-- main content begin -->
-			<div id="content" class="span10" style="width:1110px;">
+			<div id="content" class="span10" style="width:81%;">
 				<iframe src ="content.jsp" frameborder="0" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" id="ifm" name="ifm" width="100%"></iframe>
 			</div>
 			<!-- main content end -->
 		</div><!--/fluid-row-->
 		<!-- main end -->	
-		<footer style="text-align: center;">
-			<div>
-				©2014&nbsp;&nbsp;&nbsp;<a href="#">weidingzhi</a>
-				<br/>
-				&nbsp;&nbsp;&nbsp;
-			</div>
-		</footer>
 	</div><!--/.fluid-container-->
 	<script type="text/javascript">
 		function changePage(url){
 			var oEle = document.getElementById("ifm");
+			oEle.height = 0;
 			oEle.src=url;
 		}
 		function changeMenu(parentId) {
@@ -122,16 +121,16 @@
 		}
 	</script>
 	<script language="javascript" type="text/javascript"> 
-		function reinitIframe(){ 
-			var iframe = document.getElementById("ifm"); 
-			try{ 
-				var bHeight = iframe.contentWindow.document.body.scrollHeight; 
-				var dHeight = iframe.contentWindow.document.documentElement.scrollHeight; 
-				var height = Math.max(bHeight, dHeight); 
-				iframe.height = height; 
-			}catch (ex){} 
-		} 
-		window.setInterval("reinitIframe()", 200); 
+		function reinitIframe(){
+			var iframe = document.getElementById("ifm");
+			try{
+				var bHeight = iframe.contentWindow.document.body.scrollHeight;
+				var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+				var height = Math.max(bHeight, dHeight);
+				iframe.height = height;
+			}catch (ex){}
+		}
+		window.setInterval("reinitIframe()", 200);
 	</script> 
 <%@ include file="/WEB-INF/pages/common/jsInclude.jsp"%>
 </body>
