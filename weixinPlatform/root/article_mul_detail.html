@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="http://wxj.weixinjia.net/bootstrap/css/bootstrap.min.css?v=20140121" />
+<link rel="stylesheet" href="http://wxj.weixinjia.net/css/admin/admin.css?v=20140121" />
+<link rel="stylesheet" href="http://wxj.weixinjia.net/css/admin/appmsg.css?v=20140121" />
+<link rel="stylesheet" href="http://wxj.weixinjia.net/css/admin/appmsg-mul.css?v=20140121" />
+<link rel="stylesheet" href="http://wxj.weixinjia.net/css/plugin/om-fileupload.css?v=20140121" />
+<script type="text/javascript" src="http://wxj.weixinjia.net/js/jquery-1.7.2.min.js?v=20140121"></script>
+<script type="text/javascript" src="http://wxj.weixinjia.net/bootstrap/js/bootstrap.min.js?v=20140121"></script>
+<script type="text/javascript" src="http://wxj.weixinjia.net/js/plugin/operamasks-ui.min.js?v=20140121"></script>
+<script type="text/javascript" src="http://wxj.weixinjia.net/js/page/appmsg-mul.js?v=20140121"></script>
+<script type="text/javascript" src="http://wxj.weixinjia.net/js/plugin/jquery.json-2.4.min.js?v=20140121"></script>
+<script type="text/javascript">window.UEDITOR_HOME_URL = '/ueditor/';window.fixedImagePath='http://api.weijuju.com/image/';</script>
+<script type="text/javascript" src="http://wxj.weixinjia.net/js/ueditor/editor_config.js?v=20131018"></script>
+<script type="text/javascript" src="http://wxj.weixinjia.net/js/ueditor/editor.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://wxj.weixinjia.net/js/ueditor/themes/default/ueditor.css"/>
+<title>多图文编辑</title>
+<style>
+label{
+	display: inline-block;
+}
+.help-inline{
+	vertical-align: top;
+}
+.row{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.editor-bottom-bar{
+	white-space: nowrap;
+	border: 1px solid #ccc;
+	line-height: 20px;
+	font-size: 12px;
+	text-align: right;
+	margin-right: 5px;
+	color: #aaa;
+	border-top: 0;
+	width: 498px;
+}
+</style>
+</head>
+
+<script type="text/javascript">
+var charLimit = 80000;
+</script>
+<body>
+	<div class="row">
+		<div class="span5 msg-preview">
+			<div class="msg-item-wrapper">
+				<div id="appmsgItem1" class="appmsgItem msg-item">
+					<p class="msg-meta">
+						<span class="msg-date">2014-01-23</span>
+					</p>
+					<div class="cover">
+						<p class="default-tip" >封面图片</p>
+						<h4 class="msg-t">
+							<span class="i-title">标题</span>
+						</h4>
+						<ul class="abs tc sub-msg-opr">                 
+							<li class="b-dib sub-msg-opr-item">                   
+								<a href="javascript:;" class="th opr-icon edit-icon">编辑</a>                 
+							</li>               
+						</ul>
+						<img class="i-img"  style="">
+					</div>
+					<p class="msg-text"></p>
+					
+					<input type="hidden" value="" class="title" />
+					<input type="hidden" value=""  class="cover" />
+					<input type="hidden" value=""  class="coverurl" />
+					<textarea class="content" style="display: none;">null</textarea>
+					<input type="hidden" value=""  class="sourceurl" />
+					<input type="hidden" value=""  class="chain" />
+				</div>
+				
+				<div class="rel sub-msg-item appmsgItem">              
+					<span class="thumb">                 
+					<span class="default-tip" style="">缩略图</span>         
+					<img src="" class="i-img" style="display:none">       
+					</span>       
+					<h4 class="msg-t">                    
+					<span class="i-title">标题</span>                
+					</h4>       
+					<ul class="abs tc sub-msg-opr">         
+						<li class="b-dib sub-msg-opr-item">           
+							<a href="javascript:;" class="th opr-icon edit-icon">编辑</a>         
+						</li>         
+						<li class="b-dib sub-msg-opr-item">           
+							<a href="javascript:;" class="th opr-icon del-icon">删除</a>         
+						</li>       
+					</ul>    
+					<input type="hidden" class="title" />
+					<input type="hidden" class="cover" />
+					<input type="hidden" class="coverurl" />
+					<textarea class="content" style="display: none;"></textarea>
+					<input type="hidden" class="sourceurl" />
+					<input type="hidden" class="chain" />
+				</div>
+				
+				<div class="sub-add">            
+				<a href="javascript:;" class="block tc sub-add-btn">
+				<span class="vm dib sub-add-icon"></span>增加一条</a>           
+				</div>
+			</div>
+		</div>
+		<div class="span7">
+			<div class="msg-editer-wrapper">
+				<div class="msg-editer">
+					<div class="control-group">
+						<label class="control-label">标题</label><span class="maroon">*</span><span class="help-inline">(必填,不能超过64个字)</span>
+						<div class="controls">
+					    	<input type="text" value="" id="title" class="span5" style="width: 482px;" name="title" />
+					    </div>
+				    </div>
+				    <div class="control-group">
+						<label class="control-label">封面</label><span class="maroon">*</span><span class="help-inline">(必须上传一张图片)</span>    
+						<div class="controls">
+							<div class="cover-area">
+								<div class="cover-hd">
+									<input id="file_upload" name="file_upload" type="file" />
+									<input id="coverurl" value="" name="coverurl" type="hidden" />
+								</div>
+								<p id="upload-tip" class="upload-tip">大图片建议尺寸：700像素 * 300像素</p>
+								<p id="imgArea" class="cover-bd" style="display: none;">
+								<img src="" id="img">
+								<a href="javascript:;" class="vb cover-del" id="delImg">删除</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				  	<div class="control-group">
+					<label class="control-label">正文</label> <span class="maroon">*</span><span class="help-inline">(必填,不能超过80000个字符)</span>     
+					    <div class="controls">
+							<script type="text/plain" id="editor"></script>
+							<div class="editor-bottom-bar">当前已输入<span class="char_count">0</span>个字符, 您还可以输入<span class="char_remain">80000</span>个字符。</div>
+						</div>
+					</div>
+					<a id="chain-block-link" href="javascript:void(0);" class="url-link block" >添加外链</a>
+				  	<div id="chain-block" style="display: none;" class="control-group">
+						<label class="control-label">外链地址</label> <span class="help-inline">(设置后，点击图文消息，不会进入图文详情，而进入外链所设地址。)</span>          
+					    <div class="controls">
+							<input type="text" id="chain" class="span5" value="" style="width: 482px;" name="chain" />
+						</div>
+					</div>
+					<a id="url-block-link" href="javascript:void(0);" class="url-link block" >添加来源</a>
+				  	<div id="url-block" style="display: none;" class="control-group">
+						<label class="control-label">来源</label> <span class="help-inline">(请输入正确的URL链接格式)</span>          
+					    <div class="controls">
+							<input type="text" id="source_url" class="span5" value="" style="width: 482px;" name="source_url" />
+						</div>
+					</div>
+				  	<div class="control-group">
+					    <div class="controls">
+					      <button id="save-btn" type="submit" class="btn btn-primary btn-large">保存</button>
+					      <button id="cancel-btn" type="button" class="btn btn-large">取消</button>
+					    </div>
+				    </div>
+				    
+				    <input id="uid" name="uid" type="hidden" value="56446" />
+				    <input id="action" name="action" type="hidden" value="mul_add" />
+				</div>
+				<span class="abs msg-arrow a-out" style="margin-top: 0px;"></span>
+				<span class="abs msg-arrow a-in" style="margin-top: 0px;"></span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

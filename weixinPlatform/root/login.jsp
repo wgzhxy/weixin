@@ -18,47 +18,40 @@
 		padding: 9px 0;
 	  }
 	</style>
-	
-
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-
 	<!-- The fav icon -->
 	<link rel="shortcut icon" href="${basePath}/img/favicon.ico">
-		
 </head>
-
 <body>
-		<div class="container-fluid">
-		<div class="row-fluid">
-		
+	<div class="container-fluid">
+		<div class="row-fluid" style="text-align: center;">
 			<div class="row-fluid">
 				<div class="span12 center login-header">
 					<h2>欢迎使用微信管理后台</h2>
 				</div><!--/span-->
 			</div><!--/row-->
-			
 			<div class="row-fluid">
 				<div class="well span5 center login-box">
 					<div class="alert alert-info">
 						请输入您的用户名和密码进行登陆.
 					</div>
-					<form class="form-horizontal" action="index.jsp" method="post">
+					<form class="form-horizontal" action="${basePath}/indexLogin.do" method="post">
 						<fieldset>
 							<div class="input-prepend" title="Username" data-rel="tooltip">
-								<span class="add-on"><i class="icon-user"></i></span><input autofocus class="input-large span10" name="username" id="username" type="text" value="admin" />
+								<span class="add-on"><i class="icon-user"></i></span><input autofocus class="input-large span10" name="sysUserVo.userName" id="userName" type="text" value="admin" />
 							</div>
 							<div class="clearfix"></div>
 
 							<div class="input-prepend" title="Password" data-rel="tooltip">
-								<span class="add-on"><i class="icon-lock"></i></span><input class="input-large span10" name="password" id="password" type="password" value="admin123456" />
+								<span class="add-on"><i class="icon-lock"></i></span><input class="input-large span10" name="sysUserVo.password" id="password" type="password" value="admin123456" />
 							</div>
 							<div class="clearfix"></div>
 
 							<div class="input-prepend">
-							<label class="remember" for="remember"><input type="checkbox" id="remember" />记住我...</label>
+							<label class="remember" for="remember"><input type="checkbox" name="sysUserVo.remember" id="remember" />记住我...</label>
 							</div>
 							<div class="clearfix"></div>
 
@@ -69,84 +62,7 @@
 					</form>
 				</div><!--/span-->
 			</div><!--/row-->
-				</div><!--/fluid-row-->
-		
+		</div><!--/fluid-row-->
 	</div><!--/.fluid-container-->
-
-	<!-- external javascript
-	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-
-	<!-- jQuery -->
-	<script src="${basePath}/js/jquery-1.7.2.min.js"></script>
-	<!-- jQuery UI -->
-	<script src="${basePath}/js/jquery-ui-1.8.21.custom.min.js"></script>
-	<!-- transition / effect library -->
-	<script src="${basePath}/js/bootstrap-transition.js"></script>
-	<!-- alert enhancer library -->
-	<script src="${basePath}/js/bootstrap-alert.js"></script>
-	<!-- modal / dialog library -->
-	<script src="${basePath}/js/bootstrap-modal.js"></script>
-	<!-- custom dropdown library -->
-	<script src="${basePath}/js/bootstrap-dropdown.js"></script>
-	<!-- scrolspy library -->
-	<script src="${basePath}/js/bootstrap-scrollspy.js"></script>
-	<!-- library for creating tabs -->
-	<script src="${basePath}/js/bootstrap-tab.js"></script>
-	<!-- library for advanced tooltip -->
-	<script src="${basePath}/js/bootstrap-tooltip.js"></script>
-	<!-- popover effect library -->
-	<script src="${basePath}/js/bootstrap-popover.js"></script>
-	<!-- button enhancer library -->
-	<script src="${basePath}/js/bootstrap-button.js"></script>
-	<!-- accordion library (optional, not used in demo) -->
-	<script src="${basePath}/js/bootstrap-collapse.js"></script>
-	<!-- carousel slideshow library (optional, not used in demo) -->
-	<script src="${basePath}/js/bootstrap-carousel.js"></script>
-	<!-- autocomplete library -->
-	<script src="${basePath}/js/bootstrap-typeahead.js"></script>
-	<!-- tour library -->
-	<script src="${basePath}/js/bootstrap-tour.js"></script>
-	<!-- library for cookie management -->
-	<script src="${basePath}/js/jquery.cookie.js"></script>
-	<!-- calander plugin -->
-	<script src='${basePath}/js/fullcalendar.min.js'></script>
-	<!-- data table plugin -->
-	<script src='${basePath}/js/jquery.dataTables.min.js'></script>
-
-	<!-- chart libraries start -->
-	<script src="${basePath}/js/excanvas.js"></script>
-	<script src="${basePath}/js/jquery.flot.min.js"></script>
-	<script src="${basePath}/js/jquery.flot.pie.min.js"></script>
-	<script src="${basePath}/js/jquery.flot.stack.js"></script>
-	<script src="${basePath}/js/jquery.flot.resize.min.js"></script>
-	<!-- chart libraries end -->
-
-	<!-- select or dropdown enhancer -->
-	<script src="${basePath}/js/jquery.chosen.min.js"></script>
-	<!-- checkbox, radio, and file input styler -->
-	<script src="${basePath}/js/jquery.uniform.min.js"></script>
-	<!-- plugin for gallery image view -->
-	<script src="${basePath}/js/jquery.colorbox.min.js"></script>
-	<!-- rich text editor library -->
-	<script src="${basePath}/js/jquery.cleditor.min.js"></script>
-	<!-- notification plugin -->
-	<script src="${basePath}/js/jquery.noty.js"></script>
-	<!-- file manager library -->
-	<script src="${basePath}/js/jquery.elfinder.min.js"></script>
-	<!-- star rating plugin -->
-	<script src="${basePath}/js/jquery.raty.min.js"></script>
-	<!-- for iOS style toggle switch -->
-	<script src="${basePath}/js/jquery.iphone.toggle.js"></script>
-	<!-- autogrowing textarea plugin -->
-	<script src="${basePath}/js/jquery.autogrow-textarea.js"></script>
-	<!-- multiple file upload plugin -->
-	<script src="${basePath}/js/jquery.uploadify-3.1.min.js"></script>
-	<!-- history.js for cross-browser state change on ajax -->
-	<script src="${basePath}/js/jquery.history.js"></script>
-	<!-- application script for Charisma demo -->
-	<script src="${basePath}/js/charisma.js"></script>
-	
-		
 </body>
 </html>

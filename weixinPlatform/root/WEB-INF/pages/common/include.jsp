@@ -23,8 +23,6 @@
 <link href='${basePath}/css/jquery.iphone.toggle.css' rel='stylesheet'>
 <link href='${basePath}/css/opa-icons.css' rel='stylesheet'>
 <link href='${basePath}/css/uploadify.css' rel='stylesheet'>
-<link href="${basePath}/css/bootstrap-editable.css" rel="stylesheet"/>
-<link id="bs-css" href="${basePath}/css/bootstrap-cerulean.css" rel="stylesheet">
 <!-- link css end -->
 <!-- external javascript================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
