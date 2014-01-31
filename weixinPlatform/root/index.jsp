@@ -10,6 +10,14 @@
 	<!-- The styles -->
 	<%@ include file="/WEB-INF/pages/common/miniInclude.jsp"%>
 	<link id="bs-css" href="${basePath}/css/bootstrap-cerulean.css" rel="stylesheet">
+	<style type="text/css">
+	  body {
+		padding-bottom: 40px;
+	  }
+	  .sidebar-nav {
+		padding: 9px 0;
+	  }
+	</style>
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -84,21 +92,13 @@
 				</div><!--/.well -->
 			</div><!--/span-->
 			<!-- left menu ends -->
-			
 			<!-- main content begin -->
-			<div id="content" class="span10" style="width:81%;">
+			<div id="content" class="span10" style="width: 81%;">
 				<iframe src ="content.jsp" frameborder="0" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" id="ifm" name="ifm" width="100%"></iframe>
 			</div>
 			<!-- main content end -->
 		</div><!--/fluid-row-->
 		<!-- main end -->	
-		<footer style="text-align: center;">
-			<div>
-				©2014&nbsp;&nbsp;&nbsp;<a href="#">weidingzhi</a>
-				<br/>
-				&nbsp;&nbsp;&nbsp;
-			</div>
-		</footer>
 	</div><!--/.fluid-container-->
 	<script type="text/javascript">
 		function changePage(url){
