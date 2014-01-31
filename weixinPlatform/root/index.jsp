@@ -84,7 +84,6 @@
 				</div><!--/.well -->
 			</div><!--/span-->
 			<!-- left menu ends -->
-			
 			<!-- main content begin -->
 			<div id="content" class="span10" style="width:81%;">
 				<iframe src ="content.jsp" frameborder="0" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" id="ifm" name="ifm" width="100%"></iframe>
@@ -92,13 +91,6 @@
 			<!-- main content end -->
 		</div><!--/fluid-row-->
 		<!-- main end -->	
-		<footer style="text-align: center;">
-			<div>
-				©2014&nbsp;&nbsp;&nbsp;<a href="#">weidingzhi</a>
-				<br/>
-				&nbsp;&nbsp;&nbsp;
-			</div>
-		</footer>
 	</div><!--/.fluid-container-->
 	<script type="text/javascript">
 		function changePage(url){
