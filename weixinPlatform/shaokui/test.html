@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>疯狂猜图测试页面</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- 加载bootstrap -->
+<link rel="stylesheet" type="text/css" href="http://cnbootstrap.com/assets/css/bootstrap.css"/>
+<script type="text/javascript" src="http://www.bootcss.com/assets/js/jquery.js"></script>
+</head>
+<body>
+ <div class="row">
+    <div class="thumbnail" style="text-align:center">
+      <img src="http://i2.72g.com/201306/13724039192389.png" alt="http://i2.72g.com/201306/13724039192389.png" class="img-thumbnail;height:200px;width:200px">
+      <div class="caption">
+        <p>
+            <input type="text" class="btn btn-primary" style="width:20px" value="" id="test1" onclick="javascript:clean(test1);" /> &nbsp;
+            <input type="text" class="btn btn-primary" style="width:20px" value="" id="test2" onclick="javascript:clean(test2);" /> &nbsp;
+            <input type="text" class="btn btn-primary" style="width:20px" value="" id="test3" onclick="javascript:clean(test3);" /> &nbsp;
+        </p>
+        <p id="aa">
+            
+        </p>
+      </div>
+  </div>
+</div>
+
+ <SCRIPT TYPE="text/javascript">
+    var str="";
+    arry="那,么,返,冈,的,数,组,梵,包,括,与,这,些,子,表,达,式,匹,配,人,蒂,父,情,旷".split(",")//从后台读出来的字符串,不能有重复的字
+    for(var i=1;i<=24;i++){
+         str=str+'<button style="width:40px" class="btn btn-success" id="btn'+arry[i-1]+'" onclick="javascript:removeTest(btn'+arry[i-1]+');">'+arry[i-1]+'</button>&nbsp;';
+         if(i%6==0){
+            str=str+"<br><br>";
+         }
+    }
+    $("#aa").html(str);
+
+    function removeTest(obj){
+          var tmp = $(obj).text();
+          for(var i=1;i<=3;i++){
+            var obj1="test"+i;
+            var t=$("#"+obj1).val();
+            if(t==""){
+              $("#"+obj1).val(tmp);
+              $(obj).css('visibility','hidden');
+              break;
+            }
+        }
+        isChecked();
+    }
+
+
+    function isChecked(){
+        var result="";
+        for(var i=1;i<=3;i++){
+           var obj1="test"+i;
+           var t=$("#"+obj1).val();
+           if(t==""){
+              return false;
+           }
+           result+=t;
+        }
+
+        if(result=="梵蒂冈"){
+          alert("正确");
+        }else{
+          alert("笨蛋");
+        }
+    }
+
+    function clean(obj){
+       var tmp=$(obj).val();
+       var obj1="btn"+tmp;
+       $("#"+obj1).css('visibility','visible');
+       $(obj).val('');
+    }
+  </SCRIPT>
+</body>
+</html>
