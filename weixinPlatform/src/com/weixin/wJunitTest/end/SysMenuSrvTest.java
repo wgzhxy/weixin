@@ -4,13 +4,16 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.hibernate.mapping.Array;
 import org.junit.Test;
 
+import com.weixin.comm.PageInfo;
 import com.weixin.comm.Uuid;
 import com.weixin.datacore.domain.sys.model.SysMenu;
 import com.weixin.datacore.service.sys.SysMenuSrv;
@@ -61,7 +64,6 @@ public class SysMenuSrvTest extends JunitBase {
 
 	@Test
 	public void testDeleSysMenuSysMenu() {
-		fail("Not yet implemented");
 	}
 
 	@Test
@@ -81,7 +83,21 @@ public class SysMenuSrvTest extends JunitBase {
 
 	@Test
 	public void testFindSysMenuListMapOfStringObjectIntInt() {
-		fail("Not yet implemented");
+		try{
+			int pageNo = 1;
+			int pageSize = 10;
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put("status", new Integer(0));
+			PageInfo<SysMenu> ls = sysMenuSrv.findSysMenuList(params, pageNo, pageSize);
+			if(ls != null && ls.getTotalrecond() > 0) {
+				for(SysMenu menu : ls.getResultlist()) {
+					System.out.println(menu.getMenuName());
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail("Not yet implemented");
+		}
 	}
 
 	@Test
