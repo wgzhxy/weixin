@@ -2,6 +2,9 @@ package com.weixin.component.weixin.impl;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
+import net.sf.json.JSONObject;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -37,7 +40,9 @@ public class CommComponentImpl implements CommonComponent {
 		HttpResponse response;
 		try {
 			response = client.execute(httpGet);
-			result=HttpResponseParser.ResponseParserToString(response);
+			String jsonStr=HttpResponseParser.ResponseParserToString(response);
+			JSONObject jsonObject=JSONObject.fromObject(jsonStr);
+			result=jsonObject.getString("access_token");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -95,5 +100,13 @@ public class CommComponentImpl implements CommonComponent {
 			}
 		}
 		return Boolean.FALSE;
+	}
+	
+	
+	public static void main(String[] args){
+		CommonComponent commonComponent=new CommComponentImpl();
+		String appid="wx60b1ea167ed5ec38";
+		String secret="1389407f969fa4fe39343d0b16e7383f";
+		System.out.println(commonComponent.getAccessToken(appid, secret));
 	}
 }
