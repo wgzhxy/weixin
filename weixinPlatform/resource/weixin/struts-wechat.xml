@@ -4,29 +4,5 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<package name="wechat" extends="app-default" namespace="/wechat">
-		<!-- menu item manager start-->
-		<action name="menuItemBase" class="com.weixin.webui.action.WeixinMenuItemAction" method="menuItemBase">
-	    	<result name="edit">/index.jsp</result>
-	    	<result name="add">/login.jsp</result>
-	    	<result name="success">/WEB-INF/pages/menuItem/menuItemList.jsp</result>
-	    </action>
-	    
-	    <action name="menuItemList" class="com.weixin.webui.action.WeixinMenuItemAction" method="menuItemList">
-	    </action>
-	    <!-- menu item manager end-->
-	    
-	    <!-- picture manager start-->
-		<action name="pictureBase" class="com.weixin.webui.action.WeixinPrictureAction" method="pictureBase">
-			<result name="add">/WEB-INF/pages/picture/pictureAdd.jsp</result>
-	    </action>
-	    
-	    <action name="pictureList" class="com.weixin.webui.action.WeixinPrictureAction" method="pictureList">
-	    	<result name="success">/WEB-INF/pages/picture/pictureList.jsp</result>
-	    </action>
-	    <action name="pictureRemove" class="com.weixin.webui.action.WeixinPrictureAction" method="pictureRemove">
-	    </action>
-	    <action name="pictureAdd" class="com.weixin.webui.action.WeixinPrictureAction" method="pictureAdd">
-	    </action>
-	    <!-- picture manager end-->
 	</package>
 </struts>
