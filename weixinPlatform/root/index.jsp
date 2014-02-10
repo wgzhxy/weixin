@@ -117,7 +117,7 @@
 					var newMenu = "<ul class=\"nav nav-tabs nav-stacked main-menu\"><li class=\"nav-header hidden-tablet\">菜单列表</li>";
 					var dataObj=eval("("+data+")");
 					for(var i=0; i<dataObj.length; i++) {
-						newMenu += "<li><a class=\"ajax-link\" href=\"javascript:changePage('" + dataObj[i].url + "');\"><i class=\""+dataObj[i].iconCls+"\"></i><span class=\"hidden-tablet\">" + dataObj[i].text + "</span></a></li>";
+						newMenu += "<li><a class=\"ajax-link\" href=\"javascript:changePage('${basePath}" + dataObj[i].url + "');\"><i class=\""+dataObj[i].iconCls+"\"></i><span class=\"hidden-tablet\">" + dataObj[i].text + "</span></a></li>";
 					}
 					newMenu += "</ul>";
 					$("#leftMenu").html(newMenu);
