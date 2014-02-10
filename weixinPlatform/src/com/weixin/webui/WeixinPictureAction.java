@@ -19,7 +19,7 @@ import com.weixin.webui.core.BaseAction;
  * @author JINLONE
  * 
  */
-public class WeixinPrictureAction extends BaseAction {
+public class WeixinPictureAction extends BaseAction {
 	private String jump;
 	private WeixinPictureForm weixinPictureForm;
 	

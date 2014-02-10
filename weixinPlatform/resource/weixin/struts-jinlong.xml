@@ -5,7 +5,7 @@
 <struts>
 	<package name="wechat" extends="app-default" namespace="/picture">
 		  <!-- picture manager start-->
-		<action name="picture*" class="com.weixin.webui.WeixinPrictureAction" method="{1}">
+		<action name="picture*" class="com.weixin.webui.WeixinPictureAction" method="{1}">
 			<result name="add">/WEB-INF/pages/picture/pictureAdd.jsp</result>
 			<result name="success">/WEB-INF/pages/picture/pictureList.jsp</result>
 	    </action>
