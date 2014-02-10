@@ -27,10 +27,10 @@
 			<tr>
 				<th field="ck"  checkbox="true" ></th>
 				<th field="id"  width="10%"  align="center"  height="30px">ID</th>
-				<th field="title"  width="25%"  align="center">标题</th>
-				<th field="picType"  width="25%"  align="center">标题</th>
-				<th field="description" formatter='customLogo' width="25%" align="center">图片</th>
-				<th field="state"  width="10%"  align="center">图片状态</th>
+				<th field="title"  width="10%"  align="center">标题</th>
+				<th field="picType"  width="5%"  align="center">图文类型</th>
+				<th field="state"  width="10%"  align="center">状态</th>
+				<th field="description" width="25%" align="center">描述</th>
 				<th field="createTime"  width="20%"  align="center">创建时间</th>
 				<th field="modifyTime"  width="20%"  align="center">更新时间</th>	
 			</tr>
@@ -64,14 +64,14 @@
 	}
 	//搜索功能
 		function doSearch() {
-				var pictureName = $.trim($('#pictureName').val());
+				var title = $.trim($('#title').val());
 				var state=1;
 				if(document.getElementById("state").checked){
 					state=0;
 				}
 				var queryParams = $('#dg').datagrid('options').queryParams;
-				queryParams['weixinPictureForm.pictureName'] = pictureName;
-				queryParams['weixinPictureForm.state'] = state;
+				queryParams['weixinPictureForm.title'] = title;
+				queryParams['weixinPictureForm.picType'] = state;
 				$('#dg').datagrid("load");
 		};
 	    //初使化 edatagrid
@@ -102,11 +102,6 @@
 					rownumbers : false,
 				});
 		});
-		
-		function customLogo(value,row,index){
-			var custom = '<img  id="logo"  alt=""  src="${basePath}'+value+'"  style="width:200px;height:100px;float:left" />';
-			return custom;
-		};
 </script>
 </body>
 </html>

@@ -52,7 +52,9 @@ public class WeixinArticlesSrvImpl extends ServiceSrvImpl implements WeixinArtic
 	}
 	
 	public PageInfo<WeixinArticles> findWeixinArticlesList(Map<String, Object> params, int pageNo, int pageSize) {
-		 return null;
+		
+		
+		return null;
 	}
 	
 	public PageInfo<WeixinArticles> findWeixinArticlesList(Object[] params, int pageNo, int pageSize) {
