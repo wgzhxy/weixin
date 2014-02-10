@@ -5,6 +5,7 @@
  
 package com.weixin.datacore.service.weixin.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -53,9 +54,25 @@ public class WeixinArticlesSrvImpl extends ServiceSrvImpl implements WeixinArtic
 	
 	public PageInfo<WeixinArticles> findWeixinArticlesList(Map<String, Object> params, int pageNo, int pageSize) {
 		
-		
-		return null;
+		String hql = "from WeixinArticles c where 1=1 ";
+		String hqlCount = "select count(c.id) from WeixinArticles c where 1=1 ";
+		StringBuffer where = new StringBuffer();
+		String orderBy = " order by c.id desc ";
+		List<Object> values = new ArrayList<Object>();
+		for(Map.Entry<String, Object> enity : params.entrySet()) {
+			if("title".equals(enity.getKey())) {
+				where.append(" and c.title like ?");
+				values.add("%" + enity.getValue() + "%");
+			}
+			
+			if("picType".equals(enity.getKey())) {
+				where.append(" and c.picType=?");
+				values.add(Integer.parseInt(enity.getValue().toString()));
+			}
+		}
+		return weixinArticlesDao.findPageInfoByQuery(pageNo, pageSize, hql + where.toString() + orderBy, hqlCount + where.toString(), values.toArray());
 	}
+
 	
 	public PageInfo<WeixinArticles> findWeixinArticlesList(Object[] params, int pageNo, int pageSize) {
 		 return null;
