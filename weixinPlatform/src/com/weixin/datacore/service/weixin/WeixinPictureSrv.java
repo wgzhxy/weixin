@@ -13,7 +13,7 @@ import com.weixin.comm.PageInfo;
 
 public interface WeixinPictureSrv extends ServiceSrv {
 
-	public WeixinPicture addWeixinMenuItem(WeixinPicture weixinPicture);
+	public WeixinPicture addWeixinPicture(WeixinPicture weixinPicture);
 	
 	public void deleWeixinPicture(WeixinPicture weixinPicture);
 	

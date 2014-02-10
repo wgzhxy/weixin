@@ -22,7 +22,7 @@ import com.weixin.comm.PageInfo;
 public class WeixinPictureSrvImpl extends ServiceSrvImpl implements WeixinPictureSrv {
 
 	@Override
-	public WeixinPicture addWeixinMenuItem(WeixinPicture weixinPicture) {
+	public WeixinPicture addWeixinPicture(WeixinPicture weixinPicture) {
 		// TODO Auto-generated method stub
 		return (WeixinPicture) weixinPictureDao.save(weixinPicture);
 	}
@@ -60,6 +60,15 @@ public class WeixinPictureSrvImpl extends ServiceSrvImpl implements WeixinPictur
 		String orderBy = " order by c.id desc ";
 		List<Object> values = new ArrayList<Object>();
 		for(Map.Entry<String, Object> enity : params.entrySet()) {
+			if("pictureName".equals(enity.getKey())) {
+				where.append(" and c.pictureName like ?");
+				values.add("%" + enity.getValue() + "%");
+			}
+			
+			if("status".equals(enity.getKey())) {
+				where.append(" and c.status=?");
+				values.add(Integer.parseInt(enity.getValue().toString()));
+			}
 		}
 		return weixinPictureDao.findPageInfoByQuery(pageNo, pageSize, hql + where.toString() + orderBy, hqlCount + where.toString(), values.toArray());
 	}

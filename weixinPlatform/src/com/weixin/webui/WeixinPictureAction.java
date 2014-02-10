@@ -5,8 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
+
+import org.apache.commons.lang3.StringUtils;
+
 import com.weixin.comm.ConvertJson;
 import com.weixin.comm.PageInfo;
+import com.weixin.comm.date.DateUtil;
 import com.weixin.comm.logs.LogUtil;
 import com.weixin.datacore.domain.weixin.model.WeixinPicture;
 import com.weixin.datacore.service.weixin.WeixinPictureSrv;
@@ -22,22 +26,7 @@ import com.weixin.webui.core.BaseAction;
 public class WeixinPictureAction extends BaseAction {
 	private String jump;
 	private WeixinPictureForm weixinPictureForm;
-	
-	public WeixinPictureForm getWeixinPictureForm() {
-		return weixinPictureForm;
-	}
-
-	public void setWeixinPictureForm(WeixinPictureForm weixinPictureForm) {
-		this.weixinPictureForm = weixinPictureForm;
-	}
-
-	public String getJump() {
-		return jump;
-	}
-
-	public void setJump(String jump) {
-		this.jump = jump;
-	}
+	private String id;
 	/**
 	 * 
 	 */
@@ -51,6 +40,15 @@ public class WeixinPictureAction extends BaseAction {
 	public String pictureList(){
 		if(weixinPictureForm!=null){
 			Map<String, Object> params = new HashMap<String, Object>();
+			
+			if(StringUtils.isNotEmpty(weixinPictureForm.getPictureName())){
+				params.put("pictureName", weixinPictureForm.getPictureName());
+			}
+			
+			if(StringUtils.isNotEmpty(weixinPictureForm.getState())){
+				params.put("status", weixinPictureForm.getState());
+			}
+			
 			Long total = 0L;
 			Map<String, Object> map = new HashMap<String, Object>();
 			PageInfo<WeixinPicture> pageInfo = weixinPictureSrv.findWeixinPictureList(params,
@@ -62,6 +60,7 @@ public class WeixinPictureAction extends BaseAction {
 					e.setCreateTime(String.valueOf(obj.getCreateTime()));
 					e.setPictureName(obj.getPictureName());
 					e.setId(String.valueOf(obj.getId()));
+					e.setPictureUrl(obj.getPictureUrl());
 					e.setModifyTime(String.valueOf(obj.getUpdateTime()));
 					int status=obj.getStatus();
 					if(status==0){
@@ -89,6 +88,13 @@ public class WeixinPictureAction extends BaseAction {
 	 * @return
 	 */
 	public String pictureRemove() {
+		if(StringUtils.isNotEmpty(id)){
+			WeixinPicture weixinPicture=weixinPictureSrv.getWeixinPicture(Long.valueOf(id));
+			if(weixinPicture!=null){
+				weixinPicture.setStatus(0);
+				weixinPictureSrv.updateWeixinPicture(weixinPicture);
+			}
+		}
 		return SUCCESS;
 	}
 
@@ -98,6 +104,25 @@ public class WeixinPictureAction extends BaseAction {
 	 * @return
 	 */
 	public String pictureAdd() {
+		WeixinPicture weixinPicture=new WeixinPicture();
+		if(weixinPictureForm!=null){
+			weixinPicture.setCreateTime(DateUtil.getNow());
+			weixinPicture.setStatus(1);
+			weixinPicture.setPictureUrl(weixinPictureForm.getPictureUrl());
+			weixinPicture.setPictureName(weixinPictureForm.getPictureName());
+			weixinPicture.setPlatformTag(weixinPictureForm.getPlatformTag());
+			try{
+				weixinPicture=weixinPictureSrv.addWeixinPicture(weixinPicture);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			weixinPictureForm.setId(String.valueOf(weixinPicture.getId()));
+			weixinPictureForm.setState("有效");
+			String jsonStr = ConvertJson.bean2json(weixinPictureForm);
+			LogUtil.info(jsonStr);
+			this.writeResult(jsonStr);
+			return null;
+		}
 		return SUCCESS;
 	}
 
@@ -112,8 +137,31 @@ public class WeixinPictureAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public WeixinPictureForm getWeixinPictureForm() {
+		return weixinPictureForm;
+	}
+
+	public void setWeixinPictureForm(WeixinPictureForm weixinPictureForm) {
+		this.weixinPictureForm = weixinPictureForm;
+	}
+
+	public String getJump() {
+		return jump;
+	}
+
+	public void setJump(String jump) {
+		this.jump = jump;
+	}
 
 	@Resource(name = "weixinPictureSrv")
 	private WeixinPictureSrv weixinPictureSrv;
-
 }

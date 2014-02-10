@@ -11,19 +11,19 @@
 	<div style="padding:10px 80px">
     <div class="ftitle">图片信息填写</div>
 		<form id="fmt"  method="post"  style="padding-left: 20px ;padding-top: 10px">		
-			<div class="fitem" style="padding-left: 40px">
+			<div class="fitem">
 				<label>图片名称:</label>
 				<input  name="weixinPictureForm.pictureName"  class="easyui-validatebox"  required="true"  />
 			</div>
-			<div class="fitem" style="padding-left: 40px">
+			<div class="fitem">
 				<label>所属平台:</label>
 				<input  name="weixinPictureForm.platformTag"  class="easyui-validatebox"  required="true"  />
 			</div>
-			<div class="fitem" style="padding-left: 40px">
+			<div class="fitem">
 				<label>上传图片:</label>
-				<div style="padding-left: 90px;">
-					<input type="file"  id="indexfile"   class="easyui-validatebox"  />
-					<input type="hidden"  id="photo"  name="weixinPictureForm.pictureUrl"   />
+				<div style="padding-left: 90px;padding-top:10px">
+					<input type="file"  id="indexfile" class="easyui-validatebox"  />
+					<input type="hidden"  id="photo" name="weixinPictureForm.pictureUrl"   />
 					<br />
 					<img  id="indexfilePic"  alt=""  src=""  width="205"  height="100"  /><br/>
 				</div>
@@ -56,15 +56,36 @@ function save(){
 					$('#dg').datagrid('insertRow',{
 						row: {
 							id: jsonObj.id,
-							name: jsonObj.pictureName,
-							code: jsonObj.state,
-							patternUrl: jsonObj.createTime,
-							updateDate:  jsonObj.modifyTime,
+							pictureName:jsonObj.pictureName,
+							state:jsonObj.state,
+							createTime:jsonObj.createTime,
+							pictureUrl:jsonObj.pictureUrl,
+							modifyTime:jsonObj.modifyTime,
 						}
 					});
 				}
 		});
 }
 </script>
+<style type="text/css">
+		#fm {
+			margin:0;
+			padding:1px 30px;
+		}
+		.ftitle{
+			font-size:14px;
+			font-weight:bold;
+			padding:5px 0;
+			margin-bottom:10px;
+			border-bottom:1px solid #ccc;
+		}
+		.fitem{
+			margin-bottom:5px;
+		}
+		.fitem label{
+			display:inline-block;
+			width:80px;
+		}
+</style>
 </body>
 </html>

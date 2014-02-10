@@ -3,9 +3,9 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<package name="wechat" extends="app-default" namespace="/picture">
+	<package name="picture" extends="app-default" namespace="/picture">
 		  <!-- picture manager start-->
-		<action name="picture*" class="com.weixin.webui.WeixinPictureAction" method="{1}">
+		<action name="picture*" class="com.weixin.webui.WeixinPictureAction" method="picture{1}">
 			<result name="add">/WEB-INF/pages/picture/pictureAdd.jsp</result>
 			<result name="success">/WEB-INF/pages/picture/pictureList.jsp</result>
 	    </action>

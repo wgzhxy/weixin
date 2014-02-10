@@ -7,7 +7,25 @@ public class WeixinPictureForm {
 		private String state;
 		private String createTime;
 		private String modifyTime;
+		private String platformTag;
+		private String pictureUrl;
 		
+		public String getPictureUrl() {
+			return pictureUrl;
+		}
+
+		public void setPictureUrl(String pictureUrl) {
+			this.pictureUrl = pictureUrl;
+		}
+
+		public String getPlatformTag() {
+			return platformTag;
+		}
+
+		public void setPlatformTag(String platformTag) {
+			this.platformTag = platformTag;
+		}
+
 		public WeixinPictureForm(){}
 
 		public String getId() {

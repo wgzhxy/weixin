@@ -13,8 +13,8 @@
 			    <span style="padding-left: 20px;">图片名称 :&nbsp; </span>
 			    <input  id="pictureName" />
     			 <span style="padding-left: 20px;">图片状态 :&nbsp; </span>
-    				 <input type="radio" name="state" value="1" checked="true"><span>启用</span>
-        		 	 <input type="radio" name="state" value="2" id="state"><span>停用</span>
+    				 <input type="radio" name="state" value="1" checked="true"><span>有效</span>
+        		 	 <input type="radio" name="state" value="0" id="state"><span>无效</span>
         		 <span style="padding-left: 20px;"><a href="#" class="easyui-linkbutton"  onclick="doSearch()">开始查询</a></span>
 		    </div>
 	</div>
@@ -27,7 +27,8 @@
 			<tr>
 				<th field="ck"  checkbox="true" ></th>
 				<th field="id"  width="10%"  align="center"  height="30px">ID</th>
-				<th field="pictureName"   width="25%"  align="center">图片名称</th>
+				<th field="pictureName"  width="25%"  align="center">图片名称</th>
+				<th field="pictureUrl" formatter='customLogo' width="25%" align="center">图片</th>
 				<th field="state"  width="10%"  align="center">图片状态</th>
 				<th field="createTime"  width="20%"  align="center">创建时间</th>
 				<th field="modifyTime"  width="20%"  align="center">更新时间</th>	
@@ -39,7 +40,7 @@
     	<a href="#"  class="easyui-linkbutton"  iconCls="icon-remove"  plain="true"  onclick="javascript:$('#dg').edatagrid('destroyRow')">删除</a>
 	</div>
 	<!-- 新增 -->
-	<div id="dd"  class="easyui-dialog"  style="padding:10px 30px"  closed="true"   title="图片新增"  buttons="#dlg-buttons" >
+	<div id="dd"  class="easyui-dialog"  style="padding: 10px"  closed="true"   title="图片新增"  buttons="#dlg-buttons" >
 	</div>
 	<div id="dlg-buttons"  style="text-align: right;">
 	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-ok"  onclick="save();">提交</a>
@@ -65,7 +66,7 @@
 				var pictureName = $.trim($('#pictureName').val());
 				var state=1;
 				if(document.getElementById("state").checked){
-					state=2;
+					state=0;
 				}
 				var queryParams = $('#dg').datagrid('options').queryParams;
 				queryParams['weixinPictureForm.pictureName'] = pictureName;
@@ -91,7 +92,7 @@
 				//初始 datagrid
 				$('#dg').datagrid({
 					nowrap : false,
-					height : 380,
+					height : 500,
 					striped : true,
 					collapsible : false,
 					remoteSort : false,
@@ -100,6 +101,11 @@
 					rownumbers : false,
 				});
 		});
+		
+		function customLogo(value,row,index){
+			var custom = '<img  id="logo"  alt=""  src="${basePath}'+value+'"  style="width:200px;height:100px;float:left" />';
+			return custom;
+		};
 </script>
 </body>
 </html>

@@ -28,4 +28,5 @@
 	<include file="./weixin/struts-system-comm.xml"></include>
 	<include file="./weixin/struts-weixin.xml"></include>
 	<include file="./weixin/struts-wechat.xml"></include>
+	<include file="./weixin/struts-jinlong.xml"></include>
 </struts>
