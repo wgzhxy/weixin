@@ -29,4 +29,6 @@ public interface SysUserSrv extends ServiceSrv {
 	public PageInfo<SysUser> findSysUserList(Object[] params, int pageNo, int pageSize);
 	
 	public SysUser getSysUser(Long id);
+	
+	public String checkSysUser(SysUser sysUser);
 }

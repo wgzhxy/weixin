@@ -80,7 +80,7 @@
 				<div class="well nav-collapse sidebar-nav" id="leftMenu">
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li class="nav-header hidden-tablet">菜单列表</li>
-						<li><a class="ajax-link" href="javascript:changePage('index.jsp');"><i class="icon-home"></i><span class="hidden-tablet">微信概况</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('${basePath}/message/msgManagerIndex.do');"><i class="icon-home"></i><span class="hidden-tablet">微信概况</span></a></li>
 						<li><a class="ajax-link" href="javascript:changePage('ui.jsp');"><i class="icon-eye-open"></i><span class="hidden-tablet">微信实时消息</span><span class="badge">23</span></a></li>
 						<li><a class="ajax-link" href="javascript:changePage('menuAdd.jsp');"><i class="icon-edit"></i><span class="hidden-tablet">微信群发</span></a></li>
 						<li><a class="ajax-link" href="javascript:changePage('chart.jsp');"><i class="icon-list-alt"></i><span class="hidden-tablet">历史消息</span></a></li>

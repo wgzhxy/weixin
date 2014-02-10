@@ -55,6 +55,26 @@
 	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-ok"  onclick="saveEdit();">提交</a>
 	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-cancel"  onclick="javascript:$('#de').dialog('close')">取消</a>
 	</div>
+	<div class="fitem">
+		<label>版块首页切图:</label>
+		<div style="padding-left: 205px;">
+			<input type="file"  id="indexfile"   class="easyui-validatebox"  />
+			<input type="hidden"  id="photo"  value="<c:if test="${cmsForum != null}">${cmsForum.photo}</c:if>"  name="cmsForumForm.photo"   />
+			<br />
+			<img  id="indexfilePic"  alt=""  src="${basePath}/${cmsForum.photo}"  width="205"  height="100"  /><br/>
+			<span id = "indexPicname"></span>
+		</div>
+	</div>
+	<div class="fitem">
+		<label>版块标题图片:</label>
+		<div style="padding-left: 205px;">
+			<input type="file"  id="titlefile"  class="easyui-validatebox"   />
+			<input type="hidden"   id="listPhoto"   value="<c:if test="${cmsForum != null}">${cmsForum.listPhoto}</c:if>"   name="cmsForumForm.listPhoto"   />
+			<br />
+			<img  id="titlefilePic"  alt=""  src="${basePath}/${cmsForum.photo}"   width="205"  height="100" /><br/>
+			<span id = "titlePicname"></span>
+		</div>
+	</div>
 	<script type="text/javascript">
 			//编辑
 			function editModule() {
@@ -139,6 +159,38 @@
 							fitColumns: true,
 							rownumbers : false,
 				});
+				
+				 var fileUpload = new FileParamter();
+				 fileUpload.basePath = '${basePath}';
+				 fileUpload.uploadFile(fileUpload, $('#indexfile'), 
+						 function(event, queueID, fileObj, response, data) {             
+					 		//上传完成后的操作
+					    	var obj = eval('(' + response + ')');
+					        if(obj.result == 'ok') {
+					        	$("#photo").val(obj.pic); //indexPicname
+					        	$("#indexPicname").html(obj.pic);
+					    	 	$("#indexfilePic").attr("src", "${basePath}" + obj.pic);
+					    	} else {
+					    		 $.messager.alert("消息提示", response.result, 1);
+					        }
+					 	}
+				 );
+				 var fileUpload = new FileParamter();
+				 fileUpload.basePath = '${basePath}';
+				 fileUpload.uploadFile(fileUpload, $('#titlefile'), 
+						 function(event, queueID, fileObj, response, data) {             
+					 		//上传完成后的操作
+				         	var obj = eval('(' + response + ')');
+				        	 if(obj.result == 'ok') {
+						         	$("#listPhoto").val(obj.pic);
+						         	$("#titlePicname").html(obj.pic);
+						     	 	$("#titlefilePic").attr("src", "${basePath}" + obj.pic);
+					     		} else {
+				     			 	$.messager.alert("消息提示", response.result, 1);
+				        		}
+			     		}
+				 );
+				CKEDITOR.replace( 'contents' );
 	});
 	</script>
 </body>

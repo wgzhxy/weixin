@@ -24,6 +24,8 @@
 			<exception-mapping result="error" exception="java.lang.RuntimeException"></exception-mapping>
 		</global-exception-mappings>
 	</package>
+	<include file="./weixin/struts-talk-info.xml"></include>
+	<include file="./weixin/struts-system-comm.xml"></include>
 	<include file="./weixin/struts-weixin.xml"></include>
 	<include file="./weixin/struts-wechat.xml"></include>
 </struts>

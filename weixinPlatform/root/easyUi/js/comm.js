@@ -144,7 +144,7 @@ function isDate(str) {
  */
 function FileParamter() {
 	this.uploader = "/easyUi/images/uploadify.swf";
-	this.script = "/system/comm/uploadCommFile.do";
+	this.script = "/comm/uploadCommFile.do";
 	this.cancelImg = "/easyUi/images/cancel.png";
 	this.auto = true;
 	this.multi = false;
