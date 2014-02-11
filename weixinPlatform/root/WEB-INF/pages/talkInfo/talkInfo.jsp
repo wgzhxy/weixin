@@ -6,7 +6,6 @@
 	<meta charset="UTF-8">
 	<title>${weixinMessageLogVo.fromUserName}微信消息管理</title>
 	<script type="text/javascript"  src="${basePath}/easyUi/js/method.js"></script>
-	<link id="bs-css" href="${basePath}/css/bootstrap-cerulean.css" rel="stylesheet">
 </head>			
 <body>
 	<div id="tb"  style="padding:6px" title="(${weixinMessageLogVo.fromUserName})微信消息筛选" class="easyui-panel"  iconCls="icon-search">

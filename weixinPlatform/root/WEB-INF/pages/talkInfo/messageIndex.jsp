@@ -5,7 +5,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>微信消息管理</title>
-	<link id="bs-css" href="${basePath}/css/bootstrap-cerulean.css" rel="stylesheet">
 	<script type="text/javascript"  src="${basePath}/easyUi/js/method.js"></script>
 </head>			
 <body>
