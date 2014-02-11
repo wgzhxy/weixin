@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>微信消息管理</title>
-	<script type="text/javascript"  src="${basePath}/easyUi/js/jquery.edatagrid.js"></script>
+	<script type="text/javascript"  src="${basePath}/easyUi/js/method.js"></script>
 </head>			
 <body>
 	<div id="tb"  style="padding:6px" title="微信消息筛选" class="easyui-panel"  iconCls="icon-search">
@@ -26,19 +26,7 @@
 	</div>
 	<p></p>
 	
-	<table id="dg" title="微信消息管理" class="easyui-datagrid"  url="${basePath}/system/module/listModules.do"  style="width: 100%; height: 380px"  idField="id"
-		   rownumbers="false"  fitColumns="true"  pagination="true"  pagePosition = "bottom"  iconCls="icon-reload"
-		   singleSelect="false">
-		<thead>
-			<tr>
-				<th field="ck"  checkbox="true" ></th>
-				<th field="id"  width="10%"  align="center"  height="30px">ID</th>
-				<th field="name"  width="20%"  align="center">会员名称</th>
-				<th field="patternUrl"  width="40%"  align="center">消息内容</th>
-				<th field="updateDate"  width="15%"  align="center">消息时间</th>
-				<th field="createDate"  width="15%"  align="center">操作</th>
-			</tr>
-		</thead>
+	<table id="dg" width="100%">
 	</table>
 	<!-- 新增 -->
 	<div id="dd"  class="easyui-dialog"  style="padding:10px 30px"  closed="true"   title="系统菜单新增"  buttons="#dlg-buttons" >
@@ -105,73 +93,48 @@
 			}
 	
 			function doSearch() {
-				var name = $.trim($('#name').val());
-				var description = $.trim($('#description').val());
 				var queryParams = $('#dg').datagrid('options').queryParams;
-				queryParams['moduleForm.name'] = name;
-				queryParams['moduleForm.description'] = description;
-				$('#dg').datagrid("load");
+				queryParams['weixinMessageLogVo.msgClass'] = 0;
+				$('#dg').datagrid("load", "${basePath}/message/msgManagerIndex.do");
 			};
+			
+			
 		
 			$(function(){
-				$('#dg').edatagrid({
-					url: '${basePath}/system/module/listModules.do',
-					destroyUrl: '${basePath}/system/module/delModuleAction.do',
-					destroyMsg:{
-									norecord:{	// when no record is selected
-										title:'警告',
-										msg:'没有选中记录!'
-									},
-									confirm:{	// when select a row
-										title:'提示',
-										msg:'你确认删出记录吗?'
-									}
-							}
-				});
-				
 				$('#dg').datagrid({
-							nowrap : false,
-							height : 480,
-							striped : true,
-							collapsible : false,
-							remoteSort : false,
-							pagination : true,
-							fitColumns: true,
-							rownumbers : false,
+						idField : "id",
+						title : "微信消息管理",
+						iconCls: 'icon-reload',
+						nowrap : true,
+						height : 450,
+						url: "${basePath}/message/msgManagerIndex.do?weixinMessageLogVo.msgClass=0",
+						striped : true,
+						collapsible : false,
+						remoteSort : false,
+						pagination : true,
+						fitColumns: true,
+						rownumbers : false,
+						singleSelect: true,
+						columns:[[
+							     {title:'消息ID',field:'msgId',width:fixWidth(0.1),rowspan:2,align:'center'},
+							     {title:'会员名称',field:'fromUserName',width:fixWidth(0.1),rowspan:2,align:'center',
+								     formatter:function(val,rec){ 
+								    	 return "<a href='${basePath}/message/msgTalkInfo.do?weixinMessageLogVo.fromUserName=" + val + "'>" + val + "</a>";
+								     }
+							     },
+							     {title:'消息内容',field:'content',width:fixWidth(0.3),rowspan:2,align:'center'},
+							     {title:'消息时间',field:'createTime',width:fixWidth(0.15),rowspan:2,align:'center'},
+							     {title:'操作',field:'operator',width:fixWidth(0.15),rowspan:2,align:'center',
+							    	 formatter:function(val,rec){ 
+							    		return '<a href="#" id="memo" data-type="text" data-placement="right" data-title="输入备注">备注</a>'+
+							    	 		   ' | <a href="" >加星</a>';
+							     	 }
+							     }  
+			    				]],
+						onLoadSuccess:function(){
+						}
 				});
-				
-				 var fileUpload = new FileParamter();
-				 fileUpload.basePath = '${basePath}';
-				 fileUpload.uploadFile(fileUpload, $('#indexfile'), 
-						 function(event, queueID, fileObj, response, data) {             
-					 		//上传完成后的操作
-					    	var obj = eval('(' + response + ')');
-					        if(obj.result == 'ok') {
-					        	$("#photo").val(obj.pic); //indexPicname
-					        	$("#indexPicname").html(obj.pic);
-					    	 	$("#indexfilePic").attr("src", "${basePath}" + obj.pic);
-					    	} else {
-					    		 $.messager.alert("消息提示", response.result, 1);
-					        }
-					 	}
-				 );
-				 var fileUpload = new FileParamter();
-				 fileUpload.basePath = '${basePath}';
-				 fileUpload.uploadFile(fileUpload, $('#titlefile'), 
-						 function(event, queueID, fileObj, response, data) {             
-					 		//上传完成后的操作
-				         	var obj = eval('(' + response + ')');
-				        	 if(obj.result == 'ok') {
-						         	$("#listPhoto").val(obj.pic);
-						         	$("#titlePicname").html(obj.pic);
-						     	 	$("#titlefilePic").attr("src", "${basePath}" + obj.pic);
-					     		} else {
-				     			 	$.messager.alert("消息提示", response.result, 1);
-				        		}
-			     		}
-				 );
-				CKEDITOR.replace( 'contents' );
-	});
+		});
 	</script>
 </body>
 </html>
