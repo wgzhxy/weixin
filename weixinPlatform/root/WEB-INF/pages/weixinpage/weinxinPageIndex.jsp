@@ -4,22 +4,14 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>微信消息管理</title>
+	<title>微信页面管理</title>
 	<script type="text/javascript"  src="${basePath}/easyUi/js/method.js"></script>
 </head>			
 <body>
 	<div id="tb"  style="padding:6px" title="微信消息筛选" class="easyui-panel"  iconCls="icon-search">
- 			<div id="row"  style="padding: 7px;">
-			    <span style="padding-left: 20px;"><input type="checkBox"/>&nbsp;<a href="#">所有消息</a>&nbsp; </span>
-			    <span style="padding-left: 20px; color: blue;"><input type="checkBox"/>&nbsp;<a href="#">未回复</a>&nbsp; </span>
-			    <span style="padding-left: 20px; color: blue;"><input type="checkBox"/>&nbsp;<a href="#">未读</a>&nbsp; </span>
-			    <span style="padding-left: 20px; color: blue;"><input type="checkBox"/>&nbsp;<a href="#">有备注</a>&nbsp; </span>
-			    <span style="padding-left: 20px; color: blue;"><input type="checkBox"/>&nbsp;<a href="#">已加星</a>&nbsp; </span>
-		    </div>
 		    <div id="row"  style="padding: 7px;">
-				<span style="padding-left: 20px;">用户名称 :&nbsp; </span>
-			    <input  id="pictureName" />
-			    <span style="padding-left: 20px;">内容 :&nbsp; </span>
+		    	<span style="padding-left: 20px;"><input type="checkBox"/>&nbsp;<a href="#">已经发布</a>&nbsp; </span>
+				<span style="padding-left: 20px;">标题 :&nbsp; </span>
 			    <input  id="pictureName" />
 			    <span style="padding-left: 20px;"><a href="#" class="easyui-linkbutton"  onclick="doSearch()">搜索</a></span>
 		    </div>
@@ -95,7 +87,7 @@
 			function doSearch() {
 				var queryParams = $('#dg').datagrid('options').queryParams;
 				queryParams['weixinMessageLogVo.msgClass'] = 0;
-				$('#dg').datagrid("load", "${basePath}/message/msgManagerIndex.do");
+				$('#dg').datagrid("load", "${basePath}/pagePageList.do");
 			};
 			
 			
@@ -103,11 +95,11 @@
 			$(function(){
 				$('#dg').datagrid({
 						idField : "id",
-						title : "微信消息管理",
+						title : "微信页面管理",
 						iconCls: 'icon-reload',
 						nowrap : true,
 						height : 450,
-						url: "${basePath}/message/msgManagerIndex.do?weixinMessageLogVo.msgClass=0",
+						url: "${basePath}/pagePageList.do",
 						striped : true,
 						collapsible : false,
 						remoteSort : false,
