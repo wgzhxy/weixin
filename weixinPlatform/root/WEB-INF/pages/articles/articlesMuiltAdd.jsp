@@ -43,7 +43,7 @@
 			<div id="items">
 			</div>
 			<div class="ftitle" style="text-align: center;">
-				<a href="javascript:additionItemsEvent();" class="easyui-linkbutton">增加一条</a>
+				<a href="javascript:additionItemsEvent();" class="btn btn-success">增加一条</a>
 			</div>
 		</form>
 </div>
@@ -125,7 +125,7 @@ function additionItemsEvent(){
 					'<br />'+
 					'<img  id="indexfilePic'+event_id+'"  alt=""  src=""  width="205"  height="100"  /><br/>'+
 				'</div>'+
-			'</div><button onclick="javascript:removeItemsEvent(items'+event_id+','+event_id+');">删除</button></div>';
+			'</div><div style="text-align: center;"><a class="btn btn-warning" href="javascript:removeItemsEvent(items'+event_id+','+event_id+');">删除</a><div></div>';
 	$("#items").append(str);
 	 fileUpload = new FileParamter();
 	 fileUpload.basePath = '${basePath}';
