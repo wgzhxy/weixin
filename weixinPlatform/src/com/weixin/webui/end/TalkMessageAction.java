@@ -2,11 +2,8 @@ package com.weixin.webui.end;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.annotation.Resource;
-
 import org.apache.commons.lang3.StringUtils;
-
 import com.weixin.comm.ConvertJson;
 import com.weixin.comm.PageInfo;
 import com.weixin.comm.logs.LogUtil;
