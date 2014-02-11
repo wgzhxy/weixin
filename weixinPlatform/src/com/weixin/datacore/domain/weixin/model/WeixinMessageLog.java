@@ -34,6 +34,7 @@ public class WeixinMessageLog implements java.io.Serializable {
 	private String title;
 	private String description;
 	private String url;
+	private Integer msgClass;
 	private String platformTag;
 
 	public WeixinMessageLog() {
@@ -230,6 +231,15 @@ public class WeixinMessageLog implements java.io.Serializable {
 
 	public void setPlatformTag(String platformTag) {
 		this.platformTag = platformTag;
+	}
+	
+	@Column(name = "msg_class", length = 1)
+	public Integer getMsgClass() {
+		return msgClass;
+	}
+
+	public void setMsgClass(Integer msgClass) {
+		this.msgClass = msgClass;
 	}
 
 }
