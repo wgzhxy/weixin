@@ -10,7 +10,8 @@ public class WeixinArticlesForm {
 	private String createTime;
 	private String platformTag;
 	private String updateTime;
-	
+	private String picUrl;
+
 	public WeixinArticlesForm(){}
 
 	public String getId() {
@@ -83,5 +84,12 @@ public class WeixinArticlesForm {
 
 	public void setUpdateTime(String updateTime) {
 		this.updateTime = updateTime;
+	}
+	public String getPicUrl() {
+		return picUrl;
+	}
+
+	public void setPicUrl(String picUrl) {
+		this.picUrl = picUrl;
 	}
 }

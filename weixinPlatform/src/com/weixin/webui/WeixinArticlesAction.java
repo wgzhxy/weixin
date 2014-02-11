@@ -13,7 +13,6 @@ import com.weixin.comm.logs.LogUtil;
 import com.weixin.datacore.domain.weixin.model.WeixinArticles;
 import com.weixin.datacore.domain.weixin.model.WeixinPicture;
 import com.weixin.datacore.service.weixin.WeixinArticlesSrv;
-import com.weixin.datacore.service.weixin.WeixinPictureSrv;
 import com.weixin.webui.form.WeixinArticlesForm;
 import com.weixin.webui.core.BaseAction;
 
@@ -37,7 +36,7 @@ public class WeixinArticlesAction extends BaseAction {
 			Map<String, Object> params = new HashMap<String, Object>();
 			
 			if(StringUtils.isNotEmpty(weixinArticlesForm.getTitle())){
-				params.put("pictureName", weixinArticlesForm.getTitle());
+				params.put("title", weixinArticlesForm.getTitle());
 			}
 			
 			if(StringUtils.isNotEmpty(weixinArticlesForm.getPicType())){
@@ -68,6 +67,7 @@ public class WeixinArticlesAction extends BaseAction {
 					}else{
 						e.setStatus("无效");
 					}
+					e.setUpdateTime(String.valueOf(obj.getUpdateTime()));
 					pictureLs.add(e);
 				}
 				total = pageInfo.getTotalrecond();
@@ -81,7 +81,7 @@ public class WeixinArticlesAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
-
+	
 	/**
 	 * 删除
 	 * 
@@ -89,6 +89,33 @@ public class WeixinArticlesAction extends BaseAction {
 	 */
 	public String articlesRemove() {
 		if(StringUtils.isNotEmpty(id)){
+			WeixinArticles weixinArticles=weixinArticlesSrv.getWeixinArticles(Long.valueOf(id));
+			if(weixinArticles!=null){
+				weixinArticles.setStatus(0);
+				weixinArticlesSrv.updateWeixinArticles(weixinArticles);
+				WeixinArticlesForm e=new WeixinArticlesForm();
+				e.setCreateTime(String.valueOf(weixinArticles.getCreateTime()));
+				e.setDescription(weixinArticles.getDescription());
+				e.setTitle(weixinArticles.getTitle());
+				e.setId(String.valueOf(weixinArticles.getId()));
+				int picType=weixinArticles.getPicType();
+				if(picType==1){
+					e.setPicType("单图文");
+				}else{
+					e.setPicType("多图文");
+				}
+				int status=weixinArticles.getStatus();
+				if(status==1){
+					e.setStatus("有效");
+				}else{
+					e.setStatus("无效");
+				}
+				e.setUpdateTime(String.valueOf(weixinArticles.getUpdateTime()));
+				String jsonStr = ConvertJson.bean2json(e);
+				LogUtil.info(jsonStr);
+				this.writeResult(jsonStr);
+				return null;
+			}
 		}
 		return SUCCESS;
 	}
@@ -99,8 +126,23 @@ public class WeixinArticlesAction extends BaseAction {
 	 * @return
 	 */
 	public String articlesAdd() {
-		WeixinPicture weixinPicture=new WeixinPicture();
+		WeixinArticles weixinArticles=new WeixinArticles();
 		if(weixinArticlesForm!=null){
+			weixinArticles.setCreateTime(DateUtil.getNow());
+			weixinArticles.setDescription(weixinArticlesForm.getDescription());
+			weixinArticles.setUrl(weixinArticlesForm.getUrl());
+			weixinArticles.setPicType(1);
+			weixinArticles.setTitle(weixinArticlesForm.getTitle());
+			weixinArticles.setStatus(1);
+			weixinArticles.setPicUrl(weixinArticlesForm.getPicUrl());
+			weixinArticlesSrv.addWeixinArticles(weixinArticles);
+			
+			weixinArticlesForm.setId(String.valueOf(weixinArticles.getId()));
+			weixinArticlesForm.setStatus("有效");
+			weixinArticlesForm.setPicType("单图文");
+			String jsonStr = ConvertJson.bean2json(weixinArticlesForm);
+			LogUtil.info(jsonStr);
+			this.writeResult(jsonStr);
 			return null;
 		}
 		return SUCCESS;
@@ -112,8 +154,14 @@ public class WeixinArticlesAction extends BaseAction {
 	 * @return
 	 */
 	public String articlesBase() {
-		if (jump.equals("add")) {
-			return "add";
+		if (jump.equals("single")) {
+			return "single";
+		}
+		if (jump.equals("edit")) {
+			return "edit";
+		}
+		if (jump.equals("multi")) {
+			return "multi";
 		}
 		return SUCCESS;
 	}
@@ -125,7 +173,22 @@ public class WeixinArticlesAction extends BaseAction {
 	public void setId(String id) {
 		this.id = id;
 	}
+	
+	public String getJump() {
+		return jump;
+	}
 
+	public void setJump(String jump) {
+		this.jump = jump;
+	}
+
+	public WeixinArticlesForm getWeixinArticlesForm() {
+		return weixinArticlesForm;
+	}
+
+	public void setWeixinArticlesForm(WeixinArticlesForm weixinArticlesForm) {
+		this.weixinArticlesForm = weixinArticlesForm;
+	}
 
 	@Resource(name = "weixinArticlesSrv")
 	private WeixinArticlesSrv weixinArticlesSrv;

@@ -135,6 +135,9 @@ public class WeixinPictureAction extends BaseAction {
 		if (jump.equals("add")) {
 			return "add";
 		}
+		if (jump.equals("alert")) {
+			return "alert";
+		}
 		return SUCCESS;
 	}
 	

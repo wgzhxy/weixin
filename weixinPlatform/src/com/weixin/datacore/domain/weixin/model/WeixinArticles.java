@@ -23,6 +23,7 @@ public class WeixinArticles implements java.io.Serializable {
 	private String title;
 	private String description;
 	private String url;
+	private String picUrl;
 	private int picType;
 	private int status;
 	private Date createTime;
@@ -179,5 +180,13 @@ public class WeixinArticles implements java.io.Serializable {
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
+	
+	@Column(name = "pic_url", length = 200)
+	public String getPicUrl() {
+		return picUrl;
+	}
 
+	public void setPicUrl(String picUrl) {
+		this.picUrl = picUrl;
+	}
 }
