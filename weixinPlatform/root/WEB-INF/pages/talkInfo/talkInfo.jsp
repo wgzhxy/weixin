@@ -71,6 +71,39 @@
 	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-cancel"  onclick="javascript:$('#de').dialog('close')">取消</a>
 	</div>
 	<script type="text/javascript">
+			//编辑
+			function editModule() {
+				var row = $('#dg').datagrid('getSelected');
+				if (row) {
+						if(row.id == '') {
+							$.messager.show({  
+					                title: '警告',  
+					                msg: '所选记录ID为空，不能进行编辑操作!',  
+					                showType: 'slide'  
+			            	});  
+			            	return;
+						}
+						var index = $('#dg').datagrid('getRowIndex', row);
+						$('#de').dialog({
+								href: '${basePath}/system/module/editModulePage.do?moduleForm.id=' + row.id + "&index=" + index ,
+							    title: '编辑权限实体',
+							    closed: false,
+							    iconCls: 'icon-save',
+							    width: 500,
+							    height: 480,
+							    cache: false,
+							    modal: true,
+							    resizable:true
+						});
+				} else {
+					$.messager.show({  
+			                title: '警告',  
+			                msg: '请选择要操作的记录!.',  
+			                timeout: 2000,  
+			                showType: 'slide'  
+		            });  
+				}
+			}
 		    //弹出新增窗口
 			function addModule(){
 					$('#dd').dialog({
@@ -89,16 +122,16 @@
 			function doSearch() {
 				var queryParams = $('#dg').datagrid('options').queryParams;
 				queryParams['weixinMessageLogVo.msgClass'] = 0;
-				queryParams['weixinMessageLogVo.fromUserName'] = '${weixinMessageLogVo.fromUserName}';
-				$('#dg').datagrid("load", "${basePath}/message/msgTalkInfo.do");
+				$('#dg').datagrid("load", "${basePath}/message/msgManagerIndex.do");
 			};
+			
+			
 		
 			$(function(){
 				$('#dg').datagrid({
-						title : "(${weixinMessageLogVo.fromUserName})微信消息管理",
 						nowrap : true,
 						height : 480,
-						url: "${basePath}/message/msgTalkInfo.do?weixinMessageLogVo.msgClass=0&weixinMessageLogVo.fromUserName=${weixinMessageLogVo.fromUserName}",
+						url: "${basePath}/message/msgManagerIndex.do?weixinMessageLogVo.msgClass=0",
 						striped : true,
 						collapsible : false,
 						remoteSort : false,
@@ -107,14 +140,14 @@
 						rownumbers : false,
 						singleSelect: true,
 						columns:[[
-							     {title:'会员',field:'touxiang',width:fixWidth(0.1),rowspan:2,align:'center',
+							     {title:'id',field:'msgId',width:fixWidth(0.1),rowspan:2,align:'center'},
+							     {title:'会员名称',field:'fromUserName',width:fixWidth(0.1),rowspan:2,align:'center',
 								     formatter:function(val,rec){ 
-								    	 return "<a class='' href ='./talk.html'><img style='padding:5px' style='' src='http://www.w3school.com.cn/i/eg_tulip.jpg' alt='" + val + "' width='60px' height='60px'/></a>";
+								    	 return "<a href='http://www.baidu.com'>" + val + "</a>";
 								     }
 							     },
-							     {title:'昵称',field:'fromUserName',width:fixWidth(0.1),rowspan:2,align:'center'},
-							     {title:'信息',field:'content',width:fixWidth(0.3),rowspan:2,align:'center'},
-							     {title:'时间',field:'createTime',width:fixWidth(0.15),rowspan:2,align:'center'},
+							     {title:'消息内容',field:'content',width:fixWidth(0.3),rowspan:2,align:'center'},
+							     {title:'消息时间',field:'createTime',width:fixWidth(0.15),rowspan:2,align:'center'},
 							     {title:'操作',field:'operator',width:fixWidth(0.15),rowspan:2,align:'center',
 							    	 formatter:function(val,rec){ 
 							    		return '<a href="#" id="memo" data-type="text" data-placement="right" data-title="输入备注">备注</a>'+
