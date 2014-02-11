@@ -17,7 +17,8 @@
 		<action name="articles*" class="com.weixin.webui.WeixinArticlesAction" method="articles{1}">
 			<result name="single">/WEB-INF/pages/articles/articlesSingleAdd.jsp</result>
 			<result name="multi">/WEB-INF/pages/articles/articlesMuiltAdd.jsp</result>
-			<result name="edit">/WEB-INF/pages/articles/articlesEdit.jsp</result>
+			<result name="edit-single">/WEB-INF/pages/articles/articlesEdit.jsp</result>
+			<result name="edit_multi">/WEB-INF/pages/articles/articlesEdit.jsp</result>
 			<result name="success">/WEB-INF/pages/articles/articlesList.jsp</result>
 	    </action>
 	    <!-- picture manager end-->

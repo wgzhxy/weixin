@@ -21,6 +21,7 @@ public class WeixinArticlesMulti implements java.io.Serializable {
 	private String title;
 	private String description;
 	private String url;
+	private String picUrl;
 
 	public WeixinArticlesMulti() {
 	}
@@ -78,6 +79,15 @@ public class WeixinArticlesMulti implements java.io.Serializable {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	
+	@Column(name = "pic_url", length = 200)
+	public String getPicUrl() {
+		return picUrl;
+	}
+	
+	public void setPicUrl(String picUrl) {
+		this.picUrl = picUrl;
 	}
 
 }
