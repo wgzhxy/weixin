@@ -47,7 +47,7 @@
 
 							<div class="input-prepend" title="用户密码" data-rel="tooltip">
 								<span class="add-on"><i class="icon-lock"></i></span>
-								<input class="input-large span10" name="sysUserVo.password" id="password" type="password" value="admin123456" />
+								<input class="input-large span10" name="sysUserVo.password" id="password" type="password" value="admin" />
 							</div>
 							<div class="clearfix"></div>
 
