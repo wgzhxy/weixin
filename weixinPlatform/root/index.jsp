@@ -98,8 +98,13 @@
 			</div>
 			<!-- main content end -->
 		</div><!--/fluid-row-->
+		<hr/>
+		<footer>
+			<p class="pull-left">&copy; <a href="" target="_blank">中铁置业</a> 2014</p>
+			<p class="pull-right">Powered by: <a href="">微定制</a></p>
+		</footer>
 		<!-- main end -->	
-	</div><!--/.fluid-container-->
+	</div><!--/.fluid-container-->		
 	<script type="text/javascript">
 		function changePage(url){
 			var oEle = document.getElementById("ifm");

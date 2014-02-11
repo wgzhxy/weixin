@@ -437,3 +437,166 @@
 2014-02-10 13:30:14 Stopping Prototyper thread
 2014-02-10 13:30:14 Stopping HouseKeeper thread
 2014-02-10 13:30:14 Closing Hibernate SessionFactory
+2014-02-11 09:20:50 Root WebApplicationContext: initialization started
+2014-02-11 09:20:50 Refreshing Root WebApplicationContext: startup date [Tue Feb 11 09:20:50 CST 2014]; root of context hierarchy
+2014-02-11 09:20:50 Loading XML bean definitions from URL [file:/F:/gitRepository/remoteGitRepository/weixin/weixinPlatform/build/classes/applicationContext.xml]
+2014-02-11 09:20:51 Loading properties file from class path resource [conf.properties]
+2014-02-11 09:20:51 Loading properties file from class path resource [database.properties]
+2014-02-11 09:20:51 Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@7215fb38: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,commonComponentImpl,hibernateGenericDAO,sysDictionaryDao,sysMenuDao,sysOrgDao,sysPrivilegeDao,sysRoleDao,sysRolePrivilegeDao,sysUserDao,sysUserPrivilegeDao,sysUserRoleDao,weixinArticlesDao,weixinArticlesMultiDao,weixinCommandContentDao,weixinCommandDao,weixinFocusUserDao,weixinMenuItemDao,weixinMessageEventDao,weixinMessageLogDao,weixinPictureDao,weixinUserDao,weixinUserGroupDao,sysDictionarySrv,sysMenuSrv,sysOrgSrv,sysPrivilegeSrv,sysRolePrivilegeSrv,sysRoleSrv,sysUserPrivilegeSrv,sysUserRoleSrv,sysUserSrv,weixinArticlesMultiSrv,weixinArticlesSrv,weixinCommandContentSrv,weixinCommandSrv,weixinFocusUserSrv,weixinMenuItemSrv,weixinMessageEventSrv,weixinMessageLogSrv,weixinPictureSrv,weixinUserGroupSrv,weixinUserSrv,propertyConfigurer,proxoolDataSource,sessionFactory,transactionManager,txAdvice,org.springframework.aop.config.internalAutoProxyCreator,transactionAdvicePointCuts,org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2014-02-11 09:20:52 Building new Hibernate SessionFactory
+2014-02-11 09:20:54 Using DataSource [org.logicalcobwebs.proxool.ProxoolDataSource@24b6a561] of Hibernate SessionFactory for HibernateTransactionManager
+2014-02-11 09:20:54 Root WebApplicationContext: initialization completed in 3922 ms
+2014-02-11 09:20:54 Parsing configuration file [struts-default.xml]
+2014-02-11 09:20:54 Parsing configuration file [struts-plugin.xml]
+2014-02-11 09:20:54 Parsing configuration file [struts.xml]
+2014-02-11 09:20:54 Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+2014-02-11 09:20:54 Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+2014-02-11 09:20:54 Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+2014-02-11 09:20:54 Choosing bean (struts) for (org.apache.struts2.views.freemarker.FreemarkerManager)
+2014-02-11 09:20:54 Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+2014-02-11 09:20:54 Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+2014-02-11 09:20:54 Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+2014-02-11 09:20:54 Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+2014-02-11 09:20:54 Loading global messages from [messageResource]
+2014-02-11 09:20:54 Initializing Struts-Spring integration...
+2014-02-11 09:20:54 Setting autowire strategy to name
+2014-02-11 09:20:54 ... initialized Struts-Spring integration successfully
+2014-02-11 09:43:58 Root WebApplicationContext: initialization started
+2014-02-11 09:43:58 Refreshing Root WebApplicationContext: startup date [Tue Feb 11 09:43:58 CST 2014]; root of context hierarchy
+2014-02-11 09:43:58 Loading XML bean definitions from URL [file:/F:/gitRepository/remoteGitRepository/weixin/weixinPlatform/build/classes/applicationContext.xml]
+2014-02-11 09:43:59 Loading properties file from class path resource [conf.properties]
+2014-02-11 09:43:59 Loading properties file from class path resource [database.properties]
+2014-02-11 09:43:59 Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@120540c: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,commonComponentImpl,hibernateGenericDAO,sysDictionaryDao,sysMenuDao,sysOrgDao,sysPrivilegeDao,sysRoleDao,sysRolePrivilegeDao,sysUserDao,sysUserPrivilegeDao,sysUserRoleDao,weixinArticlesDao,weixinArticlesMultiDao,weixinCommandContentDao,weixinCommandDao,weixinFocusUserDao,weixinMenuItemDao,weixinMessageEventDao,weixinMessageLogDao,weixinPictureDao,weixinUserDao,weixinUserGroupDao,sysDictionarySrv,sysMenuSrv,sysOrgSrv,sysPrivilegeSrv,sysRolePrivilegeSrv,sysRoleSrv,sysUserPrivilegeSrv,sysUserRoleSrv,sysUserSrv,weixinArticlesMultiSrv,weixinArticlesSrv,weixinCommandContentSrv,weixinCommandSrv,weixinFocusUserSrv,weixinMenuItemSrv,weixinMessageEventSrv,weixinMessageLogSrv,weixinPictureSrv,weixinUserGroupSrv,weixinUserSrv,propertyConfigurer,proxoolDataSource,sessionFactory,transactionManager,txAdvice,org.springframework.aop.config.internalAutoProxyCreator,transactionAdvicePointCuts,org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2014-02-11 09:44:00 Building new Hibernate SessionFactory
+2014-02-11 09:44:02 Using DataSource [org.logicalcobwebs.proxool.ProxoolDataSource@a0405f6] of Hibernate SessionFactory for HibernateTransactionManager
+2014-02-11 09:44:02 Root WebApplicationContext: initialization completed in 3969 ms
+2014-02-11 09:44:02 Parsing configuration file [struts-default.xml]
+2014-02-11 09:44:02 Parsing configuration file [struts-plugin.xml]
+2014-02-11 09:44:03 Parsing configuration file [struts.xml]
+2014-02-11 09:44:03 Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+2014-02-11 09:44:03 Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+2014-02-11 09:44:03 Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+2014-02-11 09:44:03 Choosing bean (struts) for (org.apache.struts2.views.freemarker.FreemarkerManager)
+2014-02-11 09:44:03 Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+2014-02-11 09:44:03 Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+2014-02-11 09:44:03 Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+2014-02-11 09:44:03 Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+2014-02-11 09:44:03 Loading global messages from [messageResource]
+2014-02-11 09:44:03 Initializing Struts-Spring integration...
+2014-02-11 09:44:03 Setting autowire strategy to name
+2014-02-11 09:44:03 ... initialized Struts-Spring integration successfully
+2014-02-11 09:44:30 admin
+2014-02-11 09:44:30 admin
+2014-02-11 09:45:00 Unable to find 'struts.multipart.saveDir' property setting. Defaulting to javax.servlet.context.tempdir
+2014-02-11 09:45:08 {"total":"8","rows":[{"createTime":"2014-02-11 09:27:13.0","id":"11","modifyTime":"null","pictureName":"ff","pictureUrl":"\/bigboss\/forumPic\/503d3e748a654361b10577c0de473062.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:18:27.0","id":"10","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:18:25.0","id":"9","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-10 14:20:57.0","id":"8","modifyTime":"null","pictureName":"fsdfsd","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-10 14:13:51.0","id":"6","modifyTime":"null","pictureName":"fdsfds","pictureUrl":"\/bigboss\/forumPic\/fbff6641ecc3413593f880771c5a83aa.JPG","platformTag":"","state":"有效"},{"createTime":"2014-02-10 13:56:03.0","id":"5","modifyTime":"null","pictureName":"ffffff","pictureUrl":"\/bigboss\/forumPic\/dde084f58c2f4184bdd7abda8e4c7217.JPG","platformTag":"","state":"有效"},{"createTime":"2014-02-10 13:30:14.0","id":"2","modifyTime":"null","pictureName":"ffff","pictureUrl":"test","platformTag":"","state":"有效"},{"createTime":"2014-02-10 11:04:24.0","id":"1","modifyTime":"null","pictureName":"11","pictureUrl":"21","platformTag":"","state":"有效"}]}
+2014-02-11 09:45:23 {"total":"8","rows":[{"createTime":"2014-02-11 09:27:13.0","id":"11","modifyTime":"null","pictureName":"ff","pictureUrl":"\/bigboss\/forumPic\/503d3e748a654361b10577c0de473062.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:18:27.0","id":"10","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:18:25.0","id":"9","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-10 14:20:57.0","id":"8","modifyTime":"null","pictureName":"fsdfsd","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-10 14:13:51.0","id":"6","modifyTime":"null","pictureName":"fdsfds","pictureUrl":"\/bigboss\/forumPic\/fbff6641ecc3413593f880771c5a83aa.JPG","platformTag":"","state":"有效"},{"createTime":"2014-02-10 13:56:03.0","id":"5","modifyTime":"null","pictureName":"ffffff","pictureUrl":"\/bigboss\/forumPic\/dde084f58c2f4184bdd7abda8e4c7217.JPG","platformTag":"","state":"有效"},{"createTime":"2014-02-10 13:30:14.0","id":"2","modifyTime":"null","pictureName":"ffff","pictureUrl":"test","platformTag":"","state":"有效"},{"createTime":"2014-02-10 11:04:24.0","id":"1","modifyTime":"null","pictureName":"11","pictureUrl":"21","platformTag":"","state":"有效"}]}
+2014-02-11 09:45:28 {"total":"8","rows":[{"createTime":"2014-02-11 09:27:13.0","id":"11","modifyTime":"null","pictureName":"ff","pictureUrl":"\/bigboss\/forumPic\/503d3e748a654361b10577c0de473062.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:18:27.0","id":"10","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:18:25.0","id":"9","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-10 14:20:57.0","id":"8","modifyTime":"null","pictureName":"fsdfsd","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-10 14:13:51.0","id":"6","modifyTime":"null","pictureName":"fdsfds","pictureUrl":"\/bigboss\/forumPic\/fbff6641ecc3413593f880771c5a83aa.JPG","platformTag":"","state":"有效"},{"createTime":"2014-02-10 13:56:03.0","id":"5","modifyTime":"null","pictureName":"ffffff","pictureUrl":"\/bigboss\/forumPic\/dde084f58c2f4184bdd7abda8e4c7217.JPG","platformTag":"","state":"有效"},{"createTime":"2014-02-10 13:30:14.0","id":"2","modifyTime":"null","pictureName":"ffff","pictureUrl":"test","platformTag":"","state":"有效"},{"createTime":"2014-02-10 11:04:24.0","id":"1","modifyTime":"null","pictureName":"11","pictureUrl":"21","platformTag":"","state":"有效"}]}
+2014-02-11 09:45:51 {"total":"3","rows":[{"createTime":"2014-02-10 14:15:16.0","id":"7","modifyTime":"null","pictureName":"fdsfsd","pictureUrl":"\/bigboss\/forumPic\/63342331cb034ec186008781d4d0bbb5.JPG","platformTag":"","state":"无效"},{"createTime":"2014-02-10 13:54:22.0","id":"4","modifyTime":"null","pictureName":"fdsfd","pictureUrl":"\/bigboss\/forumPic\/af83140852ae48d2a77e1f3d65fbc0cb.jpg","platformTag":"","state":"无效"},{"createTime":"2014-02-10 13:36:24.0","id":"3","modifyTime":"null","pictureName":"fsfds","pictureUrl":"\/bigboss\/forumPic\/441c5a8f71f24d728d585ed6b8782647.jpg","platformTag":"","state":"无效"}]}
+2014-02-11 09:45:56 {"total":"8","rows":[{"createTime":"2014-02-11 09:27:13.0","id":"11","modifyTime":"null","pictureName":"ff","pictureUrl":"\/bigboss\/forumPic\/503d3e748a654361b10577c0de473062.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:18:27.0","id":"10","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:18:25.0","id":"9","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-10 14:20:57.0","id":"8","modifyTime":"null","pictureName":"fsdfsd","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-10 14:13:51.0","id":"6","modifyTime":"null","pictureName":"fdsfds","pictureUrl":"\/bigboss\/forumPic\/fbff6641ecc3413593f880771c5a83aa.JPG","platformTag":"","state":"有效"},{"createTime":"2014-02-10 13:56:03.0","id":"5","modifyTime":"null","pictureName":"ffffff","pictureUrl":"\/bigboss\/forumPic\/dde084f58c2f4184bdd7abda8e4c7217.JPG","platformTag":"","state":"有效"},{"createTime":"2014-02-10 13:30:14.0","id":"2","modifyTime":"null","pictureName":"ffff","pictureUrl":"test","platformTag":"","state":"有效"},{"createTime":"2014-02-10 11:04:24.0","id":"1","modifyTime":"null","pictureName":"11","pictureUrl":"21","platformTag":"","state":"有效"}]}
+2014-02-11 09:46:09 {"total":"10","rows":[{"createTime":"2014-02-11 09:46:06.0","id":"13","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/503d3e748a654361b10577c0de473062.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:46:05.0","id":"12","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/503d3e748a654361b10577c0de473062.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:27:13.0","id":"11","modifyTime":"null","pictureName":"ff","pictureUrl":"\/bigboss\/forumPic\/503d3e748a654361b10577c0de473062.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:18:27.0","id":"10","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:18:25.0","id":"9","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-10 14:20:57.0","id":"8","modifyTime":"null","pictureName":"fsdfsd","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-10 14:13:51.0","id":"6","modifyTime":"null","pictureName":"fdsfds","pictureUrl":"\/bigboss\/forumPic\/fbff6641ecc3413593f880771c5a83aa.JPG","platformTag":"","state":"有效"},{"createTime":"2014-02-10 13:56:03.0","id":"5","modifyTime":"null","pictureName":"ffffff","pictureUrl":"\/bigboss\/forumPic\/dde084f58c2f4184bdd7abda8e4c7217.JPG","platformTag":"","state":"有效"},{"createTime":"2014-02-10 13:30:14.0","id":"2","modifyTime":"null","pictureName":"ffff","pictureUrl":"test","platformTag":"","state":"有效"},{"createTime":"2014-02-10 11:04:24.0","id":"1","modifyTime":"null","pictureName":"11","pictureUrl":"21","platformTag":"","state":"有效"}]}
+2014-02-11 09:46:12 {"total":"10","rows":[{"createTime":"2014-02-11 09:46:06.0","id":"13","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/503d3e748a654361b10577c0de473062.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:46:05.0","id":"12","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/503d3e748a654361b10577c0de473062.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:27:13.0","id":"11","modifyTime":"null","pictureName":"ff","pictureUrl":"\/bigboss\/forumPic\/503d3e748a654361b10577c0de473062.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:18:27.0","id":"10","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:18:25.0","id":"9","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-10 14:20:57.0","id":"8","modifyTime":"null","pictureName":"fsdfsd","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-10 14:13:51.0","id":"6","modifyTime":"null","pictureName":"fdsfds","pictureUrl":"\/bigboss\/forumPic\/fbff6641ecc3413593f880771c5a83aa.JPG","platformTag":"","state":"有效"},{"createTime":"2014-02-10 13:56:03.0","id":"5","modifyTime":"null","pictureName":"ffffff","pictureUrl":"\/bigboss\/forumPic\/dde084f58c2f4184bdd7abda8e4c7217.JPG","platformTag":"","state":"有效"},{"createTime":"2014-02-10 13:30:14.0","id":"2","modifyTime":"null","pictureName":"ffff","pictureUrl":"test","platformTag":"","state":"有效"},{"createTime":"2014-02-10 11:04:24.0","id":"1","modifyTime":"null","pictureName":"11","pictureUrl":"21","platformTag":"","state":"有效"}]}
+2014-02-11 09:46:48 {"total":"10","rows":[{"createTime":"2014-02-11 09:46:06.0","id":"13","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/503d3e748a654361b10577c0de473062.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:46:05.0","id":"12","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/503d3e748a654361b10577c0de473062.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:27:13.0","id":"11","modifyTime":"null","pictureName":"ff","pictureUrl":"\/bigboss\/forumPic\/503d3e748a654361b10577c0de473062.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:18:27.0","id":"10","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-11 09:18:25.0","id":"9","modifyTime":"null","pictureName":"","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-10 14:20:57.0","id":"8","modifyTime":"null","pictureName":"fsdfsd","pictureUrl":"\/bigboss\/forumPic\/d8de2eb3eda74be5abe336a1cb8e80e0.jpg","platformTag":"","state":"有效"},{"createTime":"2014-02-10 14:13:51.0","id":"6","modifyTime":"null","pictureName":"fdsfds","pictureUrl":"\/bigboss\/forumPic\/fbff6641ecc3413593f880771c5a83aa.JPG","platformTag":"","state":"有效"},{"createTime":"2014-02-10 13:56:03.0","id":"5","modifyTime":"null","pictureName":"ffffff","pictureUrl":"\/bigboss\/forumPic\/dde084f58c2f4184bdd7abda8e4c7217.JPG","platformTag":"","state":"有效"},{"createTime":"2014-02-10 13:30:14.0","id":"2","modifyTime":"null","pictureName":"ffff","pictureUrl":"test","platformTag":"","state":"有效"},{"createTime":"2014-02-10 11:04:24.0","id":"1","modifyTime":"null","pictureName":"11","pictureUrl":"21","platformTag":"","state":"有效"}]}
+2014-02-11 09:47:12 admin
+2014-02-11 09:47:12 admin
+2014-02-11 09:55:09 Root WebApplicationContext: initialization started
+2014-02-11 09:55:09 Refreshing Root WebApplicationContext: startup date [Tue Feb 11 09:55:09 CST 2014]; root of context hierarchy
+2014-02-11 09:55:09 Loading XML bean definitions from URL [file:/F:/gitRepository/remoteGitRepository/weixin/weixinPlatform/build/classes/applicationContext.xml]
+2014-02-11 09:55:10 Loading properties file from class path resource [conf.properties]
+2014-02-11 09:55:10 Loading properties file from class path resource [database.properties]
+2014-02-11 09:55:10 Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5da5e65f: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,commonComponentImpl,hibernateGenericDAO,sysDictionaryDao,sysMenuDao,sysOrgDao,sysPrivilegeDao,sysRoleDao,sysRolePrivilegeDao,sysUserDao,sysUserPrivilegeDao,sysUserRoleDao,weixinArticlesDao,weixinArticlesMultiDao,weixinCommandContentDao,weixinCommandDao,weixinFocusUserDao,weixinMenuItemDao,weixinMessageEventDao,weixinMessageLogDao,weixinPictureDao,weixinUserDao,weixinUserGroupDao,sysDictionarySrv,sysMenuSrv,sysOrgSrv,sysPrivilegeSrv,sysRolePrivilegeSrv,sysRoleSrv,sysUserPrivilegeSrv,sysUserRoleSrv,sysUserSrv,weixinArticlesMultiSrv,weixinArticlesSrv,weixinCommandContentSrv,weixinCommandSrv,weixinFocusUserSrv,weixinMenuItemSrv,weixinMessageEventSrv,weixinMessageLogSrv,weixinPictureSrv,weixinUserGroupSrv,weixinUserSrv,propertyConfigurer,proxoolDataSource,sessionFactory,transactionManager,txAdvice,org.springframework.aop.config.internalAutoProxyCreator,transactionAdvicePointCuts,org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2014-02-11 09:55:11 Building new Hibernate SessionFactory
+2014-02-11 09:55:14 Using DataSource [org.logicalcobwebs.proxool.ProxoolDataSource@5952e9a8] of Hibernate SessionFactory for HibernateTransactionManager
+2014-02-11 09:55:14 Root WebApplicationContext: initialization completed in 4811 ms
+2014-02-11 09:55:14 Parsing configuration file [struts-default.xml]
+2014-02-11 09:55:14 Parsing configuration file [struts-plugin.xml]
+2014-02-11 09:55:14 Parsing configuration file [struts.xml]
+2014-02-11 09:55:14 Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+2014-02-11 09:55:14 Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+2014-02-11 09:55:14 Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+2014-02-11 09:55:14 Choosing bean (struts) for (org.apache.struts2.views.freemarker.FreemarkerManager)
+2014-02-11 09:55:14 Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+2014-02-11 09:55:14 Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+2014-02-11 09:55:14 Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+2014-02-11 09:55:14 Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+2014-02-11 09:55:14 Loading global messages from [messageResource]
+2014-02-11 09:55:14 Initializing Struts-Spring integration...
+2014-02-11 09:55:14 Setting autowire strategy to name
+2014-02-11 09:55:14 ... initialized Struts-Spring integration successfully
+2014-02-11 10:09:41 admin
+2014-02-11 10:09:41 admin
+2014-02-11 10:10:36 admin
+2014-02-11 10:10:36 admin
+2014-02-11 10:11:52 admin
+2014-02-11 10:11:52 admin
+2014-02-11 10:12:56 admin
+2014-02-11 10:12:56 admin
+2014-02-11 10:14:30 admin
+2014-02-11 10:14:30 admin
+2014-02-11 10:14:57 admin
+2014-02-11 10:14:57 admin

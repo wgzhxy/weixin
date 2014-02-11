@@ -5,7 +5,7 @@
 <struts>
 	<package name="ngboss-message" extends="app-default" namespace="/message">
 		<action name="msg*" class="com.weixin.webui.end.TalkMessageAction" method="{1}">
-	    	<result name="input">/WEB-INF/pages/talkInfo/moduleList.jsp</result>
+	    	<result name="input">/WEB-INF/pages/talkInfo/messageIndex.jsp</result>
 	    </action>
 	</package>
 </struts>

@@ -4,42 +4,42 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>权限实体管理</title>
+	<title>微信消息管理</title>
 	<script type="text/javascript"  src="${basePath}/easyUi/js/jquery.edatagrid.js"></script>
-</head>
+</head>			
 <body>
-	<div id="tb"  style="padding:6px" title=" 查询条件" class="easyui-panel"  iconCls="icon-search">
+	<div id="tb"  style="padding:6px" title="微信消息筛选" class="easyui-panel"  iconCls="icon-search">
  			<div id="row"  style="padding: 7px;">
-			    <span style="padding-left: 20px;">权限实体名称 :&nbsp; </span>
-			    <input  id="name" />
-			    <span style="padding-left: 20px;">权限模型描述 :&nbsp; </span>
-			    <input  id="description"/>
-			    <span style="padding-left: 20px;"><a href="#" class="easyui-linkbutton"  onclick="doSearch()">开始查询</a></span>
+			    <span style="padding-left: 20px;"><a href="#"><font color="blue">所有消息</font></a>&nbsp; </span>
+			    <span style="padding-left: 20px; color: blue;"><a href="#"><font color="blue">未回复</font></a>&nbsp; </span>
+			    <span style="padding-left: 20px; color: blue;"><a href="#"><font color="blue">未读</font></a>&nbsp; </span>
+			    <span style="padding-left: 20px; color: blue;"><a href="#"><font color="blue">有备注</font></a>&nbsp; </span>
+			    <span style="padding-left: 20px; color: blue;"><a href="#"><font color="blue">已加星</font></a>&nbsp; </span>
+		    </div>
+		    <div id="row"  style="padding: 7px;">
+				<span style="padding-left: 20px;">用户名称 :&nbsp; </span>
+			    <input  id="pictureName" />
+			    <span style="padding-left: 20px;">内容 :&nbsp; </span>
+			    <input  id="pictureName" />
+			    <span style="padding-left: 20px;"><a href="#" class="easyui-linkbutton"  onclick="doSearch()">搜索</a></span>
 		    </div>
 	</div>
 	<p></p>
 	
-	<table id="dg" title="权限实体管理" class="easyui-datagrid"  url="${basePath}/system/module/listModules.do"  style="width: 100%; height: 380px"  idField="id"
-			   toolbar="#toolbar"  rownumbers="false"  fitColumns="true"  pagination="true"  pagePosition = "bottom"  iconCls="icon-reload"
-			   singleSelect="false">
+	<table id="dg" title="微信消息管理" class="easyui-datagrid"  url="${basePath}/system/module/listModules.do"  style="width: 100%; height: 380px"  idField="id"
+		   rownumbers="false"  fitColumns="true"  pagination="true"  pagePosition = "bottom"  iconCls="icon-reload"
+		   singleSelect="false">
 		<thead>
 			<tr>
 				<th field="ck"  checkbox="true" ></th>
 				<th field="id"  width="10%"  align="center"  height="30px">ID</th>
-				<th field="name"  width="20%"  align="center">权限实体名称</th>
-				<th field="patternUrl"  width="20%"  align="left">权限匹配</th>
-				<th field="description"  width="20%"  align="left">描述</th>
-				<th field="updateDate"  width="15%"  align="center">更新时间</th>
-				<th field="createDate"  width="15%"  align="center">创建时间</th>
+				<th field="name"  width="20%"  align="center">会员名称</th>
+				<th field="patternUrl"  width="40%"  align="center">消息内容</th>
+				<th field="updateDate"  width="15%"  align="center">消息时间</th>
+				<th field="createDate"  width="15%"  align="center">操作</th>
 			</tr>
 		</thead>
 	</table>
-	<div id="toolbar" >
-    	<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true"  onclick="addModule();">新增</a>
-    	<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true"  onclick="javascript:$('#dg').edatagrid('destroyRow')">删除</a>
-    	<a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true"  onclick="editModule();">编辑</a>
-	</div>
-	
 	<!-- 新增 -->
 	<div id="dd"  class="easyui-dialog"  style="padding:10px 30px"  closed="true"   title="系统菜单新增"  buttons="#dlg-buttons" >
 	</div>
@@ -54,26 +54,6 @@
 	<div id="dlg-buttons_edit"  style="text-align: right;">
 	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-ok"  onclick="saveEdit();">提交</a>
 	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-cancel"  onclick="javascript:$('#de').dialog('close')">取消</a>
-	</div>
-	<div class="fitem">
-		<label>版块首页切图:</label>
-		<div style="padding-left: 205px;">
-			<input type="file"  id="indexfile"   class="easyui-validatebox"  />
-			<input type="hidden"  id="photo"  value="<c:if test="${cmsForum != null}">${cmsForum.photo}</c:if>"  name="cmsForumForm.photo"   />
-			<br />
-			<img  id="indexfilePic"  alt=""  src="${basePath}/${cmsForum.photo}"  width="205"  height="100"  /><br/>
-			<span id = "indexPicname"></span>
-		</div>
-	</div>
-	<div class="fitem">
-		<label>版块标题图片:</label>
-		<div style="padding-left: 205px;">
-			<input type="file"  id="titlefile"  class="easyui-validatebox"   />
-			<input type="hidden"   id="listPhoto"   value="<c:if test="${cmsForum != null}">${cmsForum.listPhoto}</c:if>"   name="cmsForumForm.listPhoto"   />
-			<br />
-			<img  id="titlefilePic"  alt=""  src="${basePath}/${cmsForum.photo}"   width="205"  height="100" /><br/>
-			<span id = "titlePicname"></span>
-		</div>
 	</div>
 	<script type="text/javascript">
 			//编辑
@@ -151,7 +131,7 @@
 				
 				$('#dg').datagrid({
 							nowrap : false,
-							height : 380,
+							height : 480,
 							striped : true,
 							collapsible : false,
 							remoteSort : false,
