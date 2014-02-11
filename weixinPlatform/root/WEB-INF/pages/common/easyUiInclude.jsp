@@ -6,6 +6,7 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <link rel="stylesheet"  type="text/css"  href="${basePath}/easyUi/css/default.css" />
+<link id="bs-css" href="${basePath}/css/bootstrap-cerulean.css" rel="stylesheet">
 <link rel="stylesheet"  type="text/css"  href="${basePath}/easyUi/js/themes/bootstrap/easyui.css" />
 <link rel="stylesheet"  type="text/css"  href="${basePath}/easyUi/js/themes/icon.css" />
 <script type="text/javascript"  src="${basePath}/easyUi/js/jquery-1.4.2.min.js"></script>
