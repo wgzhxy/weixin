@@ -54,11 +54,29 @@ public class SysMenuSrvImpl extends ServiceSrvImpl implements SysMenuSrv {
 	}
 	
 	public PageInfo<SysMenu> findSysMenuList(Map<String, Object> params, int pageNo, int pageSize) {
-		 return null;
+		StringBuffer hql = new StringBuffer("from SysMenu c where 1=1 ");
+		StringBuffer hqlCount = new StringBuffer("select count(c.id) from SysMenu c where 1=1 ");
+		String orderBy = " order by c.menuOrder asc";
+		if(params != null && params.size() > 0) {
+			for(Map.Entry<String, Object> entry : params.entrySet()) {
+				String key = entry.getKey();
+				hql.append(" and c." + key + " =:" + key);
+				hqlCount.append(" and c." + key + " =:" + key);
+			}
+		}
+		return sysMenuDao.findPageInfoByQuery(pageNo, pageSize, hql.toString() + orderBy, hqlCount.toString(), params);
 	}
 	
 	public PageInfo<SysMenu> findSysMenuList(Object[] params, int pageNo, int pageSize) {
-		 return null;
+		String hql = "from SysMenu c where 1=1 ";
+		String hqlCount = "select count(c.id) from SysMenu c where 1=1 ";
+		String orderBy = " order by c.menuOrder asc";
+		StringBuffer where = new StringBuffer();
+		List<Object> values = new ArrayList<Object>();
+		if(params != null && params.length > 0) {
+			
+		}
+		return sysMenuDao.findPageInfoByQuery(pageNo, pageSize, hql + orderBy, hqlCount + orderBy, params);
 	}
 	
 	public SysMenu getSysMenu(Long id) {

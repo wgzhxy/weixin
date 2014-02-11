@@ -72,7 +72,7 @@
 				<div class="well nav-collapse sidebar-nav" id="leftMenu">
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li class="nav-header hidden-tablet">菜单列表</li>
-						<li><a class="ajax-link" href="javascript:changePage('index.jsp');"><i class="icon-home"></i><span class="hidden-tablet">微信概况</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('${basePath}/message/msgManagerIndex.do');"><i class="icon-home"></i><span class="hidden-tablet">微信概况</span></a></li>
 						<li><a class="ajax-link" href="javascript:changePage('ui.jsp');"><i class="icon-eye-open"></i><span class="hidden-tablet">微信实时消息</span><span class="badge">23</span></a></li>
 						<li><a class="ajax-link" href="javascript:changePage('menuAdd.jsp');"><i class="icon-edit"></i><span class="hidden-tablet">微信群发</span></a></li>
 						<li><a class="ajax-link" href="javascript:changePage('chart.jsp');"><i class="icon-list-alt"></i><span class="hidden-tablet">历史消息</span></a></li>
@@ -90,8 +90,13 @@
 			</div>
 			<!-- main content end -->
 		</div><!--/fluid-row-->
+		<hr/>
+		<footer>
+			<p class="pull-left">&copy; <a href="" target="_blank">中铁置业</a> 2014</p>
+			<p class="pull-right">Powered by: <a href="">微定制</a></p>
+		</footer>
 		<!-- main end -->	
-	</div><!--/.fluid-container-->
+	</div><!--/.fluid-container-->		
 	<script type="text/javascript">
 		function changePage(url){
 			var oEle = document.getElementById("ifm");
@@ -109,7 +114,7 @@
 					var newMenu = "<ul class=\"nav nav-tabs nav-stacked main-menu\"><li class=\"nav-header hidden-tablet\">菜单列表</li>";
 					var dataObj=eval("("+data+")");
 					for(var i=0; i<dataObj.length; i++) {
-						newMenu += "<li><a class=\"ajax-link\" href=\"javascript:changePage('" + dataObj[i].url + "');\"><i class=\""+dataObj[i].iconCls+"\"></i><span class=\"hidden-tablet\">" + dataObj[i].text + "</span></a></li>";
+						newMenu += "<li><a class=\"ajax-link\" href=\"javascript:changePage('${basePath}" + dataObj[i].url + "');\"><i class=\""+dataObj[i].iconCls+"\"></i><span class=\"hidden-tablet\">" + dataObj[i].text + "</span></a></li>";
 					}
 					newMenu += "</ul>";
 					$("#leftMenu").html(newMenu);

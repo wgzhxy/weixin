@@ -40,23 +40,26 @@
 					</div>
 					<form class="form-horizontal" action="${basePath}/indexLogin.do" method="post">
 						<fieldset>
-							<div class="input-prepend" title="Username" data-rel="tooltip">
+							<div class="input-prepend" title="用户帐号" data-rel="tooltip">
 								<span class="add-on"><i class="icon-user"></i></span><input autofocus class="input-large span10" name="sysUserVo.userName" id="userName" type="text" value="admin" />
 							</div>
 							<div class="clearfix"></div>
 
-							<div class="input-prepend" title="Password" data-rel="tooltip">
-								<span class="add-on"><i class="icon-lock"></i></span><input class="input-large span10" name="sysUserVo.password" id="password" type="password" value="admin123456" />
+							<div class="input-prepend" title="用户密码" data-rel="tooltip">
+								<span class="add-on"><i class="icon-lock"></i></span>
+								<input class="input-large span10" name="sysUserVo.password" id="password" type="password" value="admin" />
 							</div>
 							<div class="clearfix"></div>
 
 							<div class="input-prepend">
-							<label class="remember" for="remember"><input type="checkbox" name="sysUserVo.remember" id="remember" />记住我...</label>
+							<label class="remember" for="remember">
+							<input type="checkbox" name="sysUserVo.remember" id="remember" />记住我...</label>
 							</div>
 							<div class="clearfix"></div>
 
 							<p class="center span5">
-							<button type="submit" class="btn btn-primary">Login</button>
+								<button type="submit" class="btn btn-primary">Login</button>
+								<p><span id="tips" style="color: red">${tips}</span></p>
 							</p>
 						</fieldset>
 					</form>

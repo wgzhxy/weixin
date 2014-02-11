@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="picture" extends="app-default" namespace="/picture">
+		  <!-- picture manager start-->
+		<action name="picture*" class="com.weixin.webui.WeixinPictureAction" method="picture{1}">
+			<result name="add">/WEB-INF/pages/picture/pictureAdd.jsp</result>
+			<result name="success">/WEB-INF/pages/picture/pictureList.jsp</result>
+			<result name="alert">/WEB-INF/pages/picture/pictureAlert.jsp</result>
+	    </action>
+	    <!-- picture manager end-->
+	</package>
+	<package name="articles" extends="app-default" namespace="/articles">
+		  <!-- picture manager start-->
+		<action name="articles*" class="com.weixin.webui.WeixinArticlesAction" method="articles{1}">
+			<result name="single">/WEB-INF/pages/articles/articlesSingleAdd.jsp</result>
+			<result name="multi">/WEB-INF/pages/articles/articlesMuiltAdd.jsp</result>
+			<result name="edit">/WEB-INF/pages/articles/articlesEdit.jsp</result>
+			<result name="success">/WEB-INF/pages/articles/articlesList.jsp</result>
+	    </action>
+	    <!-- picture manager end-->
+	</package>
+</struts>

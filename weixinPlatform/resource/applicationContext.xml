@@ -92,9 +92,9 @@
 			<tx:method name="*" propagation="REQUIRED" rollback-for="Exception" />
 		</tx:attributes>
 	</tx:advice>
-
+	
 	<aop:config>
-		<aop:pointcut id="transactionAdvicePointCuts" expression="execution(* cn.easytom.boss.datacore.service.wechat.*..*(..))" />
+		<aop:pointcut id="transactionAdvicePointCuts" expression="execution(* com.weixin.datacore.service.*..*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="transactionAdvicePointCuts" order="3" />
 	</aop:config>
 

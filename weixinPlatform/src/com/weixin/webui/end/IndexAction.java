@@ -14,9 +14,11 @@ import org.hibernate.envers.Audited;
 import com.weixin.comm.ConvertJson;
 import com.weixin.comm.logs.LogUtil;
 import com.weixin.datacore.domain.sys.model.SysMenu;
+import com.weixin.datacore.domain.sys.model.SysUser;
 import com.weixin.datacore.domain.sys.vo.SysUserVo;
 import com.weixin.datacore.domain.sys.vo.TreeNode;
 import com.weixin.datacore.service.sys.SysMenuSrv;
+import com.weixin.datacore.service.sys.SysUserSrv;
 import com.weixin.webui.core.BaseAction;
 
 @SuppressWarnings("serial")
@@ -26,9 +28,15 @@ public class IndexAction extends BaseAction {
 		if(sysUserVo != null) {
 			LogUtil.info(sysUserVo.getUserName());
 			LogUtil.info(sysUserVo.getPassword());
-			List<SysMenu> menuParent = sysMenuSrv.getParentMenu();
-			this.setRequestAttribute("menuParent", menuParent);
-			return "index";
+			SysUser user = new SysUser();
+			user.setUserName(sysUserVo.getUserName());
+			user.setPassword(sysUserVo.getPassword());
+			tips = sysUserSrv.checkSysUser(user);
+			if(StringUtils.equals("ok", tips)) {
+				List<SysMenu> menuParent = sysMenuSrv.getParentMenu();
+				this.setRequestAttribute("menuParent", menuParent);
+				return "index";
+			}
 		}
 		return "login";
 	}
@@ -81,6 +89,9 @@ public class IndexAction extends BaseAction {
 	
 	@Resource(name="sysMenuSrv")
 	private SysMenuSrv sysMenuSrv;
+	
+	@Resource(name="sysUserSrv")
+	private SysUserSrv sysUserSrv;
 	
 	private SysUserVo sysUserVo;
 
