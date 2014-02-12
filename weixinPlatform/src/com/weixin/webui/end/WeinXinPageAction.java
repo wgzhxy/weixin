@@ -1,44 +1,124 @@
 package com.weixin.webui.end;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.weixin.comm.ConvertJson;
+import com.weixin.comm.PageInfo;
+import com.weixin.comm.Uuid;
+import com.weixin.comm.logs.LogUtil;
+import com.weixin.datacore.domain.weixin.model.WeixinPageClass;
+import com.weixin.datacore.domain.weixin.vo.WeixinPageClassVo;
+import com.weixin.datacore.service.weixin.WeixinPageClassSrv;
 import com.weixin.webui.core.BaseAction;
 
 /**
  * 微信页面管理
+ * 
  * @author wang.g.z
- *
+ * 
  */
 @SuppressWarnings("serial")
 public class WeinXinPageAction extends BaseAction {
-	
+
 	public String PageList() {
 		return "index";
 	}
-	
+
 	public String PageAdd() {
 		return "add";
 	}
-	
+
 	public String PageEdit() {
 		return "edit";
 	}
-	
+
 	public String PageSave() {
 		return "save";
 	}
-	
+
 	public String PageClassList() {
+		if (weixinPageClassVo != null) {
+			Map<String, Object> params = new HashMap<String, Object>();
+			PageInfo<WeixinPageClass> pageInfo = weixinPageClassSrv
+					.findWeixinPageClassList(params, this.page, this.rows);
+
+			params.clear();
+			if (pageInfo != null) {
+				params.put("total", pageInfo.getTotalrecond());
+				params.put("rows", pageInfo.getResultlist());
+			} else {
+				params.put("total", 0);
+				params.put("rows", null);
+			}
+			String jsonStr = ConvertJson.map2json(params);
+			LogUtil.info(jsonStr);
+			this.writeResult(jsonStr);
+			return null;
+		}
 		return "list";
 	}
-	
-	public String PageClassAdd() {
-		return "classAdd";
+
+	public String PageClassDelete() {
+		LogUtil.info("PageClassDelete!");
+		String sysId = this.getRequestParameter("id");
+		if (StringUtils.isNotEmpty(sysId)) {
+			weixinPageClassSrv.deleWeixinPageClass(sysId);
+		}
+		return null;
 	}
-	
-	public String PageClassEdit() {
-		return "classEdit";
-	}
-	
+
+	@SuppressWarnings("unused")
 	public String PageClassSave() {
-		return "classSave";
+		WeixinPageClass obj = null;
+		String className = this.getRequestParameter("className");
+		String type = this.getRequestParameter("type");
+		String classDesc = this.getRequestParameter("classDesc");
+		String id = this.getRequestParameter("id");
+		String isNewRecord = this.getRequestParameter("isNewRecord");
+		if (!StringUtils.equals("true", isNewRecord)) {
+			LogUtil.info("PageClassSave!");
+			if (StringUtils.isNotEmpty(id)) {
+				obj = weixinPageClassSrv.getWeixinPageClass(id);
+				if (obj != null) {
+					obj.setClassDesc(classDesc);
+					obj.setClassName(className);
+					obj.setType(type);
+					obj.setUpdateTime(new Date());
+					weixinPageClassSrv.updateWeixinPageClass(obj);
+				}
+			}
+		} else {
+			LogUtil.info("PageClassSave!");
+			obj = new WeixinPageClass();
+			obj.setClassDesc(classDesc);
+			obj.setClassName(className);
+			obj.setType(type);
+			obj.setCreateTime(new Date());
+			obj.setUpdateTime(new Date());
+			obj.setId(Uuid.getPrimaryKey());
+			weixinPageClassSrv.addWeixinPageClass(obj);
+		}
+		this.writeResult(ConvertJson.bean2json(obj));
+		return null;
 	}
+
+	@Resource(name = "weixinPageClassSrv")
+	private WeixinPageClassSrv weixinPageClassSrv;
+
+	private WeixinPageClassVo weixinPageClassVo;
+
+	public WeixinPageClassVo getWeixinPageClassVo() {
+		return weixinPageClassVo;
+	}
+
+	public void setWeixinPageClassVo(WeixinPageClassVo weixinPageClassVo) {
+		this.weixinPageClassVo = weixinPageClassVo;
+	}
+
 }
