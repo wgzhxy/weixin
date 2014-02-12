@@ -2,15 +2,10 @@ package com.weixin.webui.end;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.annotation.Resource;
-
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-
 import org.apache.commons.lang3.StringUtils;
-import org.hibernate.envers.Audited;
-
 import com.weixin.comm.ConvertJson;
 import com.weixin.comm.logs.LogUtil;
 import com.weixin.datacore.domain.sys.model.SysMenu;

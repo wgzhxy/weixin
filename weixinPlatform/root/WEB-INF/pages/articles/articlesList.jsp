@@ -14,15 +14,16 @@
 			    <input  id="title" />
     			 <span style="padding-left: 20px;">图文类型 :&nbsp; </span>
     				 <input type="radio" name="state" value="1" checked="true"><span>单图文</span>
-        		 	 <input type="radio" name="state" value="0" id="state"><span>多图文</span>
-        		 <span style="padding-left: 20px;"><a href="#" class="easyui-linkbutton"  onclick="doSearch()">开始查询</a></span>
+        		 	 <input type="radio" name="state" value="2" id="state"><span>多图文</span>
+        		 <span style="padding-left: 20px;">
+        		 <a href="#" class="btn btn-primary"  onclick="doSearch()"><i class="icon-search icon-white"></i>开始查询</a></span>
 		    </div>
 	</div>
 	<p></p>
 	
 	<table id="articles-table" title="图片管理" class="easyui-datagrid"  style="width: 100%; height: 400;" idField="id"  
 			   toolbar="#toolbar"  rownumbers="false"  fitColumns="true"  pagination="true"  pagePosition = "bottom"  iconCls="icon-reload" 
-			   nowrap="false"  striped ="true"  collapsible="false"  remoteSort ="false"   singleSelect="false">
+			   nowrap="false"  striped ="true"  collapsible="false"  remoteSort ="false"   singleSelect="true">
 		<thead>
 			<tr>
 				<th field="ck"  checkbox="true" ></th>
@@ -43,31 +44,31 @@
     	<a href="#"  class="easyui-linkbutton"  iconCls="icon-remove"  plain="true"  onclick="javascript:$('#dg').edatagrid('destroyRow')">删除</a>
 	</div>
 	<!-- 单图文新增 -->
-	<div id="dialog-single"  class="easyui-dialog"  closed="true"   title="单图文新增"  buttons="#dlg-buttons" >
+	<div id="dialog-single"  class="easyui-dialog"  closed="true"   title="单图文新增"  buttons="#dialog-single-buttons" >
 	</div>
-	<div id="dlg-buttons"  style="text-align: right;">
+	<div id="dialog-single-buttons"  style="text-align: center;">
 	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-ok"  onclick="save();">保存</a>
 	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-ok"  onclick="save();">发送</a>
 	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-cancel"  onclick="javascript:$('#dialog-single').dialog('close')">取消</a>
 	</div>
 	<!-- 多图文新增 -->
-	<div id="dialog-multi"  class="easyui-dialog"  closed="true"   title="多图文新增"  buttons="#dlg-buttons" >
+	<div id="dialog-multi"  class="easyui-dialog"  closed="true"   title="多图文新增"  buttons="#dialog-multi-buttons" >
 	</div>
-	<div id="dlg-buttons"  style="text-align: right;">
+	<div id="dialog-multi-buttons"  style="text-align: center;">
 	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-ok"  onclick="save();">提交</a>
 	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-cancel"  onclick="javascript:$('#dialog-multi').dialog('close')">取消</a>
 	</div>
 	<!-- 图文修改 -->
-	<div id="dialog-edit"  class="easyui-dialog"   closed="true"   title="图文修改"  buttons="#dlg-buttons" >
+	<div id="dialog-edit"  class="easyui-dialog"   closed="true"   title="图文修改"  buttons="#dialog-edit-buttons" >
 	</div>
-	<div id="dlg-buttons"  style="text-align: right;">
-	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-ok"  onclick="save();">提交</a>
+	<div id="dialog-edit-buttons"  style="text-align: center;">
+	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-ok"  onclick="edit();">提交</a>
 	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-cancel"  onclick="javascript:$('#dialog-edit').dialog('close')">取消</a>
 	</div>
 	<script type="text/javascript">
 	//弹出新增窗口
 	function addSingleArticles(){
-	 	$('#dialog-single').dialog({
+	 	 $('#dialog-single').dialog({
 			href: '${basePath}/articles/articlesBase.do?jump=single',
 		    title: '单图文',
 		    closed: false,
@@ -94,8 +95,17 @@
 			});
 	}
 	function editArticles(){
+		var row=$("#articles-table").datagrid("getSelected");
+		if(row !=null){
+			var id=row.id;
+			var picType=row.picType;
+			var id=row.id;
+		}else{
+			$.messager.alert('温馨提示', '没有选中记录');
+			return ;
+		} 
 		$('#dialog-edit').dialog({
-			href: '${basePath}/articles/articlesBase.do?jump=edit',
+			href: '${basePath}/articles/articlesBase.do?jump=edit&weixinArticlesForm.id='+id+'&weixinArticlesForm.picType=1',
 		    title: '图文修改',
 		    closed: false,
 		    iconCls: 'icon-edit',
@@ -112,7 +122,7 @@
 				var title = $.trim($('#title').val());
 				var state=1;
 				if(document.getElementById("state").checked){
-					state=0;
+					state=2;
 				}
 				var queryParams = $('#articles-table').datagrid('options').queryParams;
 				queryParams['weixinArticlesForm.title'] = title;

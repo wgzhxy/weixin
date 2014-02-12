@@ -16,11 +16,10 @@
 				<a href="javascript:microPageEvent();">微页面</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 				<a href="javascript:activeLinkEvent();">活动</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 				<a href="javascript:outsideTheChainEvent();">外链</a>
-				<input type="hidden" name="weixinArticlesForm.url"  class="easyui-validatebox" />
 			</div>
 			<div class="fitem" style="display:none" id="outsideTheChain">
 				<label>外链:</label>
-				<input class="easyui-validatebox" name="weixinArticlesForm.url" />
+				<input name="weixinArticlesForm.url" class="easyui-validatebox"  />
 			</div>
 			<div class="fitem">
 				<label>标题:</label>
@@ -29,7 +28,7 @@
 			<div class="fitem">
 				<label>封面:</label>
 				<div style="padding-left: 90px;padding-top:10px">
-					<input class="easyui-validatebox"  id="photo" name="weixinPictureForm.picUrl"  onclick="javascript:showPictureList();" />
+					<input name="weixinArticlesForm.picUrl" class="easyui-validatebox"  id="photo"  onclick="javascript:showPictureList();" />
 					<br />
 					<input type="file"  id="indexfile" class="easyui-validatebox"  />
 					<br />
@@ -38,7 +37,7 @@
 			</div>
 			<div class="fitem">
 				<label>摘要:</label>
-				<textarea class="textbox" cols=38 rows=8 name="weixinPictureForm.description"></textarea>
+				<textarea class="textbox" cols="38" rows="8" name="weixinArticlesForm.description"></textarea>
 			</div>
 		</form>
 </div>
@@ -67,7 +66,7 @@ var fileUpload = new FileParamter();
 //新增保存
 function save(){
 		$('#fmt').form('submit',{
-				url:'${basePath}/articles/articlesAdd.do',
+				url:'${basePath}/articles/articlesAdd.do?picType=1',
 				success: function(data){
 					$('#dialog-single').dialog('close');
 					var jsonObj = eval("("+data+")");
