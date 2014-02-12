@@ -77,6 +77,11 @@ public class TalkMessageAction extends BaseAction {
 		return null;
 	}
 	
+	public String sendMessage() {
+		
+		return "send";
+	}
+	
 	@Resource(name="weixinMessageLogSrv")
 	private WeixinMessageLogSrv weixinMessageLogSrv;
 	
