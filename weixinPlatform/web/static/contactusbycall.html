@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>联系我们</title>
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <!-- CSS -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700'>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="logo span4">
+                        <h1>联系我们</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="common-container container" style="padding-left: 0px; padding-right: 0px;">
+            <div class="row">
+                <div class="common">
+                    <div class="blockcontent">
+                        <div style="height:30px;">   
+                            <div class="block-tag">
+                                <p style="margin: 3px 3px;">1</p>
+                            </div>
+                            <div>
+                                <strong>请选择您的问题类型</strong>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:20px;">
+                            <button class="btn" id="xs" style="width:30%;">销售相关</button>
+                            <button class="btn" id="wy" style="width:30%;">物业</button>
+                            <button class="btn" id="qt" style="width:30%;">其它问题</button>
+                        </div>
+                        <label class="bordered-round-corner" for="description"></label>
+                    </div>
+                    <div class="blockcontent">
+                        <div style="height:30px;">   
+                            <div class="block-tag">
+                                <p style="margin: 3px 3px;">2</p>
+                            </div>
+                            <div>
+                                <strong>请选择您想咨询的部门</strong>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:20px;">
+                            <br>
+                            <p style="text-align:left; margin:0px 10px;">选择一个部门：</p>
+                            <br> 
+                            <select id="bumen" name="bumen" size="1">
+                                <option selected="" value="1">中铁逸都</option>
+                                <option value="2">中铁共青湖</option>
+                                <option value="3">中铁阅山湖</option>
+                                <option value="4">中铁客服中心</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="blockcontent">
+                        <div style="height:30px;">   
+                            <div class="block-tag">
+                                <p style="margin: 3px 3px;">3</p>
+                            </div>
+                            <div>
+                                <strong>请输入您的联系号码</strong>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:20px; text-align:center;">
+                            <br>
+                            <p style="text-align:left; margin:0px 10px;">请输入手机号或(区号-座机号)，点击“五分钟后联系我”即可。</p> 
+                            <br>
+                            <label>电话号码：<input type="text" id="phonenumber" name="phonenumber"></label>
+                            <button id="contactme" style="margin-top:10px; width:50%;">五分钟后联系我</button>
+                        </div>
+                    </div>
+                    <div style="margin-bottom:20px; text-align:center;">
+                        <p style="text-align:left; margin:0px 10px;">点击“五分钟后联系我”与客服代表沟通，我们会通过此电话号码回拨给您。您也可以直接拨打400-123-4567联系我们反馈您的问题。</p> 
+                        <button id="callnow" style="margin-top:10px; width:70%;" onclick="location.href='wtai://wp/mc;134289210'">主动拨打</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.8.2.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/check.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function (){
+                $('#xs').click();
+
+                var issueKind = "售前";
+
+                $('#xs').click(function() {
+                    issueKind = "售前";
+                    $(document).find("label[for='description']").html("询问关于售前的一系列问题，例如xxxxxx，以及诸如合同、贷款、产权等相关问题。");;
+                });
+                $('#wy').click(function() {
+                    issueKind = "物业";
+                    $(document).find("label[for='description']").html("询问关于物业的一系列问题。");;
+                });
+                $('#qt').click(function() {
+                    issueKind = "其它";
+                    $(document).find("label[for='description']").html("询问其它问题。");;
+                });
+
+                /*
+                    联系我
+                */
+                
+
+                $('#contactme').click(function() {
+                    var phonenumber = $('#phonenumber').val();
+                    if (isPhoneNumber(phonenumber)) {
+                        var bumen = $("#bumen").find("option:selected").text();;
+                        $.ajax({
+                            url:"",
+                            type:"post",
+                            data: {
+                                "kind":issueKind,
+                                "phonenumber":phonenumber,
+                                "kind":issueKind,
+                                "bumen":bumen
+                            },
+                            dataType: "json",
+                            success: function (data) {
+                                
+                            },
+                            error: function (data) {
+                                
+                            }
+                        });
+                        alert("已经提交您的反馈，请耐心等待我们的客服代表跟您联系。");
+                    }
+                    else{
+                        alert("请输入正确的手机号或座机号码");
+                    };
+                });
+            });
+            
+        </script>
+</body>
+</html>
