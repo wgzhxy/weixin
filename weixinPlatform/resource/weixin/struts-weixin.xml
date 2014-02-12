@@ -16,13 +16,9 @@
 	    
 	    <action name="page*" class="com.weixin.webui.end.WeinXinPageAction" method="{1}">
 	    	<result name="index">/WEB-INF/pages/weixinpage/weinxinPageIndex.jsp</result>
-	    	<result name="add">/WEB-INF/pages/weixinpage/messageIndex.jsp</result>
-	    	<result name="edit">/WEB-INF/pages/weixinpage/talkInfo.jsp</result>
-	    	<result name="save">/WEB-INF/pages/weixinpage/talkInfo.jsp</result>
+	    	<result name="add">/WEB-INF/pages/weixinpage/weinxinPageAdd.jsp</result>
+	    	<result name="edit">/WEB-INF/pages/weixinpage/weinxinPageEdit.jsp</result>
 	    	<result name="list">/WEB-INF/pages/weixinpage/weixinPageClassIndex.jsp</result>
-	    	<result name="classAdd">/WEB-INF/pages/weixinpage/messageIndex.jsp</result>
-	    	<result name="classEdit">/WEB-INF/pages/weixinpage/talkInfo.jsp</result>
-	    	<result name="classSave">/WEB-INF/pages/weixinpage/talkInfo.jsp</result>
 	    </action>
 	</package>
 </struts>
