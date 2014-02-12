@@ -10,12 +10,12 @@
 </head>			
 <body>
 	<div id="tb"  style="padding:6px" title="微信消息筛选" class="easyui-panel"  iconCls="icon-search">
-		    <div id="row"  style="padding: 7px;">
-		    	<span style="padding-left: 20px;"><input type="checkBox"/>&nbsp;<a href="#">所有分类</a>&nbsp; </span>
-				<span style="padding-left: 20px;">标题 :&nbsp; </span>
-			    <input  id="pictureName" />
-			    <span style="padding-left: 20px;"><a href="#" class="easyui-linkbutton"  onclick="doSearch()">搜索</a></span>
-		    </div>
+	    <div id="row"  style="padding: 7px;">
+	    	<span style="padding-left: 20px;"><input type="checkBox"/>&nbsp;<a href="#">所有分类</a>&nbsp; </span>
+			<span style="padding-left: 20px;">标题 :&nbsp; </span>
+		    <input  id="pictureName" />
+		    <span style="padding-left: 20px;"><a href="#" class="easyui-linkbutton"  onclick="doSearch()">搜索</a></span>
+	    </div>
 	</div>
 	<p></p>
 	<table id="dg" width="100%"></table>
