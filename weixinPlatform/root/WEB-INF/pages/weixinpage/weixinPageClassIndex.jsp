@@ -30,12 +30,12 @@
 			function doSearch() {
 				var queryParams = $('#dg').datagrid('options').queryParams;
 				queryParams['weixinPageClassVo.urlType'] = '0';
-				$('#dg').datagrid("load");
+				$('#dg').datagrid("load",'${basePath}/pagePageClassList.do');
 			};
 			
 			$(function(){
 				$('#dg').edatagrid({
-					url: '${basePath}/pagePageClassList.do',
+					url: '${basePath}/pagePageClassList.do?weixinPageClassVo.urlType=0',
 					saveUrl: '${basePath}/pagePageClassSave.do',
 					updateUrl: '${basePath}/pagePageClassSave.do',
 					destroyUrl: '${basePath}/pagePageClassDelete.do',
@@ -64,7 +64,6 @@
 						fitColumns: true,
 						rownumbers : false,
 						singleSelect: true,
-						ulr: '${basePath}/pagePageClassList.do?weixinPageClassVo.urlType=0',
 						toolbar: '#dlg-buttons_edit',
 						columns:[[
 								 {title:'ID',field:'id',width:fixWidth(0.2),rowspan:2,align:'center'},
