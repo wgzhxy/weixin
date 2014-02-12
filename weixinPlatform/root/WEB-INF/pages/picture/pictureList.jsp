@@ -15,14 +15,16 @@
     			 <span style="padding-left: 20px;">图片状态 :&nbsp; </span>
     				 <input type="radio" name="state" value="1" checked="true"><span>有效</span>
         		 	 <input type="radio" name="state" value="0" id="state"><span>无效</span>
-        		 <span style="padding-left: 20px;"><a href="#" class="easyui-linkbutton"  onclick="doSearch()">开始查询</a></span>
+        		 <span style="padding-left: 20px;">
+        		 <a href="#" class="btn btn-primary"  onclick="doSearchPictureList()"><i class="icon-search icon-white"></i>开始查询</a>
+        		 </span>
 		    </div>
 	</div>
 	<p></p>
 	
 	<table id="dg" title="图片管理" class="easyui-datagrid"  style="width: 100%; height: 400;" idField="id"  
 			   toolbar="#toolbar"  rownumbers="false"  fitColumns="true"  pagination="true"  pagePosition = "bottom"  iconCls="icon-reload" 
-			   nowrap="false"  striped ="true"  collapsible="false"  remoteSort ="false"   singleSelect="false">
+			   nowrap="false"  striped ="true"  collapsible="false"  remoteSort ="false"   singleSelect="true">
 		<thead>
 			<tr>
 				<th field="ck"  checkbox="true" ></th>
@@ -62,7 +64,7 @@
 					});
 	}
 	//搜索功能
-		function doSearch() {
+		function doSearchPictureList() {
 				var pictureName = $.trim($('#pictureName').val());
 				var state=1;
 				if(document.getElementById("state").checked){

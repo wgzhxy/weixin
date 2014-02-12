@@ -15,14 +15,15 @@
     			 <span style="padding-left: 20px;">图文类型 :&nbsp; </span>
     				 <input type="radio" name="state" value="1" checked="true"><span>单图文</span>
         		 	 <input type="radio" name="state" value="2" id="state"><span>多图文</span>
-        		 <span style="padding-left: 20px;"><a href="#" class="easyui-linkbutton"  onclick="doSearch()">开始查询</a></span>
+        		 <span style="padding-left: 20px;">
+        		 <a href="#" class="btn btn-primary"  onclick="doSearch()"><i class="icon-search icon-white"></i>开始查询</a></span>
 		    </div>
 	</div>
 	<p></p>
 	
 	<table id="articles-table" title="图片管理" class="easyui-datagrid"  style="width: 100%; height: 400;" idField="id"  
 			   toolbar="#toolbar"  rownumbers="false"  fitColumns="true"  pagination="true"  pagePosition = "bottom"  iconCls="icon-reload" 
-			   nowrap="false"  striped ="true"  collapsible="false"  remoteSort ="false"   singleSelect="false">
+			   nowrap="false"  striped ="true"  collapsible="false"  remoteSort ="false"   singleSelect="true">
 		<thead>
 			<tr>
 				<th field="ck"  checkbox="true" ></th>

@@ -15,14 +15,16 @@
     			 <span style="padding-left: 20px;">图片状态 :&nbsp; </span>
     				 <input type="radio" name="state" value="1" checked="true"><span>有效</span>
         		 	 <input type="radio" name="state" value="0" id="picture-state"><span>无效</span>
-        		 <span style="padding-left: 20px;"><a href="#" class="easyui-linkbutton"  onclick="doSearchAlert()">开始查询</a></span>
+        		 <span style="padding-left: 20px;">
+        		 <a href="#" class="btn btn-primary"  onclick="doSearchAlert()"><i class="icon-search icon-white"></i>开始查询</a>
+        		 </span>
 		    </div>
 	</div>
 	<p></p>
 	
 	<table id="table-pictureAlert" title="图片管理" class="easyui-datagrid"  style="width: 100%; height: 400;"  
 			   rownumbers="false"  fitColumns="true"  pagination="true"  pagePosition = "bottom"  iconCls="icon-reload" 
-			   nowrap="false"  striped ="true"  collapsible="false"  remoteSort ="false">
+			   nowrap="false"  striped ="true"  collapsible="false"  remoteSort ="false" singleSelect="true">
 		<thead>
 			<tr>
 				<th field="ck"  checkbox="true" ></th>
