@@ -13,8 +13,11 @@ import com.weixin.comm.PageInfo;
 import com.weixin.comm.Uuid;
 import com.weixin.comm.logs.LogUtil;
 import com.weixin.datacore.domain.weixin.model.WeixinPageClass;
+import com.weixin.datacore.domain.weixin.model.WeixinPageInfo;
 import com.weixin.datacore.domain.weixin.vo.WeixinPageClassVo;
+import com.weixin.datacore.domain.weixin.vo.WeixinPageInfoVo;
 import com.weixin.datacore.service.weixin.WeixinPageClassSrv;
+import com.weixin.datacore.service.weixin.WeixinPageInfoSrv;
 import com.weixin.webui.core.BaseAction;
 
 /**
@@ -27,10 +30,28 @@ import com.weixin.webui.core.BaseAction;
 public class WeinXinPageAction extends BaseAction {
 
 	public String PageList() {
+		if (weixinPageInfoVo != null) {
+			Map<String, Object> params = new HashMap<String, Object>();
+			PageInfo<WeixinPageInfo> pageInfo = weixinPageInfoSrv.findWeixinPageInfoList(params, this.page, this.rows);
+
+			params.clear();
+			if (pageInfo != null) {
+				params.put("total", pageInfo.getTotalrecond());
+				params.put("rows", pageInfo.getResultlist());
+			} else {
+				params.put("total", 0);
+				params.put("rows", null);
+			}
+			String jsonStr = ConvertJson.map2json(params);
+			LogUtil.info(jsonStr);
+			this.writeResult(jsonStr);
+			return null;
+		}
 		return "index";
 	}
 
 	public String PageAdd() {
+		
 		return "add";
 	}
 
@@ -45,8 +66,7 @@ public class WeinXinPageAction extends BaseAction {
 	public String PageClassList() {
 		if (weixinPageClassVo != null) {
 			Map<String, Object> params = new HashMap<String, Object>();
-			PageInfo<WeixinPageClass> pageInfo = weixinPageClassSrv
-					.findWeixinPageClassList(params, this.page, this.rows);
+			PageInfo<WeixinPageClass> pageInfo = weixinPageClassSrv.findWeixinPageClassList(params, this.page, this.rows);
 
 			params.clear();
 			if (pageInfo != null) {
@@ -110,8 +130,12 @@ public class WeinXinPageAction extends BaseAction {
 
 	@Resource(name = "weixinPageClassSrv")
 	private WeixinPageClassSrv weixinPageClassSrv;
+	
+	@Resource(name = "weixinPageInfoSrv")
+	private WeixinPageInfoSrv weixinPageInfoSrv;
 
 	private WeixinPageClassVo weixinPageClassVo;
+	private WeixinPageInfoVo weixinPageInfoVo;
 
 	public WeixinPageClassVo getWeixinPageClassVo() {
 		return weixinPageClassVo;
@@ -119,6 +143,14 @@ public class WeinXinPageAction extends BaseAction {
 
 	public void setWeixinPageClassVo(WeixinPageClassVo weixinPageClassVo) {
 		this.weixinPageClassVo = weixinPageClassVo;
+	}
+
+	public WeixinPageInfoVo getWeixinPageInfoVo() {
+		return weixinPageInfoVo;
+	}
+
+	public void setWeixinPageInfoVo(WeixinPageInfoVo weixinPageInfoVo) {
+		this.weixinPageInfoVo = weixinPageInfoVo;
 	}
 
 }

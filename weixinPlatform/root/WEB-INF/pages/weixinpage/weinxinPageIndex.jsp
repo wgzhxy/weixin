@@ -18,13 +18,15 @@
 	</div>
 	<p></p>
 	
-	<table id="dg" width="100%">
-	</table>
-	<!-- 新增 -->
-	<div id="dd"  class="easyui-dialog"  style="padding:10px 30px"  closed="true"   title="系统菜单新增"  buttons="#dlg-buttons" >
+	<table id="dg" width="100%"></table>
+	<div id="dlg-buttons"  style="text-align: left;">
+	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-add"  onclick="addPage();">新建微页面</a>
 	</div>
-	<div id="dlg-buttons"  style="text-align: right;">
-	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-ok"  onclick="savereg();">提交</a>
+	<!-- 新增 -->
+	<div id="dd"  class="easyui-dialog"  style="padding:10px 30px" closed="true" title="系统菜单新增"  buttons="#dlg-buttons_add" >
+	</div>
+	<div id="dlg-buttons_add"  style="text-align: right;">
+	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-ok"  onclick="saveAdd();">提交</a>
 	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-cancel"  onclick="javascript:$('#dd').dialog('close')">取消</a>
 	</div>
 	
@@ -37,51 +39,34 @@
 	</div>
 	<script type="text/javascript">
 			//编辑
-			function editModule() {
-				var row = $('#dg').datagrid('getSelected');
-				if (row) {
-						if(row.id == '') {
-							$.messager.show({  
-					                title: '警告',  
-					                msg: '所选记录ID为空，不能进行编辑操作!',  
-					                showType: 'slide'  
-			            	});  
-			            	return;
-						}
-						var index = $('#dg').datagrid('getRowIndex', row);
-						$('#de').dialog({
-								href: '${basePath}/system/module/editModulePage.do?moduleForm.id=' + row.id + "&index=" + index ,
-							    title: '编辑权限实体',
-							    closed: false,
-							    iconCls: 'icon-save',
-							    width: 500,
-							    height: 480,
-							    cache: false,
-							    modal: true,
-							    resizable:true
-						});
-				} else {
-					$.messager.show({  
-			                title: '警告',  
-			                msg: '请选择要操作的记录!.',  
-			                timeout: 2000,  
-			                showType: 'slide'  
-		            });  
-				}
+			function editPage(id) {
+				//href: '${basePath}/pagePageEdit.do?moduleForm.id=' + row.id + "&index=" + index ,
+				window.location.href="${basePath}/pagePageEdit.do?moduleForm.id=";
+			}
+			//删出
+			function deletePage(id) {
+				//href: '${basePath}/pagePageEdit.do?moduleForm.id=' + row.id + "&index=" + index ,
+				window.location.href="${basePath}/pagePageEdit.do?moduleForm.id=";
+			}
+			//查询链接
+			function viewPage(id) {
+				//href: '${basePath}/pagePageEdit.do?moduleForm.id=' + row.id + "&index=" + index ,
+				window.location.href="${basePath}/pagePageEdit.do?moduleForm.id=";
 			}
 		    //弹出新增窗口
-			function addModule(){
-					$('#dd').dialog({
-							href: '${basePath}/system/module/addModulePage.do',
-						    title: '新增权限实体',
-						    closed: false,
-						    iconCls: 'icon-save',
-						    width: 500,
-						    height: 480,
-						    cache: false,
-						    modal: true,
-						    resizable:true
-					});
+			function addPage(){
+		    	window.location.href="${basePath}/pagePageAdd.do";
+				/*$('#dd').dialog({
+						href: '${basePath}/pagePageAdd.do',
+					    title: '新增微页面',
+					    closed: false,
+					    iconCls: 'icon-save',
+					    width: 800,
+					    height: 500,
+					    cache: false,
+					    modal: true,
+					    resizable:true
+				});*/
 			}
 	
 			function doSearch() {
@@ -98,6 +83,7 @@
 						title : "微信页面管理",
 						iconCls: 'icon-reload',
 						nowrap : true,
+						toolbar: '#dlg-buttons',
 						height : 450,
 						url: "${basePath}/pagePageList.do",
 						striped : true,
@@ -108,18 +94,14 @@
 						rownumbers : false,
 						singleSelect: true,
 						columns:[[
-							     {title:'消息ID',field:'msgId',width:fixWidth(0.1),rowspan:2,align:'center'},
-							     {title:'会员名称',field:'fromUserName',width:fixWidth(0.1),rowspan:2,align:'center',
-								     formatter:function(val,rec){ 
-								    	 return "<a href='${basePath}/message/msgTalkInfo.do?weixinMessageLogVo.fromUserName=" + val + "'>" + val + "</a>";
-								     }
-							     },
-							     {title:'消息内容',field:'content',width:fixWidth(0.3),rowspan:2,align:'center'},
-							     {title:'消息时间',field:'createTime',width:fixWidth(0.15),rowspan:2,align:'center'},
-							     {title:'操作',field:'operator',width:fixWidth(0.15),rowspan:2,align:'center',
+							     {title:'ID',field:'id',width:fixWidth(0.1),rowspan:2,align:'center'},
+							     {title:'标题',field:'fromUserName',width:fixWidth(0.1),rowspan:2,align:'center'},
+							     {title:'创建时间',field:'content',width:fixWidth(0.3),rowspan:2,align:'center'},
+							     {title:'浏览UY/PV',field:'createTime',width:fixWidth(0.15),rowspan:2,align:'center'},
+							     {title:'操作',field:'id',width:fixWidth(0.15),rowspan:2,align:'center',
 							    	 formatter:function(val,rec){ 
-							    		return '<a href="#" id="memo" data-type="text" data-placement="right" data-title="输入备注">备注</a>'+
-							    	 		   ' | <a href="" >加星</a>';
+							    		return '<a href="#" onclick="editPage();" id="memo" data-type="text" data-placement="right">编辑</a>'+
+							    	 		   ' | <a href="#" onclick="deletePage();">删出</a> | <a href="#" onclick="viewPage();">查看链接</a>';
 							     	 }
 							     }  
 			    				]],
