@@ -10,7 +10,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.weixin.comm.PageInfo;
@@ -53,31 +52,7 @@ public class WeixinPageInfoSrvImpl extends ServiceSrvImpl implements WeixinPageI
 	}
 	
 	public PageInfo<WeixinPageInfo> findWeixinPageInfoList(Map<String, Object> params, int pageNo, int pageSize) {
-		try{
-			String hql = "from WeixinPageInfo c where 1=1 ";
-			String hqlCount = "select count(c.id) from WeixinPageInfo c where 1=1 ";
-			StringBuffer where = new StringBuffer();
-			if(params != null) {
-				for(Map.Entry<String, Object> entity : params.entrySet()) {
-					if(StringUtils.equals("pageName", entity.getKey())) 
-					{
-						where.append(" and c.").append(entity.getKey()).append(" like :").append(entity.getKey());
-						params.put(entity.getKey(), "%" + entity.getValue() + "%");
-					} else if(StringUtils.isNotEmpty(entity.getKey())) 
-					{
-						where.append(" and c.").append(entity.getKey()).append("= :").append(entity.getKey());
-					}
-				}
-			}
-			String orderBy = " order by c.updateTime desc"; 
-			return weixinPageInfoDao.findPageInfoByQuery(pageNo, pageSize, 
-														  hql + where.toString() + orderBy, 
-														  hqlCount.toString() + where.toString(), 
-														  params);
-		} catch(Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+		 return null;
 	}
 	
 	public PageInfo<WeixinPageInfo> findWeixinPageInfoList(Object[] params, int pageNo, int pageSize) {
