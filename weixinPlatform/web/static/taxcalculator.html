@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>税费计算器</title>
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <!-- CSS -->
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700'>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/loanstyle.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <![endif]-->
+
+</head>
+
+<body>
+     <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="logo span4">
+                    <h2>税费计算器</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding-left: 0px; padding-right: 0px;">
+        <div class="row">
+            <div class="common span6">
+                <form method="post" action="calc_win.php" name="calc1" style="padding:10px 10px; font-size: 15px;">
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <td>
+                            <br>单价： <input name="dj3" size="8" maxlength="8">元/平米
+                            <br>面积： <input name="mj3" size="8" maxlength="7">平方米
+                            <br>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div align="center">
+                                    <input type="button" class="btn1" name="button1" value="开始计算" onclick="runjs3(this.form);">
+                                    <input type="reset" class="btn2" name="button2" value="重新计算">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <h3>计算结果：</h3>
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0" class="table1">
+                        <tbody><tr>
+                            <td width="259">
+                                <strong>房款总价：</strong><br>
+                                <input class="txt2" name="fkz3">元
+                            </td>
+                            <td width="259">
+                                <strong>印花税：</strong><br>
+                                <input class="txt2" name="yh">元
+                            </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>公证费：</strong><br>
+                                    <input class="txt2" name="gzh">元
+                                </td>
+                                <td>
+                                    <strong>契税：</strong><br>
+                                    <input class="txt2" name="q">元
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>委托办理产权手续费：</strong><br>
+                                    <input class="txt2" id="money_first1" name="wt">元
+                                </td>
+                                <td>
+                                    <strong>房屋买卖手续费：</strong><br>
+                                    <input class="txt2" id="money_first1" name="fw">元
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="DISPLAY: none; Z-INDEX: 98; LEFT: 107px; WIDTH: 180px; POSITION: absolute; TOP: 22px; HEIGHT: 220px" id="calc1_benjin">
+                        <input type="hidden" name="fangkuan_total2"><input type="hidden" name="daikuan_total2"><input type="hidden" name="all_total2"><input type="hidden" name="accrual2"><input type="hidden" name="money_first2"><input type="hidden" name="month2"><input type="hidden" name="month_money2">
+                    </div>
+                </form>  
+                <p class="red lh20" style="margin: 0px 5px;">
+                    购房需交纳的第一组税费是契税、印花税、交易手续费、权属登记费。
+                </p>
+                <p class="lh20" style="margin: 0px 5px;">
+                    <strong>契税</strong>金额是房价的1.5%，一般情况下是在交易签证时交一半，入住后拿房产证时交另一半
+                    <br>
+                    <strong>印花税</strong>金额为房价的0.05%，在交易签证时交纳
+                    <br>
+                    <strong>交易手续费</strong>一般是每平方米2.5元，也在交易签证时交纳
+                    <br>
+                    <strong>权属登记费</strong>100元到200元之间
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery-1.8.2.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+    <script>
+        function runjs3(obj){
+            dj3 = parseFloat(obj.dj3.value)
+            mj3 = parseFloat(obj.mj3.value)
+            fkz3 = dj3 * mj3
+            yh = fkz3 * 0.0005
+            if (dj3 <= 9432) 
+                q = fkz3 * 0.015
+            else 
+                if (dj3 > 9432) 
+                    q = fkz3 * 0.03
+            if (mj3 <= 120) 
+                fw = 500;
+            else 
+                if (120 < mj3 <= 5000) 
+                    fw = 1500;
+            if (mj3 > 5000) 
+                fw = 5000
+            gzh = fkz3 * 0.003
+            obj.yh.value = Math.round(yh * 100, 5) / 100
+            obj.fkz3.value = Math.round(fkz3 * 100, 5) / 100
+            obj.q.value = Math.round(q * 100, 5) / 100
+            obj.gzh.value = Math.round(gzh * 100, 5) / 100
+            obj.wt.value = Math.round(gzh * 100, 5) / 100
+            obj.fw.value = Math.round(fw * 100, 5) / 100
+        }
+    </script>
+</body>
+</html>

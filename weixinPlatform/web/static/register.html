@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>入会申请</title>
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <!-- CSS -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700'>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="logo span4">
+                        <h1>您的资料将采用加密技术传输，请放心填写</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="common-container container" style="padding-left: 0px; padding-right: 0px;">
+            <div class="row">
+                <div class="common span6">
+                    <form action="" method="post">
+                        <h2>入会申请</h2>
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" name="name" placeholder="请输入您的姓名">
+                        <label for="identifier">身份证号码</label>
+                        <input type="text" id="identifier" name="identifier" placeholder="请输入您的身份证号码">
+                        <label for="mobilephone">手机号码</label>
+                        <input class="leftinput" type="text" id="mobilephone" name="mobilephone" placeholder="请输入您的手机号码" style="width:70%;">
+                        <input type="button" id="getVerifyCodeButton" value="获取验证码" style="width:23%;">
+                        <label for="verifycode">验证码</label>
+                        <input type="text" id="verifycode" name="verifycode" placeholder="请输入您手机收到的验证码">
+                        <label for="addressselected">您的常居地</label>
+                        <div id="city">
+                            <select class="prov" style="width:45%"></select>
+                            <select class="city" disabled="disabled" style="width:45%"></select>
+                            <select class="dist" disabled="disabled"></select>
+                        </div>
+                        <label for="address">通讯地址</label>
+                        <input type="text" id="address" name="address" placeholder="您的通讯地址">
+                        <label for="password">设置服务密码</label>
+                        <input type="password" id="password" name="password" placeholder="请输入6-18位的数字或英文">
+                        <label><input type="checkbox" name="uselessthing"/>我已经阅读并知晓<a href="">《XXXX章程》</a>，并愿意遵守各项规则</label>
+                        <label for="uselessthingcheckalert"></label>
+                        <button type="submit">立即提交</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.8.2.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/jquery.cityselect.js"></script>
+        <script src="assets/js/check.js"></script>
+        <script>
+            $(document).ready(function() {
+                /*
+                    初始化城市数据
+                */
+                $("#city").citySelect({
+                    prov:"贵州", 
+                    city:"贵阳",
+                    dist:"云岩区",
+                    nodata:"none"
+                }); 
+                /*
+                    Get verify code
+                */
+                //重新获取验证码
+                function get_code_time (o) {  
+                    var wait = 60;  
+                    if (wait == 0) {  
+                        o.removeAttribute("disabled");  
+                        o.value = "获取验证码";  
+                        wait = 60;  
+                    } else {  
+                        o.setAttribute("disabled", true);  
+                        o.value = wait + "秒后\n重新获取";  
+                        wait--;  
+                        setTimeout(function() {  
+                            get_code_time(o)  
+                        }, 1000)  
+                    }  
+                }
+
+                $('#getVerifyCodeButton').click(function() {
+                    var root = $('.common form');
+                    root.find("label[for='mobilephone']").html('手机号码');
+                    var number = root.find('input#mobilephone').val();
+                    if (isPhoneNumber(number) === true) {
+                        var o = this;
+                        get_code_time(o);
+                    } else{
+                        root.find("label[for='mobilephone']").append("<span style='display:none' class='red'>-请检查您输入的手机号是否正确</span>");
+                        root.find("label[for='mobilephone'] span").fadeIn('medium');
+                    };
+                    /*
+                    $.ajax({
+                        url:"",
+                        type:"post",
+                        data: {},
+                        dataType: "json",
+                        success: function (data) {
+                            if(data.status == 1 && data.code == 200){
+                                alert("验证码已发送至您的手机");
+                                get_code_time(o);
+                            } else {
+                                if(data.msg != ""){
+                                    alert(data.msg);
+                                } else {
+                                    alert("短信验证码发送失败");
+                                }
+                            }
+                        },
+                        error: function (data) {
+                            if(data.status == 0) {
+                                alert(data.msg);
+                            } else {
+                                alert("短信验证码发送失败");
+                            }
+                        }
+                    });
+                    */
+                });
+
+                $.fn.scrollView = function () {
+                    return this.each(function () {
+                        $('html, body').animate({
+                            scrollTop: $(this).offset().top
+                        }, 300);
+                    });
+                }
+                $('.common form').submit(function(){
+                    $(this).find("label[for='name']").html('姓名');
+                    $(this).find("label[for='identifier']").html('身份证号码');
+                    $(this).find("label[for='mobilephone']").html('手机号码');
+                    $(this).find("label[for='verifycode']").html('验证码');
+                    $(this).find("label[for='password']").html('设置服务密码');
+                    $(this).find("label[for='uselessthingcheckalert']").html('');
+
+                    var name = $(this).find('input#name').val();
+                    var identifier = $(this).find('input#identifier').val();
+                    var mobilephone = $(this).find('input#mobilephone').val();
+                    var verifycode = $(this).find('input#verifycode').val();
+                    var password = $(this).find('input#password').val();
+                    var uselessthingchecked = $(this).find('input#uselessthing').val();
+
+                    var validated = true;
+                    var scrolled = false;
+                    var scrollCheck = function (element) {
+                        if (!scrolled) {
+                            scrolled = true;
+                            element.scrollView();
+                        };
+                    }
+                    if(name == '') {
+                        $(this).find("label[for='name']").append("<span style='display:none' class='red'>-请输入您的姓名</span>");
+                        $(this).find("label[for='name'] span").fadeIn('medium');
+                        scrollCheck($(this).find("label[for='name']"));
+                        validated =  false;
+                    }
+                    if(identifier == '' || !isIDCard(identifier)) {
+                        $(this).find("label[for='identifier']").append("<span style='display:none' class='red'>-请输入正确的身份证号码</span>");
+                        $(this).find("label[for='identifier'] span").fadeIn('medium');
+                        scrollCheck($(this).find("label[for='identifier']"));
+                        validated =  false;
+                    }
+                    if(mobilephone == '' || !isPhoneNumber(mobilephone)) {
+                        $(this).find("label[for='mobilephone']").append("<span style='display:none' class='red'>-请输入正确的手机号码</span>");
+                        $(this).find("label[for='mobilephone'] span").fadeIn('medium');
+                        scrollCheck($(this).find("label[for='mobilephone']"));
+                        validated =  false;
+                    }
+                    if(verifycode == '') {
+                        $(this).find("label[for='verifycode']").append("<span style='display:none' class='red'>-请输入您收到的短信验证码</span>");
+                        $(this).find("label[for='verifycode'] span").fadeIn('medium');
+                        scrollCheck($(this).find("label[for='verifycode']"));
+                        validated =  false;
+                    }
+                    if(password == '' || !isPassword(password)) {
+                        $(this).find("label[for='password']").append("<span style='display:none' class='red'>-密码为6-18位的数字或字母</span>");
+                        $(this).find("label[for='password'] span").fadeIn('medium');
+                        scrollCheck($(this).find("label[for='password']"));
+                        validated =  false;
+                    }
+                    if (!uselessthingchecked) {
+                        $(this).find("label[for='uselessthingcheckalert']").append("<span style='display:none' class='red'>请阅读《XXXX章程》后，勾上上面的选择框</span>");
+                        $(this).find("label[for='uselessthingcheckalert'] span").fadeIn('medium');
+                    };
+
+                    /*
+                        提交数据
+                    */
+                    if (validated) {
+                        $.ajax({
+                            url:"",
+                            type:"post",
+                            data: {},
+                            dataType: "json",
+                            success: function (data) {
+                           
+                            },
+                            error: function (data) {
+                        
+                            }
+                        });
+                    };
+                    return validated;
+                });
+            });
+
+        </script>
+
+</body>
+</html>
