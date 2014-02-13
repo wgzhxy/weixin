@@ -77,7 +77,11 @@ public class TalkMessageAction extends BaseAction {
 		return null;
 	}
 	
-	public String sendMessage() {
+	/**
+	 * 发送文字及图文消息
+	 * @return
+	 */
+	public String SendMessage() {
 		
 		return "send";
 	}
