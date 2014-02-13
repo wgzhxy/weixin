@@ -8,41 +8,62 @@
 	<script type="text/javascript"  src="${basePath}/easyUi/js/jquery.edatagrid.js"></script>
 </head>
 <body>
-	<div style="padding:10px 80px">
-    <div class="ftitle">单图文填写</div>
-		<form id="fmt"  method="post"  style="padding-left: 20px ;padding-top: 10px">
-			<input  type="hidden" name="weixinArticlesForm.id" value="<c:if test="${weixinArticles!=null}">${weixinArticles.id}</c:if>" />		
-			<input  type="text" name="id" value="<c:if test="${index!=null}">${index}</c:if>" />		
-			<div class="fitem">
-				<label>链接到:</label>
-				<a href="javascript:microPageEvent();">微页面</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-				<a href="javascript:activeLinkEvent();">活动</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-				<a href="javascript:outsideTheChainEvent();">外链</a>
-			</div>
-			<div class="fitem" style="display:none" id="outsideTheChain">
-				<label>外链:</label>
-				<input name="weixinArticlesForm.url" class="easyui-validatebox"  value="<c:if test="${weixinArticles!=null}">${weixinArticles.url}</c:if>" />
-			</div>
-			<div class="fitem">
-				<label>标题:</label>
-				<input name="weixinArticlesForm.title"  class="easyui-validatebox"  required="true"  value="<c:if test="${weixinArticles!=null}">${weixinArticles.title}</c:if>"/>
-			</div>
-			<div class="fitem">
-				<label>封面:</label>
-				<div style="padding-left: 90px;padding-top:10px">
-					<input name="weixinArticlesForm.picUrl" class="easyui-validatebox"  id="photo" value="<c:if test="${weixinArticles!=null}">${weixinArticles.picUrl}</c:if>" onclick="javascript:showPictureList();" />
-					<br />
-					<input type="file"  id="indexfile" class="easyui-validatebox"  />
-					<br />
-					<img  id="indexfilePic"  alt=""  src="${basePath}<c:if test="${weixinArticles!=null}">${weixinArticles.picUrl}</c:if>"  width="205"  height="100"  /><br/>
-				</div>
-			</div>
-			<div class="fitem">
-				<label>摘要:</label>
-				<textarea class="textbox" cols="38" rows="8" name="weixinArticlesForm.description"><c:if test="${weixinArticles!=null}">${weixinArticles.description}</c:if></textarea>
-			</div>
-		</form>
-</div>
+	<div class="container-fluid">
+	<div class="row-fluid">
+	<div id="content" class="span10">
+			<div class="row-fluid sortable">
+				<div class="box span12">
+					<div class="box-content well center">
+							<form class="form-horizontal">
+							<legend><h4><i class="icon-th"></i>单图文信息填写</h4></legend>
+								<input  type="hidden" name="weixinArticlesForm.id" value="<c:if test="${weixinArticles!=null}">${weixinArticles.id}</c:if>" />	
+								<div class="control-group">
+								  <label class="control-label">链接到:</label>
+								  <div class="controls">
+									<a href="javascript:microPageEvent();" class="btn">微页面</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+									<a href="javascript:activeLinkEvent();" class="btn">活动</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+									<a href="javascript:outsideTheChainEvent();" class="btn">外链</a>
+								  </div>
+								</div>
+								<div class="control-group" style="display:none" id="outsideTheChain">
+								  <label class="control-label">外链:</label>
+								  <div class="controls">
+									<input name="weixinArticlesForm.url" class="span6 typeahead"  value="<c:if test="${weixinArticles!=null}">${weixinArticles.url}</c:if>" />
+								  </div>
+								</div>
+								<div class="control-group error">
+								  <label class="control-label">标题:</label>
+								  <div class="controls">
+									<input name="weixinArticlesForm.title" class="span6 typeahead" value="<c:if test="${weixinArticles!=null}">${weixinArticles.title}</c:if>" />
+									<p class="help-inline">建议不多于30字!</p>
+								  </div>
+								</div>
+								<div class="control-group error">
+									<label class="control-label">封面:</label>
+									<div class="controls">
+										<input name="weixinArticlesForm.picUrl" class="span6 typeahead"  id="photo"  value="<c:if test="${weixinArticles!=null}">${weixinArticles.picUrl}</c:if>" onclick="javascript:showPictureList();" />
+										<br />
+										<input type="file"  id="indexfile" class="span6 typeahead"  />
+										<br />
+										<img  id="indexfilePic"  alt=""  src="${basePath}<c:if test="${weixinArticles!=null}">${weixinArticles.picUrl}</c:if>"   class="span5 typeahead"  height="100"  /><br/>
+										<p class="help-inline">尺寸建议:720高*400宽!</p>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">摘要:</label>
+									 <div class="controls">
+										<textarea rows="5" class="span6 typeahead" name="weixinArticlesForm.description"><c:if test="${weixinArticles!=null}">${weixinArticles.description}</c:if></textarea>
+							  		</div>
+								</div>
+								<div class="form-actions">
+									<a href="" class="btn btn-primary">修改</a>
+									<a href="" class="btn btn-primary">发送</a>
+									<a href="javascript:closedOpenPages();" class="btn">关闭</a>
+							   </div>
+							</form>
+                    	</div>                   
+                  </div>
+			</div><!--/row-->
 <!-- 现有图片弹出框 -->
  <div id="dialog-showPictureList" class="easyui-dialog" title="请选择已有的图片信息" closed="true" buttons="#dialog-buttons-pictureList">       
  </div>
@@ -51,9 +72,9 @@
  	<a href="#"  class="easyui-linkbutton"  iconCls="icon-cancel"  onclick="javascript:$('#dialog-showPictureList').dialog('close')">关闭</a>
  </div>
 <script type="text/javascript">
-var fileUpload = new FileParamter();
-	 fileUpload.basePath = '${basePath}';
-	 fileUpload.uploadFile(fileUpload, $('#indexfile'), 
+	var fileUpload = new FileParamter();
+	 	fileUpload.basePath = '${basePath}';
+	 	fileUpload.uploadFile(fileUpload, $('#indexfile'), 
 			 function(event, queueID, fileObj, response, data) {             
 	         	var obj = eval('(' + response + ')');
 	        	 if(obj.result == 'ok') {
@@ -65,35 +86,22 @@ var fileUpload = new FileParamter();
 	        		}
      		}
 	 );
-//修改
-function edit(){
+	//新增保存
+	function edit(){
 		$('#fmt').form('submit',{
 				url:'${basePath}/articles/articlesEdit.do',
-				success: function(data){
-					$('#dialog-edit').dialog('close');
+				success:function(data){
 					var jsonObj = eval("("+data+")");
-					$('#articles-table').datagrid('updateRow',{
-						index: $("#index").val(),
-						row: {
-							id: jsonObj.id,
-							title:jsonObj.title,
-							status:jsonObj.status,
-							createTime:jsonObj.createTime,
-							description:jsonObj.description,
-							picType:jsonObj.picType,
-							modifyTime:jsonObj.modifyTime,
-						}
-					});
 				}
 		});
-}
+	}
  //弹出现有图片的选择
  function showPictureList() {	
 	$("#dialog-showPictureList").dialog({
 		title: '请查询选择图片素材',
 		href:'${basePath}/picture/pictureBase.do?jump=alert',
 	    closed: false,
-	    width: 700,
+	    width: 600,
 	    height: 500,
 	    cache: false,
 	    modal: true,
@@ -112,6 +120,10 @@ function edit(){
 	}else{
 		$.messager.alert('温馨提示', '没有选中图片');
 	} 
+ }
+ 
+ function closedOpenPages(){
+		window.location.href="${basePath}/articles/articlesBase.do?jump=list";	
  }
 
 

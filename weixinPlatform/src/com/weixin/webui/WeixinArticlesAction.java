@@ -121,7 +121,6 @@ public class WeixinArticlesAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
-
 	/**
 	 * 修改
 	 * 
@@ -129,92 +128,66 @@ public class WeixinArticlesAction extends BaseAction {
 	 */
 	public String articlesEdit() throws Exception{
 		if (weixinArticlesForm != null) {
-			WeixinArticles weixinArticles = weixinArticlesSrv
-					.getWeixinArticles(Long.valueOf(weixinArticlesForm.getId()));
+			WeixinArticles weixinArticles = weixinArticlesSrv.getWeixinArticles(Long.valueOf(weixinArticlesForm.getId()));
 			if (weixinArticles != null) {
 				weixinArticles.setTitle(weixinArticlesForm.getTitle());
-				weixinArticles.setDescription(weixinArticlesForm
-						.getDescription());
+				weixinArticles.setDescription(weixinArticlesForm.getDescription());
 				weixinArticles.setUpdateTime(DateUtil.getNow());
 				weixinArticles.setPicUrl(weixinArticlesForm.getPicUrl());
 				weixinArticles.setUrl(weixinArticlesForm.getUrl());
 				weixinArticlesSrv.updateWeixinArticles(weixinArticles);
-
-				weixinArticlesForm.setCreateTime(String.valueOf(weixinArticles
-						.getCreateTime()));
-				int picType = weixinArticles.getPicType();
-				if (picType == 1) {
-					weixinArticlesForm.setPicType("单图文");
-				} else {
-					weixinArticlesForm.setPicType("多图文");
-				}
-				int status = weixinArticles.getStatus();
-				if (status == 1) {
-					weixinArticlesForm.setStatus("有效");
-				} else {
-					weixinArticlesForm.setStatus("无效");
-				}
-				weixinArticlesForm.setUpdateTime(String.valueOf(weixinArticles.getUpdateTime()));
-				String jsonStr = ConvertJson.bean2json(weixinArticlesForm);
-				LogUtil.info(jsonStr);
-				this.getRequest().setAttribute("index",id);
-				this.writeResult(jsonStr);
+				this.writeResult("0");
 				return null;
 			}
 		}
 		return SUCCESS;
 	}
-
 	/**
 	 * 新增
 	 * 
 	 * @return
 	 */
 	public String articlesAdd() {
-		String picType=this.getRequestParameter("picType");//取得提交的图文类型
-		if(picType.equals("1")){//单图文提交
-				WeixinArticles weixinArticles = new WeixinArticles();
-				if (weixinArticlesForm != null) {
-					weixinArticles.setCreateTime(DateUtil.getNow());
-					weixinArticles.setDescription(weixinArticlesForm.getDescription());
-					weixinArticles.setUrl(weixinArticlesForm.getUrl());
-					weixinArticles.setPicType(1);
-					weixinArticles.setTitle(weixinArticlesForm.getTitle());
-					weixinArticles.setStatus(1);
-					weixinArticles.setPicUrl(weixinArticlesForm.getPicUrl());
-					weixinArticlesSrv.addWeixinArticles(weixinArticles);
-			
-					weixinArticlesForm.setId(String.valueOf(weixinArticles.getId()));
-					weixinArticlesForm.setStatus("有效");
-					weixinArticlesForm.setPicType("单图文");
-					String jsonStr = ConvertJson.bean2json(weixinArticlesForm);
-					LogUtil.info(jsonStr);
-					this.writeResult(jsonStr);
-					return null;
-				}
-		}
-		if(picType.equals("2")){//多图文提交方式
-			WeixinArticles weixinArticles = new WeixinArticles();
-			if (weixinArticlesForm != null) {
-				weixinArticles.setCreateTime(DateUtil.getNow());
-				weixinArticles.setDescription(weixinArticlesForm.getDescription());
-				weixinArticles.setUrl(weixinArticlesForm.getUrl());
-				weixinArticles.setPicType(2);
-				weixinArticles.setTitle(weixinArticlesForm.getTitle());
-				weixinArticles.setStatus(1);
-				weixinArticles.setPicUrl(weixinArticlesForm.getPicUrl());
-				weixinArticlesSrv.addWeixinArticles(weixinArticles);
-				
-				long articles_id=weixinArticles.getId();
-				articlesMulti(articles_id);
-				weixinArticlesForm.setId(String.valueOf(articles_id));
-				weixinArticlesForm.setStatus("有效");
-				weixinArticlesForm.setPicType("多图文");
-				String jsonStr = ConvertJson.bean2json(weixinArticlesForm);
-				LogUtil.info(jsonStr);
-				this.writeResult(jsonStr);
+		String picType=weixinArticlesForm.getPicType();//取得提交的图文类型
+		try{
+			if (StringUtils.isEmpty(weixinArticlesForm.getTitle())) {
+				this.writeResult("2");//参数为空,理论上前台是需要验证
 				return null;
 			}
+			
+			Map<String,Object> params=new HashMap<String,Object>();
+			params.put("title", weixinArticlesForm.getTitle());
+			WeixinArticles weixinArticles = weixinArticlesSrv.getWeixinArticles(params);
+			if(weixinArticles!=null){
+				this.writeResult("3");//添加的标题出现重复
+				return null;
+			}
+			
+			weixinArticles=new WeixinArticles();
+			weixinArticles.setCreateTime(DateUtil.getNow());
+			weixinArticles.setUrl(weixinArticlesForm.getUrl());
+			weixinArticles.setTitle(weixinArticlesForm.getTitle());
+			weixinArticles.setStatus(1);
+			weixinArticles.setPicUrl(weixinArticlesForm.getPicUrl());
+			weixinArticles.setPicType(Integer.parseInt(picType));
+			
+			if(picType.equals("1")){//单图文提交
+				weixinArticles.setDescription(weixinArticlesForm.getDescription());//单图文多了一个备注
+				weixinArticlesSrv.addWeixinArticles(weixinArticles);
+				this.writeResult("0");//成功添加数据了
+				return null;
+			}
+			if(picType.equals("2")){//多图文提交方式
+				weixinArticlesSrv.addWeixinArticles(weixinArticles);
+				long articles_id=weixinArticles.getId();
+				articlesMulti(articles_id);//增加多图文下面的子项
+				this.writeResult("0");//成功添加数据了
+				return null;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			this.writeResult("e");//系统异常的处理
+			return null;
 		}
 		return SUCCESS;
 	}
@@ -226,11 +199,9 @@ public class WeixinArticlesAction extends BaseAction {
 		String[] items_array=items_str.split(",");
 		for(int i=0;i<items_array.length;i++){
 			String str=items_array[i];
-			System.out.println(str);
 			if(StringUtils.isNotEmpty(str)){
 				WeixinArticlesMulti weixinArticlesMulti=new WeixinArticlesMulti();
 				weixinArticlesMulti.setArticlesId(articles_id);
-				weixinArticlesMulti.setDescription(this.getRequestParameter("description"+str));
 				weixinArticlesMulti.setTitle(this.getRequestParameter("title"+str));
 				weixinArticlesMulti.setUrl(this.getRequestParameter("url"+str));
 				weixinArticlesMulti.setPicUrl(this.getRequestParameter("picUrl"+str));

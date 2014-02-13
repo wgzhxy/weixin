@@ -8,45 +8,97 @@
 	<script type="text/javascript"  src="${basePath}/easyUi/js/jquery.edatagrid.js"></script>
 </head>
 <body>
-	<div style="padding:10px 80px">
-    <div class="ftitle">多图文填写</div>
-		<form id="fmtmuilt"  method="post"  style="padding-left: 20px ;padding-top: 10px">
-			<div class="fitem">
-				<label>链接到:</label>
-				<a href="javascript:microPageEvent();">微页面</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-				<a href="javascript:activeLinkEvent();">活动</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-				<a href="javascript:outsideTheChainEvent();">外链</a>
-			</div>
-			<div class="fitem" style="display:none" id="outsideTheChain">
-				<label>外链:</label>
-				<input name="weixinArticlesForm.url" class="easyui-validatebox"  />
-			</div>
-			<div class="fitem">
-				<label>标题:</label>
-				<input name="weixinArticlesForm.title"  class="easyui-validatebox"  required="true"  />
-			</div>
-			<div class="fitem">
-				<label>封面:</label>
-				<div style="padding-left: 90px;padding-top:10px">
-					<input name="weixinArticlesForm.picUrl" class="easyui-validatebox"  id="photo"  onclick="javascript:showMuiltPictureList(0);" />
-					<br />
-					<input type="file"  id="indexfile" class="easyui-validatebox"  />
-					<br />
-					<img  id="indexfilePic"  alt=""  src=""  width="205"  height="100"  /><br/>
-				</div>
-			</div>
-			<div class="fitem">
-				<label>摘要:</label>
-				<textarea class="textbox" cols="38" rows="8" name="weixinArticlesForm.description"></textarea>
-			</div>
-			
-			<div id="items">
-			</div>
-			<div class="ftitle" style="text-align: center;">
-				<a href="javascript:additionItemsEvent();" class="btn btn-success"><li class="icon-plus icon-white"></li>增加一条</a>
-			</div>
-		</form>
-</div>
+	<div class="container-fluid">
+	<div class="row-fluid">
+	<div id="content" class="span10">
+			<div class="row-fluid sortable">
+				<div class="box span12">
+					<div class="box-content well center">
+							<form class="form-horizontal" id="fmt">
+							<legend><h4><i class="icon-th"></i>多图文信息填写</h4></legend>
+								<div class="control-group">
+								  <label class="control-label">链接到:</label>
+								  <div class="controls">
+									<a href="javascript:microPageEvent();" class="btn">微页面</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+									<a href="javascript:activeLinkEvent();" class="btn">活动</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+									<a href="javascript:outsideTheChainEvent();" class="btn">外链</a>
+								  </div>
+								</div>
+								<div class="control-group" style="display:none" id="outsideTheChain">
+								  <label class="control-label">外链:</label>
+								  <div class="controls">
+									<input name="weixinArticlesForm.url" class="span6 typeahead"  />
+								  </div>
+								</div>
+								<div class="control-group error">
+								  <label class="control-label">标题:</label>
+								  <div class="controls">
+									<input name="weixinArticlesForm.title" class="span6 typeahead"  />
+									<p class="help-inline">建议不多于30字!</p>
+								  </div>
+								</div>
+								<div class="control-group error">
+									<label class="control-label">封面:</label>
+									<div class="controls">
+										<input name="weixinArticlesForm.picUrl" class="span6 typeahead"  id="photo"  onclick="javascript:showMuiltPictureList('0');" />
+										<br />
+										<input type="file"  id="indexfile" class="span6 typeahead"  />
+										<br />
+										<img  id="indexfilePic"  alt=""  src=""  class="span5 typeahead"  height="100"  /><br/>
+										<p class="help-inline">尺寸建议:720高*400宽!</p>
+									</div>
+								</div>
+								<div id="items1" style="border-top:1px solid #ddd;margin-top:10px;padding-top:20px;">
+								<div class="control-group">
+								  <label class="control-label">链接到:</label>
+								  <div class="controls">
+									<a href="javascript:microPageEvent();" class="btn">微页面</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+									<a href="javascript:activeLinkEvent();" class="btn">活动</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+									<a href="javascript:outsideTheChainEvent();" class="btn">外链</a>
+								  </div>
+								</div>
+								<div class="control-group" style="display:none" id="outsideTheChain">
+								  <label class="control-label">外链:</label>
+								  <div class="controls">
+									<input name="url1" class="span6 typeahead"  />
+								  </div>
+								</div>
+								<div class="control-group error">
+								  <label class="control-label">标题:</label>
+								  <div class="controls">
+									<input name="title1" class="span6 typeahead"  />
+									<p class="help-inline">建议不多于30字!</p>
+								  </div>
+								</div>
+								<div class="control-group error">
+									<label class="control-label">封面:</label>
+									<div class="controls">
+										<input name="picUrl1" class="span6 typeahead"  id="photo1"  onclick="javascript:showMuiltPictureList('1');" />
+										<br />
+										<input type="file"  id="indexfile1" class="span6 typeahead"  />
+										<br />
+										<img  id="indexfilePic1"  alt=""  src=""  class="span5 typeahead"  height="100"  /><br/>
+										<p class="help-inline">尺寸建议:720高*400宽!</p>
+									</div>
+								</div>
+								<div id="items">
+								</div>
+								<div class="">
+									<div class="box-content">
+										<a href="javascript:additionItemsEvent();" class="btn btn-success">
+											<li class="icon-plus icon-white"></li>增加一条
+										</a>
+									</div>
+								</div>
+								<div class="form-actions">
+									<a href="" class="btn btn-primary">保存</a>
+									<a href="" class="btn btn-primary">发送</a>
+									<a href="javascript:closedOpenPages();" class="btn">关闭</a>
+							   </div>
+							</form>
+                    	</div>                   
+                  </div>
+			</div><!--/row-->
 <!-- 现有图片弹出框 -->
  <div id="articles-muilt-add-dialog" class="easyui-dialog" title="请选择已有的图片信息" closed="true" buttons="#dialog-buttons">       
  </div>
@@ -69,30 +121,33 @@
 	        		}
      		}
 	 );
-	 var items_array=[1,2,3,4,5,6,7,8,9];
+	 
+	 fileUpload = new FileParamter();
+	 fileUpload.basePath = '${basePath}';
+	 fileUpload.uploadFile(fileUpload, $('#indexfile1'), 
+			 function(event, queueID, fileObj, response, data) {             
+	         	var obj = eval('(' + response + ')');
+	        	 if(obj.result == 'ok') {
+			         	$("#photo1").val(obj.pic);
+			         	$("#indexfile1").html(obj.pic);
+			     	 	$("#indexfilePic1").attr("src", "${basePath}" + obj.pic);
+		     		} else {
+	     			 	$.messager.alert("消息提示", response.result, 1);
+	        		}
+     		}
+	 );
+	 var items_array=[2,3,4,5,6,7,8,9];
 	 var items_array_tmp=[];
 	 var items_count=1;
 	 var event_id=0;
 //新增保存
 function save(){
-		$('#fmtmuilt').form('submit',{
-				url:'${basePath}/articles/articlesAdd.do?picType=2&items_array='+items_array_tmp,
-				success: function(data){
-					$('#dialog-multi').dialog('close');
-					var jsonObj = eval("("+data+")");
-					$('#articles-table').datagrid('insertRow',{
-						row: {
-							id: jsonObj.id,
-							title:jsonObj.title,
-							status:jsonObj.status,
-							createTime:jsonObj.createTime,
-							description:jsonObj.description,
-							picType:jsonObj.picType,
-							modifyTime:jsonObj.modifyTime,
-						}
-					});
-				}
-		});
+	$('#fmt').form('submit',{
+			url:'${basePath}/articles/articlesAdd.do?picType=2&items_array='+items_array_tmp,
+			success: function(data){
+				var jsonObj = eval("("+data+")");
+			}
+	});
 }
 
 function additionItemsEvent(){
@@ -102,30 +157,43 @@ function additionItemsEvent(){
 	}
 	var event_id=items_array.shift();
 	items_array_tmp.push(event_id);
-	var str='<div id="items'+event_id+'"><div class="fitem">'+
-				'<label>链接到:</label>'+
-				'<a href="javascript:microPageEvent();">微页面</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;'+
-				'<a href="javascript:activeLinkEvent();">活动</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;'+
-				'<a href="javascript:outsideTheChainEvent();">外链</a>'+
+	
+	var str='<div style="border-top:1px solid #ddd;margin-top:10px;padding-top:20px;" id="items'+event_id+'">'+
+		'<div class="control-group">'+
+		  '<label class="control-label">链接到:</label>'+
+		  '<div class="controls">'+
+			'<a href="javascript:microPageEvent();" class="btn">微页面</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;'+
+			'<a href="javascript:activeLinkEvent();" class="btn">活动</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;'+
+			'<a href="javascript:outsideTheChainEvent();" class="btn">外链</a>'+
+		  '</div>'+
+		'</div>'+
+		'<div class="control-group" style="display:none" id="outsideTheChain">'+
+		  '<label class="control-label">外链:</label>'+
+		  '<div class="controls">'+
+			'<input name="weixinArticlesForm.url" class="span6 typeahead"  />'+
+		  '</div>'+
+		'</div>'+
+		'<div class="control-group error">'+
+		  '<label class="control-label">标题:</label>'+
+		  '<div class="controls">'+
+			'<input name="title'+event_id+'" class="span6 typeahead"  />'+
+			'<p class="help-inline">建议不多于30字!</p>'+
+		  '</div>'+
+		'</div>'+
+		'<div class="control-group error">'+
+			'<label class="control-label">封面:</label>'+
+			'<div class="controls">'+
+				'<input name="picUrl'+event_id+'" class="span6 typeahead"  id="photo'+event_id+'"  onclick="javascript:showPictureList();" />'+
+				'<br />'+
+				'<input type="file"  id="indexfile'+event_id+'" class="span6 typeahead"  />'+
+				'<br />'+
+				'<img  id="indexfilePic'+event_id+'"  alt=""  src=""  class="span5 typeahead"  height="100"  /><br/>'+
+				'<p class="help-inline">尺寸建议:720高*400宽!</p>'+
 			'</div>'+
-			'<div class="fitem" style="display:none" id="outsideTheChain">'+
-				'<label>外链:</label>'+
-				'<input name="url'+event_id+'" class="easyui-validatebox"  />'+
-			'</div>'+
-			'<div class="fitem">'+
-				'<label>标题:</label>'+
-				'<input name="title'+event_id+'"  class="easyui-validatebox"  required="true"  />'+
-			'</div>'+
-			'<div class="fitem">'+
-				'<label>封面:</label>'+
-				'<div style="padding-left: 90px;padding-top:10px">'+
-					'<input name="picUrl'+event_id+'" class="easyui-validatebox"  id="photo'+event_id+'" onclick="javascript:showMuiltPictureList('+event_id+');" />'+
-					'<br />'+
-					'<input type="file"  id="indexfile'+event_id+'" class="easyui-validatebox"  />'+
-					'<br />'+
-					'<img  id="indexfilePic'+event_id+'"  alt=""  src=""  width="205"  height="100"  /><br/>'+
-				'</div>'+
-			'</div><div style="text-align: center;"><a class="btn btn-danger" href="javascript:removeItemsEvent(items'+event_id+','+event_id+');"><i class="icon-trash icon-white"></i>删除</a><div></div>';
+		'</div>'+
+		  '<a class="btn btn-danger" href="javascript:removeItemsEvent(items'+event_id+','+event_id+');"><i class="icon-trash icon-white"></i>删除</a>'+
+		'</div>';
+	
 	$("#items").append(str);
 	 fileUpload = new FileParamter();
 	 fileUpload.basePath = '${basePath}';
