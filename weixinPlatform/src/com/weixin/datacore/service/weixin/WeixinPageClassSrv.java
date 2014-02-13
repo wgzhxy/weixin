@@ -32,5 +32,7 @@ public interface WeixinPageClassSrv extends ServiceSrv {
 	
 	public WeixinPageClass getWeixinPageClass(String id);
 	
+	public List<WeixinPageClass> findWeixinPageClassList(Map<String, Object> params);
+	
 	public void deleWeixinPageClass(String id);
 }

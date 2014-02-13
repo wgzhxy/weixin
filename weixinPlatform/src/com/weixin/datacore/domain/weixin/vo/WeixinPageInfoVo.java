@@ -14,6 +14,8 @@ public class WeixinPageInfoVo {
 	private String associateLinks;
 	private Integer displayNum;
 	private String platformTag;
+	private String operator;
+	private Date createTime;
 
 	public String getId() {
 		return id;
@@ -93,6 +95,22 @@ public class WeixinPageInfoVo {
 
 	public void setPlatformTag(String platformTag) {
 		this.platformTag = platformTag;
+	}
+
+	public String getOperator() {
+		return operator;
+	}
+
+	public void setOperator(String operator) {
+		this.operator = operator;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 
 }

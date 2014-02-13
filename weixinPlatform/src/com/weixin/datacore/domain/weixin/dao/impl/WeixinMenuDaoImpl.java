@@ -7,12 +7,11 @@ package com.weixin.datacore.domain.weixin.dao.impl;
 
 import java.io.Serializable;
 import org.springframework.stereotype.Repository;
-import com.weixin.datacore.domain.weixin.dao.WeixinMenuItemDao;
-import com.weixin.datacore.domain.weixin.model.WeixinMenuItem;
+import com.weixin.datacore.domain.weixin.dao.WeixinMenuDao;
+import com.weixin.datacore.domain.weixin.model.WeixinMenu;
 import com.weixin.datacore.core.impl.HibernateDAOImpl;
 
-@Repository("weixinMenuItemDao")
-public class WeixinMenuItemDaoImpl extends HibernateDAOImpl<WeixinMenuItem, Serializable, Long> implements
-		WeixinMenuItemDao {
-
+@Repository("weixinMenuDao")
+public class WeixinMenuDaoImpl extends HibernateDAOImpl<WeixinMenu, Serializable, Long> implements
+WeixinMenuDao {
 }

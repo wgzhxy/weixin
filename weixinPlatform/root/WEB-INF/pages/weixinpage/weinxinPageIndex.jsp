@@ -41,51 +41,42 @@
 			//编辑
 			function editPage(id) {
 				//href: '${basePath}/pagePageEdit.do?moduleForm.id=' + row.id + "&index=" + index ,
-				window.location.href="${basePath}/pagePageEdit.do?moduleForm.id=";
+				window.location.href="${basePath}/pagePageEdit.do?weixinPageInfoVo.id=" + id;
 			}
 			//删出
 			function deletePage(id) {
 				//href: '${basePath}/pagePageEdit.do?moduleForm.id=' + row.id + "&index=" + index ,
-				window.location.href="${basePath}/pagePageEdit.do?moduleForm.id=";
+				$.messager.confirm('系统提示', '确定删出吗?', function(r) {
+		            if (r) {
+		            	window.location.href="${basePath}/pagePageDelete.do?weixinPageInfoVo.id=" + id;
+		            }
+		        });
 			}
 			//查询链接
 			function viewPage(id) {
 				//href: '${basePath}/pagePageEdit.do?moduleForm.id=' + row.id + "&index=" + index ,
-				window.location.href="${basePath}/pagePageEdit.do?moduleForm.id=";
+				window.location.href="${basePath}/pagePageEdit.do?weixinPageInfoVo.id=" + id;
 			}
 		    //弹出新增窗口
 			function addPage(){
 		    	window.location.href="${basePath}/pagePageAdd.do";
-				/*$('#dd').dialog({
-						href: '${basePath}/pagePageAdd.do',
-					    title: '新增微页面',
-					    closed: false,
-					    iconCls: 'icon-save',
-					    width: 800,
-					    height: 500,
-					    cache: false,
-					    modal: true,
-					    resizable:true
-				});*/
 			}
 	
 			function doSearch() {
 				var queryParams = $('#dg').datagrid('options').queryParams;
-				queryParams['weixinMessageLogVo.msgClass'] = 0;
+				queryParams['weixinPageInfoVo.platformTag'] = 0;
 				$('#dg').datagrid("load", "${basePath}/pagePageList.do");
 			};
 			
-			
-		
 			$(function(){
 				$('#dg').datagrid({
 						idField : "id",
 						title : "微信页面管理",
 						iconCls: 'icon-reload',
-						nowrap : true,
+						nowrap : false,
 						toolbar: '#dlg-buttons',
 						height : 450,
-						url: "${basePath}/pagePageList.do",
+						url: "${basePath}/pagePageList.do?weixinPageInfoVo.platformTag=0",
 						striped : true,
 						collapsible : false,
 						remoteSort : false,
@@ -95,15 +86,10 @@
 						singleSelect: true,
 						columns:[[
 							     {title:'ID',field:'id',width:fixWidth(0.1),rowspan:2,align:'center'},
-							     {title:'标题',field:'fromUserName',width:fixWidth(0.1),rowspan:2,align:'center'},
-							     {title:'创建时间',field:'content',width:fixWidth(0.3),rowspan:2,align:'center'},
-							     {title:'浏览UY/PV',field:'createTime',width:fixWidth(0.15),rowspan:2,align:'center'},
-							     {title:'操作',field:'id',width:fixWidth(0.15),rowspan:2,align:'center',
-							    	 formatter:function(val,rec){ 
-							    		return '<a href="#" onclick="editPage();" id="memo" data-type="text" data-placement="right">编辑</a>'+
-							    	 		   ' | <a href="#" onclick="deletePage();">删出</a> | <a href="#" onclick="viewPage();">查看链接</a>';
-							     	 }
-							     }  
+							     {title:'标题',field:'pageTitle',width:fixWidth(0.2),rowspan:2,align:'center'},
+							     {title:'内容',field:'content',width:fixWidth(0.3),rowspan:2,align:'center'},
+							     {title:'创建时间',field:'createTime',width:fixWidth(0.15),rowspan:2, align:'center'},
+							     {title:'操作',field:'operator',width:fixWidth(0.15),rowspan:2,align:'center'}
 			    				]],
 						onLoadSuccess:function(){
 						}

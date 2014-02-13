@@ -11,6 +11,7 @@ import java.util.Map;
 import com.weixin.comm.PageInfo;
 import com.weixin.datacore.core.ServiceSrv;
 import com.weixin.datacore.domain.weixin.model.WeixinPageInfo;
+import com.weixin.datacore.domain.weixin.vo.WeixinPageInfoVo;
 
 public interface WeixinPageInfoSrv extends ServiceSrv {
 
@@ -20,7 +21,11 @@ public interface WeixinPageInfoSrv extends ServiceSrv {
 	
 	public void deleWeixinPageInfo(Long id);
 	
+	public void deleWeixinPageInfo(String id);
+	
 	public void updateWeixinPageInfo(WeixinPageInfo weixinPageInfo);
+	
+	public WeixinPageInfo updateWeixinPageInfo(WeixinPageInfoVo weixinPageInfoVo);
 	
 	public void saveBatchWeixinPageInfo(List<WeixinPageInfo> weixinPageInfoLs);
 	
@@ -29,4 +34,6 @@ public interface WeixinPageInfoSrv extends ServiceSrv {
 	public PageInfo<WeixinPageInfo> findWeixinPageInfoList(Object[] params, int pageNo, int pageSize);
 	
 	public WeixinPageInfo getWeixinPageInfo(Long id);
+	
+	public WeixinPageInfo getWeixinPageInfo(String id);
 }
