@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>图片管理</title>
+	<title>图文管理</title>
 	<script type="text/javascript"  src="${basePath}/easyUi/js/jquery.edatagrid.js"></script>
 </head>
 <body>
@@ -16,7 +16,10 @@
     				 <input type="radio" name="state" value="1" checked="true"><span>单图文</span>
         		 	 <input type="radio" name="state" value="2" id="state"><span>多图文</span>
         		 <span style="padding-left: 20px;">
-        		 <a href="#" class="btn btn-primary"  onclick="doSearch()"><i class="icon-search icon-white"></i>开始查询</a></span>
+	        		 <a href="#" class="btn btn-primary"  onclick="doSearch()">
+	        		 	<i class="icon-search icon-white"></i>开始查询
+	        		 </a>
+        		 </span>
 		    </div>
 	</div>
 	<p></p>
@@ -38,85 +41,28 @@
 		</thead>
 	</table>
 	<div id="toolbar">
-    	<a href="#"  class="easyui-linkbutton"  iconCls="icon-add"  plain="true"  onclick="javascript:addSingleArticles();">新增单图文</a>
-    	<a href="#"  class="easyui-linkbutton"  iconCls="icon-add"  plain="true"  onclick="javascript:addMultiArticles();">新增多图文</a>
-    	<a href="#"  class="easyui-linkbutton"  iconCls="icon-edit"  plain="true"  onclick="javascript:editArticles();">图文修改</a>
+    	<a href="#"  class="easyui-linkbutton"  iconCls="icon-add"  plain="true"  onclick="javascript:jumpNewPage('single');">新增单图文</a>
+    	<a href="#"  class="easyui-linkbutton"  iconCls="icon-add"  plain="true"  onclick="javascript:jumpNewPage('multi');">新增多图文</a>
+    	<a href="#"  class="easyui-linkbutton"  iconCls="icon-edit"  plain="true"  onclick="javascript:jumpEditPage();">图文修改</a>
     	<a href="#"  class="easyui-linkbutton"  iconCls="icon-remove"  plain="true"  onclick="javascript:$('#dg').edatagrid('destroyRow')">删除</a>
 	</div>
-	<!-- 单图文新增 -->
-	<div id="dialog-single"  class="easyui-dialog"  closed="true"   title="单图文新增"  buttons="#dialog-single-buttons" >
-	</div>
-	<div id="dialog-single-buttons"  style="text-align: center;">
-	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-ok"  onclick="save();">保存</a>
-	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-ok"  onclick="save();">发送</a>
-	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-cancel"  onclick="javascript:$('#dialog-single').dialog('close')">取消</a>
-	</div>
-	<!-- 多图文新增 -->
-	<div id="dialog-multi"  class="easyui-dialog"  closed="true"   title="多图文新增"  buttons="#dialog-multi-buttons" >
-	</div>
-	<div id="dialog-multi-buttons"  style="text-align: center;">
-	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-ok"  onclick="save();">提交</a>
-	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-cancel"  onclick="javascript:$('#dialog-multi').dialog('close')">取消</a>
-	</div>
-	<!-- 图文修改 -->
-	<div id="dialog-edit"  class="easyui-dialog"   closed="true"   title="图文修改"  buttons="#dialog-edit-buttons" >
-	</div>
-	<div id="dialog-edit-buttons"  style="text-align: center;">
-	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-ok"  onclick="edit();">提交</a>
-	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-cancel"  onclick="javascript:$('#dialog-edit').dialog('close')">取消</a>
-	</div>
 	<script type="text/javascript">
-	//弹出新增窗口
-	function addSingleArticles(){
-	 	 $('#dialog-single').dialog({
-			href: '${basePath}/articles/articlesBase.do?jump=single',
-		    title: '单图文',
-		    closed: false,
-		    iconCls: 'icon-save',
-		    width: 800,
-		    height: 480,
-		    cache: false,
-		    modal: true,
-		    resizable:true
-		});
+	//弹出新增窗口multi:多图文;single:单图文
+	function jumpNewPage(obj){
+		window.location.href="${basePath}/articles/articlesBase.do?jump="+obj;
 	}
-	//弹出新增窗口
-	function addMultiArticles(){
-		$('#dialog-single').dialog({
-					href: '${basePath}/articles/articlesBase.do?jump=multi',
-				    title: '多图文',
-				    closed: false,
-				    iconCls: 'icon-save',
-				    width: 800,
-		   			height: 480,
-				    cache: false,
-				    modal: true,
-				    resizable:true
-			});
-	}
-	function editArticles(){
+	function jumpEditPage(){
+		var types=1;
 		var row=$("#articles-table").datagrid("getSelected");
 		if(row !=null){
 			var id=row.id;
-			var picType=row.picType;
-			var id=row.id;
+			var picType=""+row.picType+"";
+			window.location.href="${basePath}/articles/articlesBase.do?jump=edit&weixinArticlesForm.id="+id+"&weixinArticlesForm.picType="+types;
 		}else{
 			$.messager.alert('温馨提示', '没有选中记录');
 			return ;
-		} 
-		$('#dialog-edit').dialog({
-			href: '${basePath}/articles/articlesBase.do?jump=edit&weixinArticlesForm.id='+id+'&weixinArticlesForm.picType=1',
-		    title: '图文修改',
-		    closed: false,
-		    iconCls: 'icon-edit',
-		    width: 800,
-		    height: 480,
-		    cache: false,
-		    modal: true,
-		    resizable:true
-		});
+		}
 	}
-	
 	//搜索功能
 		function doSearch() {
 				var title = $.trim($('#title').val());
