@@ -78,10 +78,10 @@
 				}
 			}
 		    //弹出新增窗口
-			function addModule(){
+			function sendMsg(val){
 					$('#dd').dialog({
-							href: '${basePath}/system/module/addModulePage.do',
-						    title: '新增权限实体',
+							href: '${basePath}/message/msgsendMessage.do',
+						    title: '发送微信消息',
 						    closed: false,
 						    iconCls: 'icon-save',
 						    width: 500,
@@ -98,8 +98,6 @@
 				$('#dg').datagrid("load", "${basePath}/message/msgManagerIndex.do");
 			};
 			
-			
-		
 			$(function(){
 				$('#dg').datagrid({
 						idField : "id",
@@ -125,9 +123,9 @@
 							     {title:'消息内容',field:'content',width:fixWidth(0.3),rowspan:2,align:'center'},
 							     {title:'消息时间',field:'createTime',width:fixWidth(0.15),rowspan:2,align:'center'},
 							     {title:'操作',field:'operator',width:fixWidth(0.15),rowspan:2,align:'center',
-							    	 formatter:function(val,rec){ 
+							    	 formatter:function(val,){ 
 							    		return '<a href="#" id="memo" data-type="text" data-placement="right" data-title="输入备注">备注</a>'+
-							    	 		   ' | <a href="" >加星</a>';
+							    	 		   ' | <a href="">加星</a> | <a href="javascript:sendMsg('+ val + rec +');">回复</a>';
 							     	 }
 							     }  
 			    				]],

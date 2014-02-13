@@ -7,6 +7,7 @@
 		<action name="msg*" class="com.weixin.webui.end.TalkMessageAction" method="{1}">
 	    	<result name="input">/WEB-INF/pages/talkInfo/messageIndex.jsp</result>
 	    	<result name="talk">/WEB-INF/pages/talkInfo/talkInfo.jsp</result>
+	    	<result name="send">/WEB-INF/pages/talkInfo/sendMessage.jsp</result>
 	    </action>
 	</package>
 </struts>

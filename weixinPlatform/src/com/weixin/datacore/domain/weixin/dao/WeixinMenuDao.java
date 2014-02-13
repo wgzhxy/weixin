@@ -6,9 +6,10 @@
 package com.weixin.datacore.domain.weixin.dao;
 
 import java.io.Serializable;
-import com.weixin.datacore.domain.weixin.model.WeixinMenuItem;
+
+import com.weixin.datacore.domain.weixin.model.WeixinMenu;
 import com.weixin.datacore.core.HibernateDAO;
 
-public interface WeixinMenuItemDao extends HibernateDAO<WeixinMenuItem, Serializable, Long> {
+public interface WeixinMenuDao extends HibernateDAO<WeixinMenu, Serializable, Long> {
 
 }

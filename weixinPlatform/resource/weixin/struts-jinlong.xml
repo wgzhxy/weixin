@@ -13,7 +13,7 @@
 	    <!-- picture manager end-->
 	</package>
 	<package name="articles" extends="app-default" namespace="/articles">
-		  <!-- picture manager start-->
+		  <!-- articles manager start-->
 		<action name="articles*" class="com.weixin.webui.WeixinArticlesAction" method="articles{1}">
 			<result name="single">/WEB-INF/pages/articles/articlesSingleAdd.jsp</result>
 			<result name="multi">/WEB-INF/pages/articles/articlesMuiltAdd.jsp</result>
@@ -21,6 +21,15 @@
 			<result name="edit_multi">/WEB-INF/pages/articles/articlesEdit.jsp</result>
 			<result name="success">/WEB-INF/pages/articles/articlesList.jsp</result>
 	    </action>
-	    <!-- picture manager end-->
+	    <!-- articles manager end-->
+	</package>
+	<package name="menus" extends="app-default" namespace="/menus">
+		  <!-- menus manager start-->
+		<action name="menu*" class="com.weixin.webui.WeixinMenuAction" method="menu{1}">
+			<result name="add">/WEB-INF/pages/menus/menusAdd.jsp</result>
+			<result name="edit">/WEB-INF/pages/menus/menusEdit.jsp</result>
+			<result name="success">/WEB-INF/pages/menus/menusList.jsp</result>
+	    </action>
+	    <!-- menus manager end-->
 	</package>
 </struts>
