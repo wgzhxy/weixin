@@ -111,4 +111,29 @@ public class WeixinPageClassSrvImpl extends ServiceSrvImpl implements WeixinPage
 		// TODO Auto-generated method stub
 		weixinPageClassDao.delete(this.getWeixinPageClass(id));
 	}
+
+	@Override
+	public List<WeixinPageClass> findWeixinPageClassList(Map<String, Object> params) {
+		try{
+			String hql = "from WeixinPageClass c where 1=1 ";
+			StringBuffer where = new StringBuffer();
+			if(params != null) {
+				for(Map.Entry<String, Object> entity : params.entrySet()) {
+					if(StringUtils.equals("className", entity.getKey())) 
+					{
+						where.append(" and c.").append(entity.getKey()).append(" like :").append(entity.getKey());
+						params.put(entity.getKey(), "%" + entity.getValue() + "%");
+					} else if(StringUtils.isNotEmpty(entity.getKey())) 
+					{
+						where.append(" and c.").append(entity.getKey()).append("= :").append(entity.getKey());
+					}
+				}
+			}
+			String orderBy = " order by c.updateTime desc"; 
+			return ((List<WeixinPageClass>)weixinPageClassDao.findObjectListByQuery(hql + where.toString() + orderBy, params));
+		} catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

@@ -69,7 +69,7 @@ public class TalkMessageAction extends BaseAction {
 	
 	public String AddRemark() {
 		
-		return null;
+		return "remark";
 	}
 
 	public String AddStar() {

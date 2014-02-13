@@ -110,7 +110,7 @@ public class WeixinPageInfo implements java.io.Serializable {
 		this.pageTitle = pageTitle;
 	}
 
-	@Column(name = "page_ subtitle", length = 128)
+	@Column(name = "page_subtitle", length = 128)
 	public String getPageSubtitle() {
 		return this.pageSubtitle;
 	}
