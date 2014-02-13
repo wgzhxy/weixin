@@ -81,7 +81,7 @@
 		    //弹出新增窗口
 			function sendMsg(val){
 					$('#dd').dialog({
-							href: '${basePath}/message/msgSendMessage.do',
+							href: '${basePath}/message/msgsendMessage.do',
 						    title: '发送微信消息',
 						    closed: false,
 						    iconCls: 'icon-save',
