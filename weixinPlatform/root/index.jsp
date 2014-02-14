@@ -83,11 +83,13 @@
 						<li><a class="ajax-link" href="javascript:changePage('${basePath}/message/msgManagerIndex.do');"><i class="icon-home"></i><span class="hidden-tablet">消息管理</span></a></li>
 						<li><a class="ajax-link" href="javascript:changePage('${basePath}/pagePageList.do');"><i class="icon-eye-open"></i><span class="hidden-tablet">微页面管理</span></a></li>
 						<li><a class="ajax-link" href="javascript:changePage('${basePath}/pagePageClassList.do');"><i class="icon-edit"></i><span class="hidden-tablet">微页面分类管理</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('chart.jsp');"><i class="icon-list-alt"></i><span class="hidden-tablet">历史消息</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('chart.jsp');"><i class="icon-font"></i><span class="hidden-tablet">群发效果统计</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('gallery.jsp');"><i class="icon-picture"></i><span class="hidden-tablet">图文素材</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('table.jsp');"><i class="icon-align-justify"></i><span class="hidden-tablet">自动回复设置</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('table.jsp');"><i class="icon-calendar"></i><span class="hidden-tablet">自定义菜单</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('chart.jsp');"><i class="icon-list-alt"></i><span class="hidden-tablet">会员申请处理</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('chart.jsp');"><i class="icon-font"></i><span class="hidden-tablet">人工服务</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('gallery.jsp');"><i class="icon-picture"></i><span class="hidden-tablet">预约看房</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('table.jsp');"><i class="icon-align-justify"></i><span class="hidden-tablet">标签规则管理</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('table.jsp');"><i class="icon-align-justify"></i><span class="hidden-tablet">推荐入会</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('table.jsp');"><i class="icon-align-justify"></i><span class="hidden-tablet">优惠管理</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('table.jsp');"><i class="icon-calendar"></i><span class="hidden-tablet">自定会议</span></a></li>
 					</ul>
 				</div><!--/.well -->
 			</div><!--/span-->
@@ -122,7 +124,6 @@
 					var newMenu = "<ul class=\"nav nav-tabs nav-stacked main-menu\"><li class=\"nav-header hidden-tablet\">菜单列表</li>";
 					var dataObj=eval("("+data+")");
 					for(var i=0; i<dataObj.length; i++) {
-						newMenu += "<li><a class=\"ajax-link\" href=\"javascript:changePage('${basePath}" + dataObj[i].url + "');\"><i class=\""+dataObj[i].iconCls+"\"></i><span class=\"hidden-tablet\">" + dataObj[i].text + "</span></a></li>";
 					}
 					newMenu += "</ul>";
 					$("#leftMenu").html(newMenu);
