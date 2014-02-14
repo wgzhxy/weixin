@@ -83,13 +83,15 @@
 						<li><a class="ajax-link" href="javascript:changePage('${basePath}/message/msgManagerIndex.do');"><i class="icon-home"></i><span class="hidden-tablet">消息管理</span></a></li>
 						<li><a class="ajax-link" href="javascript:changePage('${basePath}/pagePageList.do');"><i class="icon-eye-open"></i><span class="hidden-tablet">微页面管理</span></a></li>
 						<li><a class="ajax-link" href="javascript:changePage('${basePath}/pagePageClassList.do');"><i class="icon-edit"></i><span class="hidden-tablet">微页面分类管理</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('chart.jsp');"><i class="icon-list-alt"></i><span class="hidden-tablet">会员申请处理</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('chart.jsp');"><i class="icon-font"></i><span class="hidden-tablet">人工服务</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('gallery.jsp');"><i class="icon-picture"></i><span class="hidden-tablet">预约看房</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('table.jsp');"><i class="icon-align-justify"></i><span class="hidden-tablet">标签规则管理</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('table.jsp');"><i class="icon-align-justify"></i><span class="hidden-tablet">推荐入会</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('table.jsp');"><i class="icon-align-justify"></i><span class="hidden-tablet">优惠管理</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('table.jsp');"><i class="icon-calendar"></i><span class="hidden-tablet">自定会议</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('${basePath}/busi/applyMemberList.do');"><i class="icon-list-alt"></i><span class="hidden-tablet">会员申请处理</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('${basePath}/busi/busiArtificialService.do');"><i class="icon-font"></i><span class="hidden-tablet">人工服务</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('${basePath}/busi/busiViewHourse.do');"><i class="icon-picture"></i><span class="hidden-tablet">预约看房</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('${basePath}/busi/tagIndex.do');"><i class="icon-align-justify"></i><span class="hidden-tablet">标签规则管理</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('${basePath}/busi/busiTuiJianMember.do');"><i class="icon-align-justify"></i><span class="hidden-tablet">推荐入会</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('${basePath}/busi/busiTuiJianFocus.do');"><i class="icon-align-justify"></i><span class="hidden-tablet">推荐关注</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('${basePath}/fansIndex.do');"><i class="icon-align-justify"></i><span class="hidden-tablet">微信粉丝管理</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('${basePath}/busi/couponMangerIndex.do');"><i class="icon-align-justify"></i><span class="hidden-tablet">优惠管理</span></a></li>
+						<li><a class="ajax-link" href="javascript:changePage('${basePath}/busi/applyMemberList.do');"><i class="icon-calendar"></i><span class="hidden-tablet">自定回复</span></a></li>
 					</ul>
 				</div><!--/.well -->
 			</div><!--/span-->

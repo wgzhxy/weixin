@@ -9,6 +9,13 @@
 	    	<result name="index">/WEB-INF/pages/backend/index.jsp</result>
 	    </action>
 	    
+	    <action name="fans*" class="com.weixin.webui.end.WeinXinFansAction" method="{1}">
+	    	<result name="index">/WEB-INF/pages/weixin/json.msg.jsp</result>
+	    	<result name="level">/WEB-INF/pages/backend/index.jsp</result>
+	    	<result name="score">/WEB-INF/pages/backend/index.jsp</result>
+	    	<result name="tag">/WEB-INF/pages/backend/index.jsp</result>
+	    </action>
+	    
 	    <action name="index*" class="com.weixin.webui.end.IndexAction" method="{1}">
 	    	<result name="index">/index.jsp</result>
 	    	<result name="login">/login.jsp</result>

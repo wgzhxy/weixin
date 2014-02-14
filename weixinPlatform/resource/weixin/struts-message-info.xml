@@ -3,6 +3,7 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
+    <!-- 微信消息管理 -->
 	<package name="ngboss-message" extends="app-default" namespace="/message">
 		<action name="msg*" class="com.weixin.webui.end.TalkMessageAction" method="{1}">
 	    	<result name="input">/WEB-INF/pages/talkInfo/messageIndex.jsp</result>
