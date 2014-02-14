@@ -7,24 +7,16 @@ body{-webkit-backface-visibility:hidden}
 @-webkit-keyframes shake{0%,100%{-webkit-transform:translateX(0)} 10%,30%,50%,70%,90%{-webkit-transform:translateX(-10px)} 20%,40%,60%,80%{-webkit-transform:translateX(10px)}}@-moz-keyframes shake{0%,100%{-moz-transform:translateX(0)} 10%,30%,50%,70%,90%{-moz-transform:translateX(-10px)} 20%,40%,60%,80%{-moz-transform:translateX(10px)}}@-o-keyframes shake{0%,100%{-o-transform:translateX(0)} 10%,30%,50%,70%,90%{-o-transform:translateX(-10px)} 20%,40%,60%,80%{-o-transform:translateX(10px)}}@keyframes shake{0%,100%{transform:translateX(0)} 10%,30%,50%,70%,90%{transform:translateX(-10px)} 20%,40%,60%,80%{transform:translateX(10px)}}.shake{-webkit-animation-name:shake;-moz-animation-name:shake;-o-animation-name:shake;animation-name:shake}
 .c-important{color:#f60}
 .c-gray{color:#999}
-.footer {
-    background:#fff;
-    padding:30px 0;
-    text-align:center;
-    color:#ccc;
-    /*border-top:1px solid #eee;*/
-    font-size:0.9em;
-}
 
-.footer a {
-    margin:10px;
-    display:inline-block;
-    color:#999;
-}
 
-.footer p {
-    margin:0;
+.logo {
+    display: block;
+    float: left;
+    margin: 0 0 0 5px
 }
+.header li a {float: left;color: #999999;font-size:16px;line-height:30px;display:block;text-shadow:1px 1px rgba(255,255,255,0.75)}
+.header li a:hover{color:# 666666}
+
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -105,7 +97,7 @@ iframe{border:none}
 .content-header .date{color:#8C8C8C;font-size:11px;margin:5px 0 0}
 .content-body{position:relative;z-index:10}
 .content-body-empty{display:none}
-.content-sidebar{display:none;position:fixed;top:0;width:180px;padding-left:19px;margin-left:550px;margin-top:30px}
+.content-sidebar{display:none;position:fixed;top:0;width:180px;padding: 71px 0px 0px 0px;padding-left:19px;margin-left:550px;margin-top:30px}
 .sidebar-section{border:1px solid #e4e4e4;border-radius:5px;margin-bottom:20px}
 .shop-detail{margin:0;margin:10px;word-break:break-all;padding-bottom:10px;font-size:12px;color:#666666;border-bottom:1px dashed #ccc}
 .shop-info{background-color:#fff;margin-bottom:0}
@@ -116,10 +108,31 @@ iframe{border:none}
 .weixin-title,.weixin-no{font-size:12px;color:#666;margin:5px 0}
 .weixin-no{word-break:break-all;color:#999;margin:0 0 10px}
 .qr-code{margin:0}
-	
+.footer {
+    /*background:#fff;*/
+    padding:30px 0;
+    text-align:center;
+    color:#ccc;
+    /*border-top:1px solid #eee;*/
+    font-size:0.9em;
+}
+
+.footer a {
+    margin:10px;
+    display:inline-block;
+    color:#999;
+}
+
+.footer p {
+    margin:0;
+}
+.footer{margin-top:20px;margin-bottom:10px;text-align:center;}.footer .copyright{color:#ccc;height:24px;line-height:24px;font-size:12px}.footer .copyright a{color:#ccc}
+.footer .copyright a:hover{color:#09f}
+.footer .link-icon{display:inline-block;width:16px;height:16px;margin-bottom:-3px;margin-right:10px;background-image:url('data:image/png;base64,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');background-repeat:no-repeat;background-size:16px}
+.footer .link-title{font-size:16px}
+
 @media only screen and (-webkit-min-device-pixel-ratio:1.5),only screen and (min--moz-device-pixel-ratio:1.5),only screen and (-o-min-device-pixel-ratio:3/2),only screen and (min-device-pixel-ratio:1.5){.fullscreen-guide .guide-arrow{background-image:url("../image/wap/guide_arrow@2x.png");background-size:47px 44px} .follow-guide .step-1{background-image:url("../image/wap/step_1@2x.png");background-size:260px 29px} .follow-guide .step-2{background-image:url("../image/wap/step_2@2x.png");background-size:260px 133px} .follow-guide .step-3{background-image:url("../image/wap/step_3@2x.png");background-size:260px 68px} .fuck-taobao .step-1{background-image:url("../image/wap/step_1@2x.png");background-size:260px 29px} .fuck-taobao .step-2{background-image:url("../image/wap/ftios_step_2@2x.png");background-size:248px 86px} .fuck-taobao .step-and-2{background-image:url("../image/wap/ftand_step_2@2x.png");background-size:260px 62px} .share-guide .step-1{background-image:url("../image/wap/step_1@2x.png");background-size:260px 29px} .share-guide .step-2{background:url("../image/wap/share_step_2@2x.png") no-repeat;background-size:260px 86px}}.side-padding{padding:0 10px;box-sizing:border-box}
 .side-margin{margin:0 10px;box-sizing:border-box}
-/*模板的模块部分*/
 .custom-richtext{padding:0 10px;box-sizing:border-box;padding-top:10px;font-size:16px;color:#333;line-height:1.4;overflow:hidden;text-align:left;word-break:break-all;word-wrap:break-word}.custom-richtext img+br{display:block;padding:4px 0;content:' '}
 .custom-richtext p{margin:0 0 1em 0}
 .custom-richtext a{color:#09f}
@@ -150,13 +163,10 @@ iframe{border:none}
 .custom-nav-two-col{float:left;width:160px;overflow:hidden;text-overflow:ellipsis;border-right:1px solid #F0F0F0;box-sizing:border-box}.custom-nav-two-col .custom-nav-title{width:145px}
 .custom-nav-two-col:nth-child(2n){border-right:none}
 .custom-link .right-arrow{margin-top:14px}
-.custom-link-link{height:100%;line-height:45px;display:block}
-.custom-link-link .title{float:left;margin:0;line-height:45px;height:100%;font-size:14px;overflow:hidden;text-overflow:ellipsis;width:245px}
+.custom-link-link{height:100%;line-height:45px;display:block}.custom-link-link .title{float:left;margin:0;line-height:45px;height:100%;font-size:14px;overflow:hidden;text-overflow:ellipsis;width:245px}
 .custom-link-img{float:right;display:block;max-width:40px;max-height:40px}.custom-link-img img{vertical-align:middle}
 .custom-link .custom-link-two-col{width:160px;float:left;border-bottom:0 none;border-right:1px solid #F0F0F0;box-sizing:border-box;border-bottom:1px solid #f0f0f0}.custom-link .custom-link-two-col .custom-link-link{padding-right:0;padding-left:0}.custom-link .custom-link-two-col .custom-link-link .title{width:100%;float:none}
 .custom-link .custom-link-two-col:nth-child(2n){border-right:none}
-
-
 
 body{-webkit-backface-visibility:hidden}
 .animated{-webkit-animation-duration:1s;-moz-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both}
@@ -164,7 +174,6 @@ body{-webkit-backface-visibility:hidden}
 @-webkit-keyframes flashWarn{0%,50%,100%{background-color:#ffffbb} 25%,75%{background-color:transparent}}@-moz-keyframes flashWarn{0%,50%,100%{background-color:#ffffbb} 25%,75%{background-color:transparent}}@-o-keyframes flashWarn{0%,50%,100%{background-color:#ffffbb} 25%,75%{background-color:transparent}}@keyframes flashWarn{0%,50%,100%{background-color:#ffffbb} 25%,75%{background-color:transparent}}.flashWarn{-webkit-animation-name:flashWarn;-moz-animation-name:flashWarn;-o-animation-name:flashWarn;animation-name:flashWarn}
 em.required,sup.required{color:#f00 !important}
 
-/**/
 @media only screen and (-webkit-min-device-pixel-ratio:1.5),only screen and (min--moz-device-pixel-ratio:1.5),only screen and (-o-min-device-pixel-ratio:3/2),only screen and (min-device-pixel-ratio:1.5){.bottom-opts .close-adv-opts{background-image:url("../image/wap/order/close_adv_opts@2x.png");background-size:28px 56px} .model-list li.active::after{background-image:url("../image/wap/order/ico-selected@2x.png");background-size:12px 12px} .butn-more-opts{background-image:url("../image/wap/order/dot@2x.png");background-size:28px 8px} .wap-page-goods .bottom-opts .butn-return{background-image:url("../image/wap/btn_return@2x.png");background-size:52px 24px} .paid-time{background-image:url("../image/wap/order/paid_ watermark@2x.png");background-size:130px 77px} .quantity .minus{background-image:url("../image/wap/order/ico_minus@2x.png");background-size:8px 2px} .quantity .plus{background-image:url("../image/wap/order/ico_plus@2x.png");background-size:8px 8px} .wap-page-goods .qrcode-container .shop-detail{background-image:url("../image/wap/weixin_logo@2x.png");background-size:30px 24px}}body.ios7{background-color:#efeff4}body.ios7 .container>.content{min-height:0;width:auto}
 body.ios7 .app-order .app-inner{padding:0}
 body.ios7 .app-order .goods-info .opt-wrapper{bottom:0px;right:10px}
