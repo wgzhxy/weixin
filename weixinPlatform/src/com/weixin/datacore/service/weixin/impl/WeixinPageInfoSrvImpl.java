@@ -5,6 +5,7 @@
  
 package com.weixin.datacore.service.weixin.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,9 +15,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.weixin.comm.PageInfo;
+import com.weixin.comm.date.DateUtil;
 import com.weixin.datacore.core.impl.ServiceSrvImpl;
 import com.weixin.datacore.domain.weixin.dao.WeixinPageInfoDao;
+import com.weixin.datacore.domain.weixin.model.WeixinPageClass;
 import com.weixin.datacore.domain.weixin.model.WeixinPageInfo;
+import com.weixin.datacore.domain.weixin.vo.WeixinPageInfoVo;
 import com.weixin.datacore.service.weixin.WeixinPageInfoSrv;
 
 @Service("weixinPageInfoSrv")
@@ -25,7 +29,7 @@ public class WeixinPageInfoSrvImpl extends ServiceSrvImpl implements WeixinPageI
 	@Override
 	public WeixinPageInfo addWeixinPageInfo(WeixinPageInfo weixinPageInfo) {
 		// TODO Auto-generated method stub
-		return (WeixinPageInfo)weixinPageInfoDao.save(weixinPageInfo);
+		return (WeixinPageInfo)weixinPageInfoDao.merge(weixinPageInfo);
 	}
 
 	@Override
@@ -90,4 +94,39 @@ public class WeixinPageInfoSrvImpl extends ServiceSrvImpl implements WeixinPageI
 	
 	@Resource(name="weixinPageInfoDao")
 	private WeixinPageInfoDao weixinPageInfoDao;
+
+	@Override
+	public void deleWeixinPageInfo(String id) {
+		// TODO Auto-generated method stub
+		weixinPageInfoDao.delete(this.getWeixinPageInfo(id));
+	}
+
+	@Override
+	public WeixinPageInfo getWeixinPageInfo(String id) {
+		// TODO Auto-generated method stub
+		String hql = "from WeixinPageInfo c where 1=1 and c.id = :id";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		List ls = weixinPageInfoDao.findPageByQuery(1, 1, hql, map);
+		if(ls != null && ls.size() > 0) {
+			return (WeixinPageInfo)ls.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	public WeixinPageInfo updateWeixinPageInfo(WeixinPageInfoVo weixinPageInfoVo) {
+		// TODO Auto-generated method stub
+		WeixinPageInfo obj = this.getWeixinPageInfo(weixinPageInfoVo.getId());
+		obj.setAssociateLinks(weixinPageInfoVo.getAssociateLinks());
+		obj.setUpdateTime(DateUtil.getNow());
+		obj.setDisplayNum(weixinPageInfoVo.getDisplayNum());
+		obj.setPageTitle(weixinPageInfoVo.getPageTitle());
+		obj.setPageSubtitle(weixinPageInfoVo.getPageSubtitle());
+		obj.setContent(weixinPageInfoVo.getContent());
+		obj.setPageClass(weixinPageInfoVo.getPageClass());
+		obj.setPageName(weixinPageInfoVo.getPageName());
+		weixinPageInfoDao.update(obj);
+		return obj;
+	}
 }

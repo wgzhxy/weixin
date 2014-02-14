@@ -70,15 +70,30 @@
 	    <a href="#"  class="easyui-linkbutton"  iconCls="icon-cancel"  onclick="javascript:$('#de').dialog('close')">取消</a>
 	</div>
 	<script type="text/javascript">
-		    //弹出新增窗口
-			function sendMsg(){
+			//弹出新增窗口
+			function sendMsg(val){
 					$('#dd').dialog({
-							href: '${basePath}/addModulePage.do',
-						    title: '新增权限实体',
+							href: '${basePath}/message/msgSendMessage.do',
+						    title: '发送微信消息',
 						    closed: false,
 						    iconCls: 'icon-save',
-						    width: 500,
-						    height: 480,
+						    width: 450,
+						    height: 300,
+						    cache: false,
+						    modal: true,
+						    resizable:true
+					});
+			}
+			
+			//弹出新增备注
+			function addRemark(val){
+					$('#dd').dialog({
+							href: '${basePath}/message/msgAddRemark.do',
+						    title: '增加备注消息',
+						    closed: false,
+						    iconCls: 'icon-save',
+						    width: 450,
+						    height: 300,
 						    cache: false,
 						    modal: true,
 						    resizable:true
@@ -116,9 +131,9 @@
 							     {title:'时间',field:'createTime',width:fixWidth(0.15),rowspan:2,align:'center'},
 							     {title:'操作',field:'operator',width:fixWidth(0.15),rowspan:2,align:'center',
 							    	 formatter:function(val,rec){ 
-							    		return '<a href="#" id="memo" data-type="text" data-placement="right" data-title="输入备注">备注</a>'+
-							    	 		   ' | <a href="" >加星</a> | <a href="">回复</a>';
-							     	 }
+							    		return '<a href="javascript:addRemark();" id="memo" data-type="text" data-placement="right" data-title="输入备注">备注</a>'+
+							    	 		   ' | <a href="">加星</a> | <a href="javascript:sendMsg();">回复</a>';
+							     	  }
 							     }  
 			    				]],
 						onLoadSuccess:function(){

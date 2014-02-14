@@ -8,11 +8,8 @@ package com.weixin.datacore.service.weixin.impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.Resource;
-
 import org.springframework.stereotype.Service;
-
 import com.weixin.comm.PageInfo;
 import com.weixin.datacore.core.impl.ServiceSrvImpl;
 import com.weixin.datacore.domain.weixin.dao.WeixinArticlesDao;
@@ -76,6 +73,25 @@ public class WeixinArticlesSrvImpl extends ServiceSrvImpl implements WeixinArtic
 	
 	public PageInfo<WeixinArticles> findWeixinArticlesList(Object[] params, int pageNo, int pageSize) {
 		 return null;
+	}
+	
+	@Override
+	public WeixinArticles getWeixinArticles(Map<String, Object> params) {
+		String hql = "from WeixinArticles c where 1=1 ";
+		StringBuffer where = new StringBuffer();
+		String orderBy = " order by c.id desc ";
+		List<Object> values = new ArrayList<Object>();
+		for(Map.Entry<String, Object> enity : params.entrySet()) {
+			if("title".equals(enity.getKey())) {
+				where.append(" and c.title=?");
+				values.add(enity.getValue());
+			}
+		}
+		List<WeixinArticles> list=weixinArticlesDao.loadByPagenation(hql+where.toString()+orderBy,1,1, values.toArray());
+		if(list!=null&&list.size()>0){
+			return list.get(0);
+		}
+		return null;
 	}
 	
 	public WeixinArticles getWeixinArticles(Long id) {

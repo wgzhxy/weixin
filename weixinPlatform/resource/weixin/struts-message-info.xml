@@ -8,6 +8,7 @@
 	    	<result name="input">/WEB-INF/pages/talkInfo/messageIndex.jsp</result>
 	    	<result name="talk">/WEB-INF/pages/talkInfo/talkInfo.jsp</result>
 	    	<result name="send">/WEB-INF/pages/talkInfo/sendMessage.jsp</result>
+	    	<result name="remark">/WEB-INF/pages/talkInfo/addRemark.jsp</result>
 	    </action>
 	</package>
 </struts>

@@ -1,16 +1,21 @@
 package com.weixin.webui.end;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+
+import net.sf.json.JSONObject;
 
 import org.apache.commons.lang3.StringUtils;
 
 import com.weixin.comm.ConvertJson;
 import com.weixin.comm.PageInfo;
 import com.weixin.comm.Uuid;
+import com.weixin.comm.date.DateUtil;
 import com.weixin.comm.logs.LogUtil;
 import com.weixin.datacore.domain.weixin.model.WeixinPageClass;
 import com.weixin.datacore.domain.weixin.model.WeixinPageInfo;
@@ -33,11 +38,24 @@ public class WeinXinPageAction extends BaseAction {
 		if (weixinPageInfoVo != null) {
 			Map<String, Object> params = new HashMap<String, Object>();
 			PageInfo<WeixinPageInfo> pageInfo = weixinPageInfoSrv.findWeixinPageInfoList(params, this.page, this.rows);
-
+			
 			params.clear();
 			if (pageInfo != null) {
+				String operator = "";
+				List<WeixinPageInfoVo> resultList = new ArrayList<WeixinPageInfoVo>();
+				for(WeixinPageInfo obj : pageInfo.getResultlist()) {
+					WeixinPageInfoVo vo = new WeixinPageInfoVo();
+					vo.setId(obj.getId());
+					vo.setPageTitle(obj.getPageTitle());
+					vo.setContent(obj.getContent());
+					vo.setCreateTime(obj.getCreateTime());
+					operator = "<a href='#' onclick='editPage(\""+obj.getId()+"\");' id='memo' data-type='text' data-placement='right'>编辑</a> " + 
+							   " | <a href='#' onclick='deletePage(\""+obj.getId()+"\");'>删出</a> | <a href='#' onclick='viewPage(\""+obj.getId()+"\");'>查看链接</a>";
+					vo.setOperator(operator);
+					resultList.add(vo);
+				}
 				params.put("total", pageInfo.getTotalrecond());
-				params.put("rows", pageInfo.getResultlist());
+				params.put("rows", resultList);
 			} else {
 				params.put("total", 0);
 				params.put("rows", null);
@@ -49,18 +67,64 @@ public class WeinXinPageAction extends BaseAction {
 		}
 		return "index";
 	}
+	
+	public String PageDelete() {
+		LogUtil.info("PageClassDelete!");
+		if(weixinPageInfoVo != null && StringUtils.isNotEmpty(weixinPageInfoVo.getId())) {
+			if (StringUtils.isNotEmpty(weixinPageInfoVo.getId())) {
+				weixinPageInfoSrv.deleWeixinPageInfo(weixinPageInfoVo.getId());
+			}
+		}
+		return "redirect";
+	}
 
 	public String PageAdd() {
-		
+		Map<String, Object> params = new HashMap<String, Object>();
+		List<WeixinPageClass> ls = weixinPageClassSrv.findWeixinPageClassList(params);
+		this.getRequest().setAttribute("pageClass", ls);
 		return "add";
 	}
 
 	public String PageEdit() {
+		WeixinPageInfo obj = null;
+		if(weixinPageInfoVo != null && StringUtils.isNotEmpty(weixinPageInfoVo.getId())) {
+			 obj = weixinPageInfoSrv.getWeixinPageInfo(weixinPageInfoVo.getId());
+		}
+		//微页面分类加载
+		Map<String, Object> params = new HashMap<String, Object>();
+		List<WeixinPageClass> ls = weixinPageClassSrv.findWeixinPageClassList(params);
+		
+		this.getRequest().setAttribute("weixinPageClass", ls);
+		this.getRequest().setAttribute("weixinPageInfo", obj);
 		return "edit";
 	}
 
 	public String PageSave() {
-		return "save";
+		JSONObject json = new JSONObject();
+		try{
+			if(weixinPageInfoVo != null && StringUtils.isEmpty(weixinPageInfoVo.getId())) {
+				WeixinPageInfo weixinPageInfo = new WeixinPageInfo();
+				weixinPageInfo.setId(Uuid.getPrimaryKey());
+				weixinPageInfo.setCreateTime(DateUtil.getNow());
+				weixinPageInfo.setUpdateTime(DateUtil.getNow());
+				weixinPageInfo.setContent(weixinPageInfoVo.getContent());
+				weixinPageInfo.setAssociateLinks(weixinPageInfoVo.getAssociateLinks());
+				weixinPageInfo.setDisplayNum(weixinPageInfoVo.getDisplayNum());
+				weixinPageInfo.setPageClass(weixinPageInfoVo.getPageClass());
+				weixinPageInfo.setPageName(weixinPageInfoVo.getPageName());
+				weixinPageInfo.setPageTitle(weixinPageInfoVo.getPageTitle());
+				weixinPageInfo.setPageSubtitle(weixinPageInfoVo.getPageSubtitle());
+				weixinPageInfoSrv.addWeixinPageInfo(weixinPageInfo);
+			} else {
+				weixinPageInfoSrv.updateWeixinPageInfo(weixinPageInfoVo);
+			}
+			json.put("result", "ok");
+		} catch(Exception e) {
+			e.printStackTrace();
+			json.put("result", "error");
+		}
+		this.writeResult(json.toString());
+		return null;
 	}
 
 	public String PageClassList() {

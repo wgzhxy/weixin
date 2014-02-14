@@ -29,4 +29,6 @@ public interface WeixinArticlesSrv extends ServiceSrv {
 	public PageInfo<WeixinArticles> findWeixinArticlesList(Object[] params, int pageNo, int pageSize);
 	
 	public WeixinArticles getWeixinArticles(Long id);
+	
+	public WeixinArticles getWeixinArticles(Map<String,Object> params);
 }

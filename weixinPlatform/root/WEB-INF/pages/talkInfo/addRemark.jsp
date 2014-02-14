@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>微信消息发送</title>
+<title>增加微信消息备注</title>
 <script src="${basePath}/ckeditorStd/ckeditor.js"></script>
 </head>
 <body>	
@@ -13,12 +13,8 @@
 <div class="row-fluid">
 <div class="box span5">
 	<div class="box-content">
+		<br/>
 		<form id="fmtmuilt" method="post">
-			<div>
-				<a href="javascript:microPageEvent();">文字消息</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-				<a href="javascript:activeLinkEvent();">图文消息</a>
-			</div>
-			<br/>
 			<div>
 				<textarea style="width: 300px;" cols="50" rows="8" name="weixinArticlesForm.description"></textarea>
 			</div>
