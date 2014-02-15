@@ -20,13 +20,15 @@ public interface WeixinArticlesMultiSrv extends ServiceSrv {
 	
 	public void deleWeixinArticlesMulti(Long id);
 	
+	public void deleWeixinArticlesMultiList(List<WeixinArticlesMulti> weixinArticlesMultiLs);
+	
 	public void updateWeixinArticlesMulti(WeixinArticlesMulti weixinArticlesMulti);
 	
 	public void saveBatchWeixinArticlesMulti(List<WeixinArticlesMulti> weixinArticlesMultiLs);
 	
 	public PageInfo<WeixinArticlesMulti> findWeixinArticlesMultiList(Map<String, Object> params, int pageNo, int pageSize);
 	
-	public PageInfo<WeixinArticlesMulti> findWeixinArticlesMultiList(Object[] params, int pageNo, int pageSize);
+	public List<WeixinArticlesMulti> findWeixinArticlesMultiList(Map<String, Object> params);
 	
 	public WeixinArticlesMulti getWeixinArticlesMulti(Long id);
 }

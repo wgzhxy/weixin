@@ -35,3 +35,20 @@ a:hover{ color:Red; text-decoration:underline;}
 .icon-database{ background-position:-20px -140px;}
 .icon-expand{ background:url('/images/coll2.gif') no-repeat;}
 .icon-collapse{ background:url('/images/coll3.gif') no-repeat;}
+.btn-primary {
+  background-color: #368bd7;
+  background-image: -moz-linear-gradient(top, #369bd7, #3673d7);
+  background-image: -ms-linear-gradient(top, #369bd7, #3673d7);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#369bd7), to(#3673d7));
+  background-image: -webkit-linear-gradient(top, #369bd7, #3673d7);
+  background-image: -o-linear-gradient(top, #369bd7, #3673d7);
+  background-image: linear-gradient(top, #369bd7, #3673d7);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#369bd7', endColorstr='#3673d7', GradientType=0);
+  border-color: #3673d7 #3673d7 #2050a1;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #3673d7;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}

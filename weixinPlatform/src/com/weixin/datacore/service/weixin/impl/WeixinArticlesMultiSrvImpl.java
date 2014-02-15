@@ -5,13 +5,11 @@ f * Copyright (C) 2013 SiFangDingLi Co.,Ltd
  
 package com.weixin.datacore.service.weixin.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.Resource;
-
 import org.springframework.stereotype.Service;
-
 import com.weixin.comm.PageInfo;
 import com.weixin.datacore.core.impl.ServiceSrvImpl;
 import com.weixin.datacore.domain.weixin.dao.WeixinArticlesMultiDao;
@@ -55,12 +53,28 @@ public class WeixinArticlesMultiSrvImpl extends ServiceSrvImpl implements Weixin
 		 return null;
 	}
 	
-	public PageInfo<WeixinArticlesMulti> findWeixinArticlesMultiList(Object[] params, int pageNo, int pageSize) {
-		 return null;
+	public List<WeixinArticlesMulti> findWeixinArticlesMultiList(Map<String, Object> params) {
+		String hql="from WeixinArticlesMulti c 1=1";
+		StringBuffer where = new StringBuffer();
+		String orderBy = " order by c.id";
+		List<Object> values = new ArrayList<Object>();
+		for(Map.Entry<String, Object> enity : params.entrySet()) {
+			if("articlesId".equals(enity.getKey())) {
+				where.append(" and c.articlesId=?");
+				values.add(enity.getValue());
+			}
+		}
+		List<WeixinArticlesMulti> list=weixinArticlesMultiDao.loadByPagenation(hql+where.toString()+orderBy,1,10, values.toArray());
+		return list;
 	}
 	
 	public WeixinArticlesMulti getWeixinArticlesMulti(Long id) {
 		return weixinArticlesMultiDao.get(id);
+	}
+	
+	@Override
+	public void deleWeixinArticlesMultiList(List<WeixinArticlesMulti> weixinArticlesMultiLs) {
+		weixinArticlesMultiDao.deleteAll(weixinArticlesMultiLs);
 	}
 	
 	@Resource(name="weixinArticlesMultiDao")

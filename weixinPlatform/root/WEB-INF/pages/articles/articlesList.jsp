@@ -52,7 +52,7 @@
 		window.location.href="${basePath}/articles/articlesBase.do?jump="+obj;
 	}
 	function jumpEditPage(){
-		var types=1;
+		var types=2;
 		var row=$("#articles-table").datagrid("getSelected");
 		if(row !=null){
 			var id=row.id;
