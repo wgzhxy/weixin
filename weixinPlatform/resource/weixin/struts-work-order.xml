@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- 工单管理 -->
+	<package name="ngboss-busi" extends="app-default" namespace="/busi">
+		<!-- 会员申请 -->
+		<action name="apply*" class="com.weixin.webui.end.ApplyMemberAction" method="{1}">
+	    	<result name="index">/WEB-INF/pages/members/messageIndex.jsp</result>
+	    	<result name="reject">/WEB-INF/pages/members/talkInfo.jsp</result>
+	    	<result name="star">/WEB-INF/pages/members/sendMessage.jsp</result>
+	    	<result name="remark">/WEB-INF/pages/members/addRemark.jsp</result>
+	    </action>
+	    <!-- 会员标签 -->
+	    <action name="tag*" class="com.weixin.webui.end.MemberTagAction" method="{1}">
+	    	<result name="index">/WEB-INF/pages/members/messageIndex.jsp</result>
+	    	<result name="add">/WEB-INF/pages/members/talkInfo.jsp</result>
+	    	<result name="edit">/WEB-INF/pages/members/sendMessage.jsp</result>
+	    	<result name="delete">/WEB-INF/pages/members/addRemark.jsp</result>
+	    </action>
+	    <!-- 前端业务 -->
+	    <action name="busi*" class="com.weixin.webui.end.WorkOrderAction" method="{1}">
+	    	<result name="service">/WEB-INF/pages/workOrder/messageIndex.jsp</result>
+	    	<result name="hourse">/WEB-INF/pages/workOrder/talkInfo.jsp</result>
+	    	<result name="tuijian">/WEB-INF/pages/workOrder/sendMessage.jsp</result>
+	    	<result name="focus">/WEB-INF/pages/workOrder/addRemark.jsp</result>
+	    </action>
+	    <!-- 优惠管理 -->
+	    <action name="coupon*" class="com.weixin.webui.end.CouponMngAction" method="{1}">
+	    	<result name="index">/WEB-INF/pages/coupons/messageIndex.jsp</result>
+	    	<result name="add">/WEB-INF/pages/coupons/talkInfo.jsp</result>
+	    	<result name="delete">/WEB-INF/pages/coupons/sendMessage.jsp</result>
+	    	<result name="edit">/WEB-INF/pages/coupons/addRemark.jsp</result>
+	    	<result name="save">/WEB-INF/pages/coupons/addRemark.jsp</result>
+	    </action>
+	</package>
+</struts>
