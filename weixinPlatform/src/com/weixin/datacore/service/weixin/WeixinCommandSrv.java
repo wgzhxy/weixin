@@ -28,4 +28,6 @@ public interface WeixinCommandSrv extends ServiceSrv {
 	public PageInfo<WeixinCommand> findWeixinCommandList(Object[] params, int pageNo, int pageSize);
 	
 	public WeixinCommand getWeixinCommand(Long id);
+	
+	public WeixinCommand getWeixinCommand(Map<String, Object> params);
 }

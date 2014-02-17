@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBContext;
@@ -16,6 +17,7 @@ import org.bouncycastle.util.encoders.Hex;
 import com.weixin.comm.logs.LogUtil;
 import com.weixin.comm.secutiry.SHACoder;
 import com.weixin.comm.text.TextUtil;
+import com.weixin.component.weixin.WeiXinComponent;
 import com.weixin.datacore.busivo.weixin.WeChatReqBean;
 import com.weixin.webui.core.BaseAction;
 
@@ -56,12 +58,12 @@ public class WeiXinAction extends BaseAction {
 		return Boolean.FALSE;
 	}
 
-	public String RecvWeiXinMsg() {
+	public String weixinAPI() {
 		HttpServletRequest request = getRequest();
 		HttpServletResponse response = getResponse();
 		if (security() && echostr != null && !echostr.equals("")) {
-			this.msg = echostr;
-			return INPUT;
+			this.writeResult(echostr);
+			return null;
 		}
 		Scanner scanner = null;
 		PrintWriter out = null;
@@ -95,7 +97,7 @@ public class WeiXinAction extends BaseAction {
 				LogUtil.info(logs.toString());
 			}
 			// 3、获取用户的消息内容并返回相关信息
-			// weiXinComponent.clientCommandOperation(reqBean, out);
+			 weiXinComponent.clientCommandOperation(reqBean, out);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -106,16 +108,6 @@ public class WeiXinAction extends BaseAction {
 		}
 		return null;
 	}
-	
-	public String index() {
-		return "index";
-	}
-
-	private String signature;
-	private String timestamp;
-	private String nonce;
-	private String echostr;
-	private String msg;
 
 	public String getSignature() {
 		return signature;
@@ -157,4 +149,12 @@ public class WeiXinAction extends BaseAction {
 		this.msg = msg;
 	}
 
+	private String signature;
+	private String timestamp;
+	private String nonce;
+	private String echostr;
+	private String msg;
+	
+	@Resource(name="weiXinComponent")
+	private WeiXinComponent weiXinComponent;
 }

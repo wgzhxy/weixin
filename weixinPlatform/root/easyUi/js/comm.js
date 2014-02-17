@@ -20,6 +20,7 @@ function isIP(str)                      js判断是否是合法的IP
 function isDate(str)                    js判断是否日期类型(例:2005-12-12)
 function isIdCardNo(idNumber)          js判断是否是合法的身份证号
  */
+
 function obj$(id) {
 	return document.getElementById(id);
 }
@@ -161,8 +162,6 @@ FileParamter.prototype.uploadFile=function(paramter, fileObj, callBack) {
 			    'cancelImg':  this.basePath + this.cancelImg ,     	 //  取消上传的图片
 			    'auto': paramter.auto,
 			    'multi': paramter.multi,
-			    'buttonText':'Browse',
-			    'buttonClass':'uploadifyError',
 			    'buttonImg':  this.basePath + '/easyUi/images/blocks.gif',
 			    'fileExt': paramter.fileExt,
 			    'folder': paramter.folder,              //上传的文件夹
@@ -185,8 +184,7 @@ FileParamter.prototype.uploadFile=function(paramter, fileObj, callBack, errorCal
 				    'cancelImg':  this.basePath + this.cancelImg ,     	 //  取消上传的图片
 				    'auto': paramter.auto,
 				    'multi': paramter.multi,
-				    'buttonText':'Browse',
-				    'buttonClass':'uploadifyError',
+				    'buttonImg':  this.basePath + '/easyUi/images/uploadImg.png',
 				    'fileExt': paramter.fileExt,
 				    'width': 211,
 				    'wmode': 'transparent',

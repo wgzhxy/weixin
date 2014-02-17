@@ -17,6 +17,10 @@ import javax.persistence.TemporalType;
 @Table(name = "weixin_command")
 public class WeixinCommand implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7676454102643938414L;
 	private String id;
 	private String cmd;
 	private String contents;

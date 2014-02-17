@@ -32,4 +32,35 @@
 	    </action>
 	    <!-- menus manager end-->
 	</package>
+	<package name="reservation" extends="app-default" namespace="/reservation">
+		  <!-- reservation manager start-->
+		<action name="reservation*" class="com.weixin.webui.WeixinFormReservationAction" method="reservation{1}">
+			<result name="success">/WEB-INF/pages/reservation/reservationList.jsp</result>
+			<result name="form">/WEB-INF/pages/reservation/reservationform.jsp</result>
+	    </action>
+	    <!-- reservation manager end-->
+	</package>
+	<package name="human" extends="app-default" namespace="/human">
+		  <!-- human manager start-->
+		<action name="human*" class="com.weixin.webui.WeixinFormHumanServicesAction" method="human{1}">
+			<result name="success">/WEB-INF/pages/human/humanList.jsp</result>
+			<result name="call">/WEB-INF/pages/human/humancallform.jsp</result>
+			<result name="email">/WEB-INF/pages/human/humanemailform.jsp</result>
+	    </action>
+	    <!-- human manager end-->
+	</package>
+	<package name="register" extends="app-default" namespace="/register">
+		  <!-- human manager start
+		<action name="register*" class="com.weixin.webui.WeixinFormHumanServicesAction" method="register{1}">
+			<result name="success">/WEB-INF/pages/human/humanList.jsp</result>
+			<result name="form">/WEB-INF/pages/human/humanform.jsp</result>
+	    </action>-->
+	    <!-- human manager end-->
+	</package>
+	<package name="api" extends="app-default" namespace="/api">
+		  <!-- weixin manager start-->
+		<action name="weixin*" class="com.weixin.webui.WeiXinAction" method="weixin{1}">
+	    </action>
+	    <!-- weixin manager end-->
+	</package>
 </struts>

@@ -1,12 +1,19 @@
 package com.weixin.webui.end;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+
 import org.apache.commons.lang3.StringUtils;
+
 import com.weixin.comm.ConvertJson;
+import com.weixin.comm.PageInfo;
 import com.weixin.comm.logs.LogUtil;
 import com.weixin.datacore.domain.sys.model.SysMenu;
 import com.weixin.datacore.domain.sys.model.SysUser;
@@ -29,7 +36,15 @@ public class IndexAction extends BaseAction {
 			tips = sysUserSrv.checkSysUser(user);
 			if(StringUtils.equals("ok", tips)) {
 				List<SysMenu> menuParent = sysMenuSrv.getParentMenu();
+				
+				Map<String, Object> params = new HashMap<String, Object>();
+				params.put("menuParent", "bc7f1c015f86430982efa65028d5eedc");
+				PageInfo<SysMenu> initChild = sysMenuSrv.findSysMenuList(params, 1, 50);
+				if(initChild != null) {
+					this.setRequestAttribute("initChildMenu", initChild.getResultlist());
+				}
 				this.setRequestAttribute("menuParent", menuParent);
+				
 				return "index";
 			}
 		}

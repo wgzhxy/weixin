@@ -80,21 +80,18 @@
 				<div class="well nav-collapse sidebar-nav" id="leftMenu">
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li class="nav-header hidden-tablet">菜单列表</li>
-						<li><a class="ajax-link" href="javascript:changePage('${basePath}/message/msgManagerIndex.do');"><i class="icon-home"></i><span class="hidden-tablet">消息管理</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('${basePath}/pagePageList.do');"><i class="icon-eye-open"></i><span class="hidden-tablet">微页面管理</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('${basePath}/pagePageClassList.do');"><i class="icon-edit"></i><span class="hidden-tablet">微页面分类管理</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('chart.jsp');"><i class="icon-list-alt"></i><span class="hidden-tablet">历史消息</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('chart.jsp');"><i class="icon-font"></i><span class="hidden-tablet">群发效果统计</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('gallery.jsp');"><i class="icon-picture"></i><span class="hidden-tablet">图文素材</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('table.jsp');"><i class="icon-align-justify"></i><span class="hidden-tablet">自动回复设置</span></a></li>
-						<li><a class="ajax-link" href="javascript:changePage('table.jsp');"><i class="icon-calendar"></i><span class="hidden-tablet">自定义菜单</span></a></li>
+						<c:if test="${initChildMenu != null}">
+							<c:forEach items="${initChildMenu}"  var="childMenu">
+								<li><a class="ajax-link" href="javascript:changePage('${basePath}${childMenu.menuUrl}');"><i class="${childMenu.extend1}"></i><span class="hidden-tablet">${childMenu.menuName}</span></a></li>
+							</c:forEach>
+						</c:if>
 					</ul>
 				</div><!--/.well -->
 			</div><!--/span-->
 			<!-- left menu ends -->
 			<!-- main content begin -->
 			<div id="content" class="span10" style="width: 81%;">
-				<iframe src ="content.jsp" frameborder="0" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" id="ifm" name="ifm" width="100%"></iframe>
+				<iframe src ="${basePath}/message/msgManagerIndex.do" frameborder="0" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" id="ifm" name="ifm" width="100%"></iframe>
 			</div>
 			<!-- main content end -->
 		</div><!--/fluid-row-->

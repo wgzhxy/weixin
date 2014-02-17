@@ -57,9 +57,12 @@
 		if(row !=null){
 			var id=row.id;
 			var picType=""+row.picType+"";
+			if(picType=='单图文'){
+				types=1;
+			}
 			window.location.href="${basePath}/articles/articlesBase.do?jump=edit&weixinArticlesForm.id="+id+"&weixinArticlesForm.picType="+types;
 		}else{
-			$.messager.alert('温馨提示', '没有选中记录');
+			$.messager.alert('温馨提示','没有选中记录');
 			return ;
 		}
 	}

@@ -122,17 +122,28 @@ public class WeixinFormReservationAction extends BaseAction {
 		try{
 			WeixinFormReservation weixinFormReservation=new WeixinFormReservation();
 			weixinFormReservation.setCreateTime(DateUtil.getNow());
-			weixinFormReservation.setIsInitiative(Integer.parseInt(weixinFormReservationForm.getIsInitiative()));
-			weixinFormReservation.setState(0);
-			weixinFormReservation.setSex(Integer.parseInt(weixinFormReservationForm.getSex()));
-			weixinFormReservation.setNick(weixinFormReservationForm.getNick());
-			weixinFormReservation.setUserName(weixinFormReservationForm.getUserName());
-			
-			String reservationStartTime=weixinFormReservationForm.getReservationEndTime();
-			if(reservationStartTime!=null){
-				weixinFormReservation.setReservationEndTime(Timestamp.valueOf(reservationStartTime));
+			String isInitiative=weixinFormReservationForm.getIsInitiative();
+			if(StringUtils.isNotEmpty(isInitiative)){
+				weixinFormReservation.setIsInitiative(1);
+			}else{
+				weixinFormReservation.setIsInitiative(0);
 			}
-			String reservationEndTime=weixinFormReservationForm.getReservationStartTime();
+			weixinFormReservation.setState(0);
+			String nick=weixinFormReservationForm.getNick();
+			if(nick.equals("1")){
+				weixinFormReservation.setNick("先生");
+				weixinFormReservation.setSex(1);
+			}else{
+				weixinFormReservation.setNick("女士");
+				weixinFormReservation.setSex(0);
+			}
+			weixinFormReservation.setUserName(weixinFormReservationForm.getUserName());
+			weixinFormReservation.setMobile(weixinFormReservationForm.getMobile());
+			String reservationStartTime=weixinFormReservationForm.getReservationStartTime();
+			if(reservationStartTime!=null){
+				weixinFormReservation.setReservationStartTime(Timestamp.valueOf(reservationStartTime));
+			}
+			String reservationEndTime=weixinFormReservationForm.getReservationEndTime();
 			if(reservationEndTime!=null){
 				weixinFormReservation.setReservationEndTime(Timestamp.valueOf(reservationEndTime));
 			}
@@ -142,9 +153,9 @@ public class WeixinFormReservationAction extends BaseAction {
 			return null;
 		}catch(Exception e){
 			e.printStackTrace();
-			this.writeResult("e");//系统异常的处理
-			return null;
 		}
+		this.writeResult("e");//系统异常的处理
+		return null;
 	}
 	/**
 	 * 跳转
