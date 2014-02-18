@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>等额本金还款</title>
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <!-- CSS -->
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700'>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/loanstyle.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <![endif]-->
+
+</head>
+
+<body>
+     <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="logo span4">
+                    <h2>等额本金还款法</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding-left: 0px; padding-right: 0px;">
+        <div class="row">
+            <div class="common span6">
+                <form method="post" action="calc_win.php" name="calc1" style="padding:10px 10px; font-size: 15px;">
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                            <td width="28%">
+                                <strong>贷款类别：</strong>
+                            </td>
+                            <td>
+                                <select name="type" onchange="exc_zuhe(this.form,this.value);">
+                                    <option selected="" value="1">商业贷款</option>
+                                    <option value="2">公积金</option>
+                                    <option value="3">组合型</option>
+                                </select>
+                                <br>
+                                <div style="DISPLAY: none" id="calc1_zuhe">
+                                    <table cellspacing="0" cellpadding="0" class="p9">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    组合比例：
+                                                    <br>商业性：<input name="total_sy" size="8" maxlength="8">元
+                                                    <br>公积金：<input name="total_gjj" size="8" maxlength="8">元
+                                                    <br>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>计算方式：</strong>
+                            </td>
+                            <td>
+                                <input type="radio" name="jisuan_radio" value="1" checked="" onclick="exc_js(this.form,1);" id="calc1_radio1">
+                                <label for="calc1_radio1">
+                                    根据面积、单价计算
+                                </label>
+                                <br>
+                                <div style="DISPLAY: block" id="calc1_js_div1">
+                                    <table cellspacing="0" cellpadding="0" class="p9">
+                                        <tbody>
+                                            <tr>
+                                                <td >
+                                                    <br>单价： <input name="price" size="8" maxlength="8">元/平米
+                                                    <br>面积： <input name="sqm" size="8" maxlength="7">平方米
+                                                    <br>
+                                                    按揭成数： 
+                                                    <select name="anjie" size="1">
+                                                        <option value="9">9成</option>
+                                                        <option value="8">8成</option>
+                                                        <option selected="" value="7">7成  </option>
+                                                        <option value="6">6成</option>
+                                                        <option value="5">5成</option>
+                                                        <option value="4">4成</option>
+                                                        <option value="3">3成</option>
+                                                        <option value="2">2成</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <input type="radio" name="jisuan_radio" value="2" onclick="exc_js(this.form,2);" id="calc1_radio2">
+                                <label for="calc1_radio2">
+                                    根据贷款总额计算
+                                </label>
+                                <div style="DISPLAY: none" id="calc1_js_div2">
+                                    <table cellspacing="0" cellpadding="0" border="0" class="p9">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    总额：<input name="daikuan_total000" size="10" maxlength="8">万元
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>按揭年数：</strong>
+                            </td>
+                            <td>
+                                <select name="years" size="1" id="years">
+                                    <option value="1">1年（12期）</option>
+                                    <option value="2">2年（24期）</option>
+                                    <option value="3">3年（36期）</option>
+                                    <option value="4">4年（48期）</option>
+                                    <option value="5">5年（60期）</option>
+                                    <option value="6">6年（72期）</option>
+                                    <option value="7">7年（84期）</option>
+                                    <option value="8">8年（96期）</option>
+                                    <option value="9">9年（108期）</option>
+                                    <option value="10">10年（120期）</option>
+                                    <option value="11">11年（132期）</option>
+                                    <option value="12">12年（144期）</option>
+                                    <option value="13">13年（156期）</option>
+                                    <option value="14">14年（168期）</option>
+                                    <option value="15">15年（180期）</option>
+                                    <option value="16">16年（192期）</option>
+                                    <option value="17">17年（204期）</option>
+                                    <option value="18">18年（216期）</option>
+                                    <option value="19">19年（228期）</option>
+                                    <option selected="" value="20">20年（240期）  </option>
+                                    <option value="25">25年（300期）</option>
+                                    <option value="30">30年（360期）</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>利&#12288;&#12288;率：</strong>
+                            </td>
+                            <td>
+                                <select name="lilv" id="lilv">
+                                    <option value="69">12年07月06日利率上限(1.1倍)</option>
+                                    <option value="68">12年07月06日利率基准</option>
+                                    <option value="67" selected="">12年07月06日利率下限(85折)</option>
+                                    <option value="66">12年07月06日利率下限(8折)</option>
+                                    <option value="64">12年06月08日利率上限(1.1倍)</option>
+                                    <option value="63">12年06月08日利率基准</option>
+                                    <option value="62">12年06月08日利率下限(85折)</option>
+                                    <option value="61">12年06月08日利率下限(8折)</option>
+                                    <option value="60">11年07月07日利率上限(1.1倍)</option>
+                                    <option value="59">11年07月07日利率基准</option>
+                                    <option value="58">11年07月07日利率下限(85折)</option>
+                                    <option value="57">11年04月06日利率上限(1.1倍)</option>
+                                    <option value="56">11年04月06日利率基准</option>
+                                    <option value="55">11年04月06日利率下限(85折)</option>
+                                    <option value="54">11年02月09日利率上限(1.1倍)</option>
+                                    <option value="53">11年02月09日利率基准</option>
+                                    <option value="52">11年02月09日利率下限(85折)</option>
+                                    <option value="51">10年12月26日利率上限(1.1倍)</option>
+                                    <option value="50">10年12月26日利率基准</option>
+                                    <option value="49">10年12月26日利率下限(85折)</option>
+                                    <option value="48">10年10月20日利率上限(1.1倍)</option>
+                                    <option value="47">10年10月20日利率基准</option>
+                                    <option value="46">10年10月20日利率下限(85折)</option>
+                                    <option value="45">08年12月23日第二套房(1.1倍)</option>
+                                    <option value="44">08年12月23日利率基准</option>
+                                    <option value="43">08年12月23日利率上限(1.1倍)</option>
+                                    <option value="42">08年12月23日利率下限(85折)</option>
+                                    <option value="41">08年12月23日利率下限(7折)</option>
+                                    <option value="40">08年11月27日第二套房</option>
+                                    <option value="39">08年11月27日利率基准</option>
+                                    <option value="38">08年11月27日利率上限</option>
+                                    <option value="37">08年11月27日利率下限</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <div align="center">
+                                    <input type="button" class="btn1" name="button1" value="开始计算" onclick="ext_total(this.form);">
+                                    <input type="reset" class="btn2" name="button2" value="重新计算" onclick="formReset(this.form);">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody></table><h3>计算结果：</h3>
+                    <table  width="100%" cellspacing="0" cellpadding="0" border="0" class="table1">
+                        <tbody><tr>
+                            <td width="259">
+                                <strong>房款总额：</strong>
+                                <input class="txt2" name="fangkuan_total1">元
+                            </td>
+                            <td width="259">
+                                <strong>&#12288;贷款总额：</strong>
+                                <input class="txt2" name="daikuan_total1">元
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>还款总额：</strong>
+                                <input class="txt2" name="all_total2">元
+                            </td>
+                            <td>
+                                <strong>支付利息款：</strong>
+                                <input class="txt2" name="accrual2">元
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>首期付款：</strong>
+                                <input class="txt2" id="money_first1" name="money_first1">元
+                            </td>
+                            <td>
+                                <strong>&#12288;贷款月数：</strong>
+                                <input class="txt2" name="month1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <br>
+                                <strong>月还金额：</strong>
+                                <textarea rows="10" name="month_money2" id="month_money2" class="p9"></textarea>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </form>  
+                <p class="lh20" style="margin: 0px 5px;">
+                    <strong>等额本金还款方式：</strong>是将本金每月等额偿还，然后根据剩余本金计算利息，所以初期由于本金较多，将支付较多的利息，从而使还款额在初期较多，而在随后的时间每月递减，这种方式的好处是，由于在初期偿还较大款项而减少利息的支出，比较适合还款能力较强的家庭。 
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery-1.8.2.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+    <script src="assets/js/calculator.js"></script>
+</body>
+</html>

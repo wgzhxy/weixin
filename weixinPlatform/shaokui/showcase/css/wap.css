@@ -131,6 +131,30 @@ iframe{border:none}
 .footer .link-icon{display:inline-block;width:16px;height:16px;margin-bottom:-3px;margin-right:10px;background-image:url('data:image/png;base64,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');background-repeat:no-repeat;background-size:16px}
 .footer .link-title{font-size:16px}
 
+.boxHead{background: url(../img/coupon/middle_bg.png) repeat-x;height: 14px;margin:0.5em;position: relative;z-index:1;padding-top: 8px;}
+.boxHead .left{position: absolute;left:-6px;top:0;background: url(../img/coupon/left_bg.png);width: 6px;height: 14px;display: block;z-index:2;}
+.boxHead .right{position: absolute;right:-6px;top:0;background: url(../img/coupon/right_bg.png);width: 6px;height: 14px;display: block;z-index:2;}
+.boxHead .body{background: url(../img/coupon/box_bg.png);padding: 0.4em 0;margin-bottom: 1em;}
+
+.coupon{
+border-radius: 4px 4px 0px 0px;
+margin: 0.5em 0.5em 0 0.5em;
+padding: 0.8em 0.8em 0.9em;
+background-color: #FFFFFF;
+}
+.bgBottom{background: url(../img/coupon/box_bottom.png) 0 bottom repeat-x;margin: 0  0.5em;height:6px;  }
+.coupon .img{
+display: block;
+padding: 0.1em ;
+width:30%;
+float: left;
+background-color: #FFFFFF;margin-right: 0.5em;}
+.coupon .title{ font:bold 1em/120% "Hiragino Sans GB","Microsoft YaHei","Segoe UI",Tahoma,Arial,Helvetica,sans-serif;color: #535353;}
+.coupon .dTitle{ font:bold 1.2em/120% "Hiragino Sans GB","Microsoft YaHei","Segoe UI",Tahoma,Arial,Helvetica,sans-serif;color: #535353;margin-top: 0.5em;}
+.coupon .sTitle{ font:bold 0.9em/120% "Hiragino Sans GB","Microsoft YaHei","Segoe UI",Tahoma,Arial,Helvetica,sans-serif;color: #9c9c9c;margin: 0.2em 0 0.5em 0;}
+.coupon .detail{ margin-top:0.8em;color: #959595;font-size: 0.9em;}
+
+
 @media only screen and (-webkit-min-device-pixel-ratio:1.5),only screen and (min--moz-device-pixel-ratio:1.5),only screen and (-o-min-device-pixel-ratio:3/2),only screen and (min-device-pixel-ratio:1.5){.fullscreen-guide .guide-arrow{background-image:url("../image/wap/guide_arrow@2x.png");background-size:47px 44px} .follow-guide .step-1{background-image:url("../image/wap/step_1@2x.png");background-size:260px 29px} .follow-guide .step-2{background-image:url("../image/wap/step_2@2x.png");background-size:260px 133px} .follow-guide .step-3{background-image:url("../image/wap/step_3@2x.png");background-size:260px 68px} .fuck-taobao .step-1{background-image:url("../image/wap/step_1@2x.png");background-size:260px 29px} .fuck-taobao .step-2{background-image:url("../image/wap/ftios_step_2@2x.png");background-size:248px 86px} .fuck-taobao .step-and-2{background-image:url("../image/wap/ftand_step_2@2x.png");background-size:260px 62px} .share-guide .step-1{background-image:url("../image/wap/step_1@2x.png");background-size:260px 29px} .share-guide .step-2{background:url("../image/wap/share_step_2@2x.png") no-repeat;background-size:260px 86px}}.side-padding{padding:0 10px;box-sizing:border-box}
 .side-margin{margin:0 10px;box-sizing:border-box}
 .custom-richtext{padding:0 10px;box-sizing:border-box;padding-top:10px;font-size:16px;color:#333;line-height:1.4;overflow:hidden;text-align:left;word-break:break-all;word-wrap:break-word}.custom-richtext img+br{display:block;padding:4px 0;content:' '}
@@ -167,6 +191,9 @@ iframe{border:none}
 .custom-link-img{float:right;display:block;max-width:40px;max-height:40px}.custom-link-img img{vertical-align:middle}
 .custom-link .custom-link-two-col{width:160px;float:left;border-bottom:0 none;border-right:1px solid #F0F0F0;box-sizing:border-box;border-bottom:1px solid #f0f0f0}.custom-link .custom-link-two-col .custom-link-link{padding-right:0;padding-left:0}.custom-link .custom-link-two-col .custom-link-link .title{width:100%;float:none}
 .custom-link .custom-link-two-col:nth-child(2n){border-right:none}
+.custom-line-wrap{height:30px;position:relative}
+.custom-line{border:0 none;border-top:1px dashed #bbb;margin:auto;padding:0;height:1px;width:100%;position:absolute;left:0;top:0;right:0;bottom:0}
+
 
 body{-webkit-backface-visibility:hidden}
 .animated{-webkit-animation-duration:1s;-moz-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both}

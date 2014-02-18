@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" class="admin responsive-540 responsive-800">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <link rel="icon" href="">
+    <title>加入中铁会</title>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <!-- <link rel="stylesheet" href="static/assets/css/style.css"> -->
+    <link rel="stylesheet" href="css/wap.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+</head>
+
+<body>
+
+    <!-- ▼.container -->
+    <div class="container ">
+        <div class="content">
+            <div class="content-body">
+                <!-- 标题 -->
+                <div>
+                    <div class="custom-title  text-left">
+                        <p class="sub_title">您的资料将采用加密技术传输，请放心填写，已是会员点此<a href="">验证身份</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="custom-richtext">
+                    <form action="" method="post">
+                        <div class="control-group">
+                            <!-- Text input-->
+                            <div class="controls">
+                                <div class="input-append">
+                                    <span class="add-on">
+                                        <label class="control-label" for="input01">您的姓名</label>
+                                    </span>
+                                    <input class="span2" placeholder="请输入您的姓名" type="text">
+                                </div>
+                                <p class="help-block">Supporting help text</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Text input-->
+                            <div class="controls">
+                                <div class="input-append">
+                                    <span class="add-on">
+                                        <label class="control-label" for="input01">身份证号</label>
+                                    </span>
+                                </div>
+                                <p class="help-block">Supporting help text</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Text input-->
+                            <div class="controls">
+                                <div class="input-append">
+                                    <span class="add-on">
+                                        <label class="control-label" for="input01">手机号码</label>
+                                    </span>
+                                    <input class="span2" placeholder="请输入验证码" type="text">
+                                </div>
+                                <p class="help-block">Supporting help text</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Appended input-->
+                            <div class="controls">
+                                <div class="input-append">
+                                    <input class="span2" placeholder="请输入验证码" type="text">
+                                    <span class="add-on">
+                                        <button>验证码</button>
+                                    </span>
+                                </div>
+                                <p class="help-block">Supporting help text</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Select Basic -->
+                            <label class="control-label">常居地</label>
+                            <div class="controls">
+                                <select class="input-xlarge">
+                                    <option>Enter</option>
+                                    <option>Your</option>
+                                    <option>Options</option>
+                                    <option>Here!</option>
+                                </select>
+                            </div>
+                            <div class="controls">
+                                <select class="input-xlarge">
+                                    <option>Enter</option>
+                                    <option>Your</option>
+                                    <option>Options</option>
+                                    <option>Here!</option>
+                                </select>
+                            </div>
+                            <div class="controls">
+                                <select class="input-xlarge">
+                                    <option>Enter</option>
+                                    <option>Your</option>
+                                    <option>Options</option>
+                                    <option>Here!</option>
+                                </select>
+                            </div>
+                            <p class="help-block">Supporting help text</p>
+                        </div>
+
+
+                        <div class="control-group">
+                            <!-- Text input-->
+                            <div class="controls">
+                                <div class="input-append">
+                                    <span class="add-on">
+                                        <label class="control-label" for="input01">通信地址</label>
+                                    </span>
+                                    <input class="span2" placeholder="请输入您的姓名" type="text">
+                                </div>
+                                <p class="help-block">Supporting help text</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Text input-->
+                            <div class="controls">
+                                <div class="input-append">
+                                    <span class="add-on">
+                                        <label class="control-label" for="input01">服务密码</label>
+                                    </span>
+                                    <input class="span2" placeholder="请输入您的姓名" type="password">
+                                </div>
+                                <p class="help-block">Supporting help text</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <form action="" method="post">
+
+
+                    <h2>入会申请</h2>
+                    <label for="name">姓名</label>
+                    <input type="text" id="name" name="name" placeholder="请输入您的姓名">
+                    <label for="identifier">身份证号码</label>
+                    <input type="text" id="identifier" name="identifier" placeholder="请输入您的身份证号码">
+                    <label for="mobilephone">手机号码</label>
+                    <input class="leftinput" type="text" id="mobilephone" name="mobilephone" placeholder="请输入您的手机号码" style="width:70px;">
+                    <input type="button" id="getVerifyCodeButton" value="获取验证码" style="width:23%;">
+                    <label for="verifycode">验证码</label>
+                    <input type="text" id="verifycode" name="verifycode" placeholder="请输入您手机收到的验证码">
+                    <label for="addressselected">您的常居地</label>
+                    <div id="city">
+                        <select class="prov" style="width:45%"></select>
+                        <select class="city" disabled="disabled" style="width:45%"></select>
+                        <select class="dist" disabled="disabled"></select>
+                    </div>
+                    <label for="address">通讯地址</label>
+                    <input type="text" id="address" name="address" placeholder="您的通讯地址">
+                    <label for="password">设置服务密码</label>
+                    <input type="password" id="password" name="password" placeholder="请输入6-18位的数字或英文">
+                    <label>
+                        <input type="checkbox" name="uselessthing" />我已经阅读并知晓<a href="">《XXXX章程》</a>，并愿意遵守各项规则</label>
+                    <label for="uselessthingcheckalert"></label>
+                    <button type="submit">立即提交</button>
+                </form>
+
+
+
+
+
+
+
+
+            </div>
+
+            <div class="content-sidebar">
+                <a href="#" class="link">
+                    <div class="sidebar-section shop-card">
+                        <div class="table-cell">
+                            <img src="image/60x60.jpg" width="60" height="60" class="shop-img" alt="公众号头像">
+                        </div>
+                        <div class="table-cell">
+                            <p class="shop-name">中铁置业
+                                <br>贵州公司</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="sidebar-section shop-info">
+                    <div>
+                        <p class="text-center shop-detail">相约中铁·相伴一生</p>
+                        <p class="text-center weixin-title">微信“扫一扫”立即关注</p>
+                        <p class="text-center qr-code">
+                            <img width="158" height="158" src="image/qrcode.jpg">
+                        </p>
+                        <p class="text-center weixin-no">微信号：crreggz</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shopnav js-navmenu nav-on-bottom style-2">
+                <div class="nav-menu has-menu-3">
+                    <div class="one">
+                        <a class="mainmenu js-mainmenu" href="javascript:void(0);">
+                            <i class="arrow-weixin"></i>
+                            项目介绍
+                        </a>
+                        <div class="submenu js-submenu">
+                            <span class="arrow before-arrow"></span>
+                            <span class="arrow after-arrow"></span>
+                            <ul>
+                                <li>
+                                    <a href="./gqh-home.html">鉴址</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./gqh-landscape.html">鉴景</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./gqh-courtesy.html">鉴礼</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./gqh-apartment.html">户型</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./gqh-album.html">实景</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="divide">&nbsp;</div>
+                    <div class="one">
+                        <a class="mainmenu js-mainmenu" href="javascript:void(0);">
+                            <i class="arrow-weixin"></i>
+                            我要置业
+                        </a>
+                        <div class="submenu js-submenu">
+                            <span class="arrow before-arrow"></span>
+                            <span class="arrow after-arrow"></span>
+                            <ul>
+                                <li>
+                                    <a href="tel:7631111">拨打电话</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="http://api.map.baidu.com/marker?output=html&location=27.59538,106.85895&title=中铁共青湖&content=地址：遵义市共青湖">路线导航</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./cacl.html">贷款计算器</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="divide">&nbsp;</div>
+                    <div class="one">
+                        <a class="mainmenu js-mainmenu" href="javascript:void(0);">
+                            <i class="arrow-weixin"></i>
+                            互动
+                        </a>
+                        <div class="submenu js-submenu">
+                            <span class="arrow before-arrow"></span>
+                            <span class="arrow after-arrow"></span>
+                            <ul>
+
+                                <li>
+                                    <a href="">VIP预约看房</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./gqh-mkt1.html">销售动态</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./gqh-mkt2.html">会员活动</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="">加入中铁会</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ▲.container -->
+
+    <script type="text/javascript" src="js/wap.js"></script>
+    <script src="static/assets/js/jquery.cityselect.js"></script>
+    <script src="static/assets/js/check.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        /*
+                    初始化城市数据
+                */
+        $("#city").citySelect({
+            prov: "贵州",
+            city: "贵阳",
+            dist: "云岩区",
+            nodata: "none"
+        });
+        /*
+                    Get verify code
+                */
+        //重新获取验证码
+
+        function get_code_time(o) {
+            var wait = 60;
+            if (wait == 0) {
+                o.removeAttribute("disabled");
+                o.value = "获取验证码";
+                wait = 60;
+            } else {
+                o.setAttribute("disabled", true);
+                o.value = wait + "秒后\n重新获取";
+                wait--;
+                setTimeout(function() {
+                    get_code_time(o)
+                }, 1000)
+            }
+        }
+
+        $('#getVerifyCodeButton').click(function() {
+            var root = $('.common form');
+            root.find("label[for='mobilephone']").html('手机号码');
+            var number = root.find('input#mobilephone').val();
+            if (isPhoneNumber(number) === true) {
+                var o = this;
+                get_code_time(o);
+            } else {
+                root.find("label[for='mobilephone']").append("<span style='display:none' class='red'>-请检查您输入的手机号是否正确</span>");
+                root.find("label[for='mobilephone'] span").fadeIn('medium');
+            };
+            /*
+                    $.ajax({
+                        url:"",
+                        type:"post",
+                        data: {},
+                        dataType: "json",
+                        success: function (data) {
+                            if(data.status == 1 && data.code == 200){
+                                alert("验证码已发送至您的手机");
+                                get_code_time(o);
+                            } else {
+                                if(data.msg != ""){
+                                    alert(data.msg);
+                                } else {
+                                    alert("短信验证码发送失败");
+                                }
+                            }
+                        },
+                        error: function (data) {
+                            if(data.status == 0) {
+                                alert(data.msg);
+                            } else {
+                                alert("短信验证码发送失败");
+                            }
+                        }
+                    });
+                    */
+        });
+
+        $.fn.scrollView = function() {
+            return this.each(function() {
+                $('html, body').animate({
+                    scrollTop: $(this).offset().top
+                }, 300);
+            });
+        }
+        $('.common form').submit(function() {
+            $(this).find("label[for='name']").html('姓名');
+            $(this).find("label[for='identifier']").html('身份证号码');
+            $(this).find("label[for='mobilephone']").html('手机号码');
+            $(this).find("label[for='verifycode']").html('验证码');
+            $(this).find("label[for='password']").html('设置服务密码');
+            $(this).find("label[for='uselessthingcheckalert']").html('');
+
+            var name = $(this).find('input#name').val();
+            var identifier = $(this).find('input#identifier').val();
+            var mobilephone = $(this).find('input#mobilephone').val();
+            var verifycode = $(this).find('input#verifycode').val();
+            var password = $(this).find('input#password').val();
+            var uselessthingchecked = $(this).find('input#uselessthing').val();
+
+            var validated = true;
+            var scrolled = false;
+            var scrollCheck = function(element) {
+                if (!scrolled) {
+                    scrolled = true;
+                    element.scrollView();
+                };
+            }
+            if (name == '') {
+                $(this).find("label[for='name']").append("<span style='display:none' class='red'>-请输入您的姓名</span>");
+                $(this).find("label[for='name'] span").fadeIn('medium');
+                scrollCheck($(this).find("label[for='name']"));
+                validated = false;
+            }
+            if (identifier == '' || !isIDCard(identifier)) {
+                $(this).find("label[for='identifier']").append("<span style='display:none' class='red'>-请输入正确的身份证号码</span>");
+                $(this).find("label[for='identifier'] span").fadeIn('medium');
+                scrollCheck($(this).find("label[for='identifier']"));
+                validated = false;
+            }
+            if (mobilephone == '' || !isPhoneNumber(mobilephone)) {
+                $(this).find("label[for='mobilephone']").append("<span style='display:none' class='red'>-请输入正确的手机号码</span>");
+                $(this).find("label[for='mobilephone'] span").fadeIn('medium');
+                scrollCheck($(this).find("label[for='mobilephone']"));
+                validated = false;
+            }
+            if (verifycode == '') {
+                $(this).find("label[for='verifycode']").append("<span style='display:none' class='red'>-请输入您收到的短信验证码</span>");
+                $(this).find("label[for='verifycode'] span").fadeIn('medium');
+                scrollCheck($(this).find("label[for='verifycode']"));
+                validated = false;
+            }
+            if (password == '' || !isPassword(password)) {
+                $(this).find("label[for='password']").append("<span style='display:none' class='red'>-密码为6-18位的数字或字母</span>");
+                $(this).find("label[for='password'] span").fadeIn('medium');
+                scrollCheck($(this).find("label[for='password']"));
+                validated = false;
+            }
+            if (!uselessthingchecked) {
+                $(this).find("label[for='uselessthingcheckalert']").append("<span style='display:none' class='red'>请阅读《XXXX章程》后，勾上上面的选择框</span>");
+                $(this).find("label[for='uselessthingcheckalert'] span").fadeIn('medium');
+            };
+
+            /*
+                        提交数据
+                    */
+            if (validated) {
+                $.ajax({
+                    url: "",
+                    type: "post",
+                    data: {},
+                    dataType: "json",
+                    success: function(data) {
+
+                    },
+                    error: function(data) {
+
+                    }
+                });
+            };
+            return validated;
+        });
+    });
+    </script>
+
+
+    <!-- footer -->
+    <div class="footer">
+        <!-- <p>
+            <a href="http://www.crreg.com.cn/">官网</a>
+            <a href="http://weibo.com/ztzyjtguizhougs">微博</a>
+        </p> -->
+        <p>©中铁置业贵州</p>
+    </div>
+
+
+
+</body>
+
+</html>

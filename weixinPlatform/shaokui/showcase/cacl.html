@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" class="admin responsive-540 responsive-800">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <link rel="icon" href="">
+    <title>贷款计算器</title>
+    <link rel="stylesheet" href="css/wap.css">
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    ul, ol, li {
+        list-style: none
+    }
+    a, input, textarea {
+        text-decoration: none;
+        outline: 0;
+    }
+    input, textarea {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    li, img, label, input {
+        vertical-align: middle;
+    }
+    body {
+        font-size: 8.888889px;
+        font-family:"Microsoft YaHei";
+    }
+    .input {
+        display: inline-block;
+        vertical-align: middle;
+        zoom: 1;
+        border: 1px solid #d4d4d6;
+        padding: 1.1em;
+        -webkit-border-radius: 0.35em;
+        -moz-border-radius: 0.35em;
+        -ms-border-radius: 0.35em;
+        -o-border-radius: 0.35em;
+        border-radius: 0.35em;
+        background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f6f6f6), color-stop(100%, #ffffff));
+        background-image: -webkit-linear-gradient(#f6f6f6, #ffffff);
+        background-image: -moz-linear-gradient(#f6f6f6, #ffffff);
+        background-image: -o-linear-gradient(#f6f6f6, #ffffff);
+        background-image: linear-gradient(#f6f6f6, #ffffff);
+        -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 0.1em 0.2em 0.05em inset;
+        -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 0.1em 0.2em 0.05em inset;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 0.1em 0.2em 0.05em inset;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .input > input {
+        font-size: 1.5em;
+        background: transparent;
+        border: none;
+        width: 100%;
+        margin-right: 3px;
+    }
+    .input > span {
+        float: right;
+        font-size: 1.5em;
+    }
+    .input > textarea {
+        font-size: 1.5em;
+        line-height: 1.1em;
+        background: transparent;
+        border: none;
+        width: 100%;
+        height: 7em;
+        resize: none;
+        color: #666;
+        font-family:"Microsoft YaHei";
+    }
+    .formbox_wrap {
+        padding: 1em;
+        padding-top: 1.3em;
+        background-color: #ebecee;
+        border-top: 1px #f5f7f6 solid
+    }
+    .formbox h1.pageTitle {
+        font-size: 18px;
+        color: #666;
+        text-align: center;
+    }
+    .formbox h2.boxTitle {
+        font-size: 16px;
+        color: #727377;
+        margin-bottom: 10px;
+        font-weight: normal;
+    }
+    .formbox h3.title {
+        font-size: 1.35em;
+        color: #727377;
+        margin-bottom: 0.7em;
+        margin-top: 1.1em;
+        font-weight: normal;
+        line-height: 1.2em
+    }
+    .formbox .button {
+        margin-top: 0.75em;
+        height: auto
+    }
+    .formbox .selectWrap {
+        margin-top: 0.5em;
+        margin-bottom: 1em
+    }
+    .formbox .selectWrap .option {
+        color: #51565a
+    }
+    .formbox .input {
+        width: 100%;
+        margin-bottom: 1em
+    }
+    /*贷款类别*/
+    .radio_group {
+        border: 1px solid #e5e5e5;
+        border-bottom: none;
+        -webkit-border-radius: 0.4em;
+        -moz-border-radius: 0.4em;
+        -ms-border-radius: 0.4em;
+        -o-border-radius: 0.4em;
+        border-radius: 0.4em;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0.1em 0.05em;
+        -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 0.1em 0.05em;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 0.1em 0.05em;
+        overflow: hidden;
+    }
+    .radio_group li {
+        background: #ffffff;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .radio {
+        background: #f4f5f7;
+        padding-left: 0.5em;
+        -webkit-box-shadow: #fff 0 0 1px 1px inset;
+        -moz-box-shadow: #fff 0 0 1px 1px inset;
+        box-shadow: #fff 0 0 1px 1px inset;
+        position: relative;
+    }
+    .radio.selected:after {
+        content:"\0020";
+        display: block;
+        width: 0.5em;
+        height: 1.7em;
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAiCAYAAABiOJjbAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAXdEVYdENyZWF0aW9uIFRpbWUAMjAxMy4xLjE0QSysSAAAAb1JREFUOI19kbFrk1EUxX/3vi+amoqNteBSEQSndlJBFwUdFBwcxNmhKSKC/gX+BYJDl5YGXOzuooNIEXVzNODkoFBQpERLxJB+33vHwTYxJvnuen7n3PvOo/j+SZSM5+1vZTpebG+VA/Hj63Kg+/5ZOZB6HX69XJ14qGdEOi8eT04IoQI7W7TX741NcVMiYPTerdNtvRqB3MxwIm4ZP5/cH02IAkLAzbDtL7Sby0Mp7pbIioQ7EKD7doNua7MPZcKIwSCJikMAfjSX/z0SSEIGkqOQsJ2vtJt3BZDtkyaQRQIGSnTfPOV3a1N9ABNgCBEsQ250nj/C+7oJJyAz8AS2S/H5w2BFkmGKOEIYUUZ2+NggAQwZuEAyJKN24dYACBIgIhWkiM3OM33zofUBmWMyEpFcUF9a3WuS/Q5EQuQkapfuMLV4xQA8ufeLIgmrn2CmsWKDJhHBDOH0zDnaWBv+zZQShWXsxoLaxdtUFy7bEIBXSDEnmz1JvbE2JAK4UkHhzpGllf+1PUCieuYG1cWrI24Az1PG9LUHY90AfuDUWQ6ePj/WDeCHzl2f6P77iuML5cDU3Hw5EGfmSoE/lY2wGO2kk2wAAAAASUVORK5CYII=") 0 0 no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        position: absolute;
+        left: 0.5em;
+        top: 50%;
+        margin-top: -0.85em;
+    }
+    .radio.selected {
+        background: #ef5f00;
+    }
+    .radio > label {
+        display: block;
+        padding: 1.9em 0;
+        cursor: pointer;
+        background: #fff;
+        border-left: 1px solid #d7d7d7;
+        padding-left: 1.5em;
+        padding-right: 1em;
+    }
+    .radio > label .label {
+        font-size: 1.6em;
+    }
+    .radio > label .label .title {
+        font-size: 1em;
+        margin-top: 0;
+    }
+    .radio > label .label .input input {
+        font-size: 1em;
+        width: 70%;
+    }
+    .radio > label .label .input span {
+        font-size: 1em;
+    }
+    .calc1_zuhe {
+        padding: 1em 1em 0 3em;
+        display: none;
+    }
+    .calc1_zuhe .input > input {
+        width: 90%;
+    }
+    /*计算方式*/
+    .select {
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: middle;
+        zoom: 1;
+        position: relative;
+        width: 100%;
+        border-width: 1px;
+        border-style: solid;
+        border-top-color: #d3d4d5;
+        border-left-color: #e0e2e3;
+        border-right-color: #d5d7d8;
+        border-bottom-color: #dadbdd;
+        background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ebecee), color-stop(100%, #d8d9db));
+        background-image: -webkit-linear-gradient(#ebecee, #d8d9db);
+        background-image: -moz-linear-gradient(#ebecee, #d8d9db);
+        background-image: -o-linear-gradient(#ebecee, #d8d9db);
+        background-image: linear-gradient(#ebecee, #d8d9db);
+        -webkit-border-radius: 0.35em;
+        -moz-border-radius: 0.35em;
+        -ms-border-radius: 0.35em;
+        -o-border-radius: 0.35em;
+        border-radius: 0.35em;
+        overflow: hidden;
+        padding-right: 2.4em;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .select:after {
+        content:"\0020";
+        display: block;
+        width: 1.35em;
+        height: 0.95em;
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAATCAYAAABhh3Y4AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAICSURBVEiJrZVNbxJRFIafO3NZ8iUUalOTsnC0NEJCIo3a2i9s/4tKou7ULXarpo3+EX5ATYxG/SWUNgXHnTPnuKggMjpQ5U3O5mbmPOee982MAXj67LmKKMYYZi1VxXEM+y9axn76/EXb7TbWWhzHmTlMRAiCgPcfPqpdrd80rda+uq6L67ozh4VhiHUta7dvGQtwb7fB0dE7XOvOdJWqCkbZuLMOgAPgedfwPA8ROX9gRiARoVQqUV5ZAcACZDNp0+v3tdvt4vs+wH/dcDBwMpmk0WiQTqUMQKTjy1ev9TxB/x4WEQHgyeNHZnRTkY7b21vDyYwxF67BzTY3NyJDRGCLi1coL19HVQDFGKYuUFQFz7vK0tJSBGbHD3KXsqbX62u3e8LZWQ8wU/mnqqCQSWdZX1snk0lHXortcvjmrYZhOJV/IoLjODQf3P+tZ6xno9rZ2kTCEFQxPyf7U6GKirC1cTd2oFhYfq5AtVoZputvgRARyuVl5i8vxMIino1qLp8zZ72+djrHnJ6eDoEDDVaUy+Wo11fJpFOxtkw0I5tJm0Zjh0QiMTwbBbquy97e7kQQTAjIuA4ODtXaX8sIgoBm82Fsj6kDMq5arUYoimIIRalUq3SOT6b+mF4IVl4ps7AwTxB8p1gsUKncoFjIz/6PO9BX31cA3/821Y1UdVg/APw0yyeL2zx0AAAAAElFTkSuQmCC") 0 0 no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        position: absolute;
+        top: 50%;
+        right: 0.5em;
+        margin-top: -0.475em;
+    }
+    .select .option {
+        font-size: 1.5em;
+        padding: 12px 0 12px 0.93333em;
+        border-right: 1px solid #d8d9da;
+        background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f3f4f6), color-stop(100%, #dfe0e2));
+        background-image: -webkit-linear-gradient(#f3f4f6, #dfe0e2);
+        background-image: -moz-linear-gradient(#f3f4f6, #dfe0e2);
+        background-image: -o-linear-gradient(#f3f4f6, #dfe0e2);
+        background-image: linear-gradient(#f3f4f6, #dfe0e2);
+    }
+    .select > select {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0;
+        border: none;
+        margin: 0;
+        color: #f00;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+        border-radius: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .price_sqm_container {
+        padding: 1em 1em 0 3em;
+    }
+    .price_sqm_container .input > input {
+        width: 70%;
+    }
+    .loan_container {
+        padding: 1em 1em 0 3em;
+        display: none;
+    }
+    .loan_container .input > input {
+        width: 80%;
+    }
+    /*贷款利率*/
+    .rate_content {
+        padding-left: 3em;
+    }
+    .rate_content #singlelv_li {
+        display: none;
+    }
+    .rate_content #gjlv_li {
+        display: none;
+    }
+    .rate_content h3.title {
+        margin-top: 0;
+    }
+    .rate_content .input > input {
+        width: 90%;
+    }
+    /*计算按钮*/
+    .button_container {
+        margin-bottom: 1em;
+    }
+    .button {
+        font-size: 1.7em;
+        display: block;
+        font-weight: 700;
+        text-align: center;
+        line-height: 2.61765em;
+        -webkit-border-radius: 0.23529em;
+        -moz-border-radius: 0.23529em;
+        -ms-border-radius: 0.23529em;
+        -o-border-radius: 0.23529em;
+        border-radius: 0.23529em;
+        overflow: hidden;
+        border-width: 1px;
+        border-style: solid;
+        text-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0;
+    }
+    .active_button {
+        color: #fff;
+        background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fc7000), color-stop(100%, #e45000));
+        background-image: -webkit-linear-gradient(#fc7000, #e45000);
+        background-image: -moz-linear-gradient(#fc7000, #e45000);
+        background-image: -o-linear-gradient(#fc7000, #e45000);
+        background-image: linear-gradient(#fc7000, #e45000);
+        -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0.02941em 0.11765em 0 inset;
+        -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 0.02941em 0.11765em 0 inset;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 0.02941em 0.11765em 0 inset;
+        border-top-color: #db6100;
+        border-left-color: #e56000;
+        border-right-color: #e56000;
+        border-bottom-color: #df4d00;
+    }
+    /*计算结果*/
+    .resultContainer {
+        display: none;
+        padding-top: 10px;
+    }
+    .result h3.title {
+        margin-top: 0;
+    }
+    .result .input > input {
+        width: 90%;
+        color: #666;
+    }
+    #calc1_benjin {
+        display: none;
+    }
+    .notice {
+        text-align: right;
+        padding-right: 1em;
+        color: #f00;
+    }
+    /**
+             * header
+             */
+    header {
+        width: 100%;
+        height: 45px;
+        box-sizing: border-box;
+        line-height: 45px;
+        font-size: 18px;
+        font-weight: bold;
+        background: linear-gradient(to bottom, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(69, 72, 77, 1)), color-stop(100%, rgba(0, 0, 0, 1)));
+    }
+    header h1 {
+        margin: 0 50px;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 44px;
+        text-align: center;
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+        white-space: nowrap;
+    }
+    header .btn_home {
+        position: relative;
+        z-index: 10;
+        width: 35px;
+        height: 32px;
+        font-size: 12px;
+        float: left;
+        background: transparent url() no-repeat center center;
+        background-size: 32px;
+        margin: 5px 0 0 5px;
+    }
+    header .btn_home:active {
+        background: #eee;
+    }
+    header .btn_back {
+        position: relative;
+        z-index: 10;
+        width: 35px;
+        height: 32px;
+        font-size: 12px;
+        float: left;
+        background: transparent url() no-repeat center center;
+        background-size: 32px;
+        margin: 5px 0 0 5px;
+    }
+    header .btn_back:active {
+        background: #eee;
+    }
+    </style>
+
+</head>
+
+<body>
+    <!-- ▼.container -->
+    <div class="container ">
+        <div class="content">
+            <div class="content-body">
+                <div id="calculate01" class="formbox_wrap">
+                    <form name="calc1" class="formbox">
+
+                        <!--表单填写 begin-->
+                        <div>
+                            <div class="mainl">
+                                <h2 class="pageTitle">按揭房贷计算</h2>
+
+                                <!--贷款类别 begin-->
+                                <div class="type_container">
+                                    <h3 class="title">贷款类别：</h3>
+                                    <ul class="radio_group">
+                                        <li>
+                                            <div data-type="radio" data-value="typeRadio" class="radio selected" pervalue="1">
+                                                <label>
+                                                    <div class="label">
+                                                        商业贷款
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div data-type="radio" data-value="typeRadio" class="radio" pervalue="2">
+                                                <label>
+                                                    <div class="label">
+                                                        公积金贷款
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div data-type="radio" data-value="typeRadio" class="radio" pervalue="3" id="calc1_zuhe_radio">
+                                                <label>
+                                                    <div class="label">
+                                                        组合型贷款
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="calc1_zuhe" id="calc1_zuhe">
+                                            <div class="input">
+                                                <input type="number" name="total_sy" maxLength="8" size="8" placeholder="商业性" value="">
+                                                <span>元</span>
+                                            </div>
+                                            <div class="input">
+                                                <input type="number" name="total_gjj" maxLength="8" size="8" placeholder="公积金" value="">
+                                                <span>元</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--贷款类别 end-->
+
+                                <!--计算方式 begin-->
+                                <div class="count_container" id="calc1_ctype">
+                                    <h3 class="title">计算方式：</h3>
+                                    <ul class="radio_group">
+                                        <li>
+                                            <div data-type="radio" data-value="jisuan_radio" class="radio selected" pervalue="1" id="calc1_radio1">
+                                                <label>
+                                                    <div class="label">
+                                                        根据面积、单价计算
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="price_sqm_container" id="calc1_js_div1">
+                                            <div class="input">
+                                                <input type="number" name="price" placeholder="单价" value="">
+                                                <span>元/平米</span>
+                                            </div>
+                                            <div class="input">
+                                                <input type="number" name="sqm" placeholder="面积" value="">
+                                                <span>平方米</span>
+                                            </div>
+                                            <h3 class="title">按揭成数：</h3>
+                                            <div class="selectWrap">
+                                                <div data-type="select" class="select">
+                                                    <div data-value="7" class="option">
+                                                        7成
+                                                    </div>
+                                                    <select name="anjie">
+                                                        <option value="9">9成</option>
+                                                        <option value="8">8成</option>
+                                                        <option value="7" selected="true">7成</option>
+                                                        <option value="6">6成</option>
+                                                        <option value="5">5成</option>
+                                                        <option value="4">4成</option>
+                                                        <option value="3">3成</option>
+                                                        <option value="2">2成</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div data-type="radio" data-value="jisuan_radio" class="radio" pervalue="2" id="calc1_radio2">
+                                                <label>
+                                                    <div class="label">
+                                                        根据贷款总额计算
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="loan_container" id="calc1_js_div2">
+                                            <div class="input">
+                                                <input type="number" maxlength="8" size="10" name="daikuan_total000" placeholder="贷款总额" value="">
+                                                <span>万元</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--计算方式 end-->
+
+                                <!--按揭年数 begin-->
+                                <div class="mortgage_years_container">
+                                    <h3 class="title">按揭年数：</h3>
+                                    <div class="selectWrap">
+                                        <div data-type="select" class="select">
+                                            <div data-value="20" class="option">
+                                                20年（240期）
+                                            </div>
+                                            <select id="years" size="1" name="years">
+                                                <option value="0.5">0.5年（6期）</option>
+                                                <option value="1">1年（12期）</option>
+                                                <option value="2">2年（24期）</option>
+                                                <option value="3">3年（36期）</option>
+                                                <option value="4">4年（48期）</option>
+                                                <option value="5">5年（60期）</option>
+                                                <option value="6">6年（72期）</option>
+                                                <option value="7">7年（84期）</option>
+                                                <option value="8">8年（96期）</option>
+                                                <option value="9">9年（108期）</option>
+                                                <option value="10">10年（120期）</option>
+                                                <option value="11">11年（132期）</option>
+                                                <option value="12">12年（144期）</option>
+                                                <option value="13">13年（156期）</option>
+                                                <option value="14">14年（168期）</option>
+                                                <option value="15">15年（180期）</option>
+                                                <option value="16">16年（192期）</option>
+                                                <option value="17">17年（204期）</option>
+                                                <option value="18">18年（216期）</option>
+                                                <option value="19">19年（228期）</option>
+                                                <option value="20" selected="true">20年（240期）</option>
+                                                <option value="25">25年（300期）</option>
+                                                <option value="30">30年（360期）</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--按揭年数 end-->
+
+                                <!--贷款利率 begin-->
+                                <div class="rate_container">
+                                    <h3 class="title">贷款利率：</h3>
+                                    <div class="selectWrap">
+                                        <div data-type="select" class="select">
+                                            <div data-value="1" class="option">
+                                                2012年7月6日基准利率
+                                            </div>
+                                            <select id="lilv" name="lilv">
+                                                <option value="1" selected="true">12年7月6日基准利率</option>
+                                                <option value="2">2012年7月6日利率下限（7折）</option>
+                                                <option value="3">2012年7月6日利率下限（85折）</option>
+                                                <option value="4">2012年7月6日利率上限（1.1倍）</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <ul class="rate_content">
+                                        <li id="singlelv_li">
+                                            <div class="input">
+                                                <input type="number" id="singlelv" value="6.55" readonly="true">
+                                                <span>%</span>
+                                            </div>
+                                        </li>
+                                        <li id="sdlv_li">
+                                            <h3 class="title">商 业：</h3>
+                                            <div class="input">
+                                                <input type="number" id="sdlv" value="6.55" readonly="true">
+                                                <span>%</span>
+                                            </div>
+                                        </li>
+                                        <li id="gjlv_li">
+                                            <h3 class="title">公积金：</h3>
+                                            <div class="input">
+                                                <input type="number" id="gjlv" value="4.5" readonly="true">
+                                                <span>%</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--贷款利率 end-->
+
+                                <!--还款方式 begin-->
+                                <div class="repayment_container">
+                                    <h3 class="title">还款方式：</h3>
+                                    <ul class="radio_group">
+                                        <li>
+                                            <div data-type="radio" data-value="dengeben" class="radio selected" pervalue="1" id="dengeben1">
+                                                <label>
+                                                    <div class="label">
+                                                        等额本息
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div data-type="radio" data-value="dengeben" class="radio" pervalue="2" id="dengeben2">
+                                                <label>
+                                                    <div class="label">
+                                                        等额本金
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--还款方式 begin-->
+
+                                <!--计算按钮 begin-->
+                                <div class="button_container">
+                                    <a href="javascript:;" class="button active_button count" alt="计算购房贷款">开始计算</a>
+                                    <a href="javascript:;" class="button active_button reset" alt="重新填写贷款条件">重新填写</a>
+                                </div>
+                                <!--计算按钮 end-->
+                            </div>
+                        </div>
+                        <!--表单填写 end-->
+
+                        <!--查看结果 begin-->
+                        <div class="resultContainer">
+                            <div class="mainr">
+                                <h2 class="boxTitle">查看结果：</h2>
+                                <div class="result">
+                                    <ul>
+                                        <li>
+                                            <h3 class="title">房款总额：</h3>
+                                            <div class="input">
+                                                <input type="text" name="fangkuan_total1" readonly="true" value="">
+                                                <span>元</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h3 class="title">贷款总额：</h3>
+                                            <div class="input">
+                                                <input type="text" name="daikuan_total1" readonly="true" value="">
+                                                <span>元</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h3 class="title">还款总额：</h3>
+                                            <div class="input">
+                                                <input type="text" name="all_total1" readonly="true" value="">
+                                                <span>元</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h3 class="title">支付利息款：</h3>
+                                            <div class="input">
+                                                <input type="text" name="accrual1" readonly="true" value="">
+                                                <span>元</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h3 class="title">首期付款：</h3>
+                                            <div class="input">
+                                                <input type="text" name="money_first1" readonly="true" value="">
+                                                <span>元</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h3 class="title">贷款月数：</h3>
+                                            <div class="input">
+                                                <input type="text" name="month1" readonly="true" value="">
+                                                <span>月</span>
+                                            </div>
+                                        </li>
+                                        <li class="month_money_container">
+                                            <h3 class="title">月均还款：</h3>
+                                            <div class="input">
+                                                <input type="text" name="month_money1" readonly="true" value="">
+                                                <span>元</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div id="calc1_benjin">
+                                        <input type="hidden" name="fangkuan_total2">
+                                        <input type="hidden" name="daikuan_total2">
+                                        <input type="hidden" name="all_total2">
+                                        <input type="hidden" name="accrual2">
+                                        <input type="hidden" name="money_first2">
+                                        <input type="hidden" name="month2">
+                                        <input type="hidden" name="month_money2">
+                                    </div>
+                                    <div class="notice">
+                                        *以上结果仅供参考
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--查看结果 end-->
+                    </form>
+                </div>
+                <!--计算一 end-->
+
+            </div>
+
+            <div class="content-sidebar">
+                <a href="#" class="link">
+                    <div class="sidebar-section shop-card">
+                        <div class="table-cell">
+                            <img src="image/60x60.jpg" width="60" height="60" class="shop-img" alt="公众号头像">
+                        </div>
+                        <div class="table-cell">
+                            <p class="shop-name">中铁置业
+                                <br>贵州公司</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="sidebar-section shop-info">
+                    <div>
+                        <p class="shop-detail">微信号简介</p>
+                        <p class="text-center weixin-title">微信“扫一扫”立即关注</p>
+                        <p class="text-center qr-code">
+                            <img width="158" height="158" src="image/qrcode.jpg">
+                        </p>
+                        <p class="text-center weixin-no">微信号：crreggz</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shopnav js-navmenu nav-on-bottom style-2">
+                <div class="nav-menu has-menu-3">
+                    <div class="one">
+                        <a class="mainmenu js-mainmenu" href="javascript:void(0);">
+                            <i class="arrow-weixin"></i>
+                            项目介绍
+                        </a>
+                        <div class="submenu js-submenu">
+                            <span class="arrow before-arrow"></span>
+                            <span class="arrow after-arrow"></span>
+                            <ul>
+                                <li>
+                                    <a href="./gqh-home.html">鉴址</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./gqh-landscape.html">鉴景</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./gqh-courtesy.html">鉴礼</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./gqh-apartment.html">户型</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./gqh-album.html">实景</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="divide">&nbsp;</div>
+                    <div class="one">
+                        <a class="mainmenu js-mainmenu" href="javascript:void(0);">
+                            <i class="arrow-weixin"></i>
+                            我要置业
+                        </a>
+                        <div class="submenu js-submenu">
+                            <span class="arrow before-arrow"></span>
+                            <span class="arrow after-arrow"></span>
+                            <ul>
+                                <li>
+                                    <a href="tel:7631111">拨打电话</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="http://api.map.baidu.com/marker?output=html&location=27.594916,106.858527&title=中铁共青湖&content=地址：遵义市共青湖">路线导航</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./cacl.html">贷款计算器</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="divide">&nbsp;</div>
+                    <div class="one">
+                        <a class="mainmenu js-mainmenu" href="javascript:void(0);">
+                            <i class="arrow-weixin"></i>
+                            互动
+                        </a>
+                        <div class="submenu js-submenu">
+                            <span class="arrow before-arrow"></span>
+                            <span class="arrow after-arrow"></span>
+                            <ul>
+
+                                <li>
+                                    <a href="">VIP预约看房</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./gqh-mkt1.html">销售动态</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./gqh-mkt2.html">会员活动</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="">加入中铁会</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ▲.container -->
+
+    <script>
+    (function(b) {
+        function c() {}
+        for (var d = "assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profileEnd,time,timeEnd,trace,warn".split(","), a; a = d.pop();) b[a] = b[a] || c
+    })(window.console = window.console || {});
+    </script>
+
+
+    <script type="text/javascript">
+    //验证是否为数字
+
+    function reg_Num(str) {
+        if (str.length == 0) {
+            return false;
+        }
+        var Letters = "1234567890.";
+
+        for (i = 0; i < str.length; i++) {
+            var CheckChar = str.charAt(i);
+            if (Letters.indexOf(CheckChar) == -1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //本金还款的月还款额(参数: 年利率 / 贷款总额 / 贷款总月份 / 贷款当前月0～length-1)
+
+    function getMonthMoney2(lilv, total, month, cur_month) {
+        var lilv_month = lilv / 12;
+        //月利率
+        //return total * lilv_month * Math.pow(1 + lilv_month, month) / ( Math.pow(1 + lilv_month, month) -1 );
+        var benjin_money = total / month;
+        return (total - benjin_money * cur_month) * lilv_month + benjin_money;
+    }
+
+    //本息还款的月还款额(参数: 年利率/贷款总额/贷款总月份)
+
+    function getMonthMoney1(lilv, total, month) {
+        var lilv_month = lilv / 12;
+        //月利率
+        return total * lilv_month * Math.pow(1 + lilv_month, month) / (Math.pow(1 + lilv_month, month) - 1);
+    }
+
+    //获取radio的值
+
+    function getRadioValue(radio) {
+        for (i = 0; i < radio.length; i++) {
+            if (radio.eq(i).hasClass("selected")) {
+                return radio.eq(i).attr("pervalue");
+            }
+        }
+    }
+
+    //清空可填写的input
+
+    function formReset(fmobj) {
+        fmobj.total_sy.value = "";
+        fmobj.total_gjj.value = "";
+        fmobj.price.value = "";
+        fmobj.sqm.value = "";
+        fmobj.daikuan_total000.value = "";
+    }
+
+    //改变利率
+
+    function ShowLilvNew(years, lilv) {
+        years = parseFloat(years);
+        lilv = parseFloat(lilv);
+        switch (years) {
+            case 0.5:
+                $("#sdlv").val(5.6);
+                $("#gjlv").val(4);
+                break;
+            case 1:
+                $("#sdlv").val(6);
+                $("#gjlv").val(4);
+                break;
+            case 2:
+            case 3:
+                $("#sdlv").val(6.15);
+                $("#gjlv").val(4);
+                break;
+            case 4:
+            case 5:
+                $("#sdlv").val(6.4);
+                $("#gjlv").val(4);
+                break;
+            default:
+                $("#sdlv").val(6.55);
+                $("#gjlv").val(4.5);
+        }
+        switch (lilv) {
+            case 1:
+                break;
+            case 2:
+                $("#sdlv").val($("#sdlv").val() * 0.7);
+                break;
+            case 3:
+                $("#sdlv").val($("#sdlv").val() * 0.85);
+                break;
+            case 4:
+                $("#sdlv").val($("#sdlv").val() * 1.1);
+                break;
+            default:
+                break;
+        }
+    }
+
+    function ext_total(fmobj) {
+        //var fmobj = document.calc1;
+        //先清空月还款数下拉框
+        while ((k = fmobj.month_money2.length - 1) >= 0) {
+            fmobj.month_money2.options.remove(k);
+        }
+        var years = fmobj.years.value;
+        var month = fmobj.years.value * 12;
+
+        fmobj.month1.value = month;
+        fmobj.month2.value = month;
+        if (getRadioValue($("[data-value=typeRadio]")) == 3) {
+            //--  组合型贷款(组合型贷款的计算，只和商业贷款额、和公积金贷款额有关，和按贷款总额计算无关)
+            if (!reg_Num(fmobj.total_sy.value)) {
+                alert("混合型贷款请填写商贷比例");
+                fmobj.total_sy.focus();
+                return false;
+            }
+            if (!reg_Num(fmobj.total_gjj.value)) {
+                alert("混合型贷款请填写公积金比例");
+                fmobj.total_gjj.focus();
+                return false;
+            }
+            if (fmobj.total_sy.value == null) {
+                fmobj.total_sy.value = 0;
+            }
+            if (fmobj.total_gjj.value == null) {
+                fmobj.total_gjj.value = 0;
+            }
+            var total_sy = fmobj.total_sy.value;
+            var total_gjj = fmobj.total_gjj.value;
+            fmobj.fangkuan_total1.value = 0;
+            //房款总额
+            fmobj.fangkuan_total2.value = 0;
+            //房款总额
+            fmobj.money_first1.value = 0;
+            //首期付款
+            fmobj.money_first2.value = 0;
+            //首期付款
+
+            //贷款总额
+            var total_sy = parseInt(fmobj.total_sy.value);
+            var total_gjj = parseInt(fmobj.total_gjj.value);
+            var daikuan_total = total_sy + total_gjj;
+            fmobj.daikuan_total1.value = daikuan_total;
+            fmobj.daikuan_total2.value = daikuan_total;
+
+            //月还款
+            var lilv_sd = $('#sdlv').val() / 100;
+            //得到商贷利率
+            var lilv_gjj = $('#gjlv').val() / 100;
+            //得到公积金利率
+
+            //1.本金还款
+            //月还款
+            var all_total2 = 0;
+            var month_money2 = "";
+            for (j = 0; j < month; j++) {
+                //调用函数计算: 本金月还款额
+                huankuan = getMonthMoney2(lilv_sd, total_sy, month, j) + getMonthMoney2(lilv_gjj, total_gjj, month, j);
+                all_total2 += huankuan;
+                huankuan = Math.round(huankuan * 100) / 100;
+                //fmobj.month_money2.options[j] = new Option( (j + 1) +"月," + huankuan + "(元)", huankuan);
+                month_money2 += (j + 1) + "月," + huankuan + "(元)\r\n";
+            }
+            fmobj.month_money2.value = month_money2;
+            //还款总额
+            fmobj.all_total2.value = Math.round(all_total2 * 100) / 100;
+            //支付利息款
+            fmobj.accrual2.value = Math.round((all_total2 - daikuan_total) * 100) / 100;
+
+            //2.本息还款
+            //月均还款
+            var month_money1 = getMonthMoney1(lilv_sd, total_sy, month) + getMonthMoney1(lilv_gjj, total_gjj, month);
+            //调用函数计算
+            fmobj.month_money1.value = Math.round(month_money1 * 100) / 100;
+            //还款总额
+            var all_total1 = month_money1 * month;
+            fmobj.all_total1.value = Math.round(all_total1 * 100) / 100;
+            //支付利息款
+            fmobj.accrual1.value = Math.round((all_total1 - daikuan_total) * 100) / 100;
+        } else {
+            //--  商业贷款、公积金贷款
+            if (getRadioValue($("[data-value=typeRadio]")) == 1) {
+                //商业贷款利率
+                $('#singlelv').val($("#sdlv").val());
+            } else if (getRadioValue($("[data-value=typeRadio]")) == 2) {
+                //公积金贷款利率
+                $('#singlelv').val($("#gjlv").val());
+            }
+            var lilv = $('#singlelv').val() / 100;
+            var jisuan_radio = $("[data-value=jisuan_radio]");
+            //得到利率
+            if (jisuan_radio.eq(0).hasClass("selected")) {
+                //------------ 根据单价面积计算
+                if (!reg_Num(fmobj.price.value)) {
+                    alert("请填写单价");
+                    fmobj.price.focus();
+                    return;
+                }
+                if (!reg_Num(fmobj.sqm.value)) {
+                    alert("请填写面积");
+                    fmobj.sqm.focus();
+                    return;
+                }
+
+                //房款总额
+                var fangkuan_total = fmobj.price.value * fmobj.sqm.value;
+                fmobj.fangkuan_total1.value = fangkuan_total;
+                fmobj.fangkuan_total2.value = fangkuan_total;
+                //贷款总额
+                var daikuan_total = (fmobj.price.value * fmobj.sqm.value) * (fmobj.anjie.value / 10);
+                fmobj.daikuan_total1.value = daikuan_total;
+                fmobj.daikuan_total2.value = daikuan_total;
+                //首期付款
+                var money_first = fangkuan_total - daikuan_total;
+                fmobj.money_first1.value = money_first
+                fmobj.money_first2.value = money_first;
+            } else {
+                //------------ 根据贷款总额计算
+                if (fmobj.daikuan_total000.value.length == 0) {
+                    alert("请填写贷款总额");
+                    fmobj.daikuan_total000.focus();
+                    return false;
+                }
+
+                //房款总额
+                fmobj.fangkuan_total1.value = 0;
+                fmobj.fangkuan_total2.value = 0;
+                //贷款总额
+                var daikuan_total = fmobj.daikuan_total000.value * 10000;
+                fmobj.daikuan_total1.value = daikuan_total;
+                fmobj.daikuan_total2.value = daikuan_total;
+                //首期付款
+                fmobj.money_first1.value = 0;
+                fmobj.money_first2.value = 0;
+            }
+            //1.本金还款
+            //月还款
+            var all_total2 = 0;
+            var month_money2 = "";
+            for (j = 0; j < month; j++) {
+                //调用函数计算: 本金月还款额
+                huankuan = getMonthMoney2(lilv, daikuan_total, month, j);
+                all_total2 += huankuan;
+                huankuan = Math.round(huankuan * 100) / 100;
+                //fmobj.month_money2.options[j] = new Option( (j + 1) +"月," + huankuan + "(元)", huankuan);
+                month_money2 += (j + 1) + "月," + huankuan + "(元)\n";
+            }
+            fmobj.month_money2.value = month_money2;
+            //还款总额
+            fmobj.all_total2.value = Math.round(all_total2 * 100) / 100;
+            //支付利息款
+            fmobj.accrual2.value = Math.round((all_total2 - daikuan_total) * 100) / 100;
+            //2.本息还款
+            //月均还款
+            var month_money1 = getMonthMoney1(lilv, daikuan_total, month);
+            //调用函数计算
+            fmobj.month_money1.value = Math.round(month_money1 * 100) / 100;
+            //还款总额
+            var all_total1 = month_money1 * month;
+            fmobj.all_total1.value = Math.round(all_total1 * 100) / 100;
+            //支付利息款
+            fmobj.accrual1.value = Math.round((all_total1 - daikuan_total) * 100) / 100;
+        }
+        if ($("#dengeben2").hasClass("selected")) {
+            fmobj.fangkuan_total1.value = fmobj.fangkuan_total2.value;
+            fmobj.daikuan_total1.value = fmobj.daikuan_total2.value;
+            fmobj.all_total1.value = fmobj.all_total2.value;
+            fmobj.accrual1.value = fmobj.accrual2.value;
+            fmobj.money_first1.value = fmobj.money_first2.value;
+            fmobj.month1.value = fmobj.month2.value;
+            fmobj.month_money1.value = fmobj.month_money2.value;
+        }
+        $(".resultContainer").show();
+        document.body.scrollTop = $(".resultContainer").offset().top;
+    }
+
+    //改变单选radio的选中样式
+    $(".radio").click(function() {
+        $(this).parent().parent().find(".selected").removeClass("selected");
+        $(this).addClass("selected");
+    });
+
+    //根据不同的贷款类别  改变  不同的计算过程
+    $("[data-value=typeRadio]").click(function() {
+        var value = getRadioValue($("[data-value=typeRadio]"));
+        zuhe = $("#calc1_zuhe"), countContainer = $(".count_container"), rateContainer = $(".rate_container .selectWrap"), sdlv = $("#sdlv_li"), gjlv = $("#gjlv_li");
+        if (value == 3) {
+            zuhe.show();
+            countContainer.hide();
+            rateContainer.show();
+            sdlv.show();
+            gjlv.show();
+        } else {
+            zuhe.hide();
+            countContainer.show();
+            if (value == 2) {
+                rateContainer.hide();
+                sdlv.hide();
+                gjlv.show();
+            } else if (value == 1) {
+                rateContainer.show();
+                sdlv.show();
+                gjlv.hide();
+            }
+        }
+    });
+
+    //根据不同的计算方式  改变  不同的输入框
+    $("[data-value=jisuan_radio]").click(function() {
+        if (this.id == "calc1_radio1") {
+            $("#calc1_js_div1").show();
+            $("#calc1_js_div2").hide();
+        } else {
+            $("#calc1_js_div2").show();
+            $("#calc1_js_div1").hide();
+        }
+    });
+
+    //随着下拉菜单的值的改变
+    $("select").on("change", function() {
+        //改变下拉菜单的显示值
+        var option = $(this).siblings(".option");
+        var index = this.selectedIndex;
+        var curOption = $(this).children("option").eq(index);
+        option.html(curOption.html());
+        option.attr("data-value", this.value);
+        curOption.attr("selected", true).siblings().removeAttr("selected");
+
+        //改变利率的显示值
+        ShowLilvNew($("#years").val(), $("#lilv").val());
+    });
+
+    //根据不同的还款方式  改变  不同的输出框
+    $("[data-value=dengeben]").click(function() {
+        if ($(this).attr("pervalue") == "1") {
+            $(".month_money_container .title").html("月均还款：")
+            $(".month_money_container .input").html('<input type="text" name="month_money1" readonly="true" value=""><span>元</span>')
+        } else {
+            $(".month_money_container .title").html("每月还款明细：")
+            $(".month_money_container .input").html('<textarea name="month_money1" readonly="true"></textarea>')
+        }
+    });
+
+    //开始计算
+    $(".count").eq(0).click(function() {
+        ext_total($("form")[0]);
+    });
+
+    //清空可输入input框
+    $(".reset").eq(0).click(function() {
+        formReset($("form")[0]);
+    });
+    </script>
+
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="js/wap.js"></script>
+
+
+
+
+
+</body>
+
+</html>
