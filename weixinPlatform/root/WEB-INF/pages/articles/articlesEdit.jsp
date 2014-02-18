@@ -25,38 +25,38 @@
 									<a href="javascript:outsideTheChainEvent();" class="btn">外链</a>
 								  </div>
 								</div>
-								<div class="control-group" style="display:none" id="outsideTheChain">
+								<div class="control-group" id="outsideTheChain">
 								  <label class="control-label">外链:</label>
 								  <div class="controls">
-									<input name="weixinArticlesForm.url" class="span6 typeahead"  value="<c:if test="${weixinArticles!=null}">${weixinArticles.url}</c:if>" />
+									<input name="weixinArticlesForm.url" class="span6"  value="<c:if test="${weixinArticles!=null}">${weixinArticles.url}</c:if>" />
 								  </div>
 								</div>
 								<div class="control-group error">
 								  <label class="control-label">标题:</label>
 								  <div class="controls">
-									<input name="weixinArticlesForm.title" class="span6 typeahead" value="<c:if test="${weixinArticles!=null}">${weixinArticles.title}</c:if>" />
+									<input id="title" name="weixinArticlesForm.title" class="span6" value="<c:if test="${weixinArticles!=null}">${weixinArticles.title}</c:if>" />
 									<p class="help-inline">建议不多于30字!</p>
 								  </div>
 								</div>
 								<div class="control-group error">
 									<label class="control-label">封面:</label>
 									<div class="controls">
-										<input name="weixinArticlesForm.picUrl" class="span6 typeahead"  id="photo"  value="<c:if test="${weixinArticles!=null}">${weixinArticles.picUrl}</c:if>" onclick="javascript:showPictureList();" />
+										<input name="weixinArticlesForm.picUrl" class="span6"  id="photo"  value="<c:if test="${weixinArticles!=null}">${weixinArticles.picUrl}</c:if>" onclick="javascript:showPictureList();" />
 										<br />
-										<input type="file"  id="indexfile" class="span6 typeahead"  />
+										<input type="file"  id="indexfile" class="span6"  />
 										<br />
-										<img  id="indexfilePic"  alt=""  src="${basePath}<c:if test="${weixinArticles!=null}">${weixinArticles.picUrl}</c:if>"   class="span5 typeahead"  height="100"  /><br/>
+										<img  id="indexfilePic"  alt=""  src="${basePath}<c:if test="${weixinArticles!=null}">${weixinArticles.picUrl}</c:if>"   class="span5"  height="100"  /><br/>
 										<p class="help-inline">尺寸建议:720高*400宽!</p>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">摘要:</label>
 									 <div class="controls">
-										<textarea rows="5" class="span6 typeahead" name="weixinArticlesForm.description"><c:if test="${weixinArticles!=null}">${weixinArticles.description}</c:if></textarea>
+										<textarea rows="5" class="span6" name="weixinArticlesForm.description"><c:if test="${weixinArticles!=null}">${weixinArticles.description}</c:if></textarea>
 							  		</div>
 								</div>
 								<div class="form-actions">
-									<a href="" class="btn btn-primary">修改</a>
+									<a href="javascript:edit();" class="btn btn-primary">修改</a>
 									<a href="" class="btn btn-primary">发送</a>
 									<a href="javascript:closedOpenPages();" class="btn">关闭</a>
 							   </div>
@@ -88,10 +88,28 @@
 	 );
 	//新增保存
 	function edit(){
+		var title_old="${weixinArticles.title}";
+		var title_new=$("#title").val();
+		var isEdit=0;
+		if(title_old!=title_new){//是否被修改过标题
+			isEdit=1;
+		}
+		
 		$('#fmt').form('submit',{
-				url:'${basePath}/articles/articlesEdit.do',
-				success:function(data){
-					var jsonObj = eval("("+data+")");
+				url:'${basePath}/articles/articlesEdit.do?isEdit='+isEdit,
+				success:function(result){
+					if(result=='e'||result=='2'){
+						$.messager.alert('系统有点问题,请稍后重试!');
+						return ;
+					}
+					if(result=='0'){
+						$.messager.alert('数据修改成功!');
+						return ;
+					}
+					if(result=='3'){
+						$.messager.alert('添加的标题数据已经存在!');
+						return ;
+					}
 				}
 		});
 	}
@@ -129,34 +147,11 @@
 
 //改变外部链接的属性
 function outsideTheChainEvent(){
-	$("#outsideTheChain").css('display','');
 }
 function microPageEvent(){
-	$("#outsideTheChain").css('display','none');
 }
 function activeLinkEvent(){
-	$("#outsideTheChain").css('display','none');
 }
 </script>
-<style type="text/css">
-		#fm {
-			margin:0;
-			padding:1px 30px;
-		}
-		.ftitle{
-			font-size:14px;
-			font-weight:bold;
-			padding:5px 0;
-			margin-bottom:10px;
-			border-bottom:1px solid #ccc;
-		}
-		.fitem{
-			margin-bottom:5px;
-		}
-		.fitem label{
-			display:inline-block;
-			width:80px;
-		}
-</style>
 </body>
 </html>

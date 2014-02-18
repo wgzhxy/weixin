@@ -27,13 +27,13 @@
 								<div class="control-group" style="display:none" id="outsideTheChain">
 								  <label class="control-label">外链:</label>
 								  <div class="controls">
-									<input name="weixinArticlesForm.url" class="span6 typeahead"  />
+									<input name="weixinArticlesForm.url" class="span6"  />
 								  </div>
 								</div>
 								<div class="control-group error">
 								  <label class="control-label">标题:</label>
 								  <div class="controls">
-									<input name="weixinArticlesForm.title" class="span6 typeahead"  />
+									<input name="weixinArticlesForm.title" class="span6 easyui-validatebox" required="true" />
 									<input name="weixinArticlesForm.picType" value="1" type="hidden"  />
 									<p class="help-inline">建议不多于30字!</p>
 								  </div>
@@ -41,11 +41,11 @@
 								<div class="control-group error">
 									<label class="control-label">封面:</label>
 									<div class="controls">
-										<input name="weixinArticlesForm.picUrl" class="span6 typeahead"  id="photo"  onclick="javascript:showPictureList();" />
+										<input name="weixinArticlesForm.picUrl" class="span6"  id="photo"  onclick="javascript:showPictureList();" />
 										<br />
-										<input type="file"  id="indexfile" class="span6 typeahead btn btn-success"  />
+										<input type="file"  id="indexfile" class="span6  btn btn-success"  />
 										<br />
-										<img  id="indexfilePic"  alt=""  src=""  class="span5 typeahead"  height="100"  /><br/>
+										<img  id="indexfilePic"  alt=""  src=""  class="span5"  height="100"  /><br/>
 										<p class="help-inline">尺寸建议:720高*400宽!</p>
 									</div>
 								</div>
@@ -91,17 +91,16 @@
 		$('#fmt').form('submit',{
 				url:'${basePath}/articles/articlesAdd.do',
 				success:function(result){
-					alert(result);
-					if(result==e||result==2){
-						alert('系统有点问题,请稍后重试!');
+					if(result=='e'||result=='2'){
+						$.messager.alert('系统有点问题,请稍后重试!');
 						return ;
 					}
-					if(result==0){
-						alert('数据添加成功!');
+					if(result=='0'){
+						$.messager.alert('数据添加成功!');
 						return ;
 					}
-					if(result==3){
-						alert('添加的标题数据已经存在!');
+					if(result=='3'){
+						$.messager.alert('添加的标题数据已经存在!');
 						return ;
 					}
 				}

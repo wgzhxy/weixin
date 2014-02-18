@@ -7,10 +7,17 @@
 	<package name="ngboss-busi" extends="app-default" namespace="/busi">
 		<!-- 会员申请 -->
 		<action name="apply*" class="com.weixin.webui.end.ApplyMemberAction" method="{1}">
+<<<<<<< HEAD
 	    	<result name="index">/WEB-INF/pages/members/messageIndex.jsp</result>
 	    	<result name="reject">/WEB-INF/pages/members/talkInfo.jsp</result>
 	    	<result name="star">/WEB-INF/pages/members/sendMessage.jsp</result>
 	    	<result name="remark">/WEB-INF/pages/members/addRemark.jsp</result>
+=======
+	    	<result name="index">/WEB-INF/pages/members/messageIndex.jsp</result>
+	    	<result name="reject">/WEB-INF/pages/members/talkInfo.jsp</result>
+	    	<result name="star">/WEB-INF/pages/members/sendMessage.jsp</result>
+	    	<result name="remark">/WEB-INF/pages/members/addRemark.jsp</result>
+>>>>>>> b93573375732dad8b41b99d2abf88b1807dc450d
 	    </action>
 	    <!-- 会员标签 -->
 	    <action name="tag*" class="com.weixin.webui.end.MemberTagAction" method="{1}">
@@ -35,4 +42,8 @@
 	    	<result name="save">/WEB-INF/pages/coupons/addRemark.jsp</result>
 	    </action>
 	</package>
+<<<<<<< HEAD
 </struts>
+=======
+</struts>
+>>>>>>> b93573375732dad8b41b99d2abf88b1807dc450d

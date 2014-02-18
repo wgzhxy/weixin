@@ -8,29 +8,31 @@
 	<script type="text/javascript"  src="${basePath}/easyUi/js/jquery.edatagrid.js"></script>
 </head>
 <body>
-	<div style="padding:10px 80px">
-    <div class="ftitle">图片信息填写</div>
-		<form id="fmt"  method="post"  style="padding-left: 20px ;padding-top: 10px">		
-			<div class="fitem">
-				<label>图片名称:</label>
-				<input  name="weixinPictureForm.pictureName"  class="easyui-validatebox"  required="true"  />
+		<form class="form-horizontal" id="fmt">
+			<legend><h4><i class="icon-th"></i>单图文信息填写</h4></legend>	
+			<div class="control-group">
+				<label class="control-label">图片名称:</label>
+				<div class="controls">
+					<input  name="weixinPictureForm.pictureName"  class="easyui-validatebox"  required="true"  />
+				</div>
 			</div>
-			<div class="fitem">
-				<label>所属平台:</label>
-				<input  name="weixinPictureForm.platformTag"  class="easyui-validatebox"  required="true"  />
+			<div class="control-group">
+				<label class="control-label">所属平台:</label>
+				<div class="controls">
+					<input  name="weixinPictureForm.platformTag"  class="easyui-validatebox"  required="true"  />
+				</div>
 			</div>
-			<div class="fitem">
-				<label>上传图片:</label>
-				<div style="padding-left: 90px;padding-top:10px">
+			<div class="control-group">
+				<label class="control-label">上传图片:</label>
+				<div class="controls">
 					<input type="file"  id="indexfile" class="easyui-validatebox"  />
+					<br />
 					<input type="hidden"  id="photo" name="weixinPictureForm.pictureUrl"   />
 					<br />
-					<img  id="indexfilePic"  alt=""  src=""  width="205"  height="100"  /><br/>
+					<img  id="indexfilePic"  alt=""  src=""  class="span3"  height="100"  /><br/>
 				</div>
 			</div>
 		</form>
-</div>
-
 <script type="text/javascript">
 var fileUpload = new FileParamter();
 	 fileUpload.basePath = '${basePath}';
@@ -60,7 +62,7 @@ function save(){
 							state:jsonObj.state,
 							createTime:jsonObj.createTime,
 							pictureUrl:jsonObj.pictureUrl,
-							modifyTime:jsonObj.modifyTime,
+							modifyTime:'',
 						}
 					});
 				}

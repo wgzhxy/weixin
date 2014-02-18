@@ -12,7 +12,14 @@ public class WeChatMenusItem implements Serializable{
 	private String type;
 	private String name;
 	private String key;
+	private String url;
 	
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	public String getType() {
 		return type;
 	}
