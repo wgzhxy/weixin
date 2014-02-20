@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+        <title>联系我们</title>
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <!-- CSS -->
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Loading Flat UI -->
+        <link href="css/wap.css" rel="stylesheet">
+        <link href="css/bootstrapValidator.css" rel="stylesheet">
+        <link href="css/skins/flat/blue.css" rel="stylesheet">
+        <!-- <link href="css/flat-ui.css" rel="stylesheet"> -->
+        <style type="text/css">
+        p {
+            font-size: 13px;
+        }
+        a {
+            color: #3498DB;
+        }
+        .content-border {
+            height: auto;
+            background-color: rgb(250,250,250);
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border: 1px solid #e0e0e0;
+        }
+        .red {
+            /*font-size: 17px;*/
+            color: #D35400;
+        }
+        </style>
+    </head>
+    <body>
+    <div class="container">
+            <div class="row">
+                <div class="content">
+                    <div class="content-body" style="overflow:hidden;">
+                        <div>
+                            <h5 class="text-center">联系我们</h5>
+                        </div>
+
+                        <div class="list-group">  
+                            <div class="list-group-item">
+                                <h4 class="list-group-item-heading">请选择您的问题类型</h4>
+                                <div class="text-left">
+                                    <label><input type="radio" name="issuekind" id="saleissue" checked>销售相关</label>
+                                </div>
+                                <div class="text-left">
+                                    <label><input type="radio" name="issuekind" id="propertyissue">物业</label>
+                                </div>
+                                <div class="text-left">
+                                    <label><input type="radio" name="issuekind" id="otherissue">其它问题</label>
+                                </div>
+                                <p class="list-group-item-text" id="issuedescription">询问关于售前的一系列问题，例如xxxxxx，以及诸如合同、贷款、产权等相关问题。</p>
+                            </div>                      
+                            <div class="list-group-item">
+                                <h4 class="list-group-item-heading">请选择您想咨询的部门</h4>
+                                <div class="text-left">
+                                    <label><input type="radio" name="department" id="saleissue" checked>中铁逸都</label>
+                                </div>
+                                <div class="text-left">
+                                    <label><input type="radio" name="department" id="propertyissue">中铁共青湖</label>
+                                </div>
+                                <div class="text-left">
+                                    <label><input type="radio" name="department" id="otherissue">中铁阅山湖</label>
+                                </div>
+                                <div class="text-left">
+                                    <label><input type="radio" name="department" id="otherissue">中铁客户中心</label>
+                                </div>
+                            </div>  
+                            <div class="list-group-item">
+                                <h4 class="list-group-item-heading">您的邮箱地址</h4>
+                                <div>
+                                    <input class="form-control" type="text" name="email" placeholder="请输入您的邮箱地址">
+                                    <small class="help-block" style="display: none;"></small>
+                                    <br>
+                                </div>
+                               <h4 class="list-group-item-heading">请输入内容</h4>
+                                <div>
+                                    <textarea class="form-control" rows="6" name="content" id="content"></textarea>
+                                    <small class="help-block" style="display: none;"></small>
+                                    <br>
+                                </div>
+                            </div>                         
+                        </div>
+                        <div class="text-center">
+                            <div class="col-xs-0 col-sm-3 col-md-3"></div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <button id="send" class="btn btn-md btn-block btn-primary">发送</button>
+                            </div>
+                            <div class="col-xs-0 col-sm-3 col-md-3"></div>
+                        </div>
+                    </div>
+
+                    <div class="content-sidebar">
+                        <a href="#" class="link">
+                            <div class="sidebar-section shop-card">
+                                <div class="table-cell">
+                                    <img src="image/60x60.jpg" width="60" height="60" class="shop-img" alt="公众号头像">
+                                </div>
+                                <div class="table-cell">
+                                    <p class="shop-name">中铁置业
+                                        <br>贵州公司</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="sidebar-section shop-info">
+                            <div>
+                                <p class="text-center shop-detail">相约中铁·相伴一生</p>
+                                <p class="text-center weixin-title">微信“扫一扫”立即关注</p>
+                                <p class="text-center qr-code">
+                                    <img width="158" height="158" src="image/qrcode.jpg">
+                                </p>
+                                <p class="text-center weixin-no">微信号：crreggz</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="shopnav js-navmenu nav-on-bottom style-2">
+                        <div class="nav-menu has-menu-3">
+                            <div class="one">
+                                <a class="mainmenu js-mainmenu" href="javascript:void(0);">
+                                    <i class="arrow-weixin"></i>
+                                    项目介绍
+                                </a>
+                                <div class="submenu js-submenu">
+                                    <span class="arrow before-arrow"></span>
+                                    <span class="arrow after-arrow"></span>
+                                    <ul>
+                                        <li>
+                                            <a href="./gqh-home.html">鉴址</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="./gqh-landscape.html">鉴景</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="./gqh-courtesy.html">鉴礼</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="./gqh-apartment.html">户型</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="./gqh-album.html">实景</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <div class="divide">&nbsp;</div>
+                            <div class="one">
+                                <a class="mainmenu js-mainmenu" href="javascript:void(0);">
+                                    <i class="arrow-weixin"></i>
+                                    我要置业
+                                </a>
+                                <div class="submenu js-submenu">
+                                    <span class="arrow before-arrow"></span>
+                                    <span class="arrow after-arrow"></span>
+                                    <ul>
+                                        <li>
+                                            <a href="tel:7631111">拨打电话</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="http://api.map.baidu.com/marker?output=html&location=27.59538,106.85895&title=中铁共青湖&content=地址：遵义市共青湖">路线导航</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="./cacl.html">贷款计算器</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="divide">&nbsp;</div>
+                            <div class="one">
+                                <a class="mainmenu js-mainmenu" href="javascript:void(0);">
+                                    <i class="arrow-weixin"></i>
+                                    互动
+                                </a>
+                                <div class="submenu js-submenu">
+                                    <span class="arrow before-arrow"></span>
+                                    <span class="arrow after-arrow"></span>
+                                    <ul>
+
+                                        <li>
+                                            <a href="">VIP预约看房</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="./gqh-mkt1.html">销售动态</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="./gqh-mkt2.html">会员活动</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="">加入中铁会</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+        <!-- <p>
+            <a href="http://www.crreg.com.cn/">官网</a>
+            <a href="http://weibo.com/ztzyjtguizhougs">微博</a>
+        </p> -->
+            <p>©中铁置业贵州</p>
+        </div>
+        <!-- Javascript -->
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/jquery.ui.touch-punch.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/wap.js"></script>
+        <script src="js/icheck.min.js"></script>
+        <script src="js/check.js"></script>
+
+        <script>
+            $(document).ready(function (){
+
+                $('#saleissue').on('ifChecked', function(event){
+                    $('#issuedescription').html("询问关于售前的一系列问题，例如xxxxxx，以及诸如合同、贷款、产权等相关问题。"); 
+                });
+                $('#propertyissue').on('ifChecked', function(event){
+                    $('#issuedescription').html("询问关于物业的一系列问题。"); 
+                });
+                $('#otherissue').on('ifChecked', function(event){
+                    $('#issuedescription').html("询问其它问题。"); 
+                });
+
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_flat-blue',
+                    radioClass: 'iradio_flat-blue',
+                    increaseArea: '20%' // optional
+                });
+                /*
+                    联系我
+                */
+                
+
+                $('#send').click(function() {
+                    var email = $('#email').val();
+                    if (email == '' || !isEmail(email)) {
+                        alert("请输入正确的邮箱地址");
+                    }
+                    else{
+                        var content = $('#content').val();
+                        if (content == '') {
+                            alert("请输入你想反馈的内容");
+                        }
+                        else{
+                            alert("已经提交您的反馈，请耐心等待我们的客服代表跟您联系。");
+                            $.ajax({
+                                url:"",
+                                type:"post",
+                                data: {
+                                    "kind":issueKind,
+                                    "email":email,
+                                    "content":content,
+                                },
+                                dataType: "json",
+                                success: function (data) {
+                                    
+                                },
+                                error: function (data) {
+                                    
+                                }
+                            });
+                        }; 
+                    };
+                });
+            });
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+        <title>业主/会员身份提交</title>
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <!-- CSS -->
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Loading Flat UI -->
+        <link href="css/wap.css" rel="stylesheet">
+        <link href="css/bootstrapValidator.css" rel="stylesheet">
+        <link href="css/skins/flat/blue.css" rel="stylesheet">
+        <style type="text/css">
+        p{
+            font-size: 13px;
+        }
+        a{
+            color: #3498DB;
+        }
+        .gray {
+            color: #999;
+        }
+        </style>
+    </head>
+    <body style="background-color:#f9f9f9;">
+
+        <div class="container">
+            <div class="row">
+                <div class="content">
+                    <div class="content-body">
+                        <div>
+                            <p></p>
+                            <p class="text-right">不是会员？点此<a href="register.html">申请入会</a></p>
+                        </div>
+                        <div>
+                            <form id="verifyForm" class="form-horizontal bootstrap-validator-form" method="post" novalidate="novalidate">
+                                <div class="form-group" >
+                                    <label class="col-xs-4 col-sm-3 col-md-3 control-label">微信用户</label>
+                                    <div  class="col-xs-8 col-sm-9 col-md-9 text-left">
+                                        <label class="control-label gray" id="name">用户昵称</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender" class="col-xs-12 col-sm-3 col-md-3 control-label">关联方式</label>
+                                    <div class="col-xs-4 col-sm-3 col-md-3 text-left">
+                                        <label><input type="radio" name="association" checked>证件</label>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-3 col-md-3 text-left">
+                                        <label><input type="radio" name="association">卡号</label>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-3 col-md-3 text-left">
+                                        <label><input type="radio" name="association">服务密码</label>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="certificatenode">
+                                    <label for="certificate" class="col-xs-12 col-sm-3 col-md-3 control-label">证件类型</label>
+                                    <div class="col-xs-8 col-sm-9 col-md-9 text-left">
+                                        <select id="certificate" name="certificate" size="1">
+                                            <option selected="" value="1">身份证</option>
+                                            <option value="2">护照</option>
+                                            <option value="3">其它</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="idcardnumbernode">
+                                    <label for="cardnumber" class="col-xs-12 col-sm-3 col-md-3 control-label">证件号码</label>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input class="form-control" type="text" name="verifycode" placeholder="请输入您的证件号码">
+                                        <small class="help-block" style="display: none;"></small>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="cardnumbernode">
+                                    <label for="cardnumber" class="col-xs-12 col-sm-3 col-md-3 control-label">卡号</label>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input class="form-control" type="text" name="verifycode" placeholder="请输入您的卡号">
+                                        <small class="help-block" style="display: none;"></small>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="passwordnode">
+                                    <label for="password" class="col-xs-12 col-sm-3 col-md-3 control-label">服务密码</label>
+                                    <div class="col-xs-12 col-sm-9 col-md-9">
+                                        <input class="form-control" type="password" name="password" placeholder="请输入6-18位的数字或英文">
+                                        <small class="help-block" style="display: none;"></small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="verifycode" class="col-xs-12 col-sm-3 col-md-3 control-label">附加码</label>
+                                    <div class="col-xs-8 col-sm-7 col-md-7">
+                                        <input class="form-control" type="text" name="verifycode" placeholder="请输入右边显示的字符">
+                                        <small class="help-block" style="display: none;"></small>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-2 col-md-2">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-3 col-sm-4 col-md-4">
+                                    </div>
+                                    <div class="col-xs-6 col-sm-4 col-md-4">
+                                        <button id="submit-button" class="btn btn-large btn-block btn-primary">立即提交</button>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-4 col-md-4">
+                                    </div>
+                                </div>
+                            </form>
+                           
+                        </div>
+                    </div>
+
+                    <div class="content-sidebar">
+                        <a href="#" class="link">
+                            <div class="sidebar-section shop-card">
+                                <div class="table-cell">
+                                    <img src="image/60x60.jpg" width="60" height="60" class="shop-img" alt="公众号头像">
+                                </div>
+                                <div class="table-cell">
+                                    <p class="shop-name">中铁置业
+                                        <br>贵州公司</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="sidebar-section shop-info">
+                            <div>
+                                <p class="text-center shop-detail">相约中铁·相伴一生</p>
+                                <p class="text-center weixin-title">微信“扫一扫”立即关注</p>
+                                <p class="text-center qr-code">
+                                    <img width="158" height="158" src="image/qrcode.jpg">
+                                </p>
+                                <p class="text-center weixin-no">微信号：crreggz</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="shopnav js-navmenu nav-on-bottom style-2">
+                        <div class="nav-menu has-menu-3">
+                            <div class="one">
+                                <a class="mainmenu js-mainmenu" href="javascript:void(0);">
+                                    <i class="arrow-weixin"></i>
+                                    项目介绍
+                                </a>
+                                <div class="submenu js-submenu">
+                                    <span class="arrow before-arrow"></span>
+                                    <span class="arrow after-arrow"></span>
+                                    <ul>
+                                        <li>
+                                            <a href="./gqh-home.html">鉴址</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="./gqh-landscape.html">鉴景</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="./gqh-courtesy.html">鉴礼</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="./gqh-apartment.html">户型</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="./gqh-album.html">实景</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <div class="divide">&nbsp;</div>
+                            <div class="one">
+                                <a class="mainmenu js-mainmenu" href="javascript:void(0);">
+                                    <i class="arrow-weixin"></i>
+                                    我要置业
+                                </a>
+                                <div class="submenu js-submenu">
+                                    <span class="arrow before-arrow"></span>
+                                    <span class="arrow after-arrow"></span>
+                                    <ul>
+                                        <li>
+                                            <a href="tel:7631111">拨打电话</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="http://api.map.baidu.com/marker?output=html&location=27.59538,106.85895&title=中铁共青湖&content=地址：遵义市共青湖">路线导航</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="./cacl.html">贷款计算器</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="divide">&nbsp;</div>
+                            <div class="one">
+                                <a class="mainmenu js-mainmenu" href="javascript:void(0);">
+                                    <i class="arrow-weixin"></i>
+                                    互动
+                                </a>
+                                <div class="submenu js-submenu">
+                                    <span class="arrow before-arrow"></span>
+                                    <span class="arrow after-arrow"></span>
+                                    <ul>
+
+                                        <li>
+                                            <a href="">VIP预约看房</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="./gqh-mkt1.html">销售动态</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="./gqh-mkt2.html">会员活动</a>
+                                        </li>
+                                        <li class="line-divide"></li>
+                                        <li>
+                                            <a href="">加入中铁会</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+        <!-- <p>
+            <a href="http://www.crreg.com.cn/">官网</a>
+            <a href="http://weibo.com/ztzyjtguizhougs">微博</a>
+        </p> -->
+            <p>©中铁置业贵州</p>
+        </div>
+        <!-- Javascript -->
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/jquery.ui.touch-punch.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/wap.js"></script>
+        <script src="js/jquery.cityselect.js"></script>
+        <script src="js/bootstrapValidator.js"></script>
+        <script src="js/icheck.min.js"></script>
+        <script>
+            $(document).ready(function() {
+            
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_flat-blue',
+                    radioClass: 'iradio_flat-blue',
+                    increaseArea: '20%' // optional
+                });
+
+                $('#registerForm').bootstrapValidator({
+                    message: 'This value is not valid',
+                    submitButtons: $('#submit-button'),
+                    submitHandler: function(validator, form) {
+                        alert('表单提交');
+                    },
+                    fields: {
+                        username: {
+                            message: '姓名格式不对',
+                            validators: {
+                                notEmpty: {
+                                    message: '姓名不能为空'
+                                },
+                                stringLength: {
+                                    min: 2,
+                                    message: '姓名最少为两个字'
+                                }
+                            }
+                        },
+                        identifier: {
+                            validators: {
+                                notEmpty: {
+                                    message: '身份证号码不能为空'
+                                },
+                                regexp: {
+                                    message: '身份证号码格式不正确',
+                                    regexp:/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[A-Z])$/,
+                                }
+                            }
+                        },
+                        mobilephone: {
+                            validators: {
+                                notEmpty: {
+                                    message: '手机号码不能为空'
+                                },
+                                callback:{
+                                    message: '手机号码格式不正确',
+                                    callback: function (fieldValue, validator) {
+                                        var pattern=/(^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$)|(^0{0,1}1[3|4|5|6|7|8|9][0-9]{9}$)/;
+                                        if(pattern.test(fieldValue)){
+                                            $('#get-verify-code-button').removeAttr('disabled');
+                                            return true; 
+                                        } 
+                                        $('#get-verify-code-button').attr('disabled','disabled');
+                                        return false;
+                                    }
+                                }
+                                // regexp: {
+                                //     message: '手机号码格式不正确',
+                                //     regexp: /(^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$)|(^0{0,1}1[3|4|5|6|7|8|9][0-9]{9}$)/,
+                                // }                       
+                            }
+                        },
+                        password: {
+                            validators: {
+                                notEmpty: {
+                                    message: '密码不能为空'
+                                },
+                                regexp: {
+                                    message: '密码为6到18位的数字或字母的组合',
+                                    regexp: /^(\w){6,18}$/,
+                                }
+                            }
+                        },
+                        verifycode: {
+                            validators: {
+                                notEmpty: {
+                                    message: '验证码不能为空'
+                                }
+                            }
+                        },
+                        acceptTerms: {
+                            validators: {
+                                notEmpty: {
+                                    message: '您需要同意我们的章程，并愿意遵守各项规则'
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+
+        </script>
+
+</body>
+</html>
