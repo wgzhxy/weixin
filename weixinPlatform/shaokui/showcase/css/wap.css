@@ -91,7 +91,7 @@ iframe{border:none}
 .container{}
 .container.tag{padding-bottom:30px}
 .wrapper{width:320px;margin:0 auto}
-.content{width:320px;margin:0 auto}
+.content{width:290px;margin:0 auto}
 .content-header{padding:15px 15px 10px;background:url(../image/wap/bottom_line.png) left top no-repeat;background-size:100% 1px;background-position:left bottom}
 .content-header .title{margin:0}
 .content-header .date{color:#8C8C8C;font-size:11px;margin:5px 0 0}

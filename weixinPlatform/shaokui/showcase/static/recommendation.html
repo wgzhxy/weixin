@@ -73,92 +73,13 @@
         <script src="assets/js/jquery.cityselect.js"></script>
         <script src="assets/js/check.js"></script>
         <script>
-            $(document).ready(function() {
-                /*
-                    初始化城市数据
-                */
-                $("#city").citySelect({
-                    prov:"贵州", 
-                    city:"贵阳",
-                    dist:"云岩区",
-                    nodata:"none"
-                }); 
-              
-                $.fn.scrollView = function () {
-                    return this.each(function () {
-                        $('html, body').animate({
-                            scrollTop: $(this).offset().top
-                        }, 300);
-                    });
-                }
-
-                $('.common form').submit(function(){
-                    $(this).find("label[for='name1']").html('亲友姓名');
-                    $(this).find("label[for='name2']").html('您的姓名');
-                    $(this).find("label[for='identifier']").html('您的身份证号码');
-                    $(this).find("label[for='mobilephone']").html('亲友手机号码');
-
-                    var name1 = $(this).find('input#name1').val();
-                    var name2 = $(this).find('input#name2').val();
-                    var identifier = $(this).find('input#identifier').val();
-                    var mobilephone = $(this).find('input#mobilephone').val();
-                    var verifycode = $(this).find('input#verifycode').val();
-                    var password = $(this).find('input#password').val();
-                    var uselessthingchecked = $(this).find('input#uselessthing').val();
-
-                    var validated = true;
-                    var scrolled = false;
-                    var scrollCheck = function (element) {
-                        if (!scrolled) {
-                            scrolled = true;
-                            element.scrollView();
-                        };
-                    }
-                    if(name1 == '') {
-                        $(this).find("label[for='name1']").append("<span style='display:none' class='red'>-请输入您亲友的姓名</span>");
-                        $(this).find("label[for='name1'] span").fadeIn('medium');
-                        scrollCheck($(this).find("label[for='name1']"));
-                        validated =  false;
-                    }
-                    if(name2 == '') {
-                        $(this).find("label[for='name2']").append("<span style='display:none' class='red'>-请输入您的姓名</span>");
-                        $(this).find("label[for='name2'] span").fadeIn('medium');
-                        scrollCheck($(this).find("label[for='name2']"));
-                        validated =  false;
-                    }
-                    if(identifier == '' || !isIDCard(identifier)) {
-                        $(this).find("label[for='identifier']").append("<span style='display:none' class='red'>-请输入正确的身份证号码</span>");
-                        $(this).find("label[for='identifier'] span").fadeIn('medium');
-                        scrollCheck($(this).find("label[for='identifier']"));
-                        validated =  false;
-                    }
-                    if(mobilephone == '' || !isPhoneNumber(mobilephone)) {
-                        $(this).find("label[for='mobilephone']").append("<span style='display:none' class='red'>-请输入正确的手机号码</span>");
-                        $(this).find("label[for='mobilephone'] span").fadeIn('medium');
-                        scrollCheck($(this).find("label[for='mobilephone']"));
-                        validated =  false;
-                    }
-                    /*
-                        提交数据
-                    */
-                    if (validated) {
-                        $.ajax({
-                            url:"",
-                            type:"post",
-                            data: {},
-                            dataType: "json",
-                            success: function (data) {
-                           
-                            },
-                            error: function (data) {
-                        
-                            }
-                        });
-                    };
-                    return validated;
-                });
+            $(document).ready(function(){
+              $('input').iCheck({
+                checkboxClass: 'icheckbox_square',
+                radioClass: 'iradio_square',
+                increaseArea: '20%' // optional
+              });
             });
-
         </script>
 
 </body>

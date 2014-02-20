@@ -10,37 +10,248 @@
     
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
     <link rel="stylesheet" href="css/wap.css"/> 
+    <link rel="stylesheet" href="css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>  
 </head>
- 
+
 <body>
+ 
     
     <!-- ▼.container -->
     <div class="container ">        
         <div class="content">
-                 
-           
-            
-                
+            <nav id="navbar-example" class="navbar navbar-default navbar-static" role="navigation">
+                <div class="navbar-header">
+                  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-js-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="./ysh-home.html">中铁阅山湖</a>
+                </div>
+                <div class="collapse navbar-collapse bs-js-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="./yd-home.html">中铁·逸都国际</a></li>
+                        <li><a href="./gqh-home.html">中铁共青湖</a></li>
+                    </ul>
+                </div>
+              </nav>
+            <div class="content-body"> 
 
-            <div class="content-body" style="background:#eae7de;background-image: url('img/stockholm.svg');background-position: center bottom;background-repeat: no-repeat;height: 420px">
-                
+             
+<!-- 视频 -->
+<!-- <div id="blueimp-video-carousel" class="blueimp-gallery blueimp-gallery-controls blueimp-gallery-carousel">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="play-pause"></a>
+</div> -->
+            <!-- 可以关闭的警告框 -->
+                <div class="alert alert-warning alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <font size="1px">
+                        <strong>嗨!</strong>点击上方的菜单可以切换不同的楼盘噢！
+                    </font>
+                </div>
+
+                <!-- 轮播图开始 -->
+                <div id="carousel-example-captions" class="carousel slide bs-docs-carousel-example">
+                    <!-- <ol class="carousel-indicators">
+                      <li data-target="#carousel-example-captions" data-slide-to="0" class="active"></li>
+                      <li data-target="#carousel-example-captions" data-slide-to="1"></li>
+                      <li data-target="#carousel-example-captions" data-slide-to="2"></li>
+                    </ol> -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="image/ysh/area/guiyang/1.jpg">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="image/ysh/area/guiyang/2.jpg">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="image/ysh/area/guiyang/3.jpg">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="image/ysh/area/guiyang/4.jpg">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="image/ysh/area/guiyang/5.jpg">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="image/ysh/area/guiyang/6.jpg">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="image/ysh/area/guiyang/7.jpg">
+                        <div class="carousel-caption">
+                        </div>
+                      </div>
+                      
+                    </div>
+                     <a class="left carousel-control" href="#carousel-example-captions" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-captions" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                  </div>
+               <!-- 轮播图结束 -->
+
+               <!-- 标题 -->
+                <div>
+                    <div class="custom-title  text-left">
+                        <h2 class="title">
+                            爽爽贵阳</h2>
+                        <p class="sub_title">北纬26度的生态符号刻度</p>
+                    </div>
+                </div>
 
 
                 <!-- 富文本内容区域 -->
                 <div class="custom-richtext">
-                    <p class="text-center">施工中...</p>
-                    <p class="text-center"><img src="image/ysh_logo.jpg" class="shop-img" alt=""></p>
-                    <p class="text-center"><a type="button" class="btn btn-info" data-dismiss="modal" href="javascript:history.back(-1)">点此返回</a></p>
-                     <!-- btn-block -->
+                    <p>贵阳风光旖旎，是一座“山中有城，城中有山，绿带环绕，森林围城，城在林中，林在城中”的具有高原特色的现代化都市。</p>
+                    <p>地处东经106°07′至107°17′，北纬26°11′至26°55′之间，平均海拔1000米左右，冬无严寒、夏无酷暑、雨量充沛，最热的7月平均气温24℃，年平均气温15.3℃，与地球平均气温接近，适宜人类居住与多种植物生长。</p>
+                    <p>宜人的气候、良好的环境是贵阳的骄傲。2007年8月，中国气象学专家组向贵阳颁发了“中国避暑之都”匾额。贵阳以温度适宜、湿度适中、风速有利、紫外线辐射低、空气清洁、水质优良、海拔适宜、夏季低耗能等气候优势，博得了“上有天堂，下有苏杭，气候宜人数贵阳”的美誉。</p>
+                    <p>贵阳是中国首个“国家森林城市”，森林是贵阳市的标志性景观，也是它的绿色生态屏障，提供了富足的负氧离子，平均每立方厘米达2700个以上，可谓“天然氧吧”。</p>
+                    <img src="image/ysh/area/area.png" alt="">
+                </div>
+
+                <div class="custom-line-wrap">
+                    <hr class="custom-line">
+                </div>
+
+                <!-- 标题 -->
+                <div>
+                    <div class="custom-title  text-left">
+                        <h2 class="title">
+                            高铁大时代</h2>
+                        <p class="sub_title">一个属于贵州的中国梦，即将磅礴起航</p>
+                    </div>
+                </div>
+
+
+                <!-- 富文本内容区域 -->
+                <div class="custom-richtext">
+                    <p>交通是一座城市的动脉，高铁则是动脉里最活跃的分子，在中国梦的道路上，推动城市蓬勃发展。高铁对城市的影响是显而易见的，当美国的东部铁路开通后，纽约—华盛顿—费城铁路将美国的政治中心和经济中心紧紧连在一起，它聚集了美国最好的社会经济资源，极大地推动了美国东部铁路沿线的发展。</p>
+                    <p>位于中国西南的贵阳，交通系统日趋完善，城市之间距离越来越短，高铁的开通，将会带领贵阳驶向美丽中国梦的大时代。</p>
+                    <p>高铁大时代，一个属于贵州的中国梦，即将磅礴起航！</p>
+                    <img src="image/ysh/area/guiyangrailwaytimes.png" alt="">
+                </div>
+
+                <div class="custom-line-wrap">
+                    <hr class="custom-line">
+                </div>
+
+                <!-- 标题 -->
+                <div>
+                    <div class="custom-title  text-left">
+                        <h2 class="title">
+                            区域发展</h2>
+                        <p class="sub_title">观山湖区，集中央商务区、中央居住区为一体 为贵阳未来城市发展代言</p>
+                    </div>
+                </div>
+
+
+                <!-- 富文本内容区域 -->
+                <div class="custom-richtext">
+                    <p>观山湖区，建设始终遵循生态文明理念高标准规划、高质量建设，已建成市级行政中心、西南地区规模最大的奥体中心、贵阳国际会展中心等，成功引进30多家企业总部入驻，已开工建设贵阳西南国际商贸城、国际金融中心、贵阳北站功能区，以及即将开工建设百花生态新城、金华采空区生态体育公园等一批重大项目。一座生态型、园林式的现代化新城日臻形成，正逐步成为贵阳市政治、经济、文化中心。</p>
+                    <p>重点打造交通枢纽之城、生态宜居之城、体育文化之城、现代商贸之城、会展服务之城、总部经济之城“六城”建设</p>
+                    <img src="image/ysh/area/guiyangareadevelop.png" alt="">
+                </div>
+
+                <div class="custom-line-wrap">
+                    <hr class="custom-line">
+                </div>
+
+                <!-- 标题 -->
+                <div>
+                    <div class="custom-title  text-left">
+                        <h2 class="title">
+                            交通配套</h2>
+                        <p class="sub_title">世界之路，始于家门</p>
+                    </div>
+                </div>
+
+
+                <!-- 富文本内容区域 -->
+                <div class="custom-richtext">
+                    <p>作为高端居住体，居住只是基本功能，在城市提速与国际接轨的时代，家也是一个沟通世界的载体。最好的生活体验，应该丰富多元、来去自如，在城市当中，有恰到好处的占位。</p>
+                    <p>中铁阅山湖，轻轨就在家门口， 5分钟到达贵阳北站、30分钟直抵龙洞堡国际机场，立体三维交通网络顺达全城。瞬间，世界在握！</p>
+                    <img src="image/ysh/area/jt.jpg" alt="">
                 </div>
 
                 
 
-                
-                
-
+                <!-- <div id="links">
+                  <a href="image/yd/album/0.jpg" title="" data-gallery>
+                      <img src="image/yd/album/0.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/00.jpg" title="" data-gallery>
+                      <img src="image/yd/album/00.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/000.jpg" title="" data-gallery>
+                      <img src="image/yd/album/000.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/1.jpg" title="" data-gallery>
+                      <img src="image/yd/album/1.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/2.jpg" title="" data-gallery>
+                      <img src="image/yd/album/2.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/3.jpg" title="" data-gallery>
+                      <img src="image/yd/album/3.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/03.jpg" title="" data-gallery>
+                      <img src="image/yd/album/03.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/4.jpg" title="" data-gallery>
+                      <img src="image/yd/album/4.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/6.jpg" title="" data-gallery>
+                      <img src="image/yd/album/6.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/7.jpg" title="" data-gallery>
+                      <img src="image/yd/album/7.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/8.jpg" title="" data-gallery>
+                      <img src="image/yd/album/8.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/14.jpg" title="" data-gallery>
+                      <img src="image/yd/album/14.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/0904yf1.jpg" title="" data-gallery>
+                      <img src="image/yd/album/0904yf1.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/IMG_5650-V-mini.jpg" title="" data-gallery>
+                      <img src="image/yd/album/IMG_5650-V-mini.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/IMG_5655-V-mini.jpg" title="" data-gallery>
+                      <img src="image/yd/album/IMG_5655-V-mini.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/IMG_5696-V-mini.jpg" title="" data-gallery>
+                      <img src="image/yd/album/IMG_5696-V-mini.jpg" height="73" width="73">
+                  </a>
+                  <a href="image/yd/album/IMG_6011-V-mini.jpg" title="" data-gallery>
+                      <img src="image/yd/album/IMG_6011-V-mini.jpg" height="73" width="73">
+                  </a>
+                  
+                  
+                </div> -->
             </div>
 
             <div class="content-sidebar">             
@@ -56,7 +267,7 @@
                 </a>
                 <div class="sidebar-section shop-info">
                     <div>
-                        <p class="text-center shop-detail">相约中铁·相伴一生</p>
+                        <p class="text-center shop-detail">贵州买房·首选中铁</p>
                         <p class="text-center weixin-title">微信“扫一扫”立即关注</p>
                         <p class="text-center qr-code">
                             <img width="158" height="158" src="image/qrcode.jpg">
@@ -66,11 +277,344 @@
                 </div>
             </div>
 
+            <div class="shopnav js-navmenu nav-on-bottom style-2">
+                <div class="nav-menu has-menu-3">       
+                    <div class="one">
+                        <a class="mainmenu js-mainmenu" href="javascript:void(0);">
+                            <i class="arrow-weixin"></i>
+                            项目介绍
+                        </a>
+                        <div class="submenu js-submenu">
+                            <span class="arrow before-arrow"></span>
+                            <span class="arrow after-arrow"></span>
+                            <ul>
+                                <li>
+                                    <a href="./ysh-home.html">越</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./ysh-ecology.html">乐</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./ysh-product.html">阅</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./ysh-configuration.html">悦</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./ysh-geomancy.html">樾</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+
+                    <div class="divide">&nbsp;</div>
+                    <div class="one">
+                        <a class="mainmenu js-mainmenu" href="javascript:void(0);">
+                            <i class="arrow-weixin"></i>
+                            我要置业
+                        </a>
+                        <div class="submenu js-submenu">
+                            <span class="arrow before-arrow"></span>
+                            <span class="arrow after-arrow"></span>
+                            <ul>
+                                <li>
+                                    <a href="tel:7995555">拨打电话</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="http://api.map.baidu.com/marker?output=html&location=26.618187,106.616719&title=中铁·逸都国际&content=地址：贵阳市观山湖区石林路300号（奥体中心旁）">路线导航</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./cacl.html">贷款计算器</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="divide">&nbsp;</div>
+                    <div class="one">
+                        <a class="mainmenu js-mainmenu" href="javascript:void(0);">
+                            <i class="arrow-weixin"></i>
+                            互动
+                        </a>
+                        <div class="submenu js-submenu">
+                            <span class="arrow before-arrow"></span>
+                            <span class="arrow after-arrow"></span>
+                            <ul>
+
+                                <li>
+                                    <a href="">VIP预约看房</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./yd-mkt1.html">销售动态</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="./yd-mkt2.html">会员活动</a>
+                                </li>
+                                <li class="line-divide"></li>
+                                <li>
+                                    <a href="">加入中铁会</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- ▲.container -->
- 
+ <!--
+    <script>
+    (function(b) {
+        function c() {}
+        for (var d = "assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profileEnd,time,timeEnd,trace,warn".split(","), a; a = d.pop();) b[a] = b[a] || c
+    })(window.console = window.console || {});
+    </script>
+-->
+    <!-- <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>-->
     <script type="text/javascript" src="js/wap.js"></script>
+    <script src="js/jquery.blueimp-gallery.min.js"></script>
+    <script src="js/bootstrap-image-gallery.min.js"></script>
+    <!--<script src="js/demo.js"></script>-->
+    <script>
+    document.getElementById('links').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+            link = target.src ? target.parentNode : target,
+            options = {index: link, event: event},
+            links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+    };
+    </script>
+
+    <script>
+    $(function () {
+    'use strict';
+
+    // Load demo images from flickr:改成把目录下所有图片取出的脚本
+    $.ajax({
+        url: (window.location.protocol === 'https:' ?
+                'https://secure' : 'http://api') +
+                '.flickr.com/services/rest/',
+        data: {
+            format: 'json',
+            method: 'flickr.interestingness.getList',
+            api_key: 'shaq7617adae70159d09ba78cfec73c13be3' // jshint ignore:line
+        },
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback'
+    }).done(function (result) {
+        var carouselLinks = [],
+            linksContainer = $('#links'),
+            baseUrl;
+        // Add the demo images as links with thumbnails to the page:
+        $.each(result.photos.photo, function (index, photo) {
+            baseUrl = 'http://farm' + photo.farm + '.static.flickr.com/' +
+                photo.server + '/' + photo.id + '_' + photo.secret;
+            $('<a/>')
+                .append($('<img>').prop('src', baseUrl + '_s.jpg'))
+                .prop('href', baseUrl + '_b.jpg')
+                .prop('title', photo.title)
+                .attr('data-gallery', '')
+                .appendTo(linksContainer);
+            carouselLinks.push({
+                href: baseUrl + '_c.jpg',
+                title: photo.title
+            });
+        });
+        // Initialize the Gallery as image carousel:
+        blueimp.Gallery(carouselLinks, {
+            container: '#blueimp-image-carousel',
+            carousel: true
+        });
+    });
+
+    // Initialize the Gallery as video carousel:
+    blueimp.Gallery([
+        {
+            title: '',
+            href: 'image/hh.mp4',
+            type: 'video/mp4',
+            poster: 'image/gqh/mv.png'
+        },        
+        // {
+        //     title: '',
+        //     href: 'http://upload.wikimedia.org/wikipedia/commons/7/75/' +
+        //         'Big_Buck_Bunny_Trailer_400p.ogg',
+        //     type: 'video/ogg',
+        //     poster: 'http://upload.wikimedia.org/wikipedia/commons/thumb/7/70/' +
+        //         'Big.Buck.Bunny.-.Opening.Screen.png/' +
+        //         '800px-Big.Buck.Bunny.-.Opening.Screen.png'
+        // },
+        // {
+        //     title: '',
+        //     href: 'http://media.w3.org/2010/05/sintel/trailer.mp4',
+        //     type: 'video/mp4',
+        //     poster: 'http://media.w3.org/2010/05/sintel/poster.png'
+        // }
+    ], {
+        container: '#blueimp-video-carousel',
+        carousel: true
+    });
+
+});
+    </script>
+
+
+    <script>(function (factory) {
+    'use strict';
+    if (typeof define === 'function' && define.amd) {
+        // Register as an anonymous AMD module:
+        define([
+            './blueimp-helper',
+            './blueimp-gallery'
+        ], factory);
+    } else {
+        // Browser globals:
+        factory(
+            window.blueimp.helper || window.jQuery,
+            window.blueimp.Gallery
+        );
+    }
+}(function ($, Gallery) {
+    'use strict';
+
+    $.extend(Gallery.prototype.options, {
+        // The class for video content elements:
+        videoContentClass: 'video-content',
+        // The class for video when it is loading:
+        videoLoadingClass: 'video-loading',
+        // The class for video when it is playing:
+        videoPlayingClass: 'video-playing',
+        // The list object property (or data attribute) for the video poster URL:
+        videoPosterProperty: 'poster',
+        // The list object property (or data attribute) for the video sources array:
+        videoSourcesProperty: 'sources'
+    });
+
+    Gallery.prototype.videoFactory = function (obj, callback, videoInterface) {
+        var that = this,
+            options = this.options,
+            videoContainerNode = this.elementPrototype.cloneNode(false),
+            videoContainer = $(videoContainerNode),
+            errorArgs = [{
+                type: 'error',
+                target: videoContainerNode
+            }],
+            video = videoInterface || document.createElement('video'),
+            url = this.getItemProperty(obj, options.urlProperty),
+            type = this.getItemProperty(obj, options.typeProperty),
+            title = this.getItemProperty(obj, options.titleProperty),
+            posterUrl = this.getItemProperty(obj, options.videoPosterProperty),
+            posterImage,
+            sources = this.getItemProperty(
+                obj,
+                options.videoSourcesProperty
+            ),
+            source,
+            playMediaControl,
+            isLoading,
+            hasControls;
+        videoContainer.addClass(options.videoContentClass);
+        if (title) {
+            videoContainerNode.title = title;
+        }
+        if (video.canPlayType) {
+            if (url && type && video.canPlayType(type)) {
+                video.src = url;
+            } else {
+                while (sources && sources.length) {
+                    source = sources.shift();
+                    url = this.getItemProperty(source, options.urlProperty);
+                    type = this.getItemProperty(source, options.typeProperty);
+                    if (url && type && video.canPlayType(type)) {
+                        video.src = url;
+                        break;
+                    }
+                }
+            }
+        }
+        if (posterUrl) {
+            video.poster = posterUrl;
+            posterImage = this.imagePrototype.cloneNode(false);
+            $(posterImage).addClass(options.toggleClass);
+            posterImage.src = posterUrl;
+            posterImage.draggable = false;
+            videoContainerNode.appendChild(posterImage);
+        }
+        playMediaControl = document.createElement('a');
+        playMediaControl.setAttribute('target', '_blank');
+        if (!videoInterface) {
+            playMediaControl.setAttribute('download', title);
+        }
+        playMediaControl.href = url;
+        if (video.src) {
+            video.controls = true;
+            (videoInterface || $(video))
+                .on('error', function () {
+                    that.setTimeout(callback, errorArgs);
+                })
+                .on('pause', function () {
+                    isLoading = false;
+                    videoContainer
+                        .removeClass(that.options.videoLoadingClass)
+                        .removeClass(that.options.videoPlayingClass);
+                    if (hasControls) {
+                        that.container.addClass(that.options.controlsClass);
+                    }
+                    if (that.interval) {
+                        that.play();
+                    }
+                })
+                .on('playing', function () {
+                    isLoading = false;
+                    videoContainer
+                        .removeClass(that.options.videoLoadingClass)
+                        .addClass(that.options.videoPlayingClass);
+                    if (that.container.hasClass(that.options.controlsClass)) {
+                        hasControls = true;
+                        that.container.removeClass(that.options.controlsClass);
+                    } else {
+                        hasControls = false;
+                    }
+                })
+                .on('play', function () {
+                    window.clearTimeout(that.timeout);
+                    isLoading = true;
+                    videoContainer.addClass(that.options.videoLoadingClass);
+                });
+            $(playMediaControl).on('click', function (event) {
+                that.preventDefault(event);
+                if (isLoading) {
+                    video.pause();
+                } else {
+                    video.play();
+                }
+            });
+            videoContainerNode.appendChild(
+                (videoInterface && videoInterface.element) || video
+            );
+        }
+        videoContainerNode.appendChild(playMediaControl);
+        this.setTimeout(callback, [{
+            type: 'load',
+            target: videoContainerNode
+        }]);
+        return videoContainerNode;
+    };
+
+    return Gallery;
+}));
+</script>
 
 
     <!-- footer -->
@@ -81,9 +625,27 @@
         </p> -->
         <p>©中铁置业贵州</p>
     </div>
-    
 
+
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+      <div class="modal-body next"></div>
+    </div>
+</div>
 
 </body>
+
 
 </html>
